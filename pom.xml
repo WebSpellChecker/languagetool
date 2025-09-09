@@ -1224,6 +1224,13 @@
                 <artifactId>java-diff-utils</artifactId>
                 <version>${java-diff-utils.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-bom</artifactId>
+                <version>4.1.126.Final</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
