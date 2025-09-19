@@ -57,6 +57,7 @@
                 <exclude>org.languagetool:languagetool-commandline</exclude>
                 <exclude>org.languagetool:languagetool-standalone</exclude>
                 <exclude>org.languagetool:languagetool-server</exclude>
+                <exclude>org.mybatis:mybatis</exclude>
             </excludes>
         </dependencySet>
         <dependencySet>
