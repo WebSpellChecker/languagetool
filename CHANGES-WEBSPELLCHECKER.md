@@ -2,6 +2,13 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2025-09-23
+
+### Rules
+
+- [es] Enabled the **AGREEMENT_SER_ADJ_PL** rule by default.
+- [it] Enabled the **GR_02_001** rule by default.
+
 ## 2025-09-19
 
 ### Security
