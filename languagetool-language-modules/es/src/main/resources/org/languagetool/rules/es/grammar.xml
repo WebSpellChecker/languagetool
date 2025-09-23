@@ -24462,7 +24462,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
     </category>
     <category id="AGREEMENT_VERBS" name="Concordancia sujeto/predicado" type="inconsistency" default="on">
-        <rulegroup id="AGREEMENT_SER_ADJ_PL" name="concordancia: somos conscientes" default="off">
+        <rulegroup id="AGREEMENT_SER_ADJ_PL" name="concordancia: somos conscientes" default="on">
             <rule>
                 <pattern>
                     <token postag="V.[SIM]..P." postag_regexp="yes" regexp="yes" inflected="yes">ser|estar|parecer</token>
