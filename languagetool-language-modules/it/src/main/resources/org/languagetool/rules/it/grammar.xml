@@ -173,7 +173,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
 
     <!-- GRAMMATICA ARTICOLI - GR_02 -->
     <category id="CAT2" name="Grammatica - Articoli">
-        <rulegroup name="uso corretto" id="GR_02_001" default="off">
+        <rulegroup name="uso corretto" id="GR_02_001" default="on">
             <!-- la -->
             <rule>
                 <pattern>
