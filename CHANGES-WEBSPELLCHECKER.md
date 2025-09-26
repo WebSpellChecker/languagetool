@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2025-09-26
+
+### Bugfix
+- **Hunspell:** Windows path handling — replace `Path.of(url.getPath())` with `Paths.get(url.toURI())` to correctly resolve file paths on Windows.
+  - **Scope:** `languagetool-core/src/main/java/org/languagetool/rules/spelling/hunspell/Hunspell.java`.
+
 ## 2025-09-23
 
 ### Rules
