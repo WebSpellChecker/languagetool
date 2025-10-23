@@ -2,6 +2,7 @@
 #extendre=estendre #caldria afegir el paradigma verbal
 #acometre=escometre|envestir
 #surtir efecte=tenir efecte|produir efecte|fer efecte|donar resultat|esdevenir efectiu
+metamorfar=metamorfosar
 rotular=retolar
 hospedar=allotjar|albergar|hostatjar|donar hostalatge
 acondicionar=condicionar
@@ -167,7 +168,8 @@ acallar=fer callar|tapar la boca|emmudir|apaivagar|apagar|calmar|assossegar|atur
 acicalar=empolainar|empolistrar|endiumenjar
 aclarar=aclarir
 acolxar=embuatar|encoixinar
-acossar|acosar=assetjar
+acossar=assetjar
+acosar=assetjar|acusar
 acribillar=cosir|crivellar|aclaparar|escometre|assetjar
 acristallar|acristal·lar|acristalar=envidrar
 acunar=bressolar|bressar|gronxar

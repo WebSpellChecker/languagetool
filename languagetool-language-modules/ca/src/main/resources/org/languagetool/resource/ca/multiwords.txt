@@ -1,5 +1,79 @@
 #Catalan multiwords file used for chunking
 #separatorRegExp=[\t;]
+Joan Maragall;NPMSSP0
+Cantigas de Santa Maria;NPFPO00
+Le Mont-Saint-Michel;NPMSG00
+filum terminale;NCMS000
+Fabià Estapé;NPMSSP0
+Pau Crestià;NPMSSP0
+Pau Cristià;NPMSSP0
+De Principatibus;NPMSO00
+De principatibus;NPMSO00
+Trois Glorieuses;NPFPO00
+Trente Glorieuses;NPFPO00
+Matemàtic Marzal;NPMSG00
+matemàtic Marzal;NPMSSP0
+Vielha e Mijaran;NPFSG00
+Vil·la Urània;NPFSG00
+peep show;NCMS000
+Antoni Bassas;NPMSSP0
+Maria Bohigas;NPFSSP0
+”la Caixa”;NPFSO00
+cap-i-pota;NCMS000
+cap-i-potes;NCMP000
+Leticia Asenjo;NPFSSP0
+Leticia Asenjo Huete;NPFSSP0
+Neus Torbisco;NPFSSP0
+conseller segon;NCMS000
+Heribert Mariezcurrena;NPMSSP0
+Marc Aloy;NPMSSP0
+Institut Karolinska;NPMSO00
+Gessamí Caramés;NPFSSP0
+José María Ángel;NPMSSP0
+nouvelle vague;NCFS000
+Nouvelle Vague;NCFS000
+Til Stegmann;NPMSSP0
+Ramon Xirau;NPMSSP0
+Joan-Carles Mèlich;NPMSSP0
+Hermann Bonnín;NPMSSP0
+Pilar Castillejo;NPFSSP0
+Judit Neddermann;NPFSSP0
+Beni Ensar;NPCSG00
+Bni Darkoul;NPCSG00
+Boumalne Dades;NPCSG00
+Kasr al-Kabir;NPCSG00
+Moulay Brahim;NPCSG00
+Sidi Boulaalam;NPCSG00
+Sidi Ifni;NPCSG00
+Abdelilah Benkiran;NPMSSP0
+Mulai Hassan;NPMSSP0
+Youssef Amrani ;NPMSSP0
+Mohamed Benaissa;NPMSSP0
+Maati Bouabid;NPMSSP0
+Taib Cherkaoui ;NPMSSP0
+Abbas el-Fassi;NPMSSP0
+Abdelatif Filali;NPMSSP0
+Driss Jettou;NPMSSP0
+Abdelouafi Laftit ;NPMSSP0
+Mohammed Karim Lamrani;NPMSSP0
+Salaheddine Mezouar;NPMSSP0
+Nabila Mounib ;NPFSSP0
+Ilyas el-Omari;NPMSSP0
+Abdellatif Ouahbi;NPMSSP0
+Abderrahman Youssoufi;NPMSSP0
+Al Mada;NPMSO00
+Aziz Akhannouch;NPMSSP0
+Força Quds;NPFSO00
+Nikolai Kardaixov;NPMSSP0
+Carl Philipp Emanuel;NPMSSO0
+Wilhelm Friedemann;NPMSSO0
+Johann Sebastian;NPMSSP0
+Johann Christian;NPMSSP0
+Magda Oranich;NPFSSP0
+Evgeny Morozov;NPMSSP0
+Ievgueni Morózov;NPMSSP0
+Ievgueni Prigojin;NPMSSP0
+wishful thinking;NCMS000
 Alaa Abd el-Fattah;NPMSSP0
 Abd el-Fattah;NPMSSP0
 Dominic Keown;NPMSSP0
@@ -359,6 +433,7 @@ Raimon Panikkar;NPMSSP0
 Salvador Pàniker;NPMSSP0
 Federico Mayor Zaragoza;NPMSSP0
 Lluís Bassat;NPMSSP0
+Bassat Ogilvy;NPCNO00
 Joan Llongueras;NPMSSP0
 Escola Virtèlia;NPFSO00
 escoles Virtèlia;NPFPO00
@@ -499,7 +574,7 @@ Marcelino Olaechea;NPMSSP0
 dispersió de Thomson;NCFS000
 galàxia amfitriona;NCFS000
 Yasser Arafat;NPMSSP0
-Iàsser Arafat;NPMSSP0
+Iàssir Arafat;NPMSSP0 # Iàsser?
 Ferran Suay;NPMSSP0
 Jordi Sargatal;NPMSSP0
 Vall d'Hebron;NPCSG00
@@ -1421,6 +1496,7 @@ Vicent Garcia;NPMSSP0
 Peset i Aleixandre;NPCNSP0
 Peset Aleixandre;NPCNSP0
 rector Peset;NPMSSP0
+Joan Baptista Peset;NPMSSP0
 Mercè Arànega;NPFSSP0
 Mikhaïl Borodin;NPMSSP0
 San Felipe;NPMSSP0
@@ -3673,7 +3749,7 @@ amb presses i corruixes	LOC_ADV
 de cop sobte	LOC_ADV
 Liam Neeson	NPMSSP0
 a mal borràs	LOC_ADV
-al devora	LOC_PREP
+al devora	LOC_ADV
 Force India	NPCNO00
 Sahara Force India	NPCNO00
 Google Meet	NPCNO00
@@ -4090,7 +4166,6 @@ país d'Oz;NPMSG00
 terra d'Oz;NPFSG00
 Stabat Mater	NCMN000
 Giovanni Battista	NPMSSP0
-Johann Sebastian	NPMSSP0
 Chico Mendes	NPMSSP0
 New Deal	NCMS000
 Os Lusíadas	NPMPO00
@@ -4617,6 +4692,7 @@ països membres	NCMP000
 a arrapapeus	LOC_ADV
 a balzem	LOC_ADV
 a banda i banda	LOC_ADV
+amb vista a;LOC_PREP
 a base d'	LOC_PREP
 a base de	LOC_PREP
 a bastament	LOC_ADV
@@ -5471,7 +5547,7 @@ prime-time	NCMS000
 prima donna	NCFS000
 pro domo sua	LOC_ADV
 quant i més	LOC_PREP
-quant més	LOC_PREP
+#quant més	LOC_PREP
 quid pro quo	NCMS000
 khi quadrat	LOC_ADJ
 rara avis	NCFN000
