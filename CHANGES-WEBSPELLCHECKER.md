@@ -8,12 +8,6 @@ This document records WebSpellChecker-specific changes on top of upstream Langua
 - **Grpc upgrade:** Updated `grpc-netty-shaded` to **1.75.0** to address **CVE-2025-55163**.
   - Scope: components depending on `grpc-netty-shaded` (direct or transitive).
 
-## 2025-09-26
-
-### Bugfix
-- **Hunspell:** Windows path handling — replace `Path.of(url.getPath())` with `Paths.get(url.toURI())` to correctly resolve file paths on Windows.
-  - **Scope:** `languagetool-core/src/main/java/org/languagetool/rules/spelling/hunspell/Hunspell.java`.
-
 ## 2025-09-23
 
 ### Rules
