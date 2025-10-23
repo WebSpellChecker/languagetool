@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2025-09-30
+
+### Security
+- **Grpc upgrade:** Updated `grpc-netty-shaded` to **1.75.0** to address **CVE-2025-55163**.
+  - Scope: components depending on `grpc-netty-shaded` (direct or transitive).
+
 ## 2025-09-23
 
 ### Rules

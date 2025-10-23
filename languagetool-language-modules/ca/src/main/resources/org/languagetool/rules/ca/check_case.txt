@@ -180,10 +180,10 @@ algun parlament europeu
 Direcció General d'Administracions Públiques
 administracions públiques
 #administració pública
-grau de Gestió i Administració Pública
-grau en Gestió i Administració Pública
 ensenyament superior
 ensenyament mitjà
+doble grau
+programa de doctorat
 corredor mediterrani
 tecnologies de la informació i la comunicació
 Àrea de Tecnologies de la Informació i la Comunicació
@@ -986,7 +986,6 @@ U. von der Leyen
 Rogier van der Weyden
 Van der Weyden
 R. van der Weyden
-Baixar al-Assad
 Vicente del Bosque
 Frenkie de Jong
 Paulo da Silva
@@ -1253,8 +1252,11 @@ papa Lluna
 Ciutat de Mèxic
 la ciutat de Mèxic
 Bashar al-Assad
+Baixar al-Assad
 Hafiz al-Assad
 Al-Assad
+Abdel Fattah al-Sisi
+Al-Sisi
 Hayat Tahrir al-Sham
 Tahrir al-Sham
 Pare Noel
@@ -1351,6 +1353,14 @@ Conselleria de Medi Ambient
 Conselleria d'Agricultura, Aigua, Ramaderia i Pesca
 Conselleria d'Innovació, Universitats, Ciència i Societat Digital
 Candidatura d'Unitat Popular
+conseller primer
+consellers primers
+consellera primera
+conselleres primeres
+conseller en cap
+consellera en cap
+consellers en cap
+conselleres en cap
 papat
 summe pontífex
 summes pontífexs
@@ -1368,7 +1378,8 @@ tincions de Gram
 nouvelle cuisine
 Museu Nacional de Praga
 Museu Nacional del Bardo
-Museu Britànic
+#Museu Britànic
+Museu del Louvre
 Museu del Prado
 Museu d'Història Natural de Londres
 Museu Nacional Centre d'Art Reina Sofia
@@ -2329,3 +2340,37 @@ vicerectora de Relacions Institucionals, Comunicació i Política Lingüística
 vicerectora de Relacions Laborals
 vicerectora de Sostenibilitat i Acció Climàtica
 vicerectora de Transformació Digital
+Centre d'Investigació en Gestió i Enginyeria de Producció
+màster en Formació del Professorat de Secundària Obligatòria i Batxillerat
+màster en Formació del Professorat de Secundària Obligatòria
+màster en Formació del Professorat de Secundària
+màster universitari
+set meravelles del món
+set meravelles del món antic
+noves set meravelles del món modern
+set noves meravelles del món modern
+set meravelles del món modern
+Euro 7
+habitatge amb protecció oficial
+habitatges amb protecció oficial
+habitatge de protecció oficial
+habitatges de protecció oficial
+salari mínim interprofessional
+sistema monetari internacional
+esplanada de les Mesquites
+mont del Temple
+mur de les Lamentacions
+mesquita d'Al-Aqsa
+cúpula de la Roca
+porta de la Misericòrdia
+Eumo Editorial
+El Corte Inglés
+Bora Bora
+fallera major
+fallera major infantil
+falleres majors
+falleres majors infantils
+home de Neandertal
+homes de Neandertal
+Le Mont-Saint-Michel
+mont Saint-Michel
