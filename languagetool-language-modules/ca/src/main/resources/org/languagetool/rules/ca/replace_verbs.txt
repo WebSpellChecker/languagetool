@@ -2,6 +2,7 @@
 #extendre=estendre #caldria afegir el paradigma verbal
 #acometre=escometre|envestir
 #surtir efecte=tenir efecte|produir efecte|fer efecte|donar resultat|esdevenir efectiu
+percutir|percutar=percudir
 metamorfar=metamorfosar
 rotular=retolar
 hospedar=allotjar|albergar|hostatjar|donar hostalatge
@@ -361,6 +362,7 @@ miccionar=orinar
 ningunejar|ningunear=obviar|menysprear|menystenir|denigrar|humiliar
 objectivitzar=objectivar
 pausar=aturar|interrompre|parar|fer pausa|posar en pausa
+interrumpir|interrompir|interumpir|interompir=interrompre
 peatonalitzar=convertir en zona de vianants
 percatar=adonar|considerar|preveure|pensar
 pitar=xiular|tocar el clàxon
