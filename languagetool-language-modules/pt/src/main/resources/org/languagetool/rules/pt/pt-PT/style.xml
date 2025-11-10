@@ -2175,11 +2175,7 @@ USA
                 <suggestion><match no='1' postag='VM[^P].+' postag_regexp='yes'>despender</match></suggestion>
                 <suggestion><match no='1' postag='VM[^P].+' postag_regexp='yes'>desembolsar</match></suggestion>
                 <example correction="despendeu|desembolsou">A Ana <marker>gastou</marker> demasiado dinheiro no supermercado.</example>
-<!--
-
-FIX THIS RULE WITH THE NEW DISAMBIGUATOR FIX 2025-09-30!!!!
                 <example correction="despende|desembolsa">Ela <marker>gasta</marker> bastante dinheiro em livros.</example>
--->
                 <example>A empresa tinha gasto mil milhões de euros nessas compras.</example>
                 <example>Queria não ter gastado tanto dinheiro.</example>
                 <example>Tenho gastado muito dinheiro em minha casa.</example>
@@ -2329,17 +2325,6 @@ FIX THIS RULE WITH THE NEW DISAMBIGUATOR FIX 2025-09-30!!!!
         <url>https://pt.wikipedia.org/wiki/Distin%C3%A7%C3%A3o_t-v</url>
 
         <!-- Inserted global antipatterns for all subrules on top. -->
-
-        <antipattern>
-            <token postag_regexp='yes' postag='_PUNCT|SENT_START'/>
-            <token postag_regexp='yes' postag='DA.+'/>
-            <token skip='-1' postag_regexp='yes' postag='N.+|AQ.+|UNKNOWN'><exception scope='next' postag_regexp='yes' postag='DP.+'/></token>
-            <token postag_regexp='yes' postag='(VMIP3S0|VMM02S0):PP1CSO00'/>
-            <example>O TENENTE SACOGNE diz-me que pediu passagem para a reserva, para onde vai no posto de MAJOR.</example>
-            <example>A pele das serpentes repugna-me.</example>
-            <example>A Ana repugna-me.</example>
-            <example>A USF altera-me a consulta de véspera.</example>
-        </antipattern>
 
         <!-- ChatGPT 4o: "All these verbs are related to absence, need, or lack and are, therefore, exceptions to the proposed rule." -->
         <antipattern>
@@ -5067,16 +5052,19 @@ FIX THIS RULE WITH THE NEW DISAMBIGUATOR FIX 2025-09-30!!!!
     </rule>
 
 
-    <rule id='VERBO_SER_ÚTIL_PARA_SERVIR_PARA' name="[pt-PT][Simplificar] V.Ser útil para → V.Servir para" type="style">
+    <rule id='VERBO_SER_ÚTIL_PARA_SERVIR_PARA' name="[pt-PT][Simplificar] Ser útil para → servir para" type="style">
+        <!-- ChatGPT 5 and new disambiguator for 2026+ -->
         <pattern>
             <marker>
                 <token inflected='yes'>ser</token>
-                <token skip='1' regexp='yes'>út(il|eis)</token>
+                <token regexp='yes'>út(il|eis)</token>
             </marker>
+            <token min='0' max='1' postag='RM'/>
             <token>para</token>
-            <token postag='V.+' postag_regexp='yes'/>
+            <token postag='VMN0000'>
+                <exception regexp='yes' inflected='yes'>ser|estar|ficar|parecer|ter|haver|existir|sentir|gostar|odiar|amar|pensar|achar|crer|acreditar|lembrar|lembrar-se|recordar|imaginar|sonhar|ver|ouvir|perceber|notar|observar|reconhecer|servir</exception></token> <!-- ChatGPT 5 said these exceptions make the rule ~99% accurate -->
         </pattern>
-        <message>&simplify_msg;</message>
+        <message>Pode substituir &quot;ser útil&quot; por &quot;servir&quot; para uma formulação mais simples e natural.</message>
         <suggestion><match no='1' postag='V.+' postag_regexp='yes'>servir</match></suggestion>
         <example correction="serviu">Esta equação <marker>foi útil</marker> para ajudar a população.</example>
         <example correction="serviu">Esta equação <marker>foi útil</marker> nomeadamente para ajudar a população.</example>
