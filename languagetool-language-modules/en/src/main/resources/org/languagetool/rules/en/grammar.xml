@@ -134213,6 +134213,11 @@ The accident victim died from her injuries.
                     <token>everyday</token>
                     <token postag_regexp="yes" postag="SENT_END|PCT"/>
                 </antipattern>
+                <antipattern> <!-- Grammatical mistakes are widespread in everyday writting. -->
+                  <token>in</token>
+                  <token>everyday</token>
+                  <token chunk_re="[IE]-NP.*" />
+                </antipattern>
                 <pattern>
                     <marker>
                         <token>everyday</token>
@@ -135072,9 +135077,9 @@ The accident victim died from her injuries.
         <token regexp="yes">[\-–]</token>
         <token regexp='yes'>\d+</token>
        </pattern>
-       <message>Nonstandard phrase. Did you mean: <suggestion><match no="1"/> <match no="2"/> to <match no="4"/></suggestion>?</message>
+       <message>Using a hyphen or dash in a “from … to …” expression is incorrect. Did you mean: <suggestion><match no="1"/> <match no="2"/> to <match no="4"/></suggestion>?</message>
        <url>https://languagetool.org/insights/post/dashes/#how-to-properly-use-an-en-dash</url>
-       <short>Nonstandard phrase</short>
+       <short>Using a hyphen or dash in a “from … to …” expression is incorrect.</short>
        <example correction='From 12 to 17'><marker>From 12 – 17</marker> February 2016</example>
        <example>Ferries commence service from 7:00 am.</example>
        <example>Did you see my mail from 07/07/2020?.</example>

@@ -1846,6 +1846,7 @@ AppSource
 Bob's Burgers
 Bob’s Burgers
 Google Search Console
+Google Webmaster Tools
 Nicolás Maduro
 Benito Mussolini
 Mussolini
@@ -8887,6 +8888,8 @@ Zoran Kalinić
 Zoé Martin
 Ádám Miklósi
 Ágota Kristóf
+Agota Kristof
+Kristóf Ágota
 Álvaro Donoso
 Álvaro Pereira
 Álvaro Romero
@@ -10918,6 +10921,7 @@ Percy Bysshe Shelley
 Robert Southey
 Samuel Taylor Coleridge
 Thomas Babington Macaulay
+Thomas Macaulay
 Thomas Carlyle
 Thomas Robert Malthus
 Thomas Malthus
@@ -13584,6 +13588,7 @@ João Figueiredo
 Collor de Mello
 Juan Nepomuceno Méndez
 Manuel González
+Miguel González
 Francisco León de la Barra
 Francisco I. Madero
 Pedro Lascuráin
@@ -16008,6 +16013,7 @@ Petr Pavel
 Jennifer Hermoso
 Jenni Hermoso
 # START SCIENTIFIC NAMES
+Dianthus caryophyllus
 Candida albicans
 Fumaria officinalis
 Elaeagnus angustifolia
@@ -19970,6 +19976,7 @@ Angus Young
 Phil Rudd
 Cliff Williams
 Brian Johnson
+Bryan Johnson
 Stevie Young
 Rob Bailey
 Peter Clack
@@ -29101,7 +29108,6 @@ Goddard Space Flight Center
 Moneyball
 Nico Muhly
 Anna Thorvaldsdottir
-Hildur Guðnadóttir
 Miranda Priestly
 William Holden
 Barbara Stanwyck
@@ -29110,3 +29116,151 @@ Federico Moccia
 Édouard Zeckendorf
 Andrew Fastow
 Jia Zhangke
+Zack Polanski
+Miguel Herrero de Miñón
+Herrero de Miñón
+Stephen Kleene
+Becky Hill
+Kelly Rowland
+Duško Ivanović
+Xavier Pascual
+Xavi Pascual
+Lisa Fittko
+Malva Schalek
+Veni Creator Spiritus
+Veni creator spiritus
+Veni Creator
+Veni creator
+Gurre-Lieder
+Kindertotenlieder
+John Ambrose Fleming
+Rebecca De Mornay
+Emile Hirsch
+Thomas Murphy
+Katherine Boyle
+Ecclesiam Suam
+José Luis Sampedro
+Catherine Martina Ann Connolly
+Catherine Connolly
+Simon Harris
+Dáil Éireann
+Sugus
+Bill Watterson
+Belén Funes
+Colonel Bogey March
+Channel 4
+Doug McMillon
+Jamieson Greer
+Hasan Piker
+HasanAbi
+Xabier Azkargorta
+Calvin and Hobbes
+Renaissance Technologies
+Euskadi Ta Askatasuna
+Hilma af Klint
+Jim Keller
+James B. Keller
+René Vautier
+StubHub Holdings
+StubHub
+Jeannette Jara
+Johannes Kaiser
+Glen Powell
+Will Forte
+Olivia Dean
+Christy Turlington
+Wonderbra
+Jennifer Ringley
+BBC Radio
+Sally Ride
+Ali Larter
+Michael Löwy
+Donatella Di Cesare
+Jeanne Hersch
+Luis Javier Argüello
+Luis Argüello
+Walter Laqueur
+Mark Juergensmeyer
+Elisabeth Lederer
+Elisabeth Bachofen-Echt
+Jeff Dean
+Margarita Nelken
+Margarita Nelken Mansberger
+Ángel Viñas
+Jakim Boor
+Jaime de Andrade
+Peter Burke
+Timnit Gebru
+Amparito Roca
+Karl Richter
+Avery Fisher Hall
+Philharmonic Hall
+Gottfried Silbermann
+Karl Straube
+Ricard Opisso
+Clojure
+Martin Frobisher
+Juan Pablo Montoya
+Pablo Montoya
+Martín Fierro
+Luis Barceló
+University of St Andrews
+St Andrews
+St. Andrews
+Joseph Heath
+Michael Huemer
+Billy Klüver
+Lucio Marineo Sículo
+Lucio Marineo
+Bandai
+Tamagotchi
+Espen Sandberg
+Chris Tucker
+Rush Hour
+Julius Leber
+Douglas Wilson
+Doug Wilson
+Benjamin Graham
+Ben Graham
+Terry Richardson
+Jon Lee Anderson
+William Henry Herndon
+William Herndon
+Cantor Fitzgerald
+Noah Baumbach
+Taylor Nichols
+Chris Eigeman
+Mira Sorvino
+Jason Blum
+Jay Kelly
+Billy Crudup
+Charlie Rowe
+Betty Freeman
+Betty Friedan
+Daniel Friedan
+Laurence Rees
+Andrew Viterbi
+Viterbi
+Carl Gustav Jacob Jacobi
+Carl Jacobi
+Jacobi
+Adrien-Marie Legendre
+Legendre
+Galois
+Mariánské Lázně
+Václav Jan Tomášek
+Václav Tomášek
+Johann Friedrich Kittl
+Chirac
+Kohl
+Noboa
+Rodrigo Muñoz
+Cass Robert Sunstein
+Cass R. Sunstein
+Cass Sunstein
+Joe Liemandt
+RCP2.6
+RCP4.5
+RCP6.0
+RCP8.5
+Andrew Gelman

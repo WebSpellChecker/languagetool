@@ -352,6 +352,8 @@ bezana
 bezanas
 bridão
 bridões
+cardinalato
+cardinalatos
 carrapito
 carrapitos
 caudalímetro
@@ -415,6 +417,7 @@ GIFs
 ginecófobo
 ginecófobos
 Git
+googlar
 gratinada
 gratinadas
 gravurista
@@ -430,7 +433,10 @@ lapalissada
 lapalissadas
 lascarim
 legos
+Lemmy
+Lennon
 LGPL
+Libera
 lignina
 ligninas
 longeva
@@ -446,14 +452,18 @@ mantenedores
 mantenedora
 mantenedoras
 mg
-MSc
+microgestão
 Milda
+Moscavide
+MSc
 Nabeiro
+natalino
 nitrocelulose
 palavra-passe
 palavras-passe
 patinete
 patinetes
+PDFs
 peixe-dourado
 peixes-dourados
 PhDs
@@ -480,6 +490,9 @@ russófila
 russófilas
 russófilo
 russófilos
+scammers
+secundarização
+secundarizações
 semiacabada
 semiacabadas
 semiacabado

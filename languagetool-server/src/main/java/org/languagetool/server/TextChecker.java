@@ -44,9 +44,13 @@ import org.slf4j.MDC;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.Pattern;
@@ -262,6 +266,27 @@ abstract class TextChecker {
     }
   }
 
+  /**
+   * Hash a string deterministically into a 64-bit signed long; use textSessionIdParam if set, fall back to client IP.
+   */
+  protected static Long computeTextSessionID(String textSessionIdParam, String ip) {
+      String input = textSessionIdParam != null ? textSessionIdParam : ip;
+      if (input == null) {
+        return null;
+      }
+      try {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        byte[] bytes = md.digest(input.getBytes(StandardCharsets.UTF_8));
+
+        ByteBuffer buffer = ByteBuffer.wrap(bytes);
+        Long textSessionId = buffer.getLong();
+        return textSessionId;
+      } catch (NoSuchAlgorithmException e) {
+        // Should not happen for SHA-256, wrap in a runtime exception
+        throw new RuntimeException("SHA-256 not supported", e);
+      }
+  }
+
   private void prewarmPipelinePool() {
     // setting + number of pipelines
     // typical addon settings at the moment (2018-11-05)
@@ -329,7 +354,8 @@ abstract class TextChecker {
                  String remoteAddress) throws Exception {
     checkParams(params);
     long timeStart = System.currentTimeMillis();
-    UserLimits limits = ServerTools.getUserLimits(params, config, httpExchange.getRequestHeaders());
+    String authHeader = ServerTools.getAuthHeader(httpExchange.getRequestHeaders());
+    UserLimits limits = ServerTools.getUserLimits(params, config, authHeader);
 
     if (Premium.isPremiumStatusCheck(aText)) {
       Language premiumStatusCheckLang = Languages.getLanguageForShortCode("en-US");
@@ -432,38 +458,7 @@ abstract class TextChecker {
 
     boolean filterDictionaryMatches = "true".equals(params.getOrDefault("filterDictionaryMatches", "true"));
 
-    Long textSessionId = null;
-    try {
-      if (params.containsKey("textSessionId")) {
-        String textSessionIdStr = params.get("textSessionId");
-        if (textSessionIdStr.startsWith("user:")) {
-          int sepPos = textSessionIdStr.indexOf(':');
-          String sessionId = textSessionIdStr.substring(sepPos + 1);
-          textSessionId = Long.valueOf(sessionId);
-        } else if (textSessionIdStr.contains(":")) { // transitioning to new format used in chrome addon
-          // format: "{random number in 0..99999}:{unix time}"
-          long random, timestamp;
-          int sepPos = textSessionIdStr.indexOf(':');
-          random = Long.parseLong(textSessionIdStr.substring(0, sepPos));
-          timestamp = Long.parseLong(textSessionIdStr.substring(sepPos + 1));
-          // use random number to choose a slice in possible range of values
-          // then choose position in slice by timestamp
-          long maxRandom = 100000;
-          long randomSegmentSize = (Long.MAX_VALUE - maxRandom) / maxRandom;
-          long segmentOffset = random * randomSegmentSize;
-          if (timestamp > randomSegmentSize) {
-            log.warn(String.format("Could not transform textSessionId '%s'", textSessionIdStr));
-          }
-          textSessionId = segmentOffset + timestamp;
-        } else {
-          textSessionId = Long.valueOf(textSessionIdStr);
-        }
-      }
-    } catch (NumberFormatException ex) {
-      log.info("Could not parse textSessionId '" + params.get("textSessionId") + "' as long: " + ex.getMessage() +
-        ", user agent: " + params.get("useragent") + ", version: " + params.get("v") +
-        ", HTTP user agent: " + getHttpUserAgent(httpExchange) + ", referrer: " + getHttpReferrer(httpExchange));
-    }
+    Long textSessionId = computeTextSessionID(params.get("textSessionId"), remoteAddress);
 
     List<String> abTest = AB_TEST_SERVICE.getActiveAbTestForClient(params, config);
 
@@ -492,12 +487,18 @@ abstract class TextChecker {
     boolean trustedSource = trustedSourcesPattern == null || (limits.hasPremium() || trustedSourcesPattern.matcher(ltAgent).matches());
     boolean optInThirdPartyAI = isOptInThirdPartyAI(limits, params, config);
 
+    // set default value for tokenType
+    UserConfig.TokenType tokenType = authHeader == null ? UserConfig.TokenType.NO_TOKEN : UserConfig.TokenType.INVALID_TOKEN;
+    JwtContent jwtContent = limits.getJwtContent();
+    if (jwtContent != null && jwtContent.isValid()) {
+      tokenType = jwtContent.isPremium() ? UserConfig.TokenType.TRIAL_TOKEN : UserConfig.TokenType.TEST_TOKEN;
+    }
     UserConfig userConfig =
       new UserConfig(dictWords, userRules,
                      getRuleValues(params), config.getMaxSpellingSuggestions(),
                      limits.getPremiumUid(), dictName, limits.getDictCacheSize(),
                      null, filterDictionaryMatches, abTest, textSessionId,
-                     !limits.hasPremium() && enableHiddenRules, preferredLangs, trustedSource, optInThirdPartyAI, limits.hasPremium(), limits.getJwtContent().claims());
+                     !limits.hasPremium() && enableHiddenRules, preferredLangs, trustedSource, optInThirdPartyAI, limits.hasPremium(), tokenType);
 
     //print("Check start: " + text.length() + " chars, " + langParam);
 

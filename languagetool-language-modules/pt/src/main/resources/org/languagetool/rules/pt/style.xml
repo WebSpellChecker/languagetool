@@ -3691,6 +3691,24 @@ USA
     <category id='FORMAL' name='Linguagem formal' type='style' tone_tags="formal">
 
 
+        <rule id='COMO_SEGUNDO_CONFORME' name="Como/segundo → conforme" type='style' tone_tags='formal' default='temp_off'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <marker>
+                    <token regexp='yes'>como|segundo</token>
+                </marker>
+                <token min='0' max='2' regexp='yes' inflected='yes'>ser|ter|haver|o</token>
+                <token postag='AQ.+' postag_regexp='yes' regexp='yes' inflected='yes'>acordado|alinhado|combinado</token>
+            </pattern>
+            <message>Use &quot;conforme&quot; para maior formalidade.</message>
+            <suggestion>conforme</suggestion>
+            <example correction="conforme">Aqui está o relatório <marker>segundo</marker> combinado.</example>
+            <example>Redigi o documento conforme fora acordado por ambas as partes.</example>
+            <example>Conforme havia sido combinado, aqui está o relatório.</example>
+            <example>Conforme o combinado, aqui está o livro.</example>
+        </rule>
+
+
         <rule id='CERTO_INDICADO_PARA' name="'Certo' para → indicado/adequado/qualificado/apropriado" type='style' tone_tags='formal'>
             <!-- ChatGPT 5 -->
 
@@ -4190,13 +4208,6 @@ USA
                 <example>Os clientes costumam ser fiéis e fazer pedidos periódicos.</example>
             </antipattern>
             <antipattern>
-                <token regexp='yes' inflected='yes'>estar|ter|ser</token>
-                <token postag='Z0.+|DI0M.+' postag_regexp='yes'/>
-                <token regexp='yes'>pedidos?</token>
-                <example>Tenho um pedido a fazer-lhes, amigos.</example>
-                <example>A parte queixosa tem um pedido a fazer?</example>
-            </antipattern>
-            <antipattern>
                 <token postag='D[ADIP].+|SPS.+|Z0.+' postag_regexp='yes'>
                     <exception scope='previous' regexp='yes' inflected='yes'>estar|ter|ser</exception>
                     <exception scope='previous' regexp='yes'>por|pel[ao]s?|abaixo</exception></token>
@@ -4218,19 +4229,6 @@ USA
                 <example>Para realizar o pagamento imprima o boleto após a conclusão do pedido.</example>
                 <example>O distribuidor, então, fatura e realiza a entrega do pedido.</example>
                 <example>Riram dele por causa do pedido por ele feito.</example>
-            </antipattern>
-            <antipattern>
-                <token postag='Z0.+|DI.+' postag_regexp='yes'/>
-                <token regexp='yes'>peças?</token>
-                <example>EMBALAGEM COM 100 PEÇAS (1 CENTO).</example>
-                <example>A poltrona tem série limitada de 13 peças.</example>
-                <example>O atendimento pelo whatsapp é para mínimo de 250 peças.</example>
-                <example>Juntas, produzem cerca de 200 peças por mês, todas feitas em 100% algodão.</example>
-                <example>Estou a montar um quebra-cabeça de 750 peças.</example>
-                <example>Existem 144 centros móveis, consistindo de seis conjuntos de 24 peças cada.</example>
-                <example>Escreveu também cerca de 20 peças, das quais 14 foram encenadas.</example>
-                <example>Como o processo de impressão era complexo, ele imprimiu apenas 40 peças.</example>
-                <example>A poltrona tem série limitada de 13 peças.</example>
             </antipattern>
             <antipattern>
                 <token regexp='yes'>peças?</token>
@@ -4255,7 +4253,7 @@ USA
             </antipattern>
             <antipattern>
                 <token skip='2' inflected='yes' regexp='no'>pedir</token> <!-- more than skip='2' causes false positives -->
-                <token regexp='yes'>casamento|conselhos?|desculpas?|demissão|divórcio|mãos?|namoro|oração|palavra|perdão|socorro</token> <!-- The same words below -->
+                <token regexp='yes'>casamento|conselhos?|desculpas?|demissão|divórcio|mãos?|namoro|oração|palavra|perdão|socorro</token>
                 <example>O Sr. Lino de Carvalho (PCP): - Peço a palavra, Sr. Presidente.</example>
                 <example>Tito pede a mão de Filomena em casamento para Querêncio.</example>
                 <example>O aluno pediu a palavra.</example>
@@ -4275,8 +4273,7 @@ USA
 
             <pattern>
                 <marker>
-                    <token postag='V.+' postag_regexp='yes' inflected='yes' regexp='no'>pedir
-                        <exception scope='next' regexp='yes'>casamento|conselhos?|desculpas?|demissão|divórcio|mãos?|namoro|oração|palavra|perdão|socorro</exception></token>
+                    <token postag='V.+' postag_regexp='yes' inflected='yes'>pedir</token>
                 </marker>
             </pattern>
             <message>&informal_msg;</message>
@@ -4564,7 +4561,6 @@ USA
                     <example>Morra, seu bastardo!</example>
                     <example>MORRA AGORA, SEU ASSASSINO!</example>
                     <example>Morra, sua vadia!</example>
-                    <example>Se vc gosta de trekkings, pedalar morro acima, morro abaixo, Maiorca tb é uma ótima opção!</example>
                     <example>Ela dirá para o mundo ouvir: “Fraqueza, medo e desespero morreram; força, poder e coragem nasceram”.</example>
                     <example>É que eu não quero morrer hoje, só isso.</example>
                     <example>"Morre, danado!"</example>
@@ -4652,7 +4648,6 @@ USA
                     <example>Há mais de cem mortos na catástrofe.</example>
                     <example>Desabamento de prédio deixa mais de 1000 mortos em Bangladesh.</example>
                     <example>Corpos não identificados de mulheres mortas em Los Angeles geralmente são chamados: "Sally in the Alley"</example>
-                    <example>Hoje, PEDE DESCULPAS pelos 4,4 mil mortos na cidade.</example>
                 </antipattern>
                 <antipattern>
                     <token postag='SENT_START|_PUNCT' postag_regexp='yes'/>
@@ -10161,23 +10156,24 @@ USA
         </rulegroup>
 
 
-        <rulegroup id='CIENTÍFICO_EMPREGAR_TERMO' name="[Científico] usar → empregar" type="style" tags="picky" tone_tags="formal" is_goal_specific="true">
-            <rule>
-                <pattern>
-                    <marker>
-                        <token inflected='yes'>usar</token>
-                    </marker>
-                    <token min="0" max="1" negate="yes" regexp="yes">termos?</token>
-                    <token regexp="yes">termos?</token>
-                </pattern>
-                <message>Num contexto formal, é preferível escrever &quot;empregar um termo&quot;.</message>
-                <suggestion><match no='1' postag='V.+' postag_regexp='yes'>empregar</match></suggestion>
-                <example correction="empregamos">Na nossa investigação <marker>usamos</marker> o termo “terrorismo”.</example>
-                <example correction="empregamos">Na nossa investigação <marker>usamos</marker> termos caros.</example>
-                <example correction="emprega-se">Na nossa investigação <marker>usa-se</marker> o termo “terrorismo”.</example>
-                <example correction="emprega-se">Na nossa investigação <marker>usa-se</marker> termos caros.</example>
-            </rule>
-        </rulegroup>
+        <rule id='CIENTÍFICO_EMPREGAR_TERMO' name="[Científico] 'usar/utilizar' termo → empregar" type='style' tags='picky' tone_tags='formal' is_goal_specific='true'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <pattern>
+                <marker>
+                    <token skip='1' regexp='yes' inflected='yes'>usar|utilizar</token>
+                </marker>
+                <token regexp='yes'>termos?</token>
+            </pattern>
+            <message>Num contexto formal, é preferível escrever &quot;empregar um termo&quot;.</message>
+            <suggestion><match no='1' postag='V.+' postag_regexp='yes'>empregar</match></suggestion>
+            <example correction="emprega-se">Na nossa pesquisa <marker>usa-se</marker> o termo “dualismo”.</example>
+            <example correction="empregamos">Na nossa pesquisa <marker>usamos</marker> o termo “dualismo”.</example>
+            <example correction="emprega-se">Na nossa pesquisa <marker>utiliza-se</marker> termos caros.</example>
+            <example correction="empregamos">Na nossa pesquisa <marker>utilizamos</marker> termos caros.</example>
+        </rule>
+
+
         <rulegroup id='CIENTÍFICO_FAZER_EFETUAR_REALIZAR_CONDUZIR_CONCRETIZAR_ELABORAR' name="[Científico] Fazer → efetuar/realizar/conduzir/concretizar/elaborar" default="on" type="style" tags="picky" tone_tags="academic" is_goal_specific="true">
             <antipattern>
                 <token inflected='yes' skip='3'>fazer</token>
@@ -15437,29 +15433,43 @@ USA
         </rule>
 
 
-        <!-- QUANDO ELE quando -->
-        <rule id='PRON_PESSOAL_REPETIDO_REMOVER_SEG_REPETICAO' name="[Simplificar] Pron.P. + V. + NC/Adj/V. + quando/ao/por/para + Pron.P. → omitir segundo Pron.P." type="style">
+        <rulegroup id='PRON_PESSOAL_REPETIDO_REMOVER_SEG_REPETICAO' name="[Simplificar] Omitir pronome pessoal redundante" type='style' default='temp_off'>
             <!--IDEA shorten_it-->
-            <!-- Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2023-05-17 (2-MAR-2023+) -->
-            <!--
-      ELE ficou louco QUANDO ELE foi ver o website. → ELE ficou louco QUANDO foi ver o website.
-      -->
-            <pattern>
-                <token regexp='yes'>&pronomes_retos;</token>
-                <token postag='V.+' postag_regexp='yes'/>
-                <token min='0' max='1' postag='NC.+|AQ.+|V.+' postag_regexp='yes'/>
-                <marker>
-                    <token regexp='yes'>quando|ao|por|para</token> <!-- as new words are found, add them here -->
-                    <token><match no="0"/></token>
-                </marker>
-                <token postag='NC.+|AQ.+|V.+' postag_regexp='yes'>
-                    <exception postag_regexp='yes' postag='SPS00|CC'/>
-                </token>
-            </pattern>
-            <message>Para melhorar o estilo de escrita, pode omitir o pronome pessoal.</message>
-            <suggestion>\4</suggestion>
-            <example correction="QUANDO">ELE ficou louco <marker>QUANDO ELE</marker> foi ver o website.</example>
-        </rule>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <rule>
+                <pattern> <!-- #1: Single tokens -->
+                    <token regexp='yes'>&pronomes_retos;</token>
+                    <token postag='V.+' postag_regexp='yes'/>
+                    <token min='0' max='2' postag='NC.+|AQ.+|V.+' postag_regexp='yes'>
+                        <exception regexp='yes'>ao|caso|como|conforme|para|por|porque|quando|se|segundo</exception></token> <!-- equal to below -->
+                    <marker>
+                        <token regexp='yes'>ao|caso|como|conforme|para|por|porque|quando|se|segundo</token> <!-- Add new words here -->
+                        <token><match no='0'/></token>
+                    </marker>
+                    <token><exception postag_regexp='yes' postag='SENT_END|_PUNCT|SPS00|CC|RG|CS'/></token>
+                </pattern>
+                <message>Para melhorar o estilo de escrita, pode omitir o pronome pessoal redundante.</message>
+                <suggestion>\4</suggestion>
+                <example correction="QUANDO">ELE ficou louco <marker>QUANDO ELE</marker> foi ver o website.</example>
+            </rule>
+            <rule> <!-- #2: Tokens that require "que" -->
+                <pattern>
+                    <token regexp='yes'>&pronomes_retos;</token>
+                    <token postag='V.+' postag_regexp='yes'/>
+                    <token min='0' max='2' postag='NC.+|AQ.+|V.+' postag_regexp='yes'>
+                        <exception regexp='yes'>antes|assim|depois|desde|logo</exception></token> <!-- equal to below -->
+                    <marker>
+                        <token regexp='yes'>antes|assim|depois|desde|logo</token> <!-- Add new words here that require a "que" after them -->
+                        <token>que</token>
+                        <token><match no='0'/></token>
+                    </marker>
+                    <token><exception postag_regexp='yes' postag='SENT_END|_PUNCT|SPS00|CC|RG|CS'/></token>
+                </pattern>
+                <message>Para melhorar o estilo de escrita, pode omitir o pronome pessoal redundante.</message>
+                <suggestion>\4 \5</suggestion>
+                <example correction="ASSIM QUE">ELE ficou louco <marker>ASSIM QUE ELE</marker> foi ver o website.</example>
+            </rule>
+        </rulegroup>
 
 
         <!-- QUANDO SE ABRE UMA DEFINIÇÃO ao abrir uma definição -->
@@ -15680,31 +15690,24 @@ USA
         </rule>
 
 
-        <!-- QUE PRETENDER pretendido -->
-        <rule id='QUE_PRETENDER_PRETENDIDO' name="[Simplificar] que pretender → pretendido" type="style">
+        <rule id='QUE_PRETENDER_PRETENDIDO' name="[Simplificar] que pretender → pretendido" type='style' default='temp_off'>
             <!--IDEA shorten_it-->
-            <!-- Created by Marco A.G.Pinto, Portuguese rule 2022-10-01 (25-JUL-2022+) -->
-            <!--
-      Vamos escolher o horário que se pretende. → Vamos escolher o horário pretendido.
-      Vamos escolher os horários que se pretende. → Vamos escolher os horários pretendidos.
-      Vamos escolher o horário que pretendemos. → Vamos escolher o horário pretendido.
-      Vamos escolher os horários que pretendemos. → Vamos escolher os horários pretendidos.
-      -->
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <pattern>
-                <token regexp='yes'>[ao]s?</token>
-                <token min="1" max="2" postag='NC.+|AQ.+' postag_regexp='yes'/>
+                <token postag='D.0[MF][SP].+' postag_regexp='yes'/>
+                <token min='1' max='2' postag='NC.+|AQ.+' postag_regexp='yes'/>
                 <marker>
                     <token>que</token>
-                    <token min="0" max="1">se</token>
-                    <token regexp='no' inflected='yes'>pretender
-                        <exception scope="next" postag_regexp='yes' postag='V.+'/>
-                    </token>
+                    <token min='0' max='1'>se</token>
+                    <token postag='V.+' postag_regexp='yes' inflected='yes'>pretender</token>
                 </marker>
+                <token><exception postag_regexp='yes' postag='V.+|NC.+|AQ.+|_PUNCT_COMMA'/></token>
             </pattern>
             <message>&simplify_msg;</message>
-            <suggestion><match no='1' postag='DA0(..)0' postag_replace='NC$1000'>pretendido</match></suggestion>
+            <suggestion><match no='1' postag='D.0(..)0' postag_replace='NC$1000'>pretendido</match></suggestion>
             <example correction="pretendido">Vamos escolher o horário <marker>que pretendemos</marker>.</example>
             <example correction="pretendidos">Vamos escolher os horários <marker>que pretendemos</marker>.</example>
+            <example>abarcando diversas etapas que pretendem, no fundo, espelhar o trabalho dos deputados representativos.</example>
         </rule>
 
 
@@ -16770,39 +16773,6 @@ USA
             <suggestion>\1 \4</suggestion>
             <example correction="continua tão">O tema da pesquisa <marker>continua a ser tão</marker> atual.</example>
             <example correction="continua bastante">O tema da pesquisa <marker>continua a ser bastante</marker> atual.</example>
-        </rule>
-
-
-        <rule id='FAZER_VERBO_VERBO_INFINITIVO_V2' name="[Simplificar] V.Fazer + V. → V.Inf." type="style" tags="picky">
-            <!--IDEA shorten_it-->
-            <antipattern>
-                <token>fazer</token>
-                <token postag='VMIP2S0' postag_regexp='no'/>
-                <token>para</token>
-                <token postag='V.+' postag_regexp='yes'/>
-                <example>Quando éramos crianças gostávamos de fazer fisgas para sermos bons.</example>
-            </antipattern>
-            <pattern>
-                <marker>
-                    <token>fazer
-                        <exception scope='next' regexp='no'>compras</exception> <!-- Add exceptions here -->
-                    </token>
-                    <token skip='4' postag='VMIP2S0' postag_regexp='no'/>
-                </marker>
-                <token inflected='yes'>ser
-                    <exception regexp='yes' inflected='yes'>estar|ir</exception>
-                    <exception scope='previous' regexp='yes' inflected='yes'>estar|ir</exception>
-                </token>
-            </pattern>
-            <message>&simplify_msg;</message>
-            <suggestion><match no='2' postag='V.+' postag_regexp="yes" postag_replace='VMN0000'/></suggestion>
-            <example correction="Somar"><marker>Fazer somas</marker> é o melhor que há.</example>
-            <example correction="conjeturar">Mas <marker>fazer conjeturas</marker> sobre algo é medir uma probabilidade.</example>
-            <example correction="somar">Assim <marker>fazer somas</marker> é o melhor.</example>
-            <example correction="somar">Assim <marker>fazer somas</marker> será o melhor.</example>
-            <example>Fazer compras é uma sensação fantástica.</example>
-            <example>Quanto às sugestões de uso de drones para fazer entregas estão sendo avaliadas.</example>
-            <example>Fui com Magnus fazer compras, fomos a uma loja ótima.</example>
         </rule>
 
 
@@ -19421,7 +19391,6 @@ USA
             <!--
             Ela não pode ter me visto na festa.
             Você se importaria em vir e me ver no sábado?
-            Quantas cores você vê no arco-íris?
             Por que não deu para você vir no sábado?
             Deixe-me ver o seu pulso.
             Do topo podia-se ver o rio.
@@ -19735,7 +19704,6 @@ USA
 
                 <example>Ela não pode ter me visto na festa.</example>
                 <example>Você se importaria em vir e me ver no sábado?</example>
-                <example>Quantas cores você vê no arco-íris?</example>
                 <example>Por que não deu para você vir no sábado?</example>
                 <example>Deixe-me ver o seu pulso.</example>
                 <example>Do topo podia-se ver o rio.</example>

@@ -25,8 +25,8 @@ public class DonarseliBeFilter extends RuleFilter {
   private final Pattern pDespresDarrerAdverbi = Pattern.compile("V.N.*|D.*|PD.*");
   private final List<String> adverbiFinal = Arrays.asList("bé", "malament", "mal", "millor", "pitjor", "fatal");
   private final List<String> pronomsPersonals = Arrays.asList("mi", "tu", "ell", "ella", "nosaltres", "vosaltres",
-    "ells",
-    "elles");
+    "ells", "elles");
+  private final List<String> exceptionsQue = Arrays.asList("ja", "ara", "per", "de", "a", "en");
 
   @Nullable
   @Override
@@ -49,8 +49,11 @@ public class DonarseliBeFilter extends RuleFilter {
       posWord++;
     }
     VerbSynthesizer verbSynth = new VerbSynthesizer(tokens, posWord, lang);
-    posDonar = verbSynth.getLastVerbPos();
-    posPrimerVerb = verbSynth.getFirstVerbPos();
+    if (verbSynth.isUndefined() || tokens[verbSynth.getLastVerbIndex()].getEndPos() > match.getToPos()) {
+      return null;
+    }
+    posDonar = verbSynth.getLastVerbIndex();
+    posPrimerVerb = verbSynth.getFirstVerbIndex();
     posInitUnderline = posPrimerVerb - verbSynth.getNumPronounsBefore();
     isPronomFebleDavant = verbSynth.getNumPronounsBefore() > 0;
     int posPronomFebleRelevant = -1;
@@ -68,7 +71,7 @@ public class DonarseliBeFilter extends RuleFilter {
       return null;
     }
     // mira darrere: molt bé
-    posWord = verbSynth.getLastVerbPos() + verbSynth.getNumPronounsAfter() + 1;
+    posWord = verbSynth.getLastVerbIndex() + verbSynth.getNumPronounsAfter() + 1;
     primerAdverbi = posWord;
     while (posWord < tokens.length && !adverbiFinal.contains(tokens[posWord].getToken().toLowerCase())) {
       posWord++;
@@ -119,11 +122,28 @@ public class DonarseliBeFilter extends RuleFilter {
     boolean isQue =
       posInitUnderline - addTokensToLeft - 1 > 0 && tokens[posInitUnderline - addTokensToLeft - 1].getToken().equalsIgnoreCase("que")
         && !isVerbDicendiBefore(tokens, posInitUnderline - addTokensToLeft - 2);
+    boolean isQueAccent =
+      posInitUnderline - addTokensToLeft - 1 > 0 && tokens[posInitUnderline - addTokensToLeft - 1].getToken().equalsIgnoreCase("què");
+    if (posInitUnderline - addTokensToLeft - 2 > 0 && exceptionsQue.contains(tokens[posInitUnderline - addTokensToLeft - 2].getToken().toLowerCase())) {
+      isQueAccent = false;
+      isQue = false;
+    }
+    boolean isElQue = false;
+    boolean isAQui = false;
+    if (posInitUnderline - addTokensToLeft - 1 > 0 && tokens[posInitUnderline - addTokensToLeft - 1].getToken().equalsIgnoreCase("qui")) {
+      isElQue = true;
+      if (posInitUnderline - addTokensToLeft - 2 > 0 && tokens[posInitUnderline - addTokensToLeft - 2].getToken().equalsIgnoreCase("a")) {
+        isAQui = true;
+      }
+    }
+    if (isQue && posInitUnderline - addTokensToLeft - 2 > 0 && (tokens[posInitUnderline - addTokensToLeft - 2].hasPosTagStartingWith("DA")
+    || tokens[posInitUnderline - addTokensToLeft - 2].hasAnyLemma("alumne", "persona", "estudiant", "professor"))) {
+      isElQue = true;
+      isQue = false; // no subratllem "que"
+    }
     if (isQue) {
       addTokensToLeft++;
     }
-    boolean isQueAccent =
-      posInitUnderline - addTokensToLeft - 1 > 0 && tokens[posInitUnderline - addTokensToLeft - 1].getToken().equalsIgnoreCase("què");
     if (isQueAccent) {
       addTokensToLeft++;
     }
@@ -133,7 +153,7 @@ public class DonarseliBeFilter extends RuleFilter {
 
     //TODO: quines coses se li donen bé; les que no se't donen tan bé;
     // al teu fill no se li dona gaire bé dibuixar; La geografia se't donava prou bé
-    // Altres suggermients: tenir-hi la mà trencada, ser el meu fort
+    // Altres suggeriments: tenir-hi la mà trencada, ser el meu fort
 
     // Crea suggeriments
     List<String> replacements = new ArrayList<>();
@@ -179,13 +199,16 @@ public class DonarseliBeFilter extends RuleFilter {
         suggestion.append(" per a");
       }
     }
-    replacements.add(StringTools.preserveCase(suggestion.toString(),
-      tokens[posInitUnderline - addTokensToLeft].getToken()));
+    if (!isElQue) {
+      replacements.add(StringTools.preserveCase(suggestion.toString(),
+        tokens[posInitUnderline - addTokensToLeft].getToken()));
+    }
+
 
     // faig bé
     suggestion.setLength(0);
     suggestion.append(addStringToLeft.replaceFirst(aMiString, ""));
-    if (!addStringToLeft.toLowerCase().startsWith("qu") && despresDarrerAdverbi == null) {
+    if (!addStringToLeft.toLowerCase().startsWith("qu") && despresDarrerAdverbi == null && !isElQue) {
       suggestion.append("ho ");
     }
     verbSynth.setLemmaAndPostag("fer", newVerbPostag);
@@ -193,8 +216,10 @@ public class DonarseliBeFilter extends RuleFilter {
     suggestion.append(getAdverbsFor(tokens, primerAdverbi, darrerAdverbi, "bé"));
     suggestion.append(" " + darrerAdverbiStr);
     suggestion.append(addStringToRight);
-    replacements.add(StringTools.preserveCase(suggestion.toString(),
-      tokens[posInitUnderline - addTokensToLeft].getToken()));
+    if (!isAQui) {
+      replacements.add(StringTools.preserveCase(suggestion.toString(),
+        tokens[posInitUnderline - addTokensToLeft].getToken()));
+    }
 
     // me'n surto (en)
     suggestion.setLength(0);
@@ -232,8 +257,10 @@ public class DonarseliBeFilter extends RuleFilter {
       }
     }
     suggestion.append(addStringToRight);
-    replacements.add(StringTools.preserveCase(suggestion.toString(),
-      tokens[posInitUnderline - addTokensToLeft].getToken()));
+    if (!isElQue) {
+      replacements.add(StringTools.preserveCase(suggestion.toString(),
+        tokens[posInitUnderline - addTokensToLeft].getToken()));
+    }
 
     // em van bé
     suggestion.setLength(0);
