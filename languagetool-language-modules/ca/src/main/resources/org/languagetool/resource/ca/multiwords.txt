@@ -1,5 +1,51 @@
 #Catalan multiwords file used for chunking
 #separatorRegExp=[\t;]
+Xavier Marcé;NPMSSP0
+emissions netes zero;NCFP000
+emissions zero;NCFP000
+Santi Laiglesia;NPMSSP0
+fa la la;NCMS000
+Fa La La;NCMS000
+empresa pantalla;NCFS000
+empreses pantalla;NCFP000
+Joan Rabascall;NPMSSP0
+Josep Lluch;NPMSSP0
+a hora horada;LOC_ADV
+hereu escampa;NCMS000
+hereus escampa;NCMP000
+perspectiva cavallera;NCFS000
+perspectives cavalleres;NCFP000
+Maribel Vilaplana;NPFSSP0
+ex-guàrdia civil;NCCS000
+ex-guàrdies civils;NCCP000
+ex-fiscal general;NCCS000
+ex-fiscals generals;NCCP000
+en blanc i negre;LOC_ADJ
+Ibn Khaldun;NPMSSP0
+Isidor de Sevilla;NPMSSP0
+sant Isidor;NPMSSP0
+Lucía Martínez;NPFSSP0 # nom comú
+Martínez García;NPCNSP0 # cognoms comuns
+Martínez Garcia;NPCNSP0 # cognoms comuns
+Còdex Beza;NPMSO00
+Les Temps Modernes;NPMPO00
+Teófilo del Valle;NPMSSP0
+Ramon Calsina;NPMSSP0
+Ramon Alsina;NPMSSP0
+Kazimir Malèvitx;NPMSSP0
+Albert Piñeira;NPMSSP0
+Guillem Nivet;NPMSSP0
+Oques Grasses;NPMPO00
+Calvin i Hobbes;NPCNSP0
+revista Time;NPFSO00
+Lluís Companys;NPMSSP0
+Mikhaïl Lomonóssov;NPMSSP0
+Tomás de Lorenzana;NPMSSP0
+Xavier Pascual;NPMSSP0
+Xavi Pascual;NPMSSP0
+Antoni Simon;NPMSSP0
+José Ignacio;NPMSSP0
+Josep Ignasi;NPMSSP0
 Dupond i Dupont;NPCNSP0
 Antoni Bayona;NPMSSP0
 Lluís de Granada;NPMSSP0
@@ -1557,7 +1603,7 @@ Sant Llorenç;NPMSSP0
 sant Vito;NPMSSP0
 ball de sant Vito;NCMS000
 So n'Espanyolet;NPMSG00
-Son Espanyolet;NPMSG00 wiki?
+Son Espanyolet;NPMSG00 # wiki?
 Son Fortesa;NPMSG00
 Son Mendivi;NPMSG00
 San Vito Lo Capo;NPMSG00
@@ -2665,6 +2711,7 @@ Mstislav Rostropóvitx;NPMSSP0
 Nikita Mikhalkov;NPMSSP0
 Nikolai Miaskovski;NPMSSP0
 Piotr Ilitx Txaikovski;NPMSSP0
+Piotr Ilitx;NPMSSP0
 Qara Qarayev;NPMSSP0
 Serguei Bondartxuk;NPMSSP0
 Serguei Eisenstein;NPMSSP0
@@ -2911,6 +2958,7 @@ pole dance;NCMS000
 Alí Bey;NPMSSP0
 Shinzo Abe;NPMSSP0
 San Miguel;NPMSO00
+sant Miquel;NPMSO00
 New York;NPCSG00
 New Hampshire;NPCSG00
 Arola Editors;NPCNO00
@@ -3315,7 +3363,7 @@ Gregor Martin;NPMSSP0
 George R. Martin;NPMSSP0
 George R. R. Martin;NPMSSP0
 Martin Bishop;NPMSSP0
-Martin Fierro;NPMSSP0
+Martín Fierro;NPMSSP0
 Martin Heidegger;NPMSSP0
 Martin Blank;NPMSSP0
 Martin Walser;NPMSSP0
@@ -4569,7 +4617,7 @@ Los Montesinos	NPMPG00
 Mae Sai	NPCNG00
 Manchester United	NPMSO00
 Mare Nostrum	NPMSG00
-Mariánské Lázne	NPCNG00
+Mariánské Lázně	NPCNG00
 Mariano Rajoy	NPMSSP0
 María José	NPFSSP0
 Marktl am Inn	NPCNG00
@@ -5182,6 +5230,7 @@ de mancomú	LOC_ADV
 de manera que	LOC_CONJ
 de manual	LOC_ADJ
 de matí	LOC_ADV
+de bon matí	LOC_ADV
 de mica en mica	LOC_ADV
 de mitjan	LOC_PREP
 de més a més	LOC_ADV
@@ -5575,7 +5624,6 @@ per por d'	LOC_PREP
 per por de	LOC_PREP
 per se	LOC_ADV
 persona non grata	NCFS000
-perspectiva cavallera	NCFS000
 per sobre de tot	LOC_ADV
 per tal d'	LOC_PREP
 per tal de	LOC_PREP
@@ -7898,7 +7946,8 @@ ubi pus, ibi evacua;_Latin_
 ubi, re vera;_Latin_
 ubi societas, ibi ius;_Latin_
 ubi solitudinem faciunt pacem appellant;_Latin_
-ubi sunt?;_Latin_
+#ubi sunt?;_Latin_
+ubi sunt;_Latin_
 ubique, quo fas et gloria ducunt;_Latin_
 ultima forsan;_Latin_
 #ultima ratio;_Latin_

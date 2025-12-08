@@ -54,7 +54,7 @@ public class AdjustVerbSuggestionsFilter extends RuleFilter {
     }
     VerbSynthesizer verbSynthesizer = new VerbSynthesizer(tokens, posWord, getLanguageFromRuleMatch(match));
     // verb found out of bounds
-    if (tokens[verbSynthesizer.getLastVerbPos()].getEndPos() > match.getToPos()) {
+    if (verbSynthesizer.isUndefined() || tokens[verbSynthesizer.getLastVerbIndex()].getEndPos() > match.getToPos()) {
       return null;
     }
     for (String originalSuggestion : match.getSuggestedReplacements()) {
@@ -88,7 +88,7 @@ public class AdjustVerbSuggestionsFilter extends RuleFilter {
           desiredNumber = (tokensAfterLemma.get(0).getTokensWithoutWhitespace()[1].hasPartialPosTag("S") ? "S" :  "P");
         }
       }
-      if (newLemma.equals("haver")) {
+      if (newLemma.contains("haver-hi")) {
         desiredNumber = "S";
       }
       if (!forceNumber.isEmpty()) {
@@ -104,7 +104,7 @@ public class AdjustVerbSuggestionsFilter extends RuleFilter {
       } else if (newLemma.endsWith("'s")) {
         newLemma = newLemma.substring(0, newLemma.length() - 2);
         action = "addPronounReflexive";
-      }else if (newLemma.endsWith("-hi")) {
+      } else if (newLemma.endsWith("-hi")) {
         newLemma = newLemma.substring(0, newLemma.length() - 3);
         action = "addPronounHi";
       } else if (newLemma.endsWith("-s'ho")) {
@@ -116,7 +116,7 @@ public class AdjustVerbSuggestionsFilter extends RuleFilter {
       }
       // synthesize with new lemma
       List<String> postags = new ArrayList<>();
-      for (AnalyzedToken reading : tokens[verbSynthesizer.getFirstVerbPos()]) {
+      for (AnalyzedToken reading : tokens[verbSynthesizer.getFirstVerbIndex()]) {
         if (reading.getPOSTag() != null && reading.getPOSTag().startsWith("V")) {
           String postag = reading.getPOSTag();
           if (!desiredNumber.isEmpty()) {
@@ -151,9 +151,9 @@ public class AdjustVerbSuggestionsFilter extends RuleFilter {
       String replacement = "";
       switch (action) {
         case "addPronounEn":
-          String newPronoun = doAddPronounEn(pronounsStr, verbStr);
+          String newPronoun = doAddPronounEn(pronounsStr, verbStr, !verbSynthesizer.isFirstVerbIS());
           if (!newPronoun.isEmpty()) {
-            replacement = newPronoun + verbStr;
+            replacement = (verbSynthesizer.isFirstVerbIS() ? newPronoun + verbStr : verbStr + newPronoun);
           }
           break;
         case "removePronounReflexive":
@@ -218,11 +218,11 @@ public class AdjustVerbSuggestionsFilter extends RuleFilter {
     if (replacements.isEmpty()) {
       return null;
     }
-    int posStartUnderline = verbSynthesizer.getFirstVerbPos() - verbSynthesizer.getNumPronounsBefore();
+    int posStartUnderline = verbSynthesizer.getFirstVerbIndex() - verbSynthesizer.getNumPronounsBefore();
     RuleMatch ruleMatch = new RuleMatch(match.getRule(), match.getSentence(), tokens[posStartUnderline].getStartPos(),
       match.getToPos(), match.getMessage(), match.getShortMessage());
     ruleMatch.setType(match.getType());
-    ruleMatch.setSuggestedReplacements(replacements);
+    ruleMatch.setSuggestedReplacements(getLanguageFromRuleMatch(match).adaptSuggestionsList(replacements, verbSynthesizer.getWholeOriginalStr()));
     return ruleMatch;
   }
 

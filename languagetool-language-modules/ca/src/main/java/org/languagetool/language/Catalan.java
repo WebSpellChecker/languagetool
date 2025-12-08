@@ -246,6 +246,8 @@ public class Catalan extends Language {
       case "TENIR_QUE": return 35; // greater than CA_SIMPLE_REPLACE
       case "CONFUSIONS_PRONOMS_FEBLES": return 35; // greater than ES (DIACRITICS), PRONOMS_FEBLES_DARRERE_VERB
       case "COMMA_PERO1": return 35; // greater than CA_SIMPLE_REPLACE
+      case "PASSAR_SE": return 35; // greater than OBLIDARSE
+      case "OBLIDARSE": return 30; // greater than ACOSTUMAR_A
       case "CA_SPLIT_WORDS": return 30;
       case "PRONOMS_FEBLES_TEMPS_VERBAL": return 35;
       case "ET_AL": return 30; // greater than apostrophes and pronouns
@@ -276,6 +278,7 @@ public class Catalan extends Language {
       case "SUPER": return 20;
       case "PRONOM_FEBLE_HI": return 20; // greater than HAVER_PARTICIPI_HAVER_IMPERSONAL
       case "HAVER_PARTICIPI_HAVER_IMPERSONAL": return 15; // greater than ACCENTUATION_CHECK
+      case "SE_LI_VA_FER_CALLAR": return 15;
       case "CONCORDANCES_NUMERALS_DUES": return 10; // greater than CONCORDANCES_NUMERALS
       case "POSTULARSE": return 10;
       case "FALTA_CONDICIONAL": return 10; // greater than POTSER_SIGUI
@@ -296,10 +299,10 @@ public class Catalan extends Language {
       case "PREFIXOS_SENSE_GUIONET_EN_DICCIONARI": return 10; // greater than SPELLING
       case "ZERO_O": return 10; //greater than SPELLING
       case "URL": return 10; //greater than SPELLING
+      case "EL_FAN_AGENOLLAR": return 10; // greater than PRONOMS_FEBLES_DUPLICATS
       case "CONCORDANCES_DET_NOM": return 5; // greater than DE_EL_S_APOSTROFEN
       case "CONCORDANCES_DET_ADJ": return 5; // greater than DE_EL_S_APOSTROFEN
       case "CONCORDANCES_DET_POSSESSIU": return 5; // greater than CONCORDANCES_ADJECTIUS_NEUTRES
-      case "PASSAR_SE": return 5; // greater than OBLIDARSE
       case "DET_GN": return 5; // greater than DE_EL_S_APOSTROFEN
       case "SPELLING": return 5;
       case "APOSTROF_ANYS": return 5; // greater than typography options
@@ -331,6 +334,7 @@ public class Catalan extends Language {
       case "VERBS_PRONOMINALS": return -25;
       case "PORTO_LLEGINT": return -30;
       case "PORTA_UNA_HORA": return -40;
+      case "MAJOR_MES_GRAN0": return -40; // higher than MAJOR_MES_GRAN (style, -50)
       case "REPETITIONS_STYLE": return -50;
       case "MUNDAR": return -50;
       case "NOMBRES_ROMANS": return -90;
@@ -477,7 +481,7 @@ public class Catalan extends Language {
   // exceptions: l'FBI, l'statu quo
   private static final Pattern CA_APOSTROPHES2 = compile("\\b([mtlsn])['’]([^1haeiouáàèéíòóúA-ZÀÈÉÍÒÓÚ“«\"])");
   // exceptions: el iogurt, la essa
-  private static final Pattern CA_APOSTROPHES3 = compile("\\be?([mtsldn])e? (h?[aeiouàèéíòóú])",
+  private static final Pattern CA_APOSTROPHES3 = compile("\\be?([mtsldn])e? (h[aeio]|h?[aeiouàèéíòóú][a-zàèéíòóúïüç])",
       Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
   private static final Pattern CA_APOSTROPHES4 = compile("\\b(l)a ([aeoàúèéí][^ ])",
       Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
