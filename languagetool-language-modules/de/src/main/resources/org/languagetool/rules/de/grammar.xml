@@ -15900,6 +15900,15 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
     <!-- ====================================================================== -->
     <category id="PROPER_NOUNS" name="Prominente/geographische Eigennamen">
         <!-- geographische Namen u. ä. -->
+        <rule id="KATHERINA_REICHE" name="Katharina (Katherina) Reiche">
+            <pattern>
+                <token regexp="yes" case_sensitive="yes">Kath?arina</token>
+                <token regexp="yes" case_sensitive="yes">Reiches?</token>
+            </pattern>
+            <message>Der Name dieser Politikerin (Bundeswirtschaftsministerin) wird mit einem "e" in der Mitte geschrieben.</message>
+            <suggestion>Katherina \2</suggestion>
+            <example correction="Katherina Reiche"><marker>Katharina Reiche</marker> ist eine Politikerin der CDU.</example>
+        </rule>
         <rule id="STATISCHE_BUNDESAMT" name="Statisches (Statistisches) Bundesamt">
             <pattern>
                 <token regexp="yes">statische[snm]?</token>

@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../print.xsl" title="Pretty print" ?>
 <?xml-stylesheet type="text/css" href="../rules.css" title="Easy editing stylesheet" ?>
+
 <!--
-Portuguese (Portugal - prereform + postreform) - Grammar and Typo Rules for LanguageTool.
+Portuguese - Grammar and Typo Rules for LanguageTool.
 
-Copyright © 2012-2023 Marco A.G.Pinto (www.marcoagpinto.com)
-Copyright © 2016-2023 Tiago F. Santos (tiagofsantos81@sapo.pt)
-Copyright © 2022-2023 Ricardo Joseh Lima
-Copyright © 2022-2023 Susana Boatto
-
-Thanks to Juan Martorell, Daniel Naber, Jaume Ortolà, Christopher Blum,
-Udo Mai and Yakov Reztsov who mentored the project.
+See tagset.txt for the meaning of the POS tags.
+Copyright © 2001-2026 Daniel Naber (http://www.danielnaber.de),
+Marcin Miłkowski, and the LanguageTool contributors.
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -27,7 +24,8 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 -->
 
-<!-- Contribuintes opensource, deem uma olhada aqui: https://dev.languagetool.org/#portuguese -->
+<!-- Contribuidores open-source: consultem https://dev.languagetool.org/#portuguese -->
+
 
 <!DOCTYPE rules [
         <!ENTITY % messages   SYSTEM "../../resource/pt/entities/messages.ent" >
@@ -3469,6 +3467,68 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         <!-- Specific gender concordance errors - A > Masculine Noun -->
         <!-- Created by Tiago F. Santos, Portuguese rule, 2016-10-24 -->
         <rule default='off' id='ERRO_DE_CONCORDNCIA_DO_GÉNERO_FEMININO_A' name="Concordância: A + Masculino">
+
+            <antipattern>
+                <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+                <token>a</token>
+                <token><match no='0'/></token>
+                <example>Quero um combate corpo a corpo.</example>
+                <example>Então bora começar, vestido ombro a ombro a saia de tule, detalhes em guipir no peito, confira agora as fotos!</example>
+                <example>A partir daí, cada ISBN tem um preço bem menor que você tira livro a livro que for publicar.</example>
+                <example>Estes são engates rápidos mono que transportam mídia de maneira coaxial (tubo a tubo).</example>
+                <example>Ele desabotoava-lhe o vestido botão a botão.</example>
+                <example>Polícia faz controlo carro a carro na entrada para a Ponte 25 de Abril no sentido Lisboa-Almada.</example>
+                <example>A partida é válida pela quinta rodada da competição e o GloboEsporte.com acompanha lance a lance pelo tempo real.</example>
+                <example>Parágrafo a parágrafo.</example>
+                <example>Quando perguntei-lhe, explicou-me ponto a ponto.</example>
+            </antipattern>
+            <antipattern>
+                <token postag='VMP00.+' postag_regexp='yes'/>
+                <token>a</token>
+                <token postag='NP.+' postag_regexp='yes'/>
+                <example>Morreu na miséria por ter desobedecido a Salazar.</example>
+                <example>Entrevista a Jorge Jesus "Benfica?</example>
+                <example>A informação fez com que muitas críticas fossem efetuadas a Giovanni.</example>
+                <example>A frase atribuída a Luxemburgo pelo UOL mostra bem o estado mental do "verdadeiro pato" da noite.</example>
+                <example>Essa pintura é atribuída a Picasso.</example>
+                <example>Ela parece ter partido a Tóquio ontem.</example>
+                <example>Mary não agrada a Tom.</example>
+                <example>O que é permitido a Júpiter não é permitido a um boi.</example>
+                <example>Foi feita a entrega de uma mercadoria frágil destinada a Sami.</example>
+                <example>Tom e Maria negaram ter dito a João que ele tinha que fazer aquilo.</example>
+            </antipattern>
+            <antipattern>
+                <token postag='V.+' postag_regexp='yes'/>
+                <token>a</token>
+                <token regexp='yes'>&cores;</token>
+                <example>Esses resultados estão destacados a amarelo nas tabelas.</example>
+                <example>WOUD - H 130 mm, Ø 120 mm, Metal, lacado a branco, vidro opala, E14, Max 25W.</example>
+                <example>O alumínio é um metal de prateado a branco.</example>
+                <example>“O negro passando a branco, na terceira geração, por efeito do cruzamento de raças”</example>
+                <example>Todas as páginas são douradas ("" - isto é as bordas das páginas são pintadas a ouro).</example>
+                <example>As decorações de teto, eram quase exclusivamente confinado a branco e ouro.</example>
+                <example>As construções existentes foram edificadas em alvenaria de pedra rebocada e pintada a branco.</example>
+                <example>A volta mais rápida de cada sessão está assinalada a cinzento.</example>
+            </antipattern>
+            <antipattern>
+                <token postag='SPS00'/>
+                <token postag='N.+|AQ.+' postag_regexp='yes'><exception postag='RG' postag_regexp='no'/></token>
+                <token>a</token>
+                <token postag='N.M.+|AQ.M.+' postag_regexp='yes'/>
+                <example>A safra era sazonal e durava de novembro a abril.</example>
+                <example>«Macri recebe opositor de Maduro em busca de apoio a referendo».</example>
+                <example>O Jornal Hoje vai ao ar no começo da tarde e é apresentado de segunda-feira a sábado.</example>
+                <example>Pode ser usada em fogões a gás, elétrico e vitrocerâmico.</example>
+                <example>O Consumer Trends assume-se como um portal de referência a nível nacional.</example>
+                <example>Trás boas coreografias e excelente componente visual, mas com alguma falta de consistência a nível de performance.</example>
+                <example>Os operadores de bit a bit na linguagem de programação C são a espinha dorsal dessas operações.</example>
+                <example>Onde encontrar freios de caminhão a ar preço Campinas?</example>
+                <example>Lavagem de carpete a seco e Interior.</example>
+                <example>Cozinha integrada com a sala para dois ambientes, sacada com churrasqueira a carvão.</example>
+                <example>Um ponto de luz a serviço do amor.</example>
+                <example>Tom gosta mais de chá a café.</example>
+                <example>Eu prefiro vinho tinto a vinho branco.</example>
+            </antipattern>
             <pattern>
                 <token>a</token>
                 <token min='0' regexp='yes'>&adverbios_de_intensidade;</token>
@@ -3482,7 +3542,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <message>&MSG_ECG;</message>
             <suggestion suppress_misspelled="yes">o <match no='2' include_skipped='all'/> <match no='3' include_skipped='all'/> \4</suggestion>
             <suggestion suppress_misspelled="yes">a <match no='2' include_skipped='all'/> <match no='3' include_skipped='all'/> <match no='4' postag='(A..|[NZ].)MS(.+)' postag_replace='$1FS$2' postag_regexp='yes'/></suggestion>
-            <url>https://pt.wikipedia.org/wiki/Artigo_(gram%C3%A1tica)</url>
+            <url>https://pt.wikipedia.org/wiki/Artigo_(gramática)</url>
             <example correction='O boi'><marker>A boi</marker> está no pasto.</example>
             <example correction='O mais boi'><marker>A mais boi</marker> está no pasto.</example>
             <example>A vaca está no pasto.</example>
@@ -3491,6 +3551,15 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
         <rulegroup id='A_WORD' name="Concordância: A + palavra">
             <!-- Created by Tiago F. Santos, Portuguese rule, 2016-10-28 -->
+
+            <antipattern>
+                <token postag='RG' postag_regexp='no'/>
+                <token>a</token>
+                <token postag='AQ..P.+|NC.P.+' postag_regexp='yes'/>
+                <token min='0' max='1' postag='RN'/>
+                <token postag='AQ..P.+|NC.P.+' postag_regexp='yes'/>
+                <example>Mas também a informações não locais e a instruções da cadeia de comando hierárquico.</example>
+            </antipattern>
 
             <antipattern>
                 <token postag='RM' postag_regexp='no'/>
@@ -4425,6 +4494,15 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <!--
            MARCOAGPINTO inserted global antipatterns for all subrules on top using the logic (2-MAR-2023+)
       -->
+
+            <antipattern>
+                <token postag='RG' postag_regexp='no'/>
+                <token>a</token>
+                <token postag='AQ..P.+|NC.P.+' postag_regexp='yes'/>
+                <token min='0' max='1' postag='RN'/>
+                <token postag='AQ..P.+|NC.P.+' postag_regexp='yes'/>
+                <example>Mas também a informações não locais e a instruções da cadeia de comando hierárquico.</example>
+            </antipattern>
 
             <antipattern>
                 <token postag='VMG0000' postag_regexp='no'/>
@@ -5720,7 +5798,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                     <example>Aceita-se o grupo aves não como Classe.</example>
                     <example>...odas as marcas estejam a criar opções para carros eléctricos diferentes e no final nenhuma lança um carro 100% eléctrico que seja uma opção viável.</example>
                     <example>Tem um casal periquitos gritando na mangueira.</example>
-                    <example>Correios lança selo do signo Peixes nesta semana — Correios: encomendas, rastreamento, telegramas, cep, cartas, selos, agências e mais!</example>
                 </antipattern>
                 <!-- MARCOAGPINTO 2022-08-11 (Checked/Enhanced) (25-JUL-2022+) *END* -->
 
@@ -11671,8 +11748,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
         <rule id='A_MAIORIA_SINGULAR' name='Concordância verbal: A maioria + plural'>
             <antipattern>
-                <token>há</token>
-                <token/>
+                <token regexp='yes'>d[ao]s</token>
+                <token postag='AQ..P.+|N..P.+' postag_regexp='yes'/>
+                <token postag='VM...P.+' postag_regexp='yes'/>
+                <token postag='AQ..P.+|N..P.+|VMP00P.+' postag_regexp='yes'/>
+                <example>Outra coisa q chama a atenção é que o nome da festa era 'agromerados' e a maioria das pessoas morreram aglomeradas.</example>
+                <example>...com aproximadamente 200 lotes que possuem metragens de 5.000 m² a 30.000m² e a maioria dos terrenos são planos.</example>
+                <example>A maioria das gaivotas são carnívoras.</example>
+                <example>A maioria dos filmes são escritos e dirigidos por homens.</example>
+                <example>A maioria das escolas estão fechadas hoje.</example>
+                <example>A maioria das vítimas eram criancinhas.</example>
+                <example>A maioria dos apartamentos estão vazios.</example>
+                <example>A maioria dos escravos fugiam sozinhos ou em grupos de no máximo três.</example>
+            </antipattern>
+            <antipattern>
+                <token skip='1'>há</token>
                 <token regexp='yes'>&expressoes_de_tempo;</token>
             </antipattern>
             <antipattern>
@@ -11680,7 +11770,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                 <token regexp='yes'>maioria|minoria</token>
                 <token min='0' regexp='yes'>d[eao]s?</token>
                 <token min='0' postag_regexp='yes' postag='N.+'/>
-                <token min="0" skip="3" postag_regexp='yes' postag='R.'/>
+                <token min="0" skip='3' postag_regexp='yes' postag='R.'/>
                 <token postag='VMN0000'/>
             </antipattern>
             <antipattern>
@@ -11688,7 +11778,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                 <token regexp='yes'>maioria|minoria</token>
                 <token min='0' regexp='yes'>d[eao]s?</token>
                 <token min='0' postag_regexp='yes' postag='N.+'/>
-                <token min="0" skip="3" postag_regexp='yes' postag='R.'/>
+                <token min="0" skip='3' postag_regexp='yes' postag='R.'/>
                 <token postag="VMN0000X"/>
                 <token regexp='yes' spacebefore='no'>&hifen;</token>
                 <token postag="PP3[FM]SA00" postag_regexp="yes"/>
@@ -11699,7 +11789,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                 <token regexp='yes'>maioria|minoria</token>
                 <token min='0' regexp='yes'>d[eao]s?</token>
                 <token min='0' postag_regexp='yes' postag='N.+'/>
-                <token min="0" skip="3" postag_regexp='yes' postag='R.'/>
+                <token min="0" skip='3' postag_regexp='yes' postag='R.'/>
                 <marker>
                     <token postag_regexp='yes' postag='(V...)3P(.+)'>
                         <exception postag_regexp='yes' postag='V...3S.+'/>
@@ -15362,8 +15452,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
         <rulegroup id='FRAGMENT_TWO_PREPOSITIONS' name="Fragmento: duas preposições seguidas">
+
+            <antipattern>
+                <token postag='AQ..S.+|NC.S.+|V.+' postag_regexp='yes'/>
+                <token regexp='yes' case_sensitive='yes'>A|E</token>
+                <token>em</token>
+                <example>Eu tirei A em francês.</example>
+                <example>Tom tirou A em francês.</example>
+                <example>A equação A em matemática.</example>
+                <example>A curva E em matemática.</example>
+            </antipattern>
+
             <rule>
-                <!-- Created by Tiago F. Santos, Portuguese rule, 2017-07-15	-->
+                <!-- Created by Tiago F. Santos, Portuguese rule, 2017-07-15 -->
                 <antipattern><!-- XXX Better handled by CONFUSION_POR rule -->
                     <token>de</token>
                     <token>por</token>
@@ -18345,6 +18446,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                 <example correction='disto'><marker>de isto</marker>.</example>
             </rule>
             <rule id='CONTRACAO_DA' name='De + artigos'> <!--default='off' -->
+                <antipattern>
+                    <token>de</token>
+                    <token regexp='yes'>[ao]s?</token>
+                    <token min='1' max='2' postag='N.+|AQ.+' postag_regexp='yes'/>
+                    <token postag='V.+' postag_regexp='yes'><exception postag_regexp='yes' postag='VMI[CP]3.+|VMP00.+|VMG.+'/></token>
+                    <example>O fato de o transporte coletivo ser um dos principais problemas estruturais do país reforça tudo isso.</example>
+                    <example>Hoje, graças a evolução do mercado de games no Brasil, a tendência é de os jogos terem opção de Português.</example>
+                    <example>O secretário de Relações do Trabalho ressaltou o acerto de o acordo ter sido firmado por dois anos.</example>
+                    <example>No caso de a investigação durar menos de 5 dias poderá ser facultada autorização temporária de leitura.</example>
+                    <example>O medo é de o cachorro ficar aleijado algum dia por causa da doença, existe a possibilidade?</example>
+                    <example>Seria o caso de o governo apresentá-las ao público.</example>
+                    <example>Quais são as chances de o Tom vir realmente?</example>
+                    <example>Ainda deu tempo de a Eslováquia diminuir no último minuto de jogo.</example>
+                    <example>O Tom disse que ele sabia o motivo de a Mary ter feito aquilo.</example>
+                </antipattern>
                 <antipattern>
                     <token regexp='yes'>&expressao_invariavel_com_DE;</token>
                     <token>de</token>
@@ -33617,6 +33733,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
+        <rule id='CONFUSÃO_ESTÁ_ESTA' name="[Confusão] está/esta">
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <!-- The rare verbs were causing FPs, so I had to limit the scope. Later fix the rare verbs and try again. -->
+            <pattern>
+                <token postag='SENT_START|_PUNCT|CC' postag_regexp='yes'/>
+                <marker>
+                    <token regexp='yes'>estás?</token>
+                </marker>
+                <token min='1' max='2' postag='AQ0F.+|N.F.+' postag_regexp='yes'/>
+                <token postag='V.+' postag_regexp='yes'><exception scope='next' postag='SENT_END|_PUNCT' postag_regexp='yes'/></token>
+            </pattern>
+            <message>Uso de &quot;esta&quot; (demonstrativo) em vez de &quot;está&quot; (verbo).</message>
+            <suggestion><match no='2' case_conversion='preserve' regexp_match='(...)(.)(s?)' regexp_replace='$1a$3'/></suggestion>
+            <example correction='Esta'><marker>Está</marker> mulher é o máximo.</example>
+            <example correction='Estas'><marker>Estás</marker> mulheres são o máximo.</example>
+        </rule>
+
+
         <rule id='O_AO' name="[Confusão] o/ao" >
             <!--      Created by Marco A.G.Pinto, Portuguese rule - 2020-07-04 (2-JUL-2020+) -->
             <pattern>
@@ -35048,16 +35182,42 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <!-- UNS TEM SORTE uns têm sorte -->
         <rule id='CONFUSÃO_TEM_TÊM' name="[Confusão] tem/têm">
-            <!-- Created by Marco A.G.Pinto, Portuguese rule 2022-11-22 (Checked/Enhanced) (25-JUL-2022+) -->
-            <!--
-      Uns tem sorte no jogo. → Uns têm sorte no jogo.
-      Uns não tem sorte no jogo. → Uns não têm sorte no jogo.
-      -->
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <!-- Later expand also to "(SPS00:)?" -->
+            <antipattern>
+                <token postag='[DP]...[NS].+' postag_regexp='yes'><exception postag='CS|CC|RG|PD0NN000' postag_regexp='yes'/></token>
+                <token min='0' max='1' postag='SPS00' postag_regexp='no'/>
+                <token postag='[DP]...P.+' postag_regexp='yes'/>
+                <token min='0' max='1' postag='RN|RG|RM' postag_regexp='yes'/>
+                <token>tem</token>
+                <example>Claro que tudo isto é bonito para quem não tem filhos, para quem os tem, boa sorte!</example>
+                <example>Algum de vocês tem algo melhor pra fazer?</example>
+                <example>Certezas são avaliadas pelo ponto de vista de quem as tem.</example>
+                <example>Nenhum de nós tem razão.</example>
+                <example>Você os tem visto?</example>
+                <example>Algum de vocês tem um lápis?</example>
+            </antipattern>
+
+            <antipattern>
+                <token postag='CS|[DP]...S.+|AQ..S.+|N..S.+|Z..S.+' postag_regexp='yes'/>
+                <token postag='SPS00|N.+|AQ.+|RG' postag_regexp='yes'/>
+                <token postag='[DP]...P.+' postag_regexp='yes'/>
+                <token min='0' max='1' postag='RN|RG|RM' postag_regexp='yes'/>
+                <token>tem</token>
+                <example>, que para eles tem pouco ou nenhum sentido.</example>
+                <example>(como o Planalto os tem definido em suas notas estapafúrdias).</example>
+                <example>Ele também nos tem dado grande trânsito junto à igreja brasileira nos últimos 7 anos.</example>
+                <example>O cachorro de vocês tem patas enormes!</example>
+                <example>Por que Tom ainda os tem?</example>
+                <example>A França já as tem, há algum tempo.</example>
+                <example>O fato que a maioria de nós não tem pais.</example>
+                <example>Cada um de nós tem uma perspectiva específica que precisa ser liberada.</example>
+            </antipattern>
+
             <pattern>
-                <token postag='PI0.P.+' postag_regexp='yes'/>
-                <token min="0" max="1" postag='RN' postag_regexp='no'/>
+                <token postag='[DP]...P.+' postag_regexp='yes'><exception regexp='yes'>[ao]s?</exception></token>
+                <token min='0' max='1' postag='RN|RG|RM' postag_regexp='yes'/>
                 <marker>
                     <token>tem</token>
                 </marker>
@@ -35066,6 +35226,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <suggestion>têm</suggestion>
             <example correction="têm">Uns <marker>tem</marker> sorte no jogo.</example>
             <example correction="têm">Uns não <marker>tem</marker> sorte no jogo.</example>
+            <example>Junto ainda as redes do Ajax e do PSV, mas recordo-te que o estadio do Feyenoord (de Kuip) não as tem.</example>
         </rule>
 
 
@@ -42865,35 +43026,37 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <example>…com uma pedra…—, acho que…</example>
         </rule>
 
-        <rulegroup id='CHEMICAL_FORMULAS_TYPOGRAPHY' name='Fórmulas químicas'>
-            <!-- Created b8y Tiago F. Santos, 2017-02-12 -->
 
-            <!-- MARCOAGPINTO 2022-05-30 + 2022-10-02 (Checked/Enhanced) (24-MAY-2022+) *START* -->
-            <!--
-            THIS ANTIPATTERN ALSO APPEARS IN TWO OTHER PLACES ALSO ^2 RELATED.
-            As forças estão organizadas numa hierarquia C2.
-            -->
+        <rulegroup id='CHEMICAL_FORMULAS_TYPOGRAPHY' name='Fórmulas químicas'>
+            <!-- Created by Tiago F. Santos, 2017-02-12 -->
+
+            <antipattern> <!-- #1: Military usage - C2 -->
+                <token>comando</token>
+                <token>e</token>
+                <token skip='-1' regexp='yes'>control[oe]?</token>
+                <token case_sensitive='yes'>C2</token>
+                <example>Estabelecendo uma estrutura de Comando e Controlo (C2).</example>
+                <example>As exigências de uma moderna instalação de Comando e Controle (C2) terminou beneficiando a Instituição.</example>
+            </antipattern>
+            <antipattern> <!-- #2: Military usage - C2 -->
+                <token skip='-1' case_sensitive='yes'>C2</token>
+                <token>comando</token>
+                <token>e</token>
+                <token regexp='yes'>control[oe]?</token>
+                <example>O C2 representa uma estrutura de Comando e Controlo.</example>
+            </antipattern>
+            <antipattern> <!-- #3: Military usage - C2 -->
+                <token skip='1' regexp='yes'>ciclos?|estruturas?|hierarquias?|hierárquicas?</token>
+                <token case_sensitive='yes'>C2</token>
+                <example>Militarmente temos estruturas de C2.</example>
+                <example>As forças estão organizadas numa hierarquia C2.</example>
+            </antipattern>
+
             <antipattern>
                 <token regexp='yes'>BBB|CC|Y|C2C|B2C|U|V|W|PB|SiO|COP|FS|SnO</token>
                 <token regexp='yes'>\d+</token>
                 <example>Ela é uma das participantes do BBB5.</example>
             </antipattern>
-            <antipattern>
-                <token regexp='yes'>ciclos?|estruturas?|hierarquias?|hierárquicas?</token>
-                <token min="0" max="1">de</token>
-                <token case_sensitive='yes'>C2</token>
-            </antipattern>
-            <!-- 2022-10-02 -->
-            <!--
-            O grupo detém pouca análise de alvos, C2 ou capacidade de aprendizagem.
-            -->
-            <antipattern>
-                <token postag='NC.+|AQ.+' postag_regexp='yes'/>
-                <token min="0" max="1" postag='_PUNCT' postag_regexp='no'/>
-                <token case_sensitive='yes'>C2</token>
-                <token postag='CC' postag_regexp='no'/>
-            </antipattern>
-            <!-- MARCOAGPINTO 2022-05-30 + 2022-10-02 (Checked/Enhanced) (24-MAY-2022+) *END* -->
 
             <rule>
                 <pattern case_sensitive='yes'>

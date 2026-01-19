@@ -139390,6 +139390,15 @@ The accident victim died from her injuries.
     </category>
 
     <category id="PROPER_NOUNS" name="Proper Nouns">
+        <rule id="KATHERINA_REICHE" name="Katharina (Katherina) Reiche">
+            <pattern>
+                <token regexp="yes" case_sensitive="yes">Kath?arina</token>
+                <token case_sensitive="yes">Reiche</token>
+            </pattern>
+            <message>The name of this German politician is written with an "e" in the middle.</message>
+            <suggestion>Katherina \2</suggestion>
+            <example correction="Katherina Reiche"><marker>Katharina Reiche</marker> is a politician.</example>
+        </rule>
         <rulegroup id="OPEN_OFFICE" name="Open Office (OpenOffice)">
             <rule>
                 <pattern>

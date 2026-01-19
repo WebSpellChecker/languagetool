@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/print.xsl" title="Pretty print" ?>
 <?xml-stylesheet type="text/css" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.css" title="Easy editing stylesheet" ?>
+
 <!--
-Portuguese Style Rules for LanguageTool
-See tagset.txt for the meaning of the POS tags
-Copyright (C) 2001-2023 Daniel Naber (http://www.danielnaber.de),
-  Marcin Miłkowski, and the LanguageTool contributors
+Portuguese - Style Rules for LanguageTool.
+
+See tagset.txt for the meaning of the POS tags.
+Copyright © 2001-2026 Daniel Naber (http://www.danielnaber.de),
+Marcin Miłkowski, and the LanguageTool contributors.
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -14,16 +16,16 @@ version 2.1 of the License, or (at your option) any later version.
 
 This library is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public
 License along with this library; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
-USA
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 -->
 
-<!-- Contribuintes opensource, deem uma olhada aqui: https://dev.languagetool.org/#portuguese -->
+<!-- Contribuidores open-source: consultem https://dev.languagetool.org/#portuguese -->
+
 
 <!DOCTYPE rules [
     <!ENTITY % messages  SYSTEM "../../resource/pt/entities/messages.ent" >
@@ -3691,7 +3693,54 @@ USA
     <category id='FORMAL' name='Linguagem formal' type='style' tone_tags="formal">
 
 
-        <rule id='COMO_SEGUNDO_CONFORME' name="Como/segundo → conforme" type='style' tone_tags='formal' default='temp_off'>
+        <rulegroup id='LENTO_MOROSO' name="Lento → moroso" type='style' tone_tags='formal'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <rule> <!-- #1: lentidão → morosidade -->
+                <pattern>
+                    <marker>
+                        <token>lentidão</token>
+                    </marker>
+                    <token min='0' max='2' postag='SPS00|(SPS00:)?[DP].+|V.+|RG|RM' postag_regexp='yes'/>
+                    <token regexp='yes' inflected='yes'>acompanhamento|acórdão|admissão|análise|andamento|apreciação|apresentação|apuração|arquivamento|atendimento|auditoria|autorização|avaliação|averiguação|cadastro|candidatura|certificação|comunicação|conclusão|confirmação|contestação|contrarrazões|controle|controlo|correição|credenciamento|cumprimento|decisão|deferimento|defesa|deliberação|demanda|desarquivamento|despacho|determinação|encaminhamento|encerramento|etapa|exame|execução|fase|fiscalização|formalização|habilitação|homologação|impugnação|indeferimento|inquérito|inscrição|inspeção|instância|instrução|intimação|investigação|julgamento|licenciamento|liquidação|manifestação|monitoramento|notificação|parecer|pedido|petição|procedimento|processamento|pronunciamento|propositura|proposta|protocolo|publicação|ratificação|reconsideração|recurso|redistribuição|registo|registro|regularização|relatório|remessa|réplica|requerimento|resolução|resposta|revisão|sentença|solicitação|submissão|supervisão|tramitação|trâmite|tratamento|validação|verificação|vistoria|voto</token> <!-- whitelist institucional GPT 5.2 -->
+                </pattern>
+                <message>Em textos formais, legais ou jurídicos, prefira &quot;morosidade&quot;.</message>
+                <suggestion>morosidade</suggestion>
+                <example correction="morosidade">Toda esta <marker>lentidão</marker> na homologação é incompreensível.</example>
+                <example>A morosidade do processo ultrapassa todos os limites.</example>
+            </rule>
+
+            <rule> <!-- #2: lent[ao]s? → moros[ao]s? WHITELIST BEFORE -->
+                <pattern>
+                    <token regexp='yes' inflected='yes'>acompanhamento|acórdão|admissão|análise|andamento|apreciação|apresentação|apuração|arquivamento|atendimento|auditoria|autorização|avaliação|averiguação|cadastro|candidatura|certificação|comunicação|conclusão|confirmação|contestação|contrarrazões|controle|controlo|correição|credenciamento|cumprimento|decisão|deferimento|defesa|deliberação|demanda|desarquivamento|despacho|determinação|encaminhamento|encerramento|etapa|exame|execução|fase|fiscalização|formalização|habilitação|homologação|impugnação|indeferimento|inquérito|inscrição|inspeção|instância|instrução|intimação|investigação|julgamento|licenciamento|liquidação|manifestação|monitoramento|notificação|parecer|pedido|petição|procedimento|processamento|pronunciamento|propositura|proposta|protocolo|publicação|ratificação|reconsideração|recurso|redistribuição|registo|registro|regularização|relatório|remessa|réplica|requerimento|resolução|resposta|revisão|sentença|solicitação|submissão|supervisão|tramitação|trâmite|tratamento|validação|verificação|vistoria|voto</token> <!-- whitelist institucional GPT 5.2 -->
+                    <token min='0' max='2' postag='SPS00|(SPS00:)?[DP].+|V.+|RG|RM' postag_regexp='yes'/>
+                    <marker>
+                        <token regexp='yes'>lent[ao]s?</token>
+                    </marker>
+                </pattern>
+                <message>Em textos formais, legais ou jurídicos, prefira &quot;moroso&quot;.</message>
+                <suggestion><match no='3' postag='AQ.+' postag_regexp='yes'>moroso</match></suggestion>
+                <example correction="moroso">O procedimento <marker>lento</marker> foi criticado.</example>
+                <example>A validação é muito morosa.</example>
+            </rule>
+
+            <rule> <!-- #3: lent[ao]s? → moros[ao]s? WHITELIST AFTER -->
+                <pattern>
+                    <marker>
+                        <token regexp='yes'>lent[ao]s?</token>
+                    </marker>
+                    <token min='0' max='2' postag='SPS00|(SPS00:)?[DP].+|V.+|RG|RM' postag_regexp='yes'/>
+                    <token regexp='yes' inflected='yes'>acompanhamento|acórdão|admissão|análise|andamento|apreciação|apresentação|apuração|arquivamento|atendimento|auditoria|autorização|avaliação|averiguação|cadastro|candidatura|certificação|comunicação|conclusão|confirmação|contestação|contrarrazões|controle|controlo|correição|credenciamento|cumprimento|decisão|deferimento|defesa|deliberação|demanda|desarquivamento|despacho|determinação|encaminhamento|encerramento|etapa|exame|execução|fase|fiscalização|formalização|habilitação|homologação|impugnação|indeferimento|inquérito|inscrição|inspeção|instância|instrução|intimação|investigação|julgamento|licenciamento|liquidação|manifestação|monitoramento|notificação|parecer|pedido|petição|procedimento|processamento|pronunciamento|propositura|proposta|protocolo|publicação|ratificação|reconsideração|recurso|redistribuição|registo|registro|regularização|relatório|remessa|réplica|requerimento|resolução|resposta|revisão|sentença|solicitação|submissão|supervisão|tramitação|trâmite|tratamento|validação|verificação|vistoria|voto</token> <!-- whitelist institucional GPT 5.2 -->
+                </pattern>
+                <message>Em textos formais, legais ou jurídicos, prefira &quot;moroso&quot;.</message>
+                <suggestion><match no='1' postag='AQ.+' postag_regexp='yes'>moroso</match></suggestion>
+                <example correction="moroso">O <marker>lento</marker> procedimento foi criticado.</example>
+                <example>A morosa supervisão afetou o relatório.</example>
+            </rule>
+        </rulegroup>
+
+
+        <rule id='COMO_SEGUNDO_CONFORME' name="Como/segundo → conforme" type='style' tone_tags='formal'>
             <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <pattern>
                 <marker>
@@ -4159,7 +4208,7 @@ USA
         </rule>
 
 
-        <rule id='APENAS_SOMENTE' name="Apenas → Somente" tone_tags='formal' tags='picky'>
+        <rule id='APENAS_SOMENTE' name="Apenas → Somente" tone_tags='formal' tags='picky' is_goal_specific='true'>
             <!-- Used DeepSeek-V3 -->
             <pattern>
                 <token regexp='no'>apenas</token>
@@ -4561,7 +4610,6 @@ USA
                     <example>Morra, seu bastardo!</example>
                     <example>MORRA AGORA, SEU ASSASSINO!</example>
                     <example>Morra, sua vadia!</example>
-                    <example>Ela dirá para o mundo ouvir: “Fraqueza, medo e desespero morreram; força, poder e coragem nasceram”.</example>
                     <example>É que eu não quero morrer hoje, só isso.</example>
                     <example>"Morre, danado!"</example>
                     <example>Por exemplo, a palavra alemã "Sterben" e outras que significam «morrer» são cognados da palavra inglesa.</example>
@@ -9473,7 +9521,47 @@ USA
         </rule>
 
     </category>
+
+
     <category id='ACADEMIC' name='Linguagem acadêmica' type='style' tone_tags="academic">
+
+
+        <rule id='COMPARADA_COMPARÁVEL' name="'Comparada' a → Comparável" type='style' tone_tags='academic' is_goal_specific='true'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <token skip='1' regexp='yes' inflected='yes'>capacidade|processo|fenómeno|fenômeno|mecanismo|estrutura|dinâmica|função|propriedade|característica|qualidade|natureza|sistema|modelo|paradigma|conceito|noção|abordagem|estratégia|metodologia|método|lógica|princípio|relação|interação|configuração|dimensão|aspecto|padrão|forma|organização|estruturação</token> <!-- substantivos abstratos mais comuns em teses ChatGPT 5.2 -->
+                <token postag='VMI[IP].+' postag_regexp='yes' inflected='yes'>ser</token> <!-- The safest 'VMI[IP].+' -->
+                <marker>
+                    <token regexp='yes'>comparad[ao]s?</token>
+                </marker>
+                <token regexp='yes'>a|às?|aos?</token>
+            </pattern>
+            <message>Em escrita académica, &quot;comparável&quot; é frequentemente preferido a &quot;comparada&quot; por expressar semelhança de forma mais objetiva.</message>
+            <suggestion><match no='3' postag='VMP00(.).' postag_replace='AQ0C$10'>comparável</match></suggestion>
+            <example correction="comparável">Tal capacidade é <marker>comparada</marker> à possibilidade de vencer.</example>
+            <example correction="comparáveis">Tais capacidades são <marker>comparadas</marker> às possibilidades de vencer.</example>
+        </rule>
+
+
+        <rule id='DIFERENTES_DISTINTOS' name="Diferentes → distintos" type='style' tone_tags='academic' is_goal_specific='true'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <token postag='NC[MF]P.+' postag_regexp='yes' regexp='yes' inflected='yes'>conceito|categoria|classe|tipo|método|procedimento|processo|estratégia|modelo|sistema|critério|parâmetro|variável|fator|elemento|componente|nível|dimensão|fase|etapa|hipótese|premissa|pressuposto|interpretação|análise|perspectiva|estrutura</token> <!-- The safest -->
+                <token min='0' max='1' regexp='yes' inflected='yes'>ser|estar|tornar|mostrar|revelar|permanecer|manter|continuar|parecer|apresentar</token>
+                <token min='0' max='2' postag='RG|RM' postag_regexp='yes'/>
+                <marker>
+                    <token>diferentes</token>
+                </marker>
+            </pattern>
+            <message>Num contexto formal/científico, é frequente empregar &quot;distintos&quot; em vez de &quot;diferentes&quot;.</message>
+            <suggestion><match no='1' postag='NC(.)P000' postag_replace='AQ0$1P0'>distinto</match></suggestion>
+            <example correction="distintas">São hipóteses <marker>diferentes</marker>.</example>
+            <example correction="distintos">São pressupostos <marker>diferentes</marker>.</example>
+            <example correction="distintos">São critérios claramente muito <marker>diferentes</marker>.</example>
+            <example>Ambas as premissas são distintas.</example>
+            <example>Os pressupostos são bastante distintos.</example>
+        </rule>
+
 
         <rule id='APAGAR_INDELÉVEL' name="[Universitário][Científico] Não conseguir apagar → Indelével" tone_tags="academic" is_goal_specific="true">
             <pattern>
@@ -11516,6 +11604,25 @@ USA
     </category>
 
     <category id="SCIENTIFIC" name="Linguagem científica" type="style" tone_tags="scientific">
+
+
+        <rule id='LINHA_RETA_RETA_V2' name="Traçar 'linha reta' → reta" type='style' tone_tags='scientific' is_goal_specific='true'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <token skip='3' regexp='yes' inflected='yes'>traçar|desenhar|riscar</token>
+                <marker>
+                    <token regexp='yes'>linhas?</token>
+                    <token regexp='yes'>rec?tas?</token>
+                </marker>
+            </pattern>
+            <message>Em contexto técnico, &quot;reta&quot; é suficiente.</message>
+            <suggestion>\3</suggestion>
+            <example correction="reta">Vou traçar uma <marker>linha reta</marker> entre os pontos.</example>
+            <example correction="retas">Vou traçar várias <marker>linhas retas</marker> no quadro.</example>
+            <example>O Rui vai traçar mais duas retas para todos analisarem.</example>
+        </rule>
+
+
         <rulegroup id="NUMERO_DE_MOLS" name="Número de mols → massa molecular" tags="picky" is_goal_specific="true">
             <rule>
                 <pattern>
@@ -11583,7 +11690,7 @@ USA
             <example correction="a constante de Avogadro">Calculamos com <marker>o número de Avogadro</marker>.</example>
         </rule>
 
-        <rule id="GRAU_CENTIGRADO" name="Preferir 'grau Celius' a 'grau centígrado'.">
+        <rule id="GRAU_CENTIGRADO" name="Preferir 'grau Celsius' a 'grau centígrado'.">
             <pattern>
                 <token regexp="yes">graus?</token>
                 <marker>
@@ -11910,7 +12017,7 @@ USA
                         <exception scope='previous' postag_regexp='yes' postag='SENT_START|_QUOT|NP.+'/>
                         <exception scope="previous" regexp="no">quem</exception></token>
                     <token postag='VMP00SM'>
-                        <exception regexp='yes' inflected='yes'>abandonar|abrir|acabar|achar|adquirir|alcançar|aparecer|assemelhar|assistir|atingir|cessar|chegar|começar|concluir|conseguir|cuidar|decidir|desaparecer|descansar|desistir|determinar|doutorar|encerrar|escolher|estar|evaporar|existir|ficar|finalizar|findar|fracassar|ganhar|imaginar|iniciar|julgar|manifestar|morrer|nascer|obter|optar|parecer|partir|perder|permanecer|receber|relaxar|renunciar|resolver|sair|selec?cionar|sentir|ser|sumir|superar|supor|surgir|terminar|triunfar|vencer|ver|vir|viver</exception></token> <!-- ChatGPT 4o -->
+                        <exception regexp='yes' inflected='yes'>abandonar|abrir|acabar|achar|adquirir|alcançar|aparecer|assemelhar|assistir|associar|atingir|cessar|chegar|começar|concluir|conseguir|cuidar|decidir|desaparecer|descansar|desistir|determinar|doutorar|encerrar|escolher|estar|evaporar|existir|ficar|finalizar|findar|fracassar|ganhar|imaginar|iniciar|julgar|manifestar|morrer|nascer|obter|optar|parecer|partir|perder|permanecer|receber|relaxar|renunciar|resolver|sair|selec?cionar|sentir|ser|sumir|superar|supor|surgir|terminar|triunfar|vencer|ver|vir|viver</exception></token> <!-- ChatGPT 4o -->
                 </marker>
                 <token regexp='yes'>[ao]s?|que|em|com|desde|u(m|ns)|umas?|muit[ao]s|há</token>
             </pattern>
@@ -15433,7 +15540,7 @@ USA
         </rule>
 
 
-        <rulegroup id='PRON_PESSOAL_REPETIDO_REMOVER_SEG_REPETICAO' name="[Simplificar] Omitir pronome pessoal redundante" type='style' default='temp_off'>
+        <rulegroup id='PRON_PESSOAL_REPETIDO_REMOVER_SEG_REPETICAO' name="[Simplificar] Omitir pronome pessoal redundante" type='style'>
             <!--IDEA shorten_it-->
             <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <rule>
@@ -15690,7 +15797,7 @@ USA
         </rule>
 
 
-        <rule id='QUE_PRETENDER_PRETENDIDO' name="[Simplificar] que pretender → pretendido" type='style' default='temp_off'>
+        <rule id='QUE_PRETENDER_PRETENDIDO' name="[Simplificar] que pretender → pretendido" type='style'>
             <!--IDEA shorten_it-->
             <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <pattern>
