@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-01-23
+
+### Security
+- **ch.qos.logback upgrade:** Updated `ch.qos.logback` to **1.5.25** to address **CVE-2026-1225**.
+  - Scope: components depending on `ch.qos.logback` (direct or transitive).
+
 ## 2025-09-30
 
 ### Security
