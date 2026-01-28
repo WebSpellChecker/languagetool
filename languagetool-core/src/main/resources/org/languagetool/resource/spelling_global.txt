@@ -7395,6 +7395,7 @@ Morgan Fairchild
 Food and Drug Administration
 US Food and Drug Administration
 U.S. Food and Drug Administration
+Elbridge Andrew Colby
 Elbridge A. Colby
 Elbridge Colby
 William Egan Colby
@@ -10733,6 +10734,7 @@ Pierre Loti
 Pierre Louÿs
 Pierre Mac Orlan
 Pierre Teilhard de Chardin
+Teilhard de Chardin
 Pierre de Coubertin
 Pierre de Marivaux
 Pierre de Ronsard
@@ -15986,6 +15988,7 @@ Microsoft Word
 John Henry
 Magdalena Kožená
 Frank Gehry
+Frank O. Gehry
 Clare Daly
 Jean-François Maurice
 Alejandro Lerroux
@@ -19089,6 +19092,9 @@ Włodzimierz Cimoszewicz
 Traian Băsescu
 Emil Boc
 Nicolae Ceaușescu
+Elena Ceaușescu
+Ceaușescu
+Timișoara
 Daniel Chițoiu
 Sorin Cîmpeanu
 Dacian Cioloș
@@ -23429,6 +23435,8 @@ Ethan Mollick
 William Baumol
 Eva Cassidy
 Glenn Loury
+Glenn D. Lowry
+Glenn Lowry
 Pierre Larrouturou
 San Luis Potosí
 Juan Gil-Albert
@@ -27093,6 +27101,8 @@ Apostolos Tzitzikostas
 Christophe Hansen
 Glenn Micallef
 Pam Bondi
+Pamela Jo Bondi
+Pamela Bondi
 Oxford Circus
 Oxford Street
 Vinci Autoroutes
@@ -28178,6 +28188,7 @@ Lars Hörmander
 John Milnor
 Michael Atiyah
 Paul Cohen
+Paul Joseph Cohen
 Stephen Smale
 Alan Baker
 Heisuke Hironaka
@@ -28874,7 +28885,8 @@ Boris Cyrulnik
 Gheorghe Gheorghiu-Dej
 Gheorghiu-Dej
 Joel Mokyr
-Phillippe Aghion
+Philippe Mario Aghion
+Philippe Aghion
 Peter Howitt
 Scott Summer
 David Heinemeier Hansson
@@ -28922,7 +28934,9 @@ Kenny McCormick
 Stan Marsh
 Kyle Broflovski
 Ryan Walters
+Eugénie de Montijo
 Hombres G
+Álex Mumbrú
 Jake Barnes
 Johann Carl Fuhlrott
 Thomas Massie
@@ -29264,3 +29278,138 @@ RCP4.5
 RCP6.0
 RCP8.5
 Andrew Gelman
+Michael Allen
+Mike Allen
+Cyril Burt
+Matt Walsh
+Matthew Walsh
+Craig Venter
+Tim Leiweke
+Timothy J. Leiweke
+Timothy Leiweke
+Arthur Cayley
+George Peacock
+Ole Rømer
+Ole Christensen Rømer
+Marin Mersenne
+Mersenne
+Jacques Hadamard
+Hadamard
+Jacques Salomon Hadamard
+Paul Lévy
+Princeton University Press
+University Press
+Univ. Press
+École normale supérieure
+Paul Tannery
+Charles Hermite
+Paul Appell
+Gaston Darboux
+Jakob Steiner
+Charles Émile Picard
+Édouard Goursat
+Mayflower
+Andrew Volstead
+Mitch Glazier
+Alternative für Deutschland
+Ralf Stegner
+Hans-Christoph Berndt
+Aaron Paul
+Paz Vega
+Jesse Pinkman
+Breaking Bad
+Darko Perić
+Álex González
+Alex Gonzalez
+Martina Klein
+Jessica Goicoechea
+Jon Kortajarena
+James A. Robinson
+Florence Foster Jenkins
+Tres Cantos
+Olivia Nuzzi
+Kyriakos Pierrakakis
+Aladár Aujeszky
+Aujeszky
+John Barrymore
+David Lloyd
+Martin Odersky
+Little Bighorn
+Joseph Whitworth
+Omoda
+Chery Automobile
+Edwin Thompson Jaynes
+E. T. Jaynes
+Edwin Jaynes
+Prado del Rey
+Tina Peters
+Simon Cameron
+Stuyvesant
+Sepideh Qolian
+Cheng Li-wun
+This Is Spinal Tap
+Alison Gopnik
+Adam Gopnik
+Blake Gopnik
+Bart Albert Liliane De Wever
+Filip Dewinter
+Nieuw-Vlaamse Alliantie
+Gary Winnick
+Raoul Peck
+Ali MacGraw
+Spiro Theodore Agnew
+Spiro Agnew
+Fitzcarraldo
+Kaspar Hauser
+Rupert Croft-Cooke
+Ko Tao
+Koh Tao
+David Remnick
+Eustace Tilley
+Norman Podhoretz
+Loomio
+Strauss Festival Orchestra
+Barry Goldwater
+Louis Gerstner
+Louis Vincent Gerstner
+Louis V. Gerstner
+George Bailey
+Isiah Whitlock
+Mamady Doumbouya
+Judy Hopps
+Nick Wilde
+Laura Knight
+John Harwood
+Junko Tabei
+Cilia Flores
+Tania D'Amelio
+Tania D’Amelio
+Tania D'Amelio Cardiet
+Tania D’Amelio Cardiet
+Yván Gil
+Mike Lee
+Éponine Thénardier
+Charles Dawson
+Maurice Merleau-Ponty
+Merleau-Ponty
+Collège de France
+Hillbilly Elegy
+Joseph Butler
+Charles Lawson
+Charlie Lawson
+Teyana Taylor
+Chase Infiniti
+Jón Leifs
+James Hutton
+Robert Jameson
+John Playfair
+Abraham Gottlob Werner
+Ramón de Carranza
+Nuevo Mirandilla
+Max Horkheimer
+Gustav Lejeune Dirichlet
+Lejeune Dirichlet
+Peter Gustav Lejeune Dirichlet
+Johann Peter Gustav Lejeune Dirichlet
+Gustav Dirichlet
+Dirichlet

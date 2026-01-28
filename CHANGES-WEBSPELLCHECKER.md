@@ -2,16 +2,10 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
-## 2025-11-12
+## 2026-01-23
 
 ### Security
-- **nimbus-jose-jwt upgrade:** Updated `nimbus-jose-jwt` to **10.0.2** to address **CVE-2023-52428** and **CVE-2025-53864**.
-  - Scope: components depending on `nimbus-jose-jwt` (direct or transitive).
-
-## 2025-10-27
-
-### Security
-- **ch.qos.logback upgrade:** Updated `ch.qos.logback` to **1.5.19** to address **CVE-2025-11226**.
+- **ch.qos.logback upgrade:** Updated `ch.qos.logback` to **1.5.25** to address **CVE-2026-1225**.
   - Scope: components depending on `ch.qos.logback` (direct or transitive).
 
 ## 2025-09-30
