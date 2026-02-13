@@ -7,6 +7,7 @@ Boole
 Buchanan
 Bülow
 Dolly
+Dubái
 Euromaidán
 Gatwick
 Gettysburg
@@ -413,6 +414,20 @@ arancéletelo
 arancéletelos
 arancéleteme
 arancéletenos
+beta-2-microglobulina
+beta-2-microglobulinas
+beta-antagonista
+beta-antagonistas
+beta-feniletilamina
+beta-feniletilaminas
+beta-fructofuranosidasa
+beta-fructofuranosidasas
+beta-fructosidasa
+beta-fructosidasas
+beta-talasemia
+beta-talasemias
+beta-tromboglobulina
+beta-tromboglobulinas
 cafetito
 cafetitos
 cazamapaches
@@ -810,6 +825,8 @@ maître
 maîtres
 metre
 metres
+mánager
+mánagers
 neopentecostal
 neopentecostales
 neopentecostalismo

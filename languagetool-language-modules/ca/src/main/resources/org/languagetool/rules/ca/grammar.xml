@@ -1585,7 +1585,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <rule>
                 <pattern>
                     <token postag="D[^R].F.*" postag_regexp="yes"/>
-                    <token min="0" max="2" postag="A..C.*" postag_regexp="yes"/>
+                    <token min="0" max="2" postag="A..C.*|RG.*" postag_regexp="yes"/>
                     <marker>
                         <token postag="N.*" postag_regexp="yes" regexp="yes">costums?|avantatges?|desavantatges?</token>
                     </marker>
@@ -1594,13 +1594,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>Aquest nom és masculí.</message>
                 <short>Error de concordança</short>
                 <example correction="Els ancestrals costums"><marker>Les ancestrals costums</marker>.</example>
+                <example correction="Els sempre extravagants costums"><marker>Les sempre extravagants costums</marker>.</example>
             </rule>
             <rule>
                 <pattern>
                     <marker>
                         <token postag="N.*" postag_regexp="yes" regexp="yes">costums?|avantatges?|desavantatges?</token>
                     </marker>
-                    <token min="0" max="2" postag="A..C.*" postag_regexp="yes"/>
+                    <token min="0" max="2" postag="A..C.*|RG.*" postag_regexp="yes"/>
                     <token postag="A..F.*|V.P...F.|PX.F.*" postag_regexp="yes"><exception postag="_possible_nompropi"/></token>
                 </pattern>
                 <filter class="org.languagetool.rules.ca.ConvertToGenderAndNumberFilter" args="lemmaSelect:N.* keepOriginal:true gender:M"/>
@@ -1611,7 +1612,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <rule>
                 <pattern>
                     <token postag="A..F.*|V.P...F.|PX.F.*" postag_regexp="yes"><exception postag_regexp="yes" postag="_perfet|_GV_|_possible_nompropi"/></token>
-                    <token min="0" max="2" postag="A..C.*" postag_regexp="yes"/>
+                    <token min="0" max="2" postag="A..C.*|RG.*" postag_regexp="yes"/>
                     <marker>
                         <token postag="N.*" postag_regexp="yes" regexp="yes">costums?|avantatges?|desavantatges?<exception postag="NP.*" postag_regexp="yes"/></token>
                     </marker>
@@ -1620,6 +1621,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>Aquest nom és masculí.</message>
                 <short>Error de concordança</short>
                 <example correction="L'ampli costum"><marker>L'àmplia costum</marker>.</example>
+                <example correction="els seus extravagants costums">Primer són els de fora i <marker>les seves extravagants costums</marker>.</example>
+                <example correction="Els seus sempre extravagants costums"><marker>Les seves sempre extravagants costums</marker>.</example>
             </rule>
         </rulegroup>
         <rulegroup id="PENDENT_CORRENT" name="pendent, corrent (nom masculí)">
@@ -7276,6 +7279,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token>totes</token>
                 <token>totes</token>
             </antipattern>
+            <antipattern>
+                <token>així</token>
+                <token>i</token>
+                <token>tot</token>
+            </antipattern>
             <rule>
                 <pattern>
                     <unify negate="yes">
@@ -8044,23 +8052,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>Es va menjar la placenta dels seus dos parts.</example>
                 <example>Ha tingut dos parts amb cesàrea.</example>
             </rule>
-            <rule id="EDITORIAL" name="editorial (m/f)">
-                <pattern>
-                    <token skip="5" regexp="yes" inflected="yes">defensar|expressar|rebre|enviar|consensuar|acordar|escriure|redactar|llegir|firmar|signar</token>
-                    <token postag="D[^R].*" postag_regexp="yes"/>
-                    <marker>
-                        <token postag="_GN_F.*" postag_regexp="yes" regexp="yes">editorials?<exception postag="_GN_M.*" postag_regexp="yes"/></token>
-                    </marker>
-                    <token><exception regexp="yes">\p{Lu}.+</exception></token>
-                </pattern>
-                <message>En el sentit de 'article de fons' és masculí. En el sentit de 'empresa editora' és femení.</message>
-                <short>Possible error de concordança</short>
-                <example correction="">Vaig llegir aquella <marker>editorial</marker> horrorosa</example>
-                <example>Tal com ho hem fet: amb independència editorial</example>
-                <example>Vaig llegir l'editorial</example>
-                <example>de l'editorial Nova Terra</example>
-                <example>que va trobar publicada en una petita editorial</example>
-            </rule>
             <rule id="ALTRE_ALTRA" name="confusió altre/altra">
                 <pattern>
                     <marker>
@@ -8335,6 +8326,45 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <url>https://dlc.iec.cat/Results?DecEntradaText=ritual</url>
                 <example correction="Aquests rituals"><marker>Aquestes rituals</marker> són molt bonics.</example>
                 <example>Les rituals trobades de la tribu.</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="EDITORIAL" name="editorial (m/f)">
+            <rule>
+                <pattern>
+                    <token skip="5" regexp="yes" inflected="yes">defensar|expressar|rebre|enviar|consensuar|acordar|escriure|redactar|llegir|firmar|signar<exception scope="next">part</exception></token>
+                    <token postag="D[^R].*" postag_regexp="yes"/>
+                    <marker>
+                        <token postag="_GN_F.*" postag_regexp="yes" regexp="yes">editorials?<exception postag="_GN_M.*" postag_regexp="yes"/></token>
+                    </marker>
+                    <token><exception regexp="yes">\p{Lu}.+</exception></token>
+                </pattern>
+                <filter class="org.languagetool.rules.ca.ConvertToGenderAndNumberFilter" args="lemmaSelect:[AN].* keepOriginal:true gender:M"/>
+                <message>En el sentit de 'article de fons' és masculí. En el sentit de 'empresa editora' és femení.</message>
+                <short>Possible error de concordança</short>
+                <example correction="aquell editorial horrorós">Vaig llegir <marker>aquella editorial horrorosa</marker>.</example>
+                <example>Tal com ho hem fet: amb independència editorial</example>
+                <example>Vaig llegir l'editorial</example>
+                <example>de l'editorial Nova Terra</example>
+                <example>que va trobar publicada en una petita editorial</example>
+                <example>Els “no” que va rebre per part de moltes editorials van fer-li perdre la confiança com a escriptor.</example>
+                <example>Aquesta és la línia editorial de TV3.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="D[^R].*" postag_regexp="yes"/>
+                    <marker>
+                        <token postag="_GN_F.*" postag_regexp="yes" regexp="yes">editorials?<exception postag="_GN_M.*" postag_regexp="yes"/></token>
+                    </marker>
+                    <token min="0" max="1" postag="_GN_F.*" postag_regexp="yes"/>
+                    <token regexp="yes" skip="1">de|d'</token>
+                    <token regexp="yes" case_sensitive="yes">El|La|Ara|RAC1|Avui|Punt|Vanguardia|Mundo|País|Periódico|Ràdio|CatRàdio|TV3|Partal|VilaWeb|Atenta3|Telecinco</token>
+                </pattern>
+                <filter class="org.languagetool.rules.ca.ConvertToGenderAndNumberFilter" args="lemmaSelect:[AN].* keepOriginal:true gender:M"/>
+                <message>En el sentit de 'article de fons' és masculí. En el sentit de 'empresa editora' és femení.</message>
+                <short>Possible error de concordança</short>
+                <example correction="aquell editorial horrorós">Vaig llegir <marker>aquella editorial horrorosa</marker> de RAC1.</example>
+                <example correction="aquell editorial">No em va agradar gaire <marker>aquella editorial</marker> de VilaWeb.</example>
+                <example>Aquesta és la línia editorial de TV3.</example>
             </rule>
         </rulegroup>
         <rulegroup id="COMU_COMUNA" name="comú/comuna">
@@ -11260,24 +11290,64 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="dut">No els ha pas <marker>duta</marker></example>
             </rule>
         </rulegroup>
-        <rule id="SE_LI_CONEIX_COM" name="se li coneix com a -> es coneix com a">
-            <pattern>
-                <marker>
-                    <token>se</token>
-                    <token>li</token>
-                </marker>
-                <token min="0" max="3" chunk="GV"><exception inflected="yes">conèixer</exception></token>
-                <token inflected="yes" skip="3">conèixer</token>
-                <token>com</token>
-            </pattern>
-            <message>El pronom 'li' és incorrecte en aquest context.</message>
-            <suggestion>es</suggestion>
-            <suggestion>se'l</suggestion>
-            <suggestion>se la</suggestion>
-            <example correction="Es|Se'l|Se la"><marker>Se li</marker> coneixia en aquell temps com l'escriptor maleït.</example>
-            <example correction="Es|Se'l|Se la"><marker>Se li</marker> va conèixer en aquell temps com l'escriptor maleït.</example>
-            <example>No se li coneix cap ocupació.</example>
-        </rule>
+        <rulegroup id="SE_LI_CONEIX_COM" name="se li coneix com a -> es coneix com a">
+            <rule>
+                <pattern>
+                    <marker>
+                        <token>se</token>
+                        <token>li</token>
+                    </marker>
+                    <token min="0" max="3" chunk="GV"><exception inflected="yes">conèixer</exception></token>
+                    <token inflected="yes" skip="3">conèixer</token>
+                    <token>com</token>
+                </pattern>
+                <message>El pronom 'li' és incorrecte en aquest context.</message>
+                <suggestion>es</suggestion>
+                <suggestion>se'l</suggestion>
+                <suggestion>se la</suggestion>
+                <example correction="Es|Se'l|Se la"><marker>Se li</marker> coneixia en aquell temps com l'escriptor maleït.</example>
+                <example correction="Es|Se'l|Se la"><marker>Se li</marker> va conèixer en aquell temps com l'escriptor maleït.</example>
+                <example>No se li coneix cap ocupació.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token>se</token>
+                        <token>li</token>
+                    </marker>
+                    <token min="0" max="3" chunk="GV"><exception inflected="yes">conèixer</exception></token>
+                    <token inflected="yes" skip="3">conèixer</token>
+                    <token inflected="yes">per</token>
+                </pattern>
+                <message>El pronom 'li' és incorrecte en aquest context.</message>
+                <suggestion>es</suggestion>
+                <suggestion>se'l</suggestion>
+                <suggestion>se la</suggestion>
+                <example correction="Es|Se'l|Se la"><marker>Se li</marker> coneixia per la seva passió artística.</example>
+                <example correction="Es|Se'l|Se la"><marker>Se li</marker> coneixia pel nom d'escriptor maleït.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token>se</token>
+                        <token>li</token>
+                    </marker>
+                    <token min="0" max="3" chunk="GV"><exception inflected="yes">conèixer</exception></token>
+                    <token inflected="yes" skip="3">conèixer</token>
+                    <token regexp="yes" inflected="yes">amb|per</token>
+                    <token postag="D.*" postag_regexp="yes"/>
+                    <token regexp="yes" inflected="yes">nom|sobrenom|malnom|títol|mot|expressió|motiu</token>
+                </pattern>
+                <message>El pronom 'li' és incorrecte en aquest context.</message>
+                <suggestion>es</suggestion>
+                <suggestion>se'l</suggestion>
+                <suggestion>se la</suggestion>
+                <example correction="Es|Se'l|Se la"><marker>Se li</marker> coneixia pel nom d'escriptor maleït.</example>
+                <example correction="Es|Se'l|Se la"><marker>Se li</marker> va conèixer amb el nom d'escriptor maleït.</example>
+                <example correction="Es|Se'l|Se la"><marker>Se li</marker> va conèixer amb aquest sobrenom.</example>
+                <example>No se li coneix cap ocupació.</example>
+            </rule>
+        </rulegroup>
         <rulegroup id="RESPONDRE_A" name="respondre -> respondre a">
             <rule>
                 <pattern>
@@ -11288,11 +11358,27 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     </marker>
                     <token postag="NP.*" postag_regexp="yes"/>
                 </pattern>
-                <message>Probablement hi falta la preposició 'a' perquè el verb 'respondre' és intransitiu.</message>
+                <message>Probablement hi falta la preposició 'a'.</message>
                 <suggestion>\3 a</suggestion>
                 <example correction="respon a">Pedro Sánchez <marker>respon</marker> José María Aznar. </example>
                 <example correction="respon a">Rull <marker>respon</marker> Clara Ponsatí.</example>
                 <example>En la segona resposta Stalin afirma que no és possible.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token inflected="yes">respondre<exception postag="N.*|_GN_.*" postag_regexp="yes"/><exception regexp="yes">resposta|respostes</exception></token>
+                    <marker>
+                        <token postag="D.*" postag_regexp="yes"/>
+                    </marker>
+                    <token postag="PX.*|A.*" postag_regexp="yes" min="0" max="2"/>
+                    <token regexp="yes" inflected="yes">acusació|atac|carta|comentari|correu|email|e-mail|mail|crida|criteris|crítica|demanda|desafiament|descripció|desig|dubte|elogi|estàndard|estímul|exigència|expectativa|impuls|inquietuds|interpel·lació|interrogant|interrogatori|invitació|medicació|missatge|necessitat|objectiu|ofensiva|oferta|perfil|petició|pregunta|proposta|provocació|qüestió|repte|requeriment|salutació|salut|senyal|sol·licitud|teràpia|tractament|whatsapp|piulada|tweet|tuit|titular</token>
+                </pattern>
+                <filter class="org.languagetool.rules.AdaptSuggestionsFilter" args="none:none"/>
+                <message>És preferible fer aquesta construcció amb la preposició 'a'.</message>
+                <suggestion>a \2</suggestion>
+                <example correction="a la">Pedro Sánchez respon <marker>la</marker> pregunta dels peridistes.</example>
+                <example correction="als">La professora no sap respondre <marker>els</marker> dubtes dels alumnes.</example>
+                <example>En la segona resposta la pregunta no era adequada.</example>
             </rule>
         </rulegroup>
         <rulegroup id="VEGEM_VEIEM" name="vegem/veiem">
@@ -12913,7 +12999,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                         <token regexp="yes">el|la</token>
                     </marker>
                     <token chunk="GV" min="0" max="4"><exception regexp="yes" inflected="yes">&verbs_no_transitius;</exception></token>
-                    <token postag="V.*" postag_regexp="yes" inflected="yes" regexp="yes">&verbs_no_transitius;<exception postag="_GN_FS"/></token>
+                    <token chunk="GV" postag="V.*" postag_regexp="yes" inflected="yes" regexp="yes">&verbs_no_transitius;<exception postag="_GN_FS"/></token>
                 </pattern>
                 <message>El verb '<match no="3" postag="V.*" postag_regexp="yes" postag_replace="V.N.*"/>' no és transitiu. Useu el pronom adequat.</message>
                 <suggestion>li</suggestion>
@@ -12927,8 +13013,20 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token>l'</token>
                     </marker>
-                    <token chunk="GV" min="0" max="4"><exception regexp="yes" inflected="yes">&verbs_no_transitius;</exception></token>
                     <token postag="V.*" postag_regexp="yes" inflected="yes" regexp="yes">&verbs_no_transitius;</token>
+                </pattern>
+                <message>El verb '<match no="2" postag="V.*" postag_regexp="yes" postag_replace="V.N.*"/>' no és transitiu. Useu el pronom adequat.</message>
+                <suggestion>li </suggestion>
+                <short>Verb intransitiu</short>
+                <example correction="li ">No <marker>l'</marker>abelleix.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token>l'</token>
+                    </marker>
+                    <token chunk="GV" min="0" max="4"><exception regexp="yes" inflected="yes">&verbs_no_transitius;</exception></token>
+                    <token chunk="GV" postag="V.*" postag_regexp="yes" inflected="yes" regexp="yes">&verbs_no_transitius;</token>
                 </pattern>
                 <message>El verb '<match no="3" postag="V.*" postag_regexp="yes" postag_replace="V.N.*"/>' no és transitiu. Useu el pronom adequat.</message>
                 <suggestion>li </suggestion>
@@ -12936,7 +13034,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="li ">No <marker>l'</marker>has telefonat.</example>
                 <example correction="li ">Com si <marker>l'</marker>haguéssim mentit.</example>
                 <example correction="Li "><marker>L'</marker>havia d'agradar per força.</example>
-                <example correction="li ">No <marker>l'</marker>abelleix.</example>
                 <example correction="Li "><marker>L'</marker>ha hagut de continuar mentint.</example>
             </rule>
             <rule>
@@ -12956,15 +13053,29 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token regexp="yes">el|la</token>
                     </marker>
-                    <token chunk="GV" min="0" max="4"><exception inflected="yes">trucar</exception></token>
                     <token postag="V.*" postag_regexp="yes" inflected="yes">trucar</token>
+                </pattern>
+                <message>El verb '<match no="2" postag="V.*" postag_regexp="yes" postag_replace="V.N.*"/>' no és transitiu en el sentit de 'telefonar'. Useu el pronom adequat.</message>
+                <suggestion>li</suggestion>
+                <short>Verb intransitiu</short>
+                <example correction="li">No <marker>el</marker> truca des de fa dies.</example>
+                <example>Va rebre la trucada informant de la notícia.</example>
+                <example>El vaig recuperar trucant als serveis tècnics.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">el|la</token>
+                    </marker>
+                    <token chunk="GV" min="0" max="4"><exception inflected="yes">trucar</exception></token>
+                    <token chunk="GV" postag="V.*" postag_regexp="yes" inflected="yes">trucar</token>
                 </pattern>
                 <message>El verb '<match no="3" postag="V.*" postag_regexp="yes" postag_replace="V.N.*"/>' no és transitiu en el sentit de 'telefonar'. Useu el pronom adequat.</message>
                 <suggestion>li</suggestion>
                 <short>Verb intransitiu</short>
-                <example correction="li">No <marker>el</marker> truca des de fa dies.</example>
                 <example correction="Li"><marker>El</marker> va trucar insistentment durant setmanes.</example>
                 <example>Va rebre la trucada informant de la notícia.</example>
+                <example>El vaig recuperar trucant als serveis tècnics.</example>
             </rule>
             <rule>
                 <pattern>
@@ -12972,7 +13083,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                         <token>l'</token>
                     </marker>
                     <token chunk="GV" min="0" max="4"><exception inflected="yes">trucar</exception></token>
-                    <token postag="V.*" postag_regexp="yes" inflected="yes">trucar</token>
+                    <token chunk="GV" postag="V.*" postag_regexp="yes" inflected="yes">trucar</token>
                 </pattern>
                 <message>El verb '<match no="3" postag="V.*" postag_regexp="yes" postag_replace="V.N.*"/>' no és transitiu en el sentit de 'telefonar'. Useu el pronom adequat.</message>
                 <suggestion>li </suggestion>
@@ -13289,6 +13400,36 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="Se'l"><marker>Se li</marker> ha declarat culpable de tots els càrrecs.</example>
             <example correction="Se'l"><marker>Se li</marker> declara culpable de tots els càrrecs.</example>
         </rule>
+        <rulegroup id="ASSISTIR_A_LA_PERSONA" name="assistir a la persona -> assistir la persona">
+            <rule>
+                <pattern>
+                    <token inflected="yes" regexp="yes">assistir|atendre</token>
+                    <token min="0" max="2" postag="RG|LOC_ADV" postag_regexp="yes"/>
+                    <marker>
+                        <token>a</token>
+                    </marker>
+                    <token postag_regexp="yes" postag="D.*" spacebefore="yes"/>
+                    <token regexp="yes" inflected="yes">&context_PERSONA;</token>
+                </pattern>
+                <message>Aquest verb és transitiu. Probablement cal eliminar la preposició 'a'.</message>
+                <suggestion/>
+                <example correction="">El servei assisteix sempre <marker>a</marker> les persones discapacitades.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token inflected="yes" regexp="yes">assistir|atendre</token>
+                    <token min="0" max="2" postag="RG|LOC_ADV" postag_regexp="yes"/>
+                    <marker>
+                        <token>a</token>
+                        <token regexp="yes">ls?</token>
+                    </marker>
+                    <token regexp="yes" inflected="yes">&context_PERSONA;</token>
+                </pattern>
+                <message>Aquest verb és transitiu. Probablement cal eliminar la preposició 'a'.</message>
+                <suggestion>e\4</suggestion>
+                <example correction="els">El servei assisteix sempre <marker>als</marker> adolescents amb discapacitat.</example>
+            </rule>
+        </rulegroup>
         <rulegroup id="VERBS_NO_INTRANSITIUS" name="verbs no intransitius">
             <antipattern>
                 <token>a</token>
@@ -15537,6 +15678,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token>hi</token>
                     <token regexp="yes">ha|havia</token>
                     <token postag="V.G.*" postag_regexp="yes"/>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes" inflected="yes" skip="2">qui|quin</token>
+                    <token>hi</token>
+                    <token regexp="yes">ha|havia</token>
+                    <token postag="V.G.*" postag_regexp="yes"/>
+                    <example>Quines alternatives hi ha usant altres llenguatges de programació?</example>
                 </antipattern>
                 <antipattern>
                     <token>ha</token>
@@ -18079,8 +18227,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token>més</token>
                     <token regexp="yes">tard|avant|endavant</token>
                 </pattern>
+                <filter class="org.languagetool.rules.ca.CatalanRemoteRewriteFilter" args="none:none"/>
                 <message>Construcció dubtosa: gerundi de posterioritat. Proveu de reescriure la frase sense el gerundi.</message>
-                <example correction="">El lladre va atracar dues joieries, <marker>escapant-se més tard</marker> amb un cotxe robat.</example>
+                <example correction=" i després va escapar-se">El lladre va atracar dues joieries<marker>, escapant-se més tard</marker> amb un cotxe robat.</example>
                 <example>Estan augmentant després d'un període d'estancament.</example>
                 <example>tònica predominant després del govern de l'UCD.</example>
                 <example>I mirant endavant.</example>
@@ -18098,9 +18247,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     </marker>
                     <token postag="RG|LOC_PREP" postag_regexp="yes">després</token>
                 </pattern>
+                <filter class="org.languagetool.rules.ca.CatalanRemoteRewriteFilter" args="none:none"/>
                 <message>Construcció dubtosa: gerundi de posterioritat. Proveu de reescriure la frase sense el gerundi.</message>
-                <example correction="">El lladre va atracar dues joieries, <marker>fugint</marker> després amb un cotxe robat.</example>
-                <example correction="">El lladre va atracar dues joieries, <marker>essent</marker> assassinat pocs dies després.</example>
+                <example correction=" i després va fugir">El lladre va atracar dues joieries<marker>, fugint després</marker> amb un cotxe robat.</example>
+                <example correction=" i va ser">El lladre va atracar dues joieries<marker>, essent</marker> assassinat pocs dies després.</example>
+                <example correction="l'examen i, per això, va perdre">Va arribar tard a <marker>l'examen, perdent així després</marker> tota oportunitat d'aprovar l'assignatura.</example>
                 <example>Estan augmentant després d'un període d'estancament.</example>
                 <example>tònica predominant després del govern de l'UCD.</example>
                 <example>I aprofitant després l'efecte del tsunami.</example>
@@ -18108,8 +18259,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
             <rule>
                 <pattern>
-                    <token postag="V.G.*" postag_regexp="yes"><exception postag="_GV_|_GN_.*|RG" postag_regexp="yes"/></token>
-                    <token min="0">-se</token>
+                    <token postag="V.G.*" postag_regexp="yes" skip="7"><exception postag="_GV_|_GN_.*|RG" postag_regexp="yes"/></token>
+                    <!--<token min="0">-se</token>-->
                     <token>a</token>
                     <token>l</token>
                     <token>cap</token>
@@ -18117,9 +18268,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token postag="D[IN].*" min="0" postag_regexp="yes"/>
                     <token regexp="yes" inflected="yes">&unitats_temps;|&expressions_durada;</token>
                 </pattern>
+                <filter class="org.languagetool.rules.ca.CatalanRemoteRewriteFilter" args="none:none"/>
                 <message>Construcció dubtosa: gerundi de posterioritat. Proveu de reescriure la frase sense el gerundi.</message>
-                <example correction="">El lladre va atracar dues joieries, <marker>fugint al cap de poc</marker> amb un cotxe robat.</example>
-                <example correction="">El lladre va atracar dues joieries, <marker>escapant-se al cap d'una estona</marker> amb un cotxe robat.</example>
+                <example correction=" i al cap de poc va fugir">El lladre va atracar dues joieries<marker>, fugint al cap de poc</marker> amb un cotxe robat.</example>
+                <example correction=" i després es va escapar">El lladre va atracar dues joieries<marker>, escapant-se al cap d'una estona</marker> amb un cotxe robat.</example>
+                <example correction="i els passatgers del turisme van morir al cap de poc">Hi hagué un accident greu a l'autopista entre un camió i un turisme, <marker>morint al cap de poc els passatgers del turisme</marker>.</example>
+                <example correction=" i els passatgers del turisme van morir">Hi hagué un accident greu a l'autopista entre un camió i un turisme<marker>, morint els passatgers del turisme</marker> al cap de poc.</example>
                 <example>Estan augmentant després d'un període d'estancament.</example>
                 <example>tònica predominant després del govern de l'UCD.</example>
             </rule>
@@ -18131,8 +18285,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token inflected="yes">el</token>
                     <token regexp="yes">endemà|sendemà</token>
                 </pattern>
+                <filter class="org.languagetool.rules.ca.CatalanRemoteRewriteFilter" args="none:none"/>
                 <message>Construcció dubtosa: gerundi de posterioritat. Proveu de reescriure la frase sense el gerundi.</message>
-                <example correction="">Es van presentar els estatuts, <marker>aprovant-se l’endemà</marker> mateix.</example>
+                <example correction=" i es van aprovar">Es van presentar els estatuts<marker>, aprovant-se</marker> l'endemà mateix.</example>
             </rule>
             <rule>
                 <pattern>
@@ -18141,9 +18296,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token min="0" max="3" regexp="yes">a|el|l'|l|poc|més</token>
                     <token regexp="yes">endemà|sendemà|cap|després|tard|avant|endavant</token>
                 </pattern>
+                <filter class="org.languagetool.rules.ca.CatalanRemoteRewriteFilter" args="none:none"/>
                 <message>Construcció dubtosa: gerundi de posterioritat. Proveu de reescriure la frase sense el gerundi.</message>
-                <example correction="">Es van presentar els estatuts, <marker>sent aprovats l'endemà</marker> mateix.</example>
-                <example correction="">Es van presentar els estatuts, <marker>sent aprovats al cap</marker> de poc.</example>
+                <example correction=" i van ser">Es van presentar els estatuts<marker>, sent</marker> aprovats l'endemà mateix.</example>
+                <example correction=" i al cap de poc van ser aprovats">Es van presentar els estatuts<marker>, sent aprovats al cap de poc</marker>.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token>,</token>
+                    <marker>
+                        <token postag="VSG.*" postag_regexp="yes"/>
+                        <token postag="V.P.*" postag_regexp="yes"/>
+                    </marker>
+                </pattern>
+                <filter class="org.languagetool.rules.ca.CatalanRemoteRewriteFilter" args="none:none"/>
+                <message>Construcció dubtosa: gerundi de posterioritat. Proveu de reescriure la frase sense el gerundi.</message>
+                <example correction="i van ser">Es van presentar diverses esmenes, <marker>sent</marker> aprovades per una àmplia majoria.</example>
+                <example correction="i foren">Es presentaren diverses esmenes, <marker>sent</marker> aprovades per una àmplia majoria.</example>
+                <example>El públic, en part, sent necessitat de sentir arguments que corroborin els seus prejudicis.</example>
             </rule>
             <rule>
                 <pattern>
@@ -18597,7 +18767,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>Balears, 2: 116-117.</example>
             </antipattern>
             <antipattern>
-                <token regexp="yes">[(,;:]|carrer|avinguda|travessera|espai|plaça|rius?|escola|institut|ZER</token>
+                <token regexp="yes">[(,;:]|carrer|avinguda|travessera|espai|plaça|rius?|escola|institut|ZER|teatre</token>
                 <token regexp="yes">&paisos_amb_article;</token>
                 <example>Establert vora el riu Senegal, organitzà militarment els seus seguidors.</example>
             </antipattern>
@@ -19056,6 +19226,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="EL_DILLUNS_DILLUNS" name="el dilluns -> dilluns">
             <url>https://www.ub.edu/llibre-estil/criteri.php?id=2800</url>
             <antipattern>
+                <token regexp="yes">&dies_setmana;</token>
+                <token min="0">que</token>
                 <token regexp="yes">ve|vinent|passat</token>
                 <token>o</token>
                 <token>l'</token>
@@ -19068,9 +19240,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </antipattern>
             <antipattern>
                 <token regexp="yes">&dies_setmana;</token>
-                <token min="0">,</token>
+                <token min="0" max="3" regexp="yes">,|dia</token>
                 <token postag="DN.*" postag_regexp="yes"/>
                 <example>Aquest programa s'emetrà per primera vegada el dissabte 21 de novembre.</example>
+                <example>Aquest programa s'emetrà per primera vegada el dissabte, 21 de novembre.</example>
+                <example>Aquest programa s'emetrà per primera vegada el dissabte, dia 21.</example>
             </antipattern>
             <antipattern>
                 <token regexp="yes" inflected="yes">festa|millor|vermut|oració|pregària|ofici|llei|celebració|repòs|fesomia|prohibició|mercat|setmanal|font|rondalla|conte</token>
@@ -19507,6 +19681,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <antipattern>
                     <token inflected="yes" regexp="yes">comptar|calcular|computar</token>
                     <token>quant</token>
+                </antipattern>
+                <antipattern>
+                    <token>quant</token>
+                    <token skip="-1">és</token>
+                    <token inflected="yes" regexp="yes">&context_QUANT;</token>
+                    <example>Digues-me quant és i com ho puc pagar.</example>
                 </antipattern>
                 <pattern>
                     <marker>
@@ -33450,6 +33630,117 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
     </category>
     <category id="CONFUSIONS" name="Confusions" type="grammar">
+        <rulegroup id="CONTA_CONTRA" name="conta -> contra">
+            <rule>
+                <pattern>
+                    <token regexp="yes" inflected="yes">revoltar|rebel·lar|aixexar|alçar|revolucionar|atacar|tractar</token>
+                    <marker>
+                        <token>conta</token>
+                    </marker>
+                    <token postag="[NAD].*" postag_regexp="yes"/>
+                </pattern>
+                <message>¿Volíeu dir <suggestion>contra</suggestion>?</message>
+                <example correction="contra">Els docents es rebel·len <marker>conta</marker> la decisió de la Conselleria.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="V.[ISN].*" postag_regexp="yes"/>
+                    <marker>
+                        <token>conta</token>
+                    </marker>
+                    <token postag="[NAD].*" postag_regexp="yes"/>
+                </pattern>
+                <message>¿Volíeu dir <suggestion>contra</suggestion>?</message>
+                <example correction="contra">Els docents es manifesten <marker>conta</marker> la decisió de la Conselleria.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token chunk="GV"/>
+                    <marker>
+                        <token>conta</token>
+                    </marker>
+                    <token postag="[NAD].*" postag_regexp="yes"/>
+                </pattern>
+                <message>¿Volíeu dir <suggestion>contra</suggestion>?</message>
+                <example correction="contra">Els docents s'han manifestat <marker>conta</marker> la decisió de la Conselleria.</example>
+            </rule>
+        </rulegroup>
+        <rule id="PER_A_QUE_NO_PER_QUE_NO" name="per a què no -> per què no">
+            <pattern>
+                <token postag="SENT_START|_PUNCT_SENT_START" postag_regexp="yes"/>
+                <marker>
+                    <token>per</token>
+                    <token>a</token>
+                    <token>què</token>
+                </marker>
+                <token>no</token>
+                <token min="0" max="3" postag="&pronom_feble;" postag_regexp="yes"/>
+                <token skip="-1" postag="V.[SI].*" postag_regexp="yes"><exception scope="next" postag="V.[SI].*" postag_regexp="yes"/></token>
+                <token>?</token>
+            </pattern>
+            <message>¿Volíeu dir <suggestion>per què</suggestion> (per quin motiu)?</message>
+            <example correction="Per què"><marker>Per a què</marker> no has presentat el formulari?</example>
+            <example>Per a què no em torni a passar, em pots confirmar que estan bé?</example>
+        </rule>
+        <rulegroup id="PUGUIN_PUGIN" name="puguin -> pugin">
+            <rule>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">puguin|puguen</token>
+                        <token>a</token>
+                        <token postag="V.N.*" postag_regexp="yes"/>
+                    </marker>
+                </pattern>
+                <message>¿Volíeu usar el verb 'pujar' o el verb 'poder'?</message>
+                <suggestion>\1 \3</suggestion>
+                <suggestion><match no="1" regexp_match="(?iu)ui" regexp_replace="i" case_conversion="preserve"/> a \3</suggestion>
+                <example correction="puguin dinar|pugin a dinar">Digues-los que <marker>puguin a dinar</marker>.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">puguin|puguen</token>
+                    </marker>
+                    <token skip="2">a</token>
+                    <token regexp="yes" inflected="yes">zona|regió|pis|planta|dalt|alt|terrassa|teulat|teulada|ascensor</token>
+                </pattern>
+                <message>¿Volíeu dir <suggestion><match no="1" regexp_match="(?iu)ui" regexp_replace="i" case_conversion="preserve"/></suggestion>, del verb 'pujar'?</message>
+                <example correction="pugin">Han demanat que <marker>puguin</marker> a zones altes.</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="COMPREN" name="compren/comprèn">
+            <!-- Potser molt més ampli. Caldria explorar-ho sistemàticament -->
+            <rule>
+                <pattern>
+                    <marker>
+                        <token>compren</token>
+                    </marker>
+                    <token postag="RG.*" postag_regexp="yes" min="0"/>
+                    <token regexp="yes">bé|mal|malament</token>
+                </pattern>
+                <message>Si és del verb 'comprendre', s'escriu amb accent.</message>
+                <suggestion>comprèn</suggestion>
+                <!-- accentuació valenciana: -->
+                <suggestion>comprén</suggestion>
+                <example correction="comprèn|comprén">No <marker>compren</marker> bé els enunciats dels exercicis.</example>
+                <example correction="comprèn|comprén">No <marker>compren</marker> gaire bé els enunciats dels exercicis.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token>compren</token>
+                    </marker>
+                    <token postag="[AD].*" postag_regexp="yes" min="0" max="3"/>
+                    <token regexp="yes" inflected="yes">concepte|idea|enunciat|contingut|exercici|problema|tasca|feina|faena|instrucció|consigna|informació|ordre|situació|importància</token>
+                </pattern>
+                <message>Si és del verb 'comprendre', s'escriu amb accent.</message>
+                <suggestion>comprèn</suggestion>
+                <!-- accentuació valenciana: -->
+                <suggestion>comprén</suggestion>
+                <example correction="comprèn|comprén">No <marker>compren</marker> els enunciats dels exercicis.</example>
+                <example correction="comprèn|comprén">No <marker>compren</marker> les tasques.</example>
+            </rule>
+        </rulegroup>
         <rulegroup id="BALISA_VALISA" name="balisa/valisa">
             <rule>
                 <pattern>
@@ -44594,6 +44885,30 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example>Li van donar un Oscar.</example>
             <example>Oscar Hammerstein</example>
         </rule>
+        <rulegroup id="PREMIS_OSCAR" name="Premis Oscar">
+            <rule>
+                <antipattern case_sensitive="yes">
+                    <token>Premis</token>
+                    <token>Oscar</token>
+                </antipattern>
+                <pattern>
+                    <token>premis</token>
+                    <token regexp="yes">[òóo]scars?</token>
+                </pattern>
+                <message>Els premis cinematogràfics s'escriuen <suggestion>Premis Oscar</suggestion>.</message>
+                <example correction="Premis Oscar">La cerimònia dels <marker>premis Óscar</marker>.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="D..MP." postag_regexp="yes"/>
+                    <marker>
+                        <token regexp="yes">[òóo]scars?<exception case_sensitive="yes">Oscars</exception></token>
+                    </marker>
+                </pattern>
+                <message>Referit als premis cinematogràfics, escrivim <suggestion>Oscars</suggestion> o <suggestion>Premis Oscar</suggestion>.</message>
+                <example correction="Oscars|Premis Oscar">Va ser un dels protagonistes dels <marker>Óscar</marker>.</example>
+            </rule>
+        </rulegroup>
         <rule id="FAJA_FACA" name="faja/faça">
             <pattern>
                 <token>faja<exception postag="_possible_nompropi"/></token>
@@ -44757,7 +45072,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
         <rule id="PUBIC_PUBLIC" name="púbic/públic">
             <pattern>
-                <token><exception inflected="yes" regexp="yes">cresta|articulació|símfisi|artèria|vena|escabiosi|espina|os|pèl|zona|regió|borrissol|triangle|vellós|arc|poll|moixí|pírcing|perruca|cabell</exception></token>
+                <token><exception inflected="yes" regexp="yes">cresta|articulació|símfisi|simfisiòlisi|artèria|vena|escabiosi|espina|os|pèl|zona|regió|borrissol|triangle|vellós|arc|poll|moixí|pírcing|perruca|cabell|osteomielitis|mielitis|osteïtis</exception></token>
                 <marker>
                     <token inflected="yes">púbic</token>
                 </marker>
@@ -46853,22 +47168,22 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
         <rulegroup id="RECORRENT_RECURRENT" name="recorrent/recurrent">
             <antipattern>
-                <marker>
-                    <token regexp="yes" inflected="yes" skip="5">resoldre|arreglar|tapar|solucionar</token>
-                    <token>recorrent</token>
-                    <token>a</token>
-                </marker>
+                <token regexp="yes" inflected="yes" skip="5">resoldre|arreglar|tapar|solucionar</token>
+                <token>recorrent</token>
+                <token>a</token>
             </antipattern>
             <rule>
                 <pattern>
-                    <token regexp="yes">és|era|molt|tema|qüestió|debat|idea|mite|motiu|passatge|problema|circumstància|conducta|assumpte|afer|manera|forma|personatge|destí|destinació|ús|utilització</token>
+                    <token regexp="yes" inflected="yes">ser|semblar|parèixer|esdevenir|molt|tema|qüestió|debat|idea|mite|motiu|passatge|problema|circumstància|conducta|assumpte|afer|manera|forma|personatge|destí|destinació|ús|utilització</token>
+                    <token min="0" max="3" postag_regexp="yes" postag="RG.*|LOC_ADV"/>
                     <marker>
                         <token>recorrent</token>
                     </marker>
                 </pattern>
                 <message>¿Volíeu dir <suggestion>recurrent</suggestion> (adjectiu) en comptes de "recorrent" (gerundi del verb 'recórrer')?</message>
                 <example correction="recurrent">És un debat <marker>recorrent</marker>.</example>
-                <example>va intentar resoldre el problema recorrent a la seva ajuda</example>
+                <example correction="recurrent">Aquest tema és força <marker>recorrent</marker> entre els xiquets.</example>
+                <example>Va intentar resoldre el problema recorrent a la seva ajuda.</example>
             </rule>
             <rule>
                 <pattern>
@@ -46881,6 +47196,44 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>¿Volíeu dir <suggestion>recurrent</suggestion> (adjectiu) en comptes de "recorrent" (gerundi del verb 'recórrer')?</message>
                 <example correction="recurrent">L'ús <marker>recorrent</marker> d'estupefaents.</example>
                 <example>va intentar resoldre el problema recorrent a la seva ajuda</example>
+            </rule>
+            <rule>
+                <antipattern>
+                    <token>tant</token>
+                    <token skip="6">recorrent</token>
+                    <token>com</token>
+                    <token postag="V.G.*" postag_regexp="yes"/>
+                </antipattern>
+                <pattern>
+                    <token regexp="yes">tan|tant</token>
+                    <marker>
+                        <token>recorrent</token>
+                    </marker>
+                </pattern>
+                <message>¿Volíeu dir <suggestion>recurrent</suggestion> (adjectiu) en comptes de "recorrent" (gerundi del verb 'recórrer')?</message>
+                <example correction="recurrent">És tan íntim i tan <marker>recorrent</marker>!</example>
+                <example>va intentar resoldre el problema recorrent a la seva ajuda</example>
+            </rule>
+            <rule>
+                <antipattern>
+                    <token>tant</token>
+                    <token skip="10">recorrent</token>
+                    <token>com</token>
+                    <token postag="V.G.*" postag_regexp="yes"/>
+                </antipattern>
+                <antipattern>
+                    <token>recorrent</token>
+                    <token>a</token>
+                </antipattern>
+                <pattern>
+                    <token postag="RG.*|LOC_ADV" postag_regexp="yes"><exception regexp="yes">tot|només|sols|solament</exception></token>
+                    <marker>
+                        <token>recorrent</token>
+                    </marker>
+                </pattern>
+                <message>¿Volíeu dir <suggestion>recurrent</suggestion> (adjectiu) en comptes de "recorrent" (gerundi del verb 'recórrer')?</message>
+                <example correction="recurrent">És molt <marker>recorrent</marker>!</example>
+                <example>La prosa es limita a vehicular de manera funcional, a vegades recorrent a clixés, pura informació narrativa.</example>
             </rule>
         </rulegroup>
         <rule id="CONFUSIO_FUTUR_SUBJUNTIU" name="podria ser que *arribarem/arribàrem">
@@ -54948,18 +55301,20 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
             <rule>
                 <antipattern>
-                    <marker>
-                        <token inflected="yes" regexp="yes">ser|semblar</token>
-                        <token min="0" max="4" postag="RG|.*LOC_ADC.*" postag_regexp="yes"/>
-                        <token>progres</token>
-                    </marker>
+                    <token inflected="yes" regexp="yes">ser|semblar</token>
+                    <token min="0" max="4" postag="RG|.*LOC_ADC.*" postag_regexp="yes"/>
+                    <token>progres</token>
                 </antipattern>
                 <antipattern>
-                    <marker>
-                        <token postag="D...P.|NC.P.*" postag_regexp="yes"/>
-                        <token postag="_PUNCT_CONT"/>
-                        <token>progres</token>
-                    </marker>
+                    <token postag="D...P.|NC.P.*" postag_regexp="yes"/>
+                    <token postag="_PUNCT_CONT"/>
+                    <token>progres</token>
+                </antipattern>
+                <antipattern>
+                    <token postag="_GN_.P" postag_regexp="yes"/>
+                    <token postag="RG.*|LOC_ADV" min="1" max="3" postag_regexp="yes"/>
+                    <token>progres</token>
+                    <example>Tot això encaixa dins uns esquemes socioideològics més o menys progres.</example>
                 </antipattern>
                 <pattern>
                     <marker>
@@ -57727,6 +58082,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token inflected="yes">fer</token>
                     <token>entrar</token>
                 </antipattern>
+                <antipattern>
+                    <token inflected="yes" skip="1">enviar</token>
+                    <token>a</token>
+                    <example>Cal enviar entrades a tots els convidats.</example>
+                </antipattern>
                 <pattern>
                     <token inflected="yes">entrar</token>
                     <marker>
@@ -59720,7 +60080,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token regexp="yes">\p{Lu}.*</token>
                 </antipattern>
                 <pattern>
-                    <token postag="N[PC].*|PP1CSN00" postag_regexp="yes" regexp="yes">\p{Lu}.*<exception regexp="yes">&exceptions_multitoken_spell;|&particles_of;|&exceptions_multitoken_sensitive;</exception></token>
+                    <token postag="N[PC].*|PP1CSN00|VMIP1S0B" postag_regexp="yes" regexp="yes">\p{Lu}.*<exception regexp="yes">&exceptions_multitoken_spell;|&particles_of;|&exceptions_multitoken_sensitive;</exception></token>
                     <token postag="UNKNOWN|_english_ignore_" postag_regexp="yes"><exception regexp="yes">&exceptions_multitoken_spell;|&particles_of;|&exceptions_multitoken_sensitive;</exception><exception regexp="yes" case_sensitive="yes">[A-Z]{1,3}</exception><exception regexp="yes">[A-Z][A-Z\d]?</exception></token>
                 </pattern>
                 <filter class="org.languagetool.rules.spelling.multitoken.MultitokenSpellerFilter" args="keepSpaces:true"/>
@@ -62096,6 +62456,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>És del Club Super 3.</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token>super</token>
+                    <token>bowl</token>
+                </antipattern>
                 <pattern>
                     <token regexp="yes">super|súper</token>
                     <token min="0">-</token>
@@ -62160,6 +62524,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>El súper-8</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token>super</token>
+                    <token>bowl</token>
+                </antipattern>
                 <pattern>
                     <token>super<exception postag="NP.*" postag_regexp="yes"/></token>
                 </pattern>
@@ -65057,6 +65425,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token regexp="yes">sols?</token>
                 <token postag="V.N.*" postag_regexp="yes"/>
             </antipattern>
+            <antipattern>
+                <token inflected="yes">tapar</token>
+                <token>el</token>
+                <token>sol</token>
+            </antipattern>
             <!-- TODO: word in context -->
             <rule>
                 <pattern>
@@ -65133,6 +65506,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token spacebefore="no" regexp="yes">["”“‘»«]</token>
                 <token spacebefore="no" regexp="yes">[lntm]</token>
             </antipattern>
+            <rule name="pot sé -> pot ser">
+                <antipattern>
+                    <token>se</token>
+                    <token min="0" max="2" postag_regexp="yes" postag="&pronom_feble;"/>
+                    <token postag="V.[IS].*" postag_regexp="yes"/>
+                </antipattern>
+                <pattern>
+                    <token regexp="yes" inflected="yes">pot|poder|voler|deure</token>
+                    <marker>
+                        <token regexp="yes">se|sé</token>
+                    </marker>
+                </pattern>
+                <message>¿Volíeu dir <suggestion>ser</suggestion>?</message>
+                <example correction="ser">Pot <marker>se</marker> la millor decisió.</example>
+                <example correction="ser">Pot <marker>sé</marker> la millor decisió.</example>
+                <example correction="ser">Podia <marker>se</marker> la millor decisió.</example>
+                <example correction="ser">Volia <marker>sé</marker> la millor decisió.</example>
+            </rule>
             <rule>
                 <pattern case_sensitive="yes">
                     <marker>
@@ -65144,6 +65535,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="de|sé">On són els partits <marker>se</marker> l'oposició.</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token postag="SPS00|LOC_PREP" postag_regexp="yes"><exception>en</exception></token>
+                    <token case_sensitive="yes">se</token>
+                </antipattern>
                 <pattern case_sensitive="yes">
                     <marker>
                         <token regexp="yes">se|Se<exception postag=".*LOC_ADV.*|_possible_nompropi" postag_regexp="yes"/></token>
@@ -65207,8 +65602,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
             <rule>
                 <pattern>
-                    <token inflected="yes">haver</token>
-                    <token>de</token>
+                    <token inflected="yes" regexp="yes">haver|arribar</token>
+                    <token regexp="yes">de|a</token>
                     <marker>
                         <token>se</token>
                     </marker>
@@ -77011,6 +77406,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="hi ha hagut">No <marker>ha hagut</marker> ningú capaç de fer-ho.</example>
             </rule>
             <rule id="NO_HI_SON" name="no *i/hi són, no *o/ho són">
+                <antipattern>
+                    <token inflected="yes">dir</token>
+                    <token>que</token>
+                    <token>no</token>
+                    <token>i</token>
+                    <example>En Josep diu que no i riu.</example>
+                </antipattern>
                 <pattern>
                     <token>no</token>
                     <marker>
@@ -77439,6 +77841,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>Es féu per la via correcta.</example>
                 <example>Es feu per la via correcta.</example>
                 <example>es pot fer correctament</example>
+            </rule>
+            <rule name="actualitzem-m'ho -> actualitzem-ho">
+                <pattern>
+                    <token regexp="yes" postag="V.*" postag_regexp="yes">.*m</token>
+                    <token regexp="yes">-m|'m</token>
+                    <token regexp="yes">'ho|-ho</token>
+                </pattern>
+                <message>Combinació de pronoms febles incorrecta.</message>
+                <suggestion>\1-ho</suggestion>
+                <example correction="Actualitzem-ho"><marker>Actualitzem-m'ho</marker></example>
             </rule>
             <rule name="fem-m'ho">
                 <pattern>
@@ -78707,7 +79119,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token postag="Y"><exception regexp="yes">aprox|vol</exception></token>
                 </pattern>
                 <filter class="org.languagetool.rules.WhitespaceCheckFilter" args="whitespaceChar:&#x2006; position:2"/>
-                <message>Utilitzeu un espai fi entre nombres i unitats.</message>
+                <message>Useu un espai fi entre nombres i unitats.</message>
                 <suggestion>\1&#x2006;\2</suggestion>
                 <example correction="3&#x2006;km"><marker>3 km</marker></example>
                 <example correction="36&#x2006;mm"><marker>36 mm</marker></example>
@@ -78724,7 +79136,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <pattern>
                     <token regexp="yes">[\d.,]+[%‰‱]</token>
                 </pattern>
-                <message>Utilitzeu un espai fi entre nombres i unitats.</message>
+                <message>Useu un espai fi entre nombres i unitats.</message>
                 <suggestion><match no="1" regexp_match="(.+)([%‰‱])" regexp_replace="$1&#x2006;$2"/></suggestion>
                 <example correction="3&#x2006;‰"><marker>3‰</marker></example>
             </rule>
@@ -78735,7 +79147,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token regexp="yes" spacebefore="no">[–—―‒]</token>
                 <token regexp="yes" spacebefore="no">[\d,\.]*\d</token>
             </pattern>
-            <message>Utilitzem un guionet entre nombres en correlacions.</message>
+            <message>Useu un guionet entre nombres en correlacions.</message>
             <suggestion>\1-\3</suggestion>
             <short>Opció de tipografia</short>
             <example correction="34-36">En les pàgines <marker>34—36</marker>.</example>
@@ -78748,7 +79160,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token regexp="yes" spacebefore="no">[—―‒-]</token>
                 <token regexp="yes" spacebefore="no">[\d,\.]*\d</token>
             </pattern>
-            <message>Utilitzem un guió mitjà entre nombres en correlacions.</message>
+            <message>Useu un guió mitjà entre nombres en correlacions.</message>
             <suggestion>\1–\3</suggestion>
             <short>Opció de tipografia</short>
             <example correction="34–36">En les pàgines <marker>34—36</marker>.</example>
@@ -84748,6 +85160,153 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
     </category>
     <category id="INCORRECT_EXPRESSIONS" name="Expressions incorrectes" type="grammar">
+        <rulegroup id="UNA_ETS" name="una ETS -> MTS">
+            <rule>
+                <pattern>
+                    <token postag="D..FS." postag_regexp="yes"/>
+                    <marker>
+                        <token case_sensitive="yes">ETS</token>
+                    </marker>
+                </pattern>
+                <message>¿Volíeu dir <suggestion>MTS</suggestion> (malaltia de transmissió sexual)?</message>
+                <suggestion><match no="2" regexp_match="ETS" regexp_replace="malaltia de transmissió sexual" case_conversion="alllower"/></suggestion>
+                <example correction="MTS|malaltia de transmissió sexual">Va contraure una <marker>ETS</marker>.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="D..FP.|AQ0FP0" postag_regexp="yes"/>
+                    <marker>
+                        <token case_sensitive="yes">ETS</token>
+                    </marker>
+                </pattern>
+                <message>¿Volíeu dir <suggestion>MTS</suggestion> (malaltia de transmissió sexual)?</message>
+                <suggestion><match no="2" regexp_match="ETS" regexp_replace="malalties de transmissió sexual" case_conversion="alllower"/></suggestion>
+                <example correction="MTS|malalties de transmissió sexual">Va contraure diverses <marker>ETS</marker>.</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="LS_HI" name="'ls-hi -> los">
+            <!-- en general, és complicat saber quina és la combinació de pronoms adequada:
+            explica'ls-hi -> explicar-los-ho,  -los-el, -los-la, -los-els, -los-les, -los-hi
+            En verbs dicendi, la solució sol sempre gairebé sempre -los
+            -->
+            <rule>
+                <pattern>
+                    <token postag="V.N.*" postag_regexp="yes" regexp="yes" inflected="yes">&verbs_dicendi;<exception regexp="yes">.*e</exception></token>
+                    <marker>
+                        <token>'ls</token>
+                        <token>-hi</token>
+                    </marker>
+                </pattern>
+                <message>Formalment, cal escriure <suggestion>-los</suggestion>.</message>
+                <example correction="-los">Volia explicar<marker>'ls-hi</marker> el que havia passat.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="V.N.*" postag_regexp="yes" regexp="yes">.*r</token>
+                    <marker>
+                        <token>'ls</token>
+                        <token>-hi</token>
+                    </marker>
+                </pattern>
+                <message>Formalment, cal escriure <suggestion>-los</suggestion> o alguna combinació amb '-los'.</message>
+                <suggestion>-los-el</suggestion>
+                <suggestion>-los-els</suggestion>
+                <suggestion>-los-la</suggestion>
+                <suggestion>-los-les</suggestion>
+                <suggestion>-los-ho</suggestion>
+                <example correction="-los|-los-el|-los-els|-los-la|-los-les|-los-ho">Havíem de poder proporcionar<marker>'ls-hi</marker>.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="SPS00|LOC_PREP" postag_regexp="yes"/>
+                    <marker>
+                        <token postag="V.M.*" postag_regexp="yes" regexp="yes" inflected="yes">&verbs_dicendi;<exception regexp="yes">.*e</exception></token>
+                        <token>'ls</token>
+                        <token>-hi</token>
+                    </marker>
+                </pattern>
+                <message>Formalment, cal escriure <suggestion><match no="2" postag_regexp="yes" postag="V.M.*" postag_replace="V.N.*"/>-los</suggestion> o alguna combinació amb '-los'.</message>
+                <example correction="explicar-los">Per a <marker>explica'ls-hi</marker> el que havia passat, els va reunir un dimecres.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="V.*" postag_regexp="yes"/>
+                    <marker>
+                        <token postag="V.M.*" postag_regexp="yes" regexp="yes" inflected="yes">&verbs_dicendi;</token>
+                        <token>'ls</token>
+                        <token>-hi</token>
+                    </marker>
+                </pattern>
+                <message>Formalment, cal escriure <suggestion><match no="2" postag_regexp="yes" postag="V.M.*" postag_replace="V.N.*"/>-los</suggestion>. La combinació de pronoms 'els hi' per al complement indirecte és informal en molts casos.</message>
+                <example correction="explicar-los">Per a poder <marker>explica'ls-hi</marker> el que havia passat, els va reunir un dimecres.</example>
+                <example correction="explicar-los">Vaig <marker>explica'ls-hi</marker> el que havia passat un dimecres.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="V.*" postag_regexp="yes"/>
+                    <marker>
+                        <token postag="V.M.*" postag_regexp="yes"/>
+                        <token>'ls</token>
+                        <token>-hi</token>
+                    </marker>
+                    <token postag="[DNA].*|V.P.*" postag_regexp="yes"/>
+                </pattern>
+                <message>Formalment, cal escriure <suggestion><match no="2" postag_regexp="yes" postag="V.M.*" postag_replace="V.N.*"/>-los</suggestion> o algun combinació amb '-los'.</message>
+                <example correction="enviar-los">Vaig <marker>envia'ls-hi</marker> records.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="V.*" postag_regexp="yes"/>
+                    <marker>
+                        <token postag="V.M.*" postag_regexp="yes"/>
+                        <token>'ls</token>
+                        <token>-hi</token>
+                    </marker>
+                </pattern>
+                <message>Formalment, cal escriure <suggestion><match no="2" postag_regexp="yes" postag="V.M.*" postag_replace="V.N.*"/>-los</suggestion> o algun combinació amb '-los'.</message>
+                <suggestion><match no="2" postag_regexp="yes" postag="V.M.*" postag_replace="V.N.*"/>-los-el</suggestion>
+                <suggestion><match no="2" postag_regexp="yes" postag="V.M.*" postag_replace="V.N.*"/>-los-els</suggestion>
+                <suggestion><match no="2" postag_regexp="yes" postag="V.M.*" postag_replace="V.N.*"/>-los-la</suggestion>
+                <suggestion><match no="2" postag_regexp="yes" postag="V.M.*" postag_replace="V.N.*"/>-los-les</suggestion>
+                <suggestion><match no="2" postag_regexp="yes" postag="V.M.*" postag_replace="V.N.*"/>-los-ho</suggestion>
+                <example correction="enviar-los|enviar-los-el|enviar-los-els|enviar-los-la|enviar-los-les|enviar-los-ho">Vaig <marker>envia'ls-hi</marker>.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token postag="V.M.*" postag_regexp="yes" inflected="yes" regexp="yes">&verbs_dicendi;</token>
+                        <token>'ls</token>
+                        <token>-hi</token>
+                    </marker>
+                </pattern>
+                <message>Probablement, cal escriure <suggestion>\1'ls</suggestion>. La combinació de pronoms 'els hi' per al complement indirecte és informal en molts casos.</message>
+                <example correction="Explica'ls"><marker>Explica'ls-hi</marker> el que va passar.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token postag="V.M.*" postag_regexp="yes"/>
+                        <token>'ls</token>
+                        <token>-hi</token>
+                    </marker>
+                    <token postag="[DNA].*|V.P.*" postag_regexp="yes"/>
+                </pattern>
+                <message>Probablement, cal escriure <suggestion>\1'ls</suggestion>. La combinació de pronoms 'els hi' per al complement indirecte és informal en molts casos.</message>
+                <example correction="Envia'ls"><marker>Envia'ls-hi</marker> records.</example>
+                <example correction="Deixa'ls"><marker>Deixa'ls-hi</marker> la roba.</example>
+                <example>Posa’ls-hi.</example>
+            </rule>
+        </rulegroup>
+        <rule id="CROISSANT" name="croissant">
+            <pattern>
+                <token regexp="yes">(mini)?c(ura|r[uo]a?)ss?[aàá]nt?(s|et|ets)?</token>
+            </pattern>
+            <message>Cal escriure <suggestion><match no="1" regexp_match="(?iu)((mini)?)c.*nt?((s|et|ets)?)$" regexp_replace="$1croissant$3" case_conversion="preserve"/></suggestion>.</message>
+            <example correction="croissants">Dos <marker>cruasants</marker></example>
+            <example correction="croissantets">Dos <marker>cruasanets</marker></example>
+            <example correction="croissant">Ara vull un <marker>curassàn</marker>.</example>
+            <example correction="minicroissant">Ara vull un <marker>minicroassant</marker>.</example>
+        </rule>
         <rule id="DIES_VISTA" name="a dies vistes -> a dies vista">
             <pattern>
                 <token skip="3">a</token>
@@ -86753,6 +87312,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="els efectes">Conduïa sota <marker>la influència</marker> de l'alcohol.</example>
             <example correction="els efectes">Conduïa sota <marker>la influència</marker> de les drogues.</example>
             <example correction="els efectes">Conduïa sota <marker>la influència</marker> de la beguda.</example>
+        </rule>
+        <rule id="ATROCOS_A_TROSSOS" name="atroços -> a trossos">
+            <pattern>
+                <token inflected="yes" regexp="yes">caure|ensorrar|enderrocar|enfonsar|col·lapsar|fer|solsir|ensulsiar</token>
+                <marker>
+                    <token>atroços</token>
+                </marker>
+            </pattern>
+            <message>¿Volíeu dir <suggestion>a trossos</suggestion>?</message>
+            <example correction="a trossos">La ciutat queia <marker>atroços</marker>.</example>
         </rule>
         <rule id="PEDAC_TROS" name="caure a pedaços -> a trossos">
             <pattern>
@@ -89293,11 +89862,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <url>https://esadir.cat/Nomspropis/Ficcio/Blancaneu</url>
             <example correction="Blancaneu"><marker>Blancaneus</marker> i els set nans.</example>
         </rule>
-        <rulegroup id="RES_GENS" name="res -> gens" default="temp_off">
+        <rulegroup id="RES_GENS" name="res -> gens">
             <rule>
                 <pattern>
-                    <token postag="V.*" postag_regexp="yes"/>
-                    <!--moure|menejar|bellugar|agradar|estimar-->
+                    <token postag="V.*" postag_regexp="yes" inflected="yes" regexp="yes">moure|menejar|bellugar|agradar|estimar</token>
                     <marker>
                         <token regexp="yes">re|res</token>
                     </marker>
@@ -93483,6 +94051,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
         </rulegroup>
         <rulegroup id="NHI_HA_QUE" name="hi ha que -> n'hi ha que">
+            <antipattern>
+                <!--<token regexp="yes" inflected="yes">quin|quant</token>-->
+                <token postag="_GN_.*|N.*" postag_regexp="yes"/>
+                <token>hi<exception scope="previous">n'</exception></token>
+                <token regexp="yes">ha|havia|hagué</token>
+                <token>que</token>
+                <example>Quantes coses hi ha que podries llegir en català i no hi són?</example>
+            </antipattern>
             <rule>
                 <antipattern>
                     <token regexp="yes">més|menys</token>
@@ -93504,6 +94080,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>Hi falta el pronom feble 'en'.</message>
                 <suggestion>n'<match no="1" case_conversion="alllower"/> \2 que</suggestion>
                 <example correction="N'hi ha que"><marker>Hi ha que</marker> es creuen molt importants.</example>
+                <example correction="N'hi ha que"><marker>Hi ha que</marker> siguin bons?</example>
+                <example>Quin problema hi ha que mirin si va nu?</example>
             </rule>
             <rule>
                 <pattern>
@@ -93525,14 +94103,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token>mal</token>
                     <token>hi</token>
                     <token>ha</token>
-                </antipattern>
-                <antipattern>
-                    <token regexp="yes" inflected="yes">quin|quant</token>
-                    <token postag="_GN_.*" postag_regexp="yes" min="1" max="3"/>
-                    <token>hi<exception scope="previous">n'</exception></token>
-                    <token regexp="yes">ha|havia|hagué</token>
-                    <token>que</token>
-                    <example>Quantes coses hi ha que podries llegir en català i no hi són?</example>
                 </antipattern>
                 <pattern>
                     <token>hi<exception scope="previous">n'</exception></token>
@@ -94630,6 +95200,20 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="toqui">Cal evitar que el sol ens <marker>doni</marker> directament a la cara.</example>
                 <example>El sol dona vida a la natura.</example>
                 <example>El sol ens dona l'alegria que ens cal.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token inflected="yes" postag="V.*" postag_regexp="yes">donar</token>
+                    </marker>
+                    <token>ni</token>
+                    <token>quarts</token>
+                    <token>ni</token>
+                    <token>hores</token>
+                </pattern>
+                <message>El verb adequat en aquesta expressió és 'tocar'.</message>
+                <suggestion><match no="1" postag_regexp="yes" postag="(V.*)" postag_replace="$1">tocar</match></suggestion>
+                <example correction="toca">Aquest senyor no <marker>dona</marker> ni quarts ni hores.</example>
             </rule>
         </rulegroup>
         <rule id="DONAR_ENGEGAR" name="donar -> engegar, encendre">
@@ -95851,7 +96435,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </antipattern>
             <rule>
                 <pattern>
-                    <token regexp="yes" inflected="yes" skip="2">mateix|igual|diferent</token>
+                    <token regexp="yes" inflected="yes" skip="2">mateix|igual|diferent|més|menys</token>
                     <token regexp="yes">que|com</token>
                     <marker>
                         <token>ho</token>
@@ -95863,6 +96447,22 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>Possible calc de l'anglès. Probablement es pot eliminar 'fer-ho' sense alterar el significat de la frase.</message>
                 <suggestion/>
                 <example correction="">El veí sortia a córrer a la mateixa hora que <marker>ho feia</marker> ella.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token regexp="yes" inflected="yes" skip="2">mateix|igual|diferent|més|menys</token>
+                    <token regexp="yes">que|com</token>
+                    <token regexp="yes" inflected="yes">jo|tu|ell|nosaltres|vosaltres</token>
+                    <marker>
+                        <token>ho</token>
+                        <token min="0" max="3" chunk="GV"><exception inflected="yes">fer</exception></token>
+                        <token inflected="yes">fer</token>
+                    </marker>
+                </pattern>
+                <message>Possible calc de l'anglès. Probablement es pot eliminar 'fer-ho' sense alterar el significat de la frase.</message>
+                <suggestion/>
+                <example correction="">La veïna eixia a córrer a la mateixa hora que ell <marker>ho feia</marker>.</example>
+                <example correction="">Ningú no podria sotmetre fermament els capricis amb més gràcia que ella <marker>ho feia</marker>.</example>
             </rule>
             <rule>
                 <pattern>
@@ -99910,6 +100510,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token case_sensitive="yes">LO</token>
                 <!-- llei orgànica -->
             </antipattern>
+            <antipattern>
+                <token>lo</token>
+                <token>cartanyà</token>
+            </antipattern>
             <rule>
                 <pattern>
                     <token>lo</token>
@@ -103649,6 +104253,15 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <antipattern>
                 <token skip="2">contes</token>
                 <token regexp="yes">vora|foc</token>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">contes?</token>
+                <token regexp="yes">de|d'</token>
+                <token regexp="yes">fades|prínceps|terror|por|ficció|fantasia|imaginació</token>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">contes?</token>
+                <token regexp="yes" inflected="yes">literari|periodístic|fabulós|imaginatiu|poètic</token>
             </antipattern>
             <pattern>
                 <token inflected="yes" regexp="yes">passar|portar|quadrar|fer</token>
@@ -109444,6 +110057,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
     </category>
     <category id="INCORRECT_ORDER_STYLE" name="Ordenació incorrecta" type="style">
+        <rule id="ES_AIXO_NORMAL" name="és això normal -> és normal això">
+            <pattern>
+                <token postag_regexp="yes" postag="VS..3S.*" inflected="yes">ser</token>
+                <token regexp="yes">això|açò</token>
+                <token regexp="yes">normal|habitual|usual</token>
+            </pattern>
+            <message>És preferible usar un ordre més natural.</message>
+            <suggestion>\1 \3 \2</suggestion>
+            <example correction="És normal això"><marker>És això normal</marker>?</example>
+        </rule>
         <rulegroup id="ORIENT_PROXIM" name="Orient Pròxim -> Pròxim Orient">
             <antipattern>
                 <token>pròxim</token>
@@ -109510,6 +110133,30 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>Val més fer servir un altre ordre més natural.</message>
                 <suggestion>no \4 \5 \6 mai</suggestion>
                 <example correction="no les havies vistes mai">Un espectacle com <marker>mai no les havies vistes</marker></example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="RES_A_VEURE_TENEN" name="res a veure tenen / res tenen a veure -> no tenen res a veure">
+            <rule>
+                <pattern>
+                    <token>res</token>
+                    <token inflected="yes">tenir</token>
+                    <token>a</token>
+                    <token regexp="yes">veure|vore</token>
+                </pattern>
+                <message>És preferible usar un ordre més natural.</message>
+                <suggestion>no \2 res a \4</suggestion>
+                <example correction="No tenen res a veure"><marker>Res tenen a veure</marker> amb les expectatives que s'havien creat.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token>res</token>
+                    <token>a</token>
+                    <token regexp="yes">veure|vore</token>
+                    <token inflected="yes">tenir</token>
+                </pattern>
+                <message>És preferible usar un ordre més natural.</message>
+                <suggestion>no \4 res a \3</suggestion>
+                <example correction="No tenien res a veure"><marker>Res a veure tenien</marker> amb les expectatives que s'havien creat.</example>
             </rule>
         </rulegroup>
         <rule id="DENTS_UNGLES" name="ordre preferible: amb dents i ungles">
@@ -109907,7 +110554,20 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="COLLAPSAR" name="col·lapsar -> esfondrar">
             <rule>
                 <pattern>
-                    <token regexp="yes" inflected="yes" skip="7">edifici|casa|pont|torre|sostre|nau</token>
+                    <token regexp="yes" inflected="yes" skip="1">&context_COLLAPSAR;</token>
+                    <marker>
+                        <token postag="V.P.*" postag_regexp="yes" inflected="yes">col·lapsar</token>
+                    </marker>
+                </pattern>
+                <message>En el sentit d'esfondrar-se, "col·lapsar" és un anglicisme.</message>
+                <suggestion><match no="2" postag="(V.P.*)" postag_regexp="yes" postag_replace="$1">esfondrar</match></suggestion>
+                <suggestion><match no="2" postag="(V.P.*)" postag_regexp="yes" postag_replace="$1">enfonsar</match></suggestion>
+                <suggestion><match no="2" postag="(V.P.*)" postag_regexp="yes" postag_replace="$1">afonar</match></suggestion>
+                <example correction="esfondrat|enfonsat|afonat">Els bombers alerten que el mur <marker>col·lapsat</marker> que va provocar l'accident a Gelida podria afectar un pont de l'AP-7.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token regexp="yes" inflected="yes" skip="7">&context_COLLAPSAR;</token>
                     <marker>
                         <token postag="V.*" postag_regexp="yes" inflected="yes">col·lapsar</token>
                     </marker>
@@ -109924,7 +110584,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token postag="V.*" postag_regexp="yes" inflected="yes" skip="7">col·lapsar</token>
                     </marker>
-                    <token regexp="yes" inflected="yes">edifici|casa|pont|torre|sostre|nau</token>
+                    <token regexp="yes" inflected="yes">&context_COLLAPSAR;</token>
                 </pattern>
                 <filter class="org.languagetool.rules.ca.AdjustVerbSuggestionsFilter" args="numberFromNextWords:false"/>
                 <message>En el sentit d'esfondrar-se, "col·lapsar" és un anglicisme.</message>
@@ -109935,7 +110595,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
             <rule>
                 <pattern>
-                    <token regexp="yes" inflected="yes" skip="7">edifici|casa|pont|torre|sostre|nau</token>
+                    <token regexp="yes" inflected="yes" skip="7">&context_COLLAPSAR;</token>
                     <marker>
                         <token postag="N.*" postag_regexp="yes" inflected="yes">col·lapse</token>
                     </marker>
@@ -109951,7 +110611,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token postag="N.*" postag_regexp="yes" inflected="yes" skip="7">col·lapse</token>
                     </marker>
-                    <token regexp="yes" inflected="yes">edifici|casa|pont|torre|sostre|nau</token>
+                    <token regexp="yes" inflected="yes">&context_COLLAPSAR;</token>
                 </pattern>
                 <message>En el sentit d'esfondrament, "col·lapse" és un anglicisme.</message>
                 <suggestion><match no="1" postag_regexp="yes" postag="(N.*)" postag_replace="$1">esfondrament</match></suggestion>
@@ -110193,6 +110853,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token postag="NP.*" postag_regexp="yes">Opera</token>
             </antipattern>
             <rule>
+                <antipattern>
+                    <token>opera</token>
+                    <token postag="D.*" postag_regexp="yes"/>
+                </antipattern>
+                <antipattern>
+                    <token>opera</token>
+                    <token>en</token>
+                </antipattern>
                 <pattern>
                     <token postag="SENT_START"/>
                     <marker>
@@ -110202,10 +110870,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 </pattern>
                 <message>¿Volíeu dir <suggestion>Òpera</suggestion>? "Opera" (sense accent) pot ser el nom d'un navegador d'internet, una paraula en un altre idioma, o una forma del verb 'operar'.</message>
                 <example correction="Òpera"><marker>Opera</marker> de Nova York.</example>
+                <example correction="Òpera"><marker>Opera</marker> a la platja.</example>
                 <example>Els navegadors més usats són Chrome, Firefox i Opera.</example>
                 <example>Opera Omnia</example>
                 <example>La temporada del Royal Opera House aposta per les novetats.</example>
-                <example type="triggers_error" reason="ambiguous">Opera en un entorn lliure.</example>
+                <example>Opera en un entorn lliure.</example>
+                <example>Opera la Saylor Academy, que ofereix cursos gratuïts d'educació.</example>
             </rule>
             <rule>
                 <pattern>
@@ -110248,9 +110918,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token postag_regexp="yes" postag="NC.*" inflected="yes" skip="-1">pal</token>
                     </marker>
-                    <token regexp="yes" inflected="yes">escombra|granera</token>
+                    <token regexp="yes" inflected="yes">escombra|granera|fregona|fregadora?</token>
                 </pattern>
-                <message>Referit a <match no="1" case_conversion="alllower"/>, cal dir <suggestion><match no="1" postag="(NC.*)" postag_regexp="yes" postag_replace="$1">mànec</match></suggestion>.</message>
+                <message>Referit a <match no="2" case_conversion="alllower"/>, cal dir <suggestion><match no="1" postag="(NC.*)" postag_regexp="yes" postag_replace="$1">mànec</match></suggestion>.</message>
                 <example correction="mànec">Se n'ha eixit el <marker>pal</marker> de la granera.</example>
             </rule>
             <rule>
@@ -110334,6 +111004,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <suggestion>una llauna</suggestion>
                 <suggestion>un rotllo</suggestion>
                 <example correction="una murga|una llauna|un rotllo">Això és <marker>un pal</marker>!</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token postag="NCM.*" postag_regexp="yes" inflected="yes" regexp="yes">col?p</token>
+                        <token>de</token>
+                        <token inflected="yes">pal</token>
+                    </marker>
+                </pattern>
+                <message>En aquest context, cal usar una altra expressió.</message>
+                <suggestion><match no="1" postag="NCM(.*)" postag_regexp="yes" postag_replace="NCF$1">bastonada</match></suggestion>
+                <suggestion><match no="1" postag="NCM(.*)" postag_regexp="yes" postag_replace="NCF$1">garrotada</match></suggestion>
+                <suggestion>\1 de bastó</suggestion>
+                <example correction="bastonades|garrotades|colps de bastó">L'apallissen a <marker>colps de pal</marker>.</example>
+                <example correction="bastonades|garrotades|cops de bastó">L'apallissen a <marker>cops de pal</marker>.</example>
             </rule>
             <rule>
                 <pattern>
@@ -111155,7 +111840,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <antipattern>
                 <token inflected="yes">òrgan</token>
                 <token min="0" max="4" postag="LOC_ADV|RG" postag_regexp="yes"/>
-                <token inflected="yes" regexp="yes">oficial|jurisdiccional|judicial|institucional|constitucional|governamental|jurídic|administratiu|competent|pulsatiu|sensorial|auditiu|olfactiu|sensible|bucal|vital|unitari|legal|il·legal|desproporcionat|masculí|femení|sexual|autoritari|tubular|buit|polític|capaç|incapaç|invisible|visible|democràtic|parlamentari|representatiu|legislatiu|executiu|sancionador|col·legiar|constituir|formar|tridimensional|consultiu|gestor|periodístic|suprem|màxim|central|superior|rector|propagandístic|electoral|instructor</token>
+                <token inflected="yes" regexp="yes">oficial|jurisdiccional|judicial|institucional|constitucional|governamental|jurídic|administratiu|competent|pulsatiu|sensorial|auditiu|olfactiu|sensible|bucal|vital|unitari|legal|il·legal|desproporcionat|masculí|femení|sexual|autoritari|tubular|buit|polític|capaç|incapaç|invisible|visible|democràtic|parlamentari|representatiu|legislatiu|executiu|sancionador|col·legiar|constituir|formar|tridimensional|consultiu|gestor|periodístic|suprem|màxim|central|superior|rector|propagandístic|electoral|instructor|encarregar</token>
             </antipattern>
             <antipattern>
                 <token inflected="yes">òrgan</token>
@@ -114648,13 +115333,23 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token>recurs</token>
             </antipattern>
             <antipattern>
-                <token regexp="yes" inflected="yes" skip="4">desclassificar|desclassificació</token>
+                <token regexp="yes" inflected="yes" skip="4">desclassificar|desclassificació|publicar</token>
                 <token inflected="yes">arxiu</token>
             </antipattern>
+            <antipattern>
+                <token regexp="yes" inflected="yes" skip="3">publicar|part|majoria</token>
+                <token>arxius</token>
+                <example>Publicar els arxius del cas Epstein li semblava una pèrdua de temps.</example>
+            </antipattern>
+            <antipattern>
+                <token skip="4">arxius</token>
+                <token>Epstein</token>
+            </antipattern>
             <rule>
+                <!-- en plural és més infreqüent i improbable -->
                 <pattern>
                     <marker>
-                        <token inflected="yes">arxiu</token>
+                        <token>arxiu</token>
                     </marker>
                     <token min="0" max="4" postag="RG|A.*|.*LOC_ADV.*" postag_regexp="yes"/>
                     <token inflected="yes">de</token>
@@ -114664,7 +115359,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>En el sentit de 'acció d'arxivar' cal dir <suggestion><match no="1" postag="(NC.*)" postag_regexp="yes" postag_replace="$1">arxivament</match></suggestion>.</message>
                 <example correction="arxivament">Va demanar l'<marker>arxiu</marker> urgent de la causa.</example>
                 <example correction="arxivament">Va decretar l'<marker>arxiu</marker> de les diligències.</example>
-                <example correction="arxivaments">Els <marker>arxius</marker> de tots els expedients.</example>
+                <example correction="arxivament">L'<marker>arxiu</marker> de tots els expedients.</example>
                 <example>van tancar l'arxiu a causa de les obres.</example>
                 <example>aneu a l'arxiu en cas de necessitat</example>
             </rule>
@@ -115168,6 +115863,17 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <short>Possible error</short>
                 <example correction="Freqüentava"><marker>Sovintejava</marker> Sitges.</example>
                 <example>Freqüenta Sitges.</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="CA_REMOTE_ESCOLTAR_SENTIR" name="escoltar/sentir" default="off">
+            <rule>
+                <pattern>
+                    <token inflected="yes">escoltar</token>
+                </pattern>
+                <filter class="org.languagetool.rules.ca.CatalanRemoteRewriteFilter" args="suppressMatch:true"/>
+                <message>&msg_escoltar_sentir;</message>
+                <example correction="sentir">Vaig <marker>escoltar</marker> que deien coses inversemblants.</example>
+                <example>Vaig escoltar atentament les seves explicacions.</example>
             </rule>
         </rulegroup>
         <rulegroup id="ESCOLTAR_SENTIR" name="escoltar/sentir">
@@ -119176,6 +119882,22 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="reflexos">És un porter de grans <marker>reflexes</marker>, seguretat i personalitat.</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token regexp="yes">complexes|reflexes|annexes</token>
+                    <token postag="N.F.*" postag_regexp="yes"/>
+                </antipattern>
+                <pattern>
+                    <token inflected="yes">tenir</token>
+                    <token min="0" postag_regexp="yes" postag="RG.*" max="3"/>
+                    <marker>
+                        <token regexp="yes">complexes|reflexes|annexes</token>
+                    </marker>
+                </pattern>
+                <message>¿Volíeu dir <suggestion><match no="3" regexp_match="(?iu)(.+)es" regexp_replace="$1os"/></suggestion> (nom masc. pl.) en comptes de "<match no="3"/>" (adj. fem. sing.)?</message>
+                <short>Possible confusió</short>
+                <example correction="complexos">Allà no tenen <marker>complexes</marker> i aquí ens espanten certes coses.</example>
+            </rule>
+            <rule>
                 <pattern>
                     <token>els</token>
                     <marker>
@@ -120136,10 +120858,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
         </rulegroup>
         <rulegroup id="ASSECAR_EIXUGAR" name="assecar / eixugar">
-            <antipattern>
-                <token>sopes</token>
-                <token>seques</token>
-            </antipattern>
             <!-- es pot completar amb més paraules -->
             <rule>
                 <pattern>
@@ -120160,7 +120878,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     </marker>
                     <token inflected="yes" regexp="yes">mà|plat|llavi|cabell|suor|llàgrima|cara|roba|peu|front|gasa|tovallola|boca|tovalló</token>
                 </pattern>
-                <message>¿Volíeu dir <suggestion><match no="1" postag="(V.*)" postag_regexp="yes" postag_replace="$1">eixugar</match></suggestion>?</message>
+                <message>La paraula adequada és <suggestion><match no="1" postag="(V.*)" postag_regexp="yes" postag_replace="$1">eixugar</match></suggestion>.</message>
                 <short>Possible confusió</short>
                 <example correction="eixugà">s'<marker>assecà</marker> les mans</example>
                 <example correction="eixugar">i servia per a <marker>assecar</marker>, entre altres coses, les gases dels petits.</example>
@@ -120174,14 +120892,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                         <token inflected="yes" regexp="yes">secar|assecar<exception regexp="yes">assec|sec</exception></token>
                     </marker>
                 </pattern>
-                <message>¿Volíeu dir <suggestion><match no="2" postag="(V.*)" postag_regexp="yes" postag_replace="$1">eixugar</match></suggestion>?</message>
+                <message>La paraula adequada és <suggestion><match no="2" postag="(V.*)" postag_regexp="yes" postag_replace="$1">eixugar</match></suggestion>.</message>
                 <short>Possible confusió</short>
                 <example correction="eixugà">la roba s'<marker>assecà</marker> de seguida</example>
                 <example>aquell arbre s'assecà</example>
             </rule>
             <rule>
                 <antipattern>
-                    <token inflected="yes" regexp="yes">fruita|fruit</token>
+                    <token regexp="yes" inflected="yes">mongeta|fesol|sopa|fruita|fruit|flor|planta|fulla|cigró|vi|pa|bacallà|bacallar|embotit|arròs|pedra|gel|obra|tos|cama|pal|clima</token>
                     <token inflected="yes">sec</token>
                 </antipattern>
                 <pattern>
@@ -120190,14 +120908,26 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                         <token inflected="yes">sec<exception scope="previous" regexp="yes">en|de|amb|a|per</exception></token>
                     </marker>
                 </pattern>
-                <message>¿Volíeu dir <suggestion><match no="2" postag="(AQ.*)" postag_regexp="yes" postag_replace="$1">eixut</match></suggestion>?</message>
+                <message>La paraula adequada és <suggestion><match no="2" postag="(AQ.*)" postag_regexp="yes" postag_replace="$1">eixut</match></suggestion>.</message>
                 <short>Possible confusió</short>
                 <example correction="eixuts">Ja tinc els cabells <marker>secs</marker>.</example>
                 <example correction="eixuta">La roba encara no està <marker>seca</marker>.</example>
                 <example>llavis secs</example>
                 <example>La visió d'aquella cara l'hauria aturat en sec</example>
                 <example>Una plat de fruita seca.</example>
-                <example>Una plat de fruits secse.</example>
+                <example>Una plat de fruits secs.</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="ASSECADOR_EIXUGADOR" name="assecador -> eixugador">
+            <rule>
+                <pattern>
+                    <marker>
+                        <token inflected="yes" regexp="yes" skip="2">assecador|secador</token>
+                    </marker>
+                    <token regexp="yes" inflected="yes">roba|cabell</token>
+                </pattern>
+                <message>És més apropiat dir <suggestion><match no="1" regexp_match="(?iu)^.*(dor.*)" regexp_replace="eixuga$1" case_conversion="preserve"/></suggestion>.</message>
+                <example correction="eixugador">L'<marker>assecador</marker> de cabells.</example>
             </rule>
         </rulegroup>
         <rulegroup id="RESSECAR_RESECAR" name="ressecar / resecar">
@@ -120707,6 +121437,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="PROPI_MATEIX" name="el *propi/mateix president">
             <!--<url>http://esadir.cat/entrades/fitxa/id/2195</url>-->
             <url>https://aplicacions.llengua.gencat.cat/llc/AppJava/index.html?action=Principal&amp;method=detall&amp;input_cercar=mateix&amp;numPagina=1&amp;database=FITXES_PUB&amp;idFont=11971&amp;idHit=11971&amp;tipusFont=Fitxes+de+l%27Optimot&amp;numeroResultat=2&amp;databases_avansada=&amp;categories_avansada=&amp;clickLink=detall&amp;titol=%27propi%27+o+%27mateix%27%3F+%2F+Nova+gram%E0tica&amp;tematica=&amp;tipusCerca=cerca.fitxes</url>
+            <!-- <antipattern>
+                <token inflected="yes" regexp="yes" skip="-1">reflectir|reflexió|mirall|espill|control|gestió|controlar|gestionar|dret|intimitat|familiar|protecció|honor|respecte|discriminació|consciència|reconeixement|descobriment|reconèixer|descobrir|percepció|construcció|construir|vendre|percepció|percebre</token>
+                <token inflected="yes">propi</token>
+                <token inflected="yes" regexp="yes">imatge|personalitat</token>
+            </antipattern>-->
+            <antipattern>
+                <token inflected="yes">propi</token>
+                <token inflected="yes" regexp="yes">imatge|esquema</token>
+                <token inflected="yes">corporal</token>
+            </antipattern>
             <rule>
                 <pattern>
                     <unify>
@@ -120716,7 +121456,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                         <marker>
                             <token inflected="yes">propi</token>
                         </marker>
-                        <token postag="N.*" postag_regexp="yes" skip="-1"><exception regexp="yes">mans|vivències|vida|cos|decisions|emocions|actes|identitat|melics?</exception></token>
+                        <token postag="N.*" postag_regexp="yes" skip="-1"><exception regexp="yes">mans|vivències|vida|cos|decisions|emocions|actes|identitat|melics?|imatge|personalitat</exception></token>
                     </unify>
                     <token><exception postag="_GN_.*" postag_regexp="yes"/></token>
                 </pattern>
@@ -120727,6 +121467,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="mateix|">Ho digué el <marker>propi</marker> pare.</example>
                 <example>Ho digué el mateix president.</example>
                 <example>Ho va fer amb les pròpies mans.</example>
+                <example>El dret a l'honor i a la pròpia imatge.</example>
             </rule>
             <rule>
                 <pattern>
@@ -122092,7 +122833,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token regexp="yes">contes?</token>
                     <token regexp="yes">de|d'</token>
                 </marker>
-                <token><exception regexp="yes">\p{Lu}.+|fades|prínceps|terror|por</exception></token>
+                <token><exception regexp="yes">\p{Lu}.+|fades|prínceps|terror|por|ficció|fantasia|imaginació</exception></token>
             </pattern>
             <message>¿Volíeu dir <suggestion>en comptes <match no="3"/></suggestion>?</message>
             <suggestion>en compte <match no="3"/></suggestion>
@@ -123202,6 +123943,104 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
     </category>
     <category id="PREFERABLE_EXPRESSIONS" name="Expressions preferibles" default="on" type="style">
+        <rule id="PROVEIMENT_DE_SUPORT" name="proveïment de suport -> provisió de suport">
+            <pattern>
+                <marker>
+                    <token inflected="yes">proveïment</token>
+                </marker>
+                <token>de</token>
+                <token min="0" max="2" regexp="yes">mesures|de</token>
+                <token regexp="yes">suports?</token>
+            </pattern>
+            <filter class="org.languagetool.rules.ca.ConvertToGenderAndNumberFilter" args="lemmaSelect:N.* keepOriginal:false gender:F newLemma:provisió"/>
+            <message>En aquesta expressió és més habitual dir "provisió".</message>
+            <example correction="La provisió"><marker>El proveïment</marker> de suports.</example>
+            <example correction="La provisió"><marker>El proveïment</marker> de mesures de suport.</example>
+        </rule>
+        <rule id="GUARDIA_DE_FET" name="guàrdia de fet -> guarda de fet">
+            <pattern>
+                <token inflected="yes">guàrdia</token>
+                <token>de</token>
+                <token>fet</token>
+            </pattern>
+            <message>En l'àmbit del dret, l'expressió adequada és <suggestion><match no="1" postag_regexp="yes" postag="NC.(.*)" postag_replace="NCC$1">guarda</match> de fet</suggestion>.</message>
+            <example correction="guarda de fet">Una <marker>guàrdia de fet</marker> és una situació d'acolliment d'un menor.</example>
+        </rule>
+        <rulegroup id="SONOTONE" name="sonotone -> audiòfon">
+            <rule>
+                <pattern>
+                    <token>sonotone<exception postag="NPMNO00"/></token>
+                </pattern>
+                <message>"Sonotone" és una marca comercial. El nom comú apropiat és <suggestion>audiòfon</suggestion>.</message>
+                <suggestion>implant coclear</suggestion>
+                <example correction="audiòfon|implant coclear">Ara porta un <marker>sonotone</marker>.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token>sonotones</token>
+                </pattern>
+                <message>"Sonotone" és una marca comercial. El nom comú apropiat és <suggestion>audiòfons</suggestion>.</message>
+                <suggestion>implants coclears</suggestion>
+                <example correction="audiòfons|implants coclears">Ara venen <marker>sonotones</marker>.</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="COMPTA_AMB_TOT_TIPUS" name="compta amb tot tipus -> disposa de tota mena">
+            <rule>
+                <pattern>
+                    <marker>
+                        <token inflected="yes">comptar</token>
+                        <token>amb</token>
+                        <token>tot</token>
+                        <token>tipus</token>
+                    </marker>
+                    <token regexp="yes">de|d'</token>
+                </pattern>
+                <message>Val més usar una altra expressió.</message>
+                <suggestion><match no="1" postag="(V.*)" postag_regexp="yes" postag_replace="$1">disposar</match> de tota mena</suggestion>
+                <example correction="disposava de tota mena">La ciutat <marker>comptava amb tot tipus</marker> d'instal·lacions.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token inflected="yes">comptar</token>
+                        <token>amb</token>
+                    </marker>
+                    <token>tota</token>
+                    <token regexp="yes">classe|mena</token>
+                    <token regexp="yes">de|d'</token>
+                </pattern>
+                <message>Val més usar una altra expressió.</message>
+                <suggestion><match no="1" postag="(V.*)" postag_regexp="yes" postag_replace="$1">disposar</match> de</suggestion>
+                <example correction="disposava de">La ciutat <marker>comptava amb</marker> tota classe d'instal·lacions.</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="GRAN_GROS" name="gran -> gros">
+            <rule>
+                <antipattern>
+                    <token>gran</token>
+                    <token postag="N.*" postag_regexp="yes"/>
+                </antipattern>
+                <pattern>
+                    <token postag="NC([MF][SP]).*" postag_regexp="yes" inflected="yes" regexp="yes">nas|cap|caps|dit|pa|pedra|fulla|peu|mà|televisor</token>
+                    <token postag_regexp="yes" postag="RG.*|LOC_ADV" min="0" max="3"/>
+                    <marker>
+                        <token postag="AQ.*" postag_regexp="yes" inflected="yes">gran</token>
+                    </marker>
+                </pattern>
+                <message>En aquest context, és preferible usar l'adjectiu 'gros'.</message>
+                <suggestion><match no="1" postag="NC([MF][SP]).*" postag_regexp="yes" postag_replace="AQ0$10">gros</match></suggestion>
+                <example correction="gros">Un nas <marker>gran</marker>.</example>
+                <example correction="grossos">Els caps més <marker>grans</marker>.</example>
+                <example correction="gros">Em fa mal el dit <marker>gran</marker> de la mà esquerra.</example>
+                <example correction="gros">Les ungles del dit <marker>gran</marker> les té molt llargues.</example>
+                <example correction="grossa">Una pedra molt <marker>gran</marker>.</example>
+                <example>Cap gran cosa, una petita possessió a l'oest.</example>
+                <example>Que això no és cap gran mansió, eh?</example>
+                <example>No hi ha, de fet, cap gran diferència entre una cosa i l'altra.</example>
+                <example>Ja t'he dit gran part de les raons.</example>
+                <example>Millor dit gran part estaven molt bé.</example>
+            </rule>
+        </rulegroup>
         <rulegroup id="EL_MEU_NOM_ES" name="el meu nom és -> em dic">
             <rule>
                 <antipattern>
@@ -123470,6 +124309,41 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <suggestion><match no="1" regexp_match="(?iu)(cada)sc(una?)" regexp_replace="$1 $2" case_conversion="preserve"/></suggestion>
                 <suggestion>\1</suggestion>
                 <example correction="cada un|cadascun">En <marker>cadascun d'ells</marker> vam trobar detalls cridaners.</example>
+            </rule>
+        </rulegroup>
+        <rule id="UN_DELLS" name="un d'ells és -> un és">
+            <pattern>
+                <marker>
+                    <token regexp="yes">un|una</token>
+                    <token>d'</token>
+                    <token regexp="yes">ells|elles</token>
+                </marker>
+                <token postag="VS..3S.." postag_regexp="yes" inflected="yes">ser</token>
+            </pattern>
+            <message>Val més prescindir del pronom '\3', especialment si no es refereix a persones.</message>
+            <suggestion>\1</suggestion>
+            <example correction="una">Hi ha tres raons: <marker>una d'elles</marker> és que no hi va arribar a temps.</example>
+        </rule>
+        <rulegroup id="ACCEDIR_A_ELLS" name="accedir a ells -> accedir-hi">
+            <rule>
+                <pattern>
+                    <token postag="V.[NG].*" postag_regexp="yes" inflected="yes">accedir</token>
+                    <token>a</token>
+                    <token regexp="yes">ell|ella|ells|elles</token>
+                </pattern>
+                <message>Val més prescindir del pronom '\3', especialment si no es refereix a persones.</message>
+                <suggestion>\1-hi</suggestion>
+                <example correction="accedir-hi">No podia <marker>accedir a elles</marker> de cap manera.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="V.[IS].*" postag_regexp="yes" inflected="yes">accedir</token>
+                    <token>a</token>
+                    <token regexp="yes">ell|ella|ells|elles</token>
+                </pattern>
+                <message>Val més prescindir del pronom '\3', especialment si no es refereix a persones.</message>
+                <suggestion>hi \1</suggestion>
+                <example correction="hi accedeixes">No <marker>accedeixes a elles</marker> de cap manera.</example>
             </rule>
         </rulegroup>
         <rulegroup id="COM_ES_AIXO_POSSIBLE" name="com és això possible -> com pot ser">
@@ -124500,6 +125374,20 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token postag="V.G.*" postag_regexp="yes"/>
                 <token postag="&pronom_feble;" postag_regexp="yes" spacebefore="no"/>
             </antipattern>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token>m'</token>
+                        <token postag="V.*" postag_regexp="yes" inflected="yes">estar</token>
+                        <token>dient</token>
+                    </marker>
+                    <token>que</token>
+                </pattern>
+                <message>Val més fer servir una altra expressió.</message>
+                <suggestion><match no="2" postag_regexp="yes" postag="(V.*)" postag_replace="$1">voler</match> dir</suggestion>
+                <suggestion>em <match no="2" postag_regexp="yes" postag="(V.*)" postag_replace="$1">dir</match></suggestion>
+                <example correction="vols dir|em dius">De debò <marker>m'estàs dient</marker> que no hi ha solució?</example>
+            </rule>
             <rule>
                 <pattern>
                     <token regexp="yes">[mtsln]'</token>
@@ -125788,13 +126676,15 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token postag_regexp="yes" postag="A.*" inflected="yes">disruptiu</token>
             </pattern>
             <message>Sovint s'abusa d'aquest adjectiu per influència de l'anglès. Considereu una opció alternativa.</message>
+            <suggestion><match no="1" postag="(A.*)" postag_regexp="yes" postag_replace="$1">indisciplinat</match></suggestion>
+            <suggestion><match no="1" postag="(A.*)" postag_regexp="yes" postag_replace="$1">conflictiu</match></suggestion>
             <suggestion><match no="1" postag="(A.*)" postag_regexp="yes" postag_replace="$1">innovador</match></suggestion>
             <suggestion><match no="1" postag="(A.*)" postag_regexp="yes" postag_replace="$1">revolucionari</match></suggestion>
-            <suggestion><match no="1" postag="(A.*)" postag_regexp="yes" postag_replace="$1">pertorbador</match></suggestion>
+            <!--<suggestion><match no="1" postag="(A.*)" postag_regexp="yes" postag_replace="$1">pertorbador</match></suggestion>-->
             <suggestion><match no="1" postag="AQ..(.)." postag_regexp="yes" postag_replace="AQ0C$10">rupturista</match></suggestion>
             <suggestion><match no="1" postag="(A.*)" postag_regexp="yes" postag_replace="$1">transgressor</match></suggestion>
             <url>https://www.softcatala.org/diccionari-de-sinonims/paraula/disruptiu/</url>
-            <example correction="innovadores|revolucionàries|pertorbadores|rupturistes|transgressores">Eren idees <marker>disruptives</marker>.</example>
+            <example correction="indisciplinades|conflictives|innovadores|revolucionàries|rupturistes|transgressores">Eren idees <marker>disruptives</marker>.</example>
         </rule>
         <rule id="A_TAULA" name="a la taula -> a taula" tags="picky">
             <antipattern>
@@ -126133,7 +127023,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="MAJORIA_MAJOR_PART" name="la majoria de/la major part de" tags="picky">
             <antipattern>
                 <token regexp="yes">de|d'</token>
-                <token regexp="yes" inflected="yes">caràcter|tema|origen</token>
+                <token postag="D.*" postag_regexp="yes" min="0"/>
+                <token regexp="yes" inflected="yes">caràcter|tema|origen|magnitud</token>
             </antipattern>
             <rule>
                 <pattern>
@@ -126154,6 +127045,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>retrats, la majoria de bronze</example>
                 <example>la majoria d'origen incert</example>
                 <example>La majoria del tribunal va votar que no.</example>
+                <example>Una majoria d’aquesta magnitud reforça l’estabilitat del govern.</example>
             </rule>
             <rule>
                 <pattern>
@@ -133902,6 +134794,93 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
         </rulegroup>
     </category>
+    <category id="LLENGUATGE_INCLUSIU" name="Llenguatge inclusiu" default="off">
+        <!-- https://llengua.gencat.cat/web/.content/documents/publicacions/publicacions_en_linia/arxius/guia-llenguatge-inclusiu.pdf
+             https://www.ub.edu/llibre-estil/criteri.php?id=3249 -->
+        <rule id="INFANTS_DISCAPACITATS" name="infants discapacitats -> infants amb discapacitat">
+            <pattern>
+                <token regexp="yes" inflected="yes">&context_PERSONA;</token>
+                <marker>
+                    <token inflected="yes">discapacitat2</token>
+                </marker>
+            </pattern>
+            <message>Seguint les recomanacions de llenguatge inclusiu, és preferible dir <suggestion>amb discapacitat</suggestion>.</message>
+            <url>https://www.ub.edu/llibre-estil/criteri.php?id=3249</url>
+            <example correction="amb discapacitat">Hi havia tres infants <marker>discapacitats</marker>.</example>
+        </rule>
+        <rulegroup id="MALALT_MENTAL" name="malalt mental -> persona amb trastorn mental">
+            <url>https://www.ub.edu/llibre-estil/criteri.php?id=3249</url>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">a|de|pe</token>
+                        <token regexp="yes">ls?</token>
+                        <token inflected="yes">malalt</token>
+                        <token inflected="yes">mental</token>
+                    </marker>
+                </pattern>
+                <message>Val més usar una altra expressió segons les recomanacions de llenguatge inclusiu.</message>
+                <suggestion><match no="1" regexp_match="(?iu)^pe$" regexp_replace="per"/> <match no="2" postag="DA0M([SP])0" postag_replace="DA0F$10" postag_regexp="yes"/> <match no="3" postag_regexp="yes" postag_replace="NCF$2000" postag="(AQ..|NC.)(.).*">persona</match> amb trastorn mental</suggestion>
+                <example correction="De les persones amb trastorn mental"><marker>Dels malalts mentals</marker></example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token postag="D...([SP])." postag_regexp="yes"/>
+                        <token inflected="yes">malalt</token>
+                        <token inflected="yes">mental</token>
+                    </marker>
+                </pattern>
+                <message>Val més usar una altra expressió segons les recomanacions de llenguatge inclusiu.</message>
+                <suggestion><match no="1" postag="(D..).([SP].)" postag_replace="$1F$2" postag_regexp="yes"/> <match no="2" postag_regexp="yes" postag_replace="NCF$2000" postag="(AQ..|NC.)(.).*">persona</match> amb trastorn mental</suggestion>
+                <example correction="Unes persones amb trastorn mental"><marker>Uns malalts mentals</marker></example>
+            </rule>
+            <rule>
+                <antipattern>
+                    <token>fundació</token>
+                    <token>malalts</token>
+                    <token>mentals</token>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token inflected="yes">malalt</token>
+                        <token inflected="yes">mental</token>
+                    </marker>
+                </pattern>
+                <!-- TODO: filtre per a generar els suggeriments -->
+                <message>Val més usar una altra expressió segons les recomanacions de llenguatge inclusiu.</message>
+                <suggestion><match no="1" postag_regexp="yes" postag_replace="NCF$2000" postag="(AQ..|NC.)(.).*">persona</match> amb trastorn mental</suggestion>
+                <example correction="Persones amb trastorn mental"><marker>Malalts mentals</marker></example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="PERSONA_AMB_MOBILITAT_REDUIDA" name="físicament limitada -> amb mobilitat reduïda">
+            <url>https://www.ub.edu/llibre-estil/criteri.php?id=3249</url>
+            <rule>
+                <pattern>
+                    <token regexp="yes" inflected="yes">&context_PERSONA;</token>
+                    <token>físicament</token>
+                    <token regexp="yes">limitada|limitades|limitats?</token>
+                </pattern>
+                <message>Val més usar una altra expressió segons les recomanacions de llenguatge inclusiu.</message>
+                <suggestion>\1 amb mobilitat reduïda</suggestion>
+                <example correction="persona amb mobilitat reduïda">Era una <marker>persona físicament limitada</marker></example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="PERSONA_AMB_DIVERSITAT_FUNCIONAL" name="persona amb diversitat funcional -> amb discapacitat">
+            <url>https://www.ub.edu/llibre-estil/criteri.php?id=3249</url>
+            <rule>
+                <pattern>
+                    <token regexp="yes" inflected="yes">&context_PERSONA;</token>
+                    <token>amb</token>
+                    <token>diversitat</token>
+                    <token>funcional</token>
+                </pattern>
+                <message>Val més usar una altra expressió segons les recomanacions de llenguatge inclusiu.</message>
+                <suggestion>\1 amb discapacitat</suggestion>
+                <example correction="nena amb discapacitat">Era una <marker>nena amb diversitat funcional</marker>.</example>
+            </rule>
+        </rulegroup>
+    </category>
     <category id="REDUNDANCIES" name="Redundàncies" type="style">
         <rule id="CADAVER_SENSE_VIDA" name="cadàver sense vida">
             <pattern>
@@ -135218,7 +136197,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="en">El vot d’això que <marker>n'hi</marker> diuen populisme.</example>
             </rule>
         </rulegroup>
-        <rulegroup name="els hi (col·loquial) -> els hi" id="ELS_HI_ELS">
+        <rulegroup id="ELS_HI_ELS" name="els hi (col·loquial) -> els hi">
             <rule>
                 <pattern>
                     <marker>
@@ -141307,6 +142286,12 @@ No t'ho explicaré, no cal que em burxis més-->
                 <token>tot</token>
                 <example>S’ho van empassar tot ells, mort i vida.</example>
             </antipattern>
+            <antipattern>
+                <token regexp="yes">fent|fer</token>
+                <token>-ho</token>
+                <token>tot</token>
+                <example>Fent-ho tot nosaltres eixirà més barat.</example>
+            </antipattern>
             <rule>
                 <pattern>
                     <!--<token postag="SENT_START|_PUNCT.*" postag_regexp="yes"/>-->
@@ -143273,12 +144258,13 @@ No t'ho explicaré, no cal que em burxis més-->
             <antipattern>
                 <token regexp="yes">el|l</token>
                 <token>que</token>
-                <token min="0" max="4" postag="RG|LOC_ADV|&pronom_feble;" postag_regexp="yes"/>
+                <token min="0" max="4" postag="RG|LOC_ADV|P.*" postag_regexp="yes"/>
                 <token min="0" chunk="GV"><exception regexp="yes" inflected="yes">anomenar|denominar</exception></token>
                 <token regexp="yes" inflected="yes">anomenar|denominar</token>
                 <example>Fa un retrat cru del que anomena "disbarat".</example>
                 <example>Fa un retrat cru del que més tard anomena "disbarat".</example>
                 <example>Fa un retrat cru del que després anomena "disbarat".</example>
+                <example>Amb el vistiplau del que ell va anomenar la ciència funesta.</example>
             </antipattern>
             <antipattern>
                 <token regexp="yes">el|l</token>
@@ -152744,6 +153730,25 @@ No t'ho explicaré, no cal que em burxis més-->
                 <message>¿Volíeu dir <suggestion>Lluís Companys</suggestion> (polític català)?</message>
                 <url>https://ca.wikipedia.org/wiki/Llu%C3%ADs_Companys_i_Jover</url>
                 <example correction="Lluís Companys"><marker>Lluïs Company</marker>.</example>
+            </rule>
+            <rule id="MISSION_IMPOSSIBLE" name="Mission: Impossible">
+                <antipattern case_sensitive="yes">
+                    <token regexp="yes">Missió|Mission</token>
+                    <token spacebefore="no">:</token>
+                    <token>Impossible</token>
+                </antipattern>
+                <antipattern>
+                    <token>missió</token>
+                    <token>impossible</token>
+                </antipattern>
+                <pattern>
+                    <token regexp="yes">miss?i[oó]n?</token>
+                    <token min="0">:</token>
+                    <token regexp="yes">imposs?ible</token>
+                </pattern>
+                <message>¿Volíeu dir el nom de la pel·lícula <suggestion>Missió: Impossible</suggestion> (<suggestion>Mission: Impossible</suggestion>) o l'expressió comuna <suggestion>missió impossible</suggestion>?</message>
+                <example correction="Missió: Impossible|Mission: Impossible|missió impossible">Vam anar al cinema a veure <marker>misión imposible</marker>.</example>
+                <example correction="Missió: Impossible|Mission: Impossible|Missió impossible">Vam anar al cinema a veure <marker>Misió: imposible</marker>.</example>
             </rule>
         </rulegroup>
     </category>

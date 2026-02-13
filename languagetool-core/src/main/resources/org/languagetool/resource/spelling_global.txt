@@ -2391,6 +2391,8 @@ O'Donovan
 O’Donovan
 O'Driscoll
 O’Driscoll
+O'Farrell
+O’Farrell
 O'Gowan
 O’Gowan
 O'Grady
@@ -4402,6 +4404,7 @@ Max Levchin
 Premal Shah
 Luke Nosek
 Ken Howery
+Kenneth Alan Howery
 Keith Rabois
 Roelof Botha
 Jared Kopf
@@ -6450,6 +6453,7 @@ Calgary Flames
 Washington Capitals
 Winnipeg Jets
 Detroit Red Wings
+Red Wings
 Philadelphia Flyers
 St. Louis Blues
 Colorado Avalanche
@@ -11086,6 +11090,8 @@ Filippo Tommaso Marinetti
 Francesco de Sanctis
 Gabriele D'Annunzio
 Gabriele D’Annunzio
+D'Annunzio
+D’Annunzio
 Giosuè Carducci
 Giovanni Verga
 Giuseppe Verdi
@@ -11452,6 +11458,7 @@ Nigel Davies
 Nigel Short
 Oliver Sacks
 P. D. James
+Phyllis Dorothy James
 Peter Ackroyd
 Philip Pullman
 Richard Francis Burton
@@ -19879,6 +19886,7 @@ Ichiro Ozawa
 Eisaku Sato
 Zenko Suzuki
 Sanae Takaichi
+Takaichi
 Noboru Takeshita
 Kakuei Tanaka
 Makiko Tanaka
@@ -20584,6 +20592,8 @@ Riccardo Giacconi
 Richard E. Taylor
 Robert Andrews Millikan
 Robert B. Laughlin
+Robert Laughlin
+Bob Laughlin
 Robert Coleman Richardson
 Robert Hofstadter
 Robert Woodrow Wilson
@@ -21871,6 +21881,7 @@ Mónica Randall
 Tony Randall
 London Symphony Orchestra
 Berliner Philharmoniker
+Berliner Philharmonie
 András Schiff
 John Salley
 José María Maravall
@@ -22486,6 +22497,7 @@ Hideki Shirakawa
 William S. Knowles
 Ryōji Noyori
 K. Barry Sharpless
+Karl Barry Sharpless
 John B. Fenn
 Koichi Tanaka
 Kurt Wüthrich
@@ -29375,6 +29387,10 @@ Louis Vincent Gerstner
 Louis V. Gerstner
 George Bailey
 Isiah Whitlock
+Rick Rieder
+Kevin Warsh
+Kevin Hassett
+Shirley Raines
 Mamady Doumbouya
 Judy Hopps
 Nick Wilde
@@ -29413,3 +29429,262 @@ Peter Gustav Lejeune Dirichlet
 Johann Peter Gustav Lejeune Dirichlet
 Gustav Dirichlet
 Dirichlet
+Robert Kegan
+David Chapman
+Milton H. Erickson
+Milton Hyland Erickson
+Eva Vlaardingerbroek
+Andrew Bailey
+Andrew John Bailey
+Poincaré-Perelman
+Enrico Betti
+Henry Whitehead
+Herbert Feigl
+Roy Kerr
+St Andrew's College
+St Andrew’s College
+St. Andrew's College
+St. Andrew’s College
+Météo-France
+Valentino Garavani
+Ross Douthat
+Caspar Wessel
+Abraham de Moivre
+Diarmaid MacCulloch
+Pia Cramling
+Anna Cramling
+Dan Cramling
+Juan Manuel Bellón
+Ruy López
+Ruy López de Segura
+Sofia Polgar
+Judit Polgár
+László Polgár
+Levon Aronian
+Árpád Élő
+Elo
+Léonie Sonning
+Reinhold Brinkmann
+Arditti Quartet
+Klaus Huber
+Friedrich Cerha
+Peter Gülke
+H. C. Robbins Landon
+Robbins Landon
+Monty Hall
+Marilyn vos Savant
+Axtell
+Baladez
+Carmo
+Fredlake
+Ilachinski
+Kress
+Rumsey
+Sun Tzu
+Ozzy
+Osbourne
+Draiman
+Boone
+Poole
+Washburn
+Springer
+Hillier
+Universidade Europeia
+Bergström
+Eddie
+Anderson
+Morrison
+Patty
+Németh László
+László Németh
+Németh
+László
+Cassidy Hutchinson
+Michael Pettis
+Jesús López Cobos
+Michael Sanderling
+David Rumsey
+James Rumsey
+John Sherman
+Willard Mitt Romney
+Renée Good
+Alex Pretti
+Oswald Mosley
+Philip Marlowe
+Dick Richards
+George Getty
+Robert Ludlum
+David Sokol
+Michelle Bowman
+Pernilla August
+Henrik Johan Ibsen
+Mediterranean Shipping Company
+William Rees-Mogg
+Ernst Fraenkel
+Yogi Berra
+Gregory Bovino
+Greg Bovino
+Generalitat de Catalunya
+Balaji Srinivasan
+Balaji S. Srinivasan
+Múte B. Egede
+Múte Bourup Egede
+Múte Inequnaaluk Bourup Egede
+Louis de Bonald
+Tyler Brûlé
+Wilhelm Röpke
+Lord Acton
+Sakuhei Fujiwhara
+Fujiwhara
+Amazon MGM Studios
+Amazon MGM
+MGM Studios
+RatPac Entertainment
+Brett Ratner
+Olivia Munn
+Mission: Impossible
+Magic: The Gathering
+Deadpool & Wolverine
+Blaise Metreweli
+Jean-Baptiste Senderens
+Julian Taylor
+A Clockwork Orange
+Katarina Ivanović
+Loránd Eötvös
+Eötvös Loránd
+Loránd Eötvös de Vásárosnamény
+Eötvös
+Chase Infiniti Payne
+Regina Hall
+Regina Lee Hall
+Vespro della Beata Vergine
+Corey Lewandowski
+Lee Krasner
+Milans del Bosch
+Jaime Milans del Bosch
+Stanley Druckenmiller
+Tammy Duckworth
+Jim McNeely
+Jacob Frey
+Hetzner Online
+Hetzner
+Menno Simons
+Henry Kamen
+Cipriano de Valera
+Juan de Valdés
+Lineweaver-Burk
+Shekhar Kapur
+Veronica Guerin
+Andrew Upton
+Joe Wright
+Steve Tisch
+Andrew Mountbatten Windsor
+Mountbatten Windsor
+Kathryn Ruemmler
+Latham & Watkins
+Joseph Matthew Alwyn
+Joe Alwyn
+Jessie Buckley
+Herbert Alexander Simon
+Gloria Stuart
+David Hirschfelder
+Valentina Cortese
+Margaret Herrick
+John Seale
+Louis B. Mayer
+Louis Mayer
+Louis Burt Mayer
+L. B. Mayer
+MacKenzie Bezos
+Richard Grenell
+Daniel Clement Dennett
+MicroStrategy
+Oskar Barnack
+Catwoman
+Our World in Data
+Madeleine Westerhout
+Peter Attia
+Paul Bekker
+Hervé Le Tellier
+Konzerthausorchester Berlin
+Berliner Sinfonie-Orchester
+Konzerthaus Berlin
+Lothar Zagrosek
+Christoph Eschenbach
+Jennifer Jason Leigh
+Epstein-Barr
+Lee Meriwether
+Andrew Ross Sorkin
+John J. Raskob
+John Raskob
+John Jakob Raskob
+Robert Trivers
+George H. Mealy
+George Mealy
+Paul Weiss
+Paul, Weiss
+Savannah Guthrie
+Jean-Baptiste Botul
+Guido van Rossum
+Morgan McSweeney
+David Hamilton
+Bernard Mandeville
+Theodore Kaczynski
+Levi's Stadium
+Levi’s Stadium
+Charlotte FC
+Chicago Fire FC
+FC Cincinnati
+Columbus Crew
+D.C. United
+CF Montréal
+Nashville SC
+New England Revolution
+New York City FC
+New York Red Bulls
+Orlando City SC
+Philadelphia Union
+Toronto FC
+Colorado Rapids
+FC Dallas
+Houston Dynamo FC
+Sporting Kansas City
+LA Galaxy
+Los Angeles FC
+Minnesota United FC
+Portland Timbers
+Real Salt Lake
+San Diego FC
+San Jose Earthquakes
+Seattle Sounders FC
+St. Louis City SC
+Vancouver Whitecaps FC
+Quatuor Arod
+John Kennedy Toole
+Frank McCourt
+Francis McCourt
+Patrick Bateman
+Evangelion
+Adolphe Sax
+Xander Zayas
+Emiliano Vargas
+Young Miko
+Alix Earle
+God Bless America
+James Bradley
+Taylor Harry Fritz
+Jenő Jandó
+Gordie Howe International Bridge
+Gordie Howe Bridge
+Gordie Howe
+Ilia Malinin
+František Tůma
+Gillian Flynn
+Harry Quebert
+Stephanie Mailer
+Ferdinand Foch
+Marius Borg Høiby
+Durek Verrett
+Thorbjørn Jagland
+Børge Brende
+Liliana Cavani

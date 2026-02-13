@@ -6,7 +6,7 @@
 Portuguese - Style Rules for LanguageTool.
 
 See tagset.txt for the meaning of the POS tags.
-Copyright © 2001-2026 Daniel Naber (http://www.danielnaber.de),
+Copyright © 2001-2026 Daniel Naber (https://www.danielnaber.de),
 Marcin Miłkowski, and the LanguageTool contributors.
 
 This library is free software; you can redistribute it and/or
@@ -3788,6 +3788,85 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
+        <rule id='FAZER_PROCEDER' name="Formalização: fazer → proceder a (atos administrativos)" type='style' tone_tags='formal'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <pattern>
+                <token postag='RG|V.+|SENT_START|_PUNCT' postag_regexp='yes'>
+                    <exception inflected='yes'>ter</exception>
+                    <exception regexp='yes'>foi|foram|era|eram|sido</exception></token>
+                <token min='0' max='1' postag='PP.+' postag_regexp='yes'/> <!-- "eu", "tu", "ele", "você", etc. -->
+                <marker>
+                    <token inflected='yes'>fazer</token>
+                    <token skip='1' postag='DA.+' postag_regexp='yes'/>
+                </marker>
+                <token regexp='yes' inflected='yes'>pagamento|liquidação|transferência|regularização|cobrança|inscrição|cancelamento|ativação|validação|homologação|autorização|formalização|constituição|notificação|publicação|emissão|prorrogação|renovação<exception scope='previous' postag_regexp='yes' postag='SPS00:.+'/></token> <!-- Lista final — precisão máxima -->
+            </pattern>
+            <message>Em linguagem formal, prefira &quot;proceder a&quot; com este tipo de ação.</message>
+            <suggestion><match no='3' postag='V.+' postag_regexp='yes'>proceder</match> <match no='4' postag='DA0(..)0' postag_replace='SPS00:DA0$10'>a:o</match></suggestion>
+            <example correction="proceder ao">O Marco vai <marker>fazer o</marker> pagamento do livro.</example>
+            <example correction="proceder à">Como <marker>fazer a</marker> emissão da fatura?</example>
+            <example>Vou proceder ao seu pagamento imediato.</example>
+            <example>Como eu procedo ao seu pagamento?</example>
+        </rule>
+
+
+        <rule id='DECIDIR_DELIBERAR' name="Decidir → deliberar (órgão colegiado)" type='style' tone_tags='formal'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <pattern>
+                <token regexp='yes' inflected='yes'>júri|comissão|conselho|tribunal|corte|senado</token>
+                <token min='0' max='1' regexp='yes'>de|d[ao]s?</token>
+                <token min='0' max='1' regexp='yes' inflected='yes'>administração|estado|ministros|justiça|educação|saúde|finanças|defesa|segurança|ética|disciplina|fiscal|científico|pedagógico|universitário|superior</token>
+                <token min='0' max='1' postag='RG'/>
+                <marker>
+                    <token inflected='yes'>decidir</token>
+                </marker>
+            </pattern>
+            <message>Quando o sujeito é um órgão colegiado, prefira &quot;deliberar&quot; em vez de &quot;decidir&quot;.</message>
+            <suggestion><match no='5' postag='V.+' postag_regexp='yes'>deliberar</match></suggestion>
+            <example correction="deliberou">O júri <marker>decidiu</marker> sobre o recurso.</example>
+            <example correction="deliberou">A Comissão Científica <marker>decidiu</marker> sobre a decisão.</example>
+            <example>A Comissão Científica já deliberou sobre a decisão.</example>
+        </rule>
+
+
+        <rulegroup id='SOBRE_QUAL_QUAIS_INFLACIONADO' name="Construção 'sobre qual/quais' inflacionada" type='style' tone_tags='formal'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <rule> <!-- #1: Comparativos/superlativos irregulares (adjetivos) -->
+                <pattern>
+                    <token>sobre</token>
+                    <marker>
+                        <token regexp='yes'>qua(l|is)</token>
+                        <token regexp='yes'>[ao]s?</token>
+                    </marker>
+                    <token regexp='yes' inflected='yes'>melhor|pior|maior|menor|superior|inferior|principal|único|fundamental|essencial|crítico|determinante|adequado|relevante|prioritário|preferencial|ideal|ótimo|máximo|mínimo</token>
+                    <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+                </pattern>
+                <message>Prefira o artigo definido.</message>
+                <suggestion>\3</suggestion>
+                <example correction="a">Decidir sobre <marker>qual a</marker> melhor estratégia a implementar.</example>
+            </rule>
+
+            <rule> <!-- #2: NC/AQ -->
+                <pattern>
+                    <token>sobre</token>
+                    <marker>
+                        <token regexp='yes'>qua(l|is)</token>
+                        <token regexp='yes'>[ao]s?</token>
+                    </marker>
+                    <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+                </pattern>
+                <message>Prefira &quot;sobre que&quot; ou o artigo definido.</message>
+                <suggestion>\3</suggestion>
+                <suggestion>que</suggestion>
+                <example correction="a|que">Decidir sobre <marker>qual a</marker> solução a implementar.</example>
+            </rule>
+
+        </rulegroup>
+
+
         <rule id='MAIORES_PRINCIPAIS' name="Maiores → principais (plural apenas)" type='style' tone_tags='formal' tags='picky'>
             <!-- ChatGPT 5 -->
             <!-- Atenção: esta regra aplica-se apenas a "maiores" (plural).
@@ -4077,39 +4156,22 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <rule id='PRESO_RETIDO' name="Preso → retido" tone_tags='formal' tags='picky' default='temp_off'>
-            <antipattern>
-                <token skip='1' inflected='yes' regexp='yes'>achar|continuar|encontrar|estar|ficar|manter|permanecer|ser|ver</token>
-                <token regexp='yes'>pres[ao]s?</token>
-                <token min='0' max='1' postag='_PUNCT' postag_regexp='no'/>
-                <token min='0' max='1' regexp='yes'>após|como|com|devido|durante|em|enquanto|n[ao]s?|para|pel[ao]s?|por|porqu[eê]|quando|que|sob</token>
-                <token min='0' max='1' regexp='yes'>[àao]s?|aos?|e|ou</token>
-                <token min='0' max='1' postag='_PUNCT' postag_regexp='no'/>
-                <token inflected='yes' regexp='yes'>acusação|acusado|advogado|assassinar|autoridade|cela|custódia|enganar|engano|esfaquear|estuprar|furtar|furto|GNR|juiz|julgamento|lapso|matar|molestar|PJ|polícia|político|posse|prisão|PSP|reincidência|roubar|roubo|torturado|torturar|tribunal|usurpação|usurpar</token>
-                <example>Depois de quatro anos de pregação, foi preso pelas autoridades pagãs.</example>
-                <example>Ela foi presa pela polícia.</example>
-                <example>Ele foi preso sob a acusação de conspirar contra a monarquia, mas foi liberado por falta de provas.</example>
-                <example>Rosso é posteriormente preso sob custódia da A.R.G.U.S.</example>
-                <example>Malvo foi inicialmente preso sob acusações federais, mas elas foram retiradas.</example>
-                <example>Ele foi preso acusado por evasão fiscal.</example>
-                <example>Tom foi preso por engano.</example>
-                <example>Luís XVI e Maria foram presos, acusados de traição ao país por colaborarem com os invasores.</example>
-                <example>Elemento mão de visgo é preso após furtar aparelho...</example>
-                <example>Nessa época, ele ainda não cantava, e chegou a ser preso e torturado.</example>
-                <example>Ele foi preso e assassinado durante a Revolução.</example>
-                <example>Ele foi preso porque roubou dinheiro. </example>
-            </antipattern>
+        <rule id='PRESO_RETIDO_V2' name="Preso → retido" tone_tags='formal'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <pattern>
-                <token skip='1' inflected='yes' regexp='yes'>achar|continuar|encontrar|estar|ficar|manter|permanecer|ser|ver</token>
+                <token postag='SENT_START|_PUNCT|V.+' postag_regexp='yes'><exception regexp='no' inflected='yes'>ser</exception></token> <!-- Só dispara com verbos típicos de estado (não com "ser" na passiva: foram presos...) -->
                 <marker>
-                    <token regexp='yes'>pres[ao]s?</token>
+                    <token postag='VMP00.+' postag_regexp='yes' regexp='yes'>pres[ao]s?</token>
                 </marker>
+                <token skip='1' regexp='yes'>em|n[oa]s?|nu(m|ns)|numas?</token>
+                <token regexp='yes' inflected='yes'>trânsito|tráfego|engarrafamento|congestionamento|fila|espera|bloqueio|interdição|paragem|paralisação|via|estrada|rodovia|auto-estrada|autoestrada|avenida|ciclovia|ponte|túnel|acesso|saída|rotunda|cruzamento|portagem|pedágio|aeroporto|terminal|porto|estação|plataforma|embarque|desembarque|check-in|checkin|inspeção|fiscalização|vistoria|controlo|controle|segurança|fronteira|alfândega|aduana|imigração|passaporte|bagagem|mala|encomenda|pacote|remessa|carga|mercadoria|contentor|contêiner|container|transportadora|correio|entrega|distribuição|triagem|armazém|depósito|despacho|expedição|liberação|desalfandegamento|desembaraço</token>
             </pattern>
             <message>Empregue &quot;retido&quot; em textos formais, salvo ao referir-se a prisão de liberdade.</message>
-            <suggestion>retid<match no='2' regexp_match='(pres)(.)(s?)' regexp_replace='$2$3'/></suggestion>
+            <suggestion><match no='2' postag='VMP00(..)' postag_replace='VMP00$1'>reter</match></suggestion>
             <example correction="retido">Estou <marker>preso</marker> no trânsito.</example>
             <example>A Ana está retida no congestionamento a caminho do trabalho.</example>
             <example>O documento foi retido na alfândega.</example>
+            <example>Vários traficantes foram presos na fronteira com o Paraguai.</example>
         </rule>
 
 
@@ -4375,38 +4437,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <suggestion><match no='1' postag='V.+' postag_regexp='yes'>importunar</match></suggestion>
             <example correction="incomode|importune">Não <marker>chateie</marker> mais os visitantes.</example>
             <example>O Rui importuna os visitantes abusivamente.</example>
-        </rule>
-
-
-        <rule id='DAR_ATRIBUIR_CONFERIR' name="Dar → atribuir/conferir" tone_tags='formal' tags='picky' default='temp_off'>
-            <!-- Used ChatGPT with Reason and DeepSeek-V3 -->
-            <!-- Later expand into two subrules to accept directly the list of words after the "DAR" verb -->
-
-            <pattern>
-                <marker>
-                    <token inflected='yes' regexp='no'>dar<exception postag_regexp='yes' postag='VMSP.+|VMP00.+'/></token>
-                </marker>
-                <token skip='1' regexp='yes'>[ao]s?|um|uns|umas?|&adverbios_de_intensidade;</token>
-                <token inflected='yes' regexp='yes'>acesso|atenção|autoridade|autorização|benefício|cargo|certificação|certificado|clareza|chance|competência|condecoração|credibilidade|designação|destaque|diploma|direito|distinção|distintivo|dom|emblema|ênfase|enfoque|forma|função|garantia|graduação|grau|habilitação|honra|honraria|importância|investidura|liberdade|licença|licitude|lugar|mandato|medalha|mérito|oportunidade|ordem|outorga|patente|permissão|poder|posição|possibilidade|pr[éê]mio|prerrogativa|prioridade|privilégio|propósito|realismo|reconhecimento|responsabilidade|sentido|seriedade|status|título|troféu|valor|vantagem</token>
-            </pattern>
-            <message>Use &quot;dar&quot; para casos gerais, &quot;conferir&quot; para concessões formais e &quot;atribuir&quot; para designações.</message>
-            <suggestion><match no='1' postag='V.+' postag_regexp='yes'>atribuir</match></suggestion>
-            <suggestion><match no='1' postag='V.+' postag_regexp='yes'>conferir</match></suggestion>
-            <example correction="atribuiu|conferiu">O tribunal <marker>deu</marker> a responsabilidade da criança à mãe.</example>
-            <example>A comissão atribuiu a distinção ao melhor candidato.</example>
-            <example>Além disso, os dados fortemente tipados podem ser armazenados no registro.</example>
-            <example>Mas fomos dados uma segunda chance.</example>
-            <example>Dê o lugar, Milton.</example>
-            <example>Corte-o na linha reta, ou seja, dê uma forma quadrada.</example>
-            <example>Dada a oportunidade, você deve negociar ambas as direções</example>
-            <example>Nos dê uma chance.</example>
-            <example>- Todos teriamos dado as mesmas ordens.</example>
-            <example>Se quiser outro, me dê um título em português.</example>
-            <example>Espero que me dês mais atenção da próxima vez.</example>
-            <example>Dê-me uma outra chance.</example>
-            <example>Deem-me uma outra chance.</example>
-            <example>Foi-me dada a permissão de utilizar este carro.</example>
-            <example>Eu gostaria que desse uma chance aos dois.</example>
         </rule>
 
 
@@ -9329,19 +9359,35 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <rule id='SEM_DAR_NAS_VISTAS' name="discretamente">
-            <!--      Created by Marco A.G.Pinto, Portuguese rule      -->
-            <pattern>
-                <token>sem</token>
-                <token inflected='yes'>dar</token>
-                <token min="0">muito</token>
-                <token>nas</token>
-                <token>vistas</token>
-            </pattern>
-            <message>&informal_msg;</message>
-            <suggestion>discretamente</suggestion>
-            <example correction="discretamente">Limpa o chão <marker>sem dar nas vistas</marker>.</example>
-        </rule>
+        <rulegroup id='SEM_DAR_NAS_VISTAS_V2' name="Sem dar nas vistas → discretamente" default='temp_off'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <rule> <!-- #1: with intensifiers -->
+                <pattern>
+                    <token>sem</token>
+                    <token inflected='yes'>dar</token>
+                    <token regexp='yes'>&adverbios_de_intensidade;</token>
+                    <token>nas</token>
+                    <token>vistas</token>
+                </pattern>
+                <message>&informal_msg;</message>
+                <suggestion>\3 discretamente</suggestion>
+                <example correction="muito discretamente">Limpa o chão <marker>sem dar muito nas vistas</marker>.</example>
+            </rule>
+
+            <rule> <!-- #2: without intensifiers -->
+                <pattern>
+                    <token>sem</token>
+                    <token inflected='yes'>dar</token>
+                    <token>nas</token>
+                    <token>vistas</token>
+                </pattern>
+                <message>&informal_msg;</message>
+                <suggestion>discretamente</suggestion>
+                <example correction="discretamente">Limpa o chão <marker>sem dar nas vistas</marker>.</example>
+            </rule>
+        </rulegroup>
+
 
         <rule id='À_BOCADO' name="Há bocado">
             <!--      Created by Marco A.G.Pinto, Portuguese rule      -->
@@ -9526,6 +9572,23 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     <category id='ACADEMIC' name='Linguagem acadêmica' type='style' tone_tags="academic">
 
 
+        <rule id='VERBO_O_USO_DE_X_X' name="Verbo + 'o uso de X' → X" type='style' tone_tags='academic' is_goal_specific='true'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <token regexp='yes' inflected='yes'>evitar|reduzir|minimizar|mitigar|prevenir|eliminar|diminuir|controlar|limitar|conter|suprimir</token>
+                <marker>
+                    <token>o</token>
+                    <token>uso</token>
+                    <token>de</token>
+                    <token regexp='yes' inflected='yes'>valor|inconsistência|ambiguidade|ruído|instabilidade|redundância|viés|sobreajuste|degradação|erro|falha|artefato|discrepância|distorção|atraso|interferência|perda|impacto|variabilidade|incerteza|oscilação|imprecisão|incoerência|anomalia|irregularidade|desvio|contaminação|propagação|acumulação|saturação</token>
+                </marker>
+            </pattern>
+            <message>A expressão &quot;o uso de&quot; é redundante com substantivos que denotam propriedades ou fenómenos indesejáveis.</message>
+            <suggestion>\5</suggestion>
+            <example correction="valores">A equação deve evitar <marker>o uso de valores</marker> negativos.</example>
+        </rule>
+
+
         <rule id='COMPARADA_COMPARÁVEL' name="'Comparada' a → Comparável" type='style' tone_tags='academic' is_goal_specific='true'>
             <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <pattern>
@@ -9540,6 +9603,28 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <suggestion><match no='3' postag='VMP00(.).' postag_replace='AQ0C$10'>comparável</match></suggestion>
             <example correction="comparável">Tal capacidade é <marker>comparada</marker> à possibilidade de vencer.</example>
             <example correction="comparáveis">Tais capacidades são <marker>comparadas</marker> às possibilidades de vencer.</example>
+        </rule>
+
+
+        <rule id='POR_INFIN_EM_VIRTUDE_DE' name="'por' + Verbo infinitivo → em virtude de" type='style' tone_tags='academic' is_goal_specific='true'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <token postag='_PUNCT_COMMA'/>
+                <marker>
+                    <token>por</token>
+                </marker>
+                <token postag='VMN.+' postag_regexp='yes'><exception scope='next' postag_regexp='yes' postag='_PUNCT_COMMA|SENT_END'/></token>
+            </pattern>
+            <message>Num contexto formal/científico, pode ser preferível substituir &quot;, por + infinitivo&quot; (valor causal) por uma construção mais explícita (p. ex., &quot;devido a&quot;, &quot;em virtude de&quot;, &quot;em razão de&quot;, &quot;pelo facto/fato de&quot;).</message>
+            <suggestion>devido a</suggestion>
+            <suggestion>em virtude de</suggestion>
+            <suggestion>em razão de</suggestion>
+            <suggestion>pelo facto de</suggestion>
+            <suggestion>pelo fato de</suggestion>
+            <example correction="devido a|em virtude de|em razão de|pelo facto de|pelo fato de">O autor é referido, <marker>por</marker> ter estabelecido as bases fundamentais da disciplina.</example>
+            <example correction="devido a|em virtude de|em razão de|pelo facto de|pelo fato de">Os investigadores são citados, <marker>por</marker> terem demonstrado resultados consistentes.</example>
+            <example>A Ana só tem, por ter.</example>
+            <example>Os relatórios, por fazer, serão concluídos amanhã.</example>
         </rule>
 
 
@@ -11196,22 +11281,40 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-        <rule id='CIENTÍFICO_DAR_CONFERIR' name="[Universitário][Científico] dar → conferir" type="style" tone_tags="academic">
+        <rule id='DAR_ATRIBUIR_CONFERIR_V2' name="[Universitário][Científico] dar → conferir" type='style' tone_tags='academic'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <antipattern>
+                <token skip='2' inflected='yes' postag_regexp='yes' postag='V.+'>dar</token>
+                <token>benefício</token>
+                <token>da</token>
+                <token>dúvida</token>
+                <example>e neste caso eu prefiro dar o benefício da dúvida.</example>
+            </antipattern>
+            <antipattern>
+                <token postag='SENT_START|_PUNCT' postag_regexp='yes'/>
+                <token skip='2' regexp='yes'>dad[ao]s?</token>
+                <token inflected='yes' regexp='yes' postag_regexp='yes' postag='NC.+'>acesso|autoridade|benefício|cargo|certificação|certificado|competência|condecoração|credibilidade|designação|diploma|direito|distinção|distintivo|emblema|graduação|grau|habilitação|honraria|investidura|liberdade|mandato|medalha|outorga|patente|poder|prêmio|prémio|prerrogativa|privilégio|responsabilidade|troféu|título</token>
+                <example>, dado ao oráculo acesso a formula_16</example>
+            </antipattern>
+            <antipattern>
+                <token inflected='yes' regexp='yes'>ter|haver</token>
+                <token skip='2' regexp='yes'>dad[ao]s?</token>
+                <token inflected='yes' regexp='yes' postag_regexp='yes' postag='NC.+'>acesso|autoridade|benefício|cargo|certificação|certificado|competência|condecoração|credibilidade|designação|diploma|direito|distinção|distintivo|emblema|graduação|grau|habilitação|honraria|investidura|liberdade|mandato|medalha|outorga|patente|poder|prêmio|prémio|prerrogativa|privilégio|responsabilidade|troféu|título</token>
+                <example>Esta pode ter dado um acesso secundário ao piso superior do solar original.</example>
+            </antipattern>
+
             <pattern>
                 <marker>
-                    <token inflected='yes'>dar</token>
+                    <token inflected='yes' postag_regexp='yes' postag='V.+'>dar<exception scope='next' regexp='no'>de</exception></token>
                 </marker>
-                <and>
-                    <token regexp='yes'>.*de|.*ez
-                        <exception regexp='yes'>continuidade|oportunidade|prioridade|saúde|visibilidade</exception>
-                    </token>
-                    <token postag='NC.+|AQ.+' postag_regexp='yes'/>
-                </and>
-                <token regexp='yes'>[aà]s?|aos?</token>
+                <token skip='1' min='0' max='1' postag='SPS00|(SPS00:)?D[AI].+' postag_regexp='yes'/>
+                <token inflected='yes' regexp='yes' postag_regexp='yes' postag='NC.+'>acesso|autoridade|benefício|cargo|certificação|certificado|competência|condecoração|credibilidade|designação|diploma|direito|distinção|distintivo|emblema|graduação|grau|habilitação|honraria|investidura|liberdade|mandato|medalha|outorga|patente|poder|prêmio|prémio|prerrogativa|privilégio|responsabilidade|troféu|título</token>
             </pattern>
-            <message>Num contexto formal/científico, é preferível escrever &quot;conferir&quot;.</message>
+            <message>Considere &quot;atribuir&quot; (designação) ou &quot;conferir&quot; (concessão formal) em vez de &quot;dar&quot;.</message>
+            <suggestion><match no='1' postag='V.+' postag_regexp='yes'>atribuir</match></suggestion>
             <suggestion><match no='1' postag='V.+' postag_regexp='yes'>conferir</match></suggestion>
-            <example correction="confere">Esta equação <marker>dá</marker> aleatoriedade ao jogo.</example>
+            <example correction="atribuiu|conferiu">O tribunal <marker>deu</marker> a responsabilidade da criança à mãe.</example>
         </rule>
 
 
@@ -11348,18 +11451,27 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <rule id='EVIDENCIAR_COMPROVAR_DEMONSTRAR' name="[Universitário] Mostrar → evidenciar/comprovar/demonstrar" type='style' tags='picky' tone_tags='academic'>
+        <rule id='EVIDENCIAR_COMPROVAR_DEMONSTRAR' name="[Universitário] Mostrar → evidenciar/comprovar/demonstrar/indicar" type='style' tags='picky' tone_tags='academic'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <antipattern>
+                <token skip='2' inflected='yes'>mostrar</token>
+                <token regexp='yes' inflected='yes'>imagem|figura|fotografia|foto|ilustração|quadro|print|captura|screenshot|frame|slide|diagrama|esquema|mapa|animação|vídeo|interface|ecrã|janela|painel|vista|prévia|preview|projeção|layout|mockup</token> <!-- ChatGPT 5.2: Lista revista e afinada (conservadora, mas ampla) -->
+                <example>E oculta-os durante a simulação, mostrando a imagem original do local.</example>
+            </antipattern>
+
             <pattern>
-                <token regexp='yes' inflected='yes' skip='1'>abordagem|achado|amostra|análise|artigo|avaliação|caso|cenário|coleta|comparação|conceito|consulta|contexto|critério|dado|diagnóstico|dissertação|documento|enquadramento|ensaio|entrevista|equação|estratégia|estudo|evidência|exemplo|experiência|experimento|fen[óô]meno|ferramenta|fórmula|framework|gráfico|hipótese|indicador|inquérito|instrumento|investigação|levantamento|mapa|mecanismo|método|métrica|modelo|monografia|observação|padrão|paradigma|parâmetro|pesquisa|prática|pressuposto|princípio|procedimento|processo|projeto|protocolo|relatório|resultado|revisão|simulação|sistema|sondagem|tabela|técnica|tecnologia|tendência|teoria|tese|teste|trabalho|variável</token>
+                <token regexp='yes' inflected='yes' skip='1'>abordagem|achado|amostra|análise|artigo|avaliação|caso|cenário|coleta|comparação|conceito|consulta|contexto|critério|dado|diagnóstico|dissertação|documento|enquadramento|ensaio|entrevista|equação|estratégia|estudo|evidência|experiência|experimento|fen[óô]meno|fórmula|framework|hipótese|indicador|inquérito|instrumento|investigação|levantamento|mecanismo|método|métrica|modelo|monografia|padrão|paradigma|parâmetro|pesquisa|prática|pressuposto|princípio|procedimento|processo|projeto|protocolo|relatório|resultado|revisão|sondagem|técnica|tecnologia|tendência|teoria|tese|teste|trabalho|variável</token> <!-- ChatGPT 5.2 suggested skip='1' -->
                 <marker>
-                    <token regexp='no' inflected='yes'>mostrar</token>
+                    <token inflected='yes'>mostrar</token>
                 </marker>
             </pattern>
-            <message>Num contexto formal/universitário, é preferível escrever &quot;evidenciar&quot;, &quot;comprovar&quot; ou &quot;demonstrar&quot;.</message>
+            <message>Num contexto formal/universitário, é preferível escrever &quot;evidenciar&quot;, &quot;comprovar&quot;, &quot;indicar&quot; ou &quot;demonstrar&quot;.</message>
             <suggestion><match no='2' postag='V.+' postag_regexp='yes'>evidenciar</match></suggestion>
             <suggestion><match no='2' postag='V.+' postag_regexp='yes'>comprovar</match></suggestion>
             <suggestion><match no='2' postag='V.+' postag_regexp='yes'>demonstrar</match></suggestion>
-            <example correction="evidencia|comprova|demonstra">A pesquisa <marker>mostra</marker> que os resultados são os esperados.</example>
+            <suggestion><match no='2' postag='V.+' postag_regexp='yes'>indicar</match></suggestion>
+            <example correction="evidencia|comprova|demonstra|indica">A pesquisa <marker>mostra</marker> que os resultados são os esperados.</example>
             <example>O estudo evidencia um enorme grau de sucesso.</example>
         </rule>
 
@@ -12966,6 +13078,25 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
     <category id='SHORTEN_IT' name="Linguagem concisa" type="style">
+
+
+        <rule id='CAIR_CEDER' name="Estrutura cair → ceder" tone_tags='objective'>
+        <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <token skip='2' regexp='yes' inflected='yes'>estrutura|edifício|prédio|ponte|viaduto|muro|parede|fachada|telhado|teto|cobertura|laje|viga|pilar|coluna|fundação|alicerce|sapata|estaca|aterro|terrapleno|barragem|dique|túnel|galeria|escavação|poço|andaime|plataforma|passarela|varanda|sacada|marquise|cais|doca|pavimento|piso|estrada|rodovia|autoestrada|via|travessia|trilho|carril|armação|suporte|escoramento|contenção|paredão|cortina|painel|placa|bloco|maciço|torre|antena|poste|mastro<exception scope='next' regexp='yes'>sem|e|ou</exception></token>
+                <marker>
+                    <token postag_regexp='yes' postag='V.+' inflected='yes'>cair
+                        <exception postag_regexp='yes' postag='VMP00.+'/></token>
+                </marker>
+            </pattern>
+            <message>Substitua &quot;cair&quot; por &quot;ceder&quot; quando o sujeito for estrutura física (ex.: prédio, ponte, muro).</message>
+            <suggestion><match no='2' postag='V.+' postag_regexp='yes'>ceder</match></suggestion>
+            <example correction="cedeu">A estrutura <marker>caiu</marker> ontem.</example>
+            <example>Nas imagens é possível perceber que apenas uma parte da estrutura já estava caída.</example>
+            <example>O jogador deve tentar colocar um certo número de tijolos em sua torre sem deixar cair muitos e perder a saúde.</example>
+            <example>Uma criatura de quatro patas chamada "The Doodler" numa série de intermináveis plataformas sem cair.</example>
+            <example>Cole pode muito facilmente escalar edifícios e outras estruturas e cair de grandes alturas sem sofrer danos.</example>
+        </rule>
 
 
         <rulegroup id='OUTRA_ALTERNATIVA' name="Simplificar: Outra opção/hipótese/possibilidade/solução/via/saída → alternativa">
