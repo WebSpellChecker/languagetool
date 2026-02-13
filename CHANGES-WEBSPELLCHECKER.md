@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-02-13
+
+### Security
+- **lucene-core removal:** Removed `org.apache.lucene:lucene-core` to address **PRISMA-2021-0081**.
+  - Scope: components depending on `org.apache.lucene:lucene-core` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-01-23
 
 ### Security
