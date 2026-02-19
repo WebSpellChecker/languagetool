@@ -21383,12 +21383,17 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
         <rule id="NACH_GEBEN" name="nach geben (nachgeben)">
             <antipattern>
-                <token regexp="yes">.*Meinung|.*Wissens?|.*Ansicht|.*Stand(e?s)?|.*Erfahrung|.*Einschätzung|.*Verständnis(es)?</token>
+                <token regexp="yes" skip="6">.*Meinung|.*Wissens?|.*Ansicht|.*Stand(e?s)?|.*Erfahrung|.*Einschätzung|.*Verständnis(es)?|.*Vernehmen</token>
                 <token>nach</token>
             </antipattern>
             <antipattern>
                 <token regexp="yes">[smd]eine[srnm]|diese[srnm]|welche[srnm]|unse?re[srnm]|ihre[srnm]</token>
                 <token />
+                <token>nach</token>
+            </antipattern>
+            <antipattern>
+                <token>nach</token>
+                <token>und</token>
                 <token>nach</token>
             </antipattern>
             <pattern>

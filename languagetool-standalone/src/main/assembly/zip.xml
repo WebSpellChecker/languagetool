@@ -58,6 +58,7 @@
                 <exclude>org.languagetool:languagetool-standalone</exclude>
                 <exclude>org.languagetool:languagetool-server</exclude>
                 <exclude>org.mybatis:mybatis</exclude>
+                <exclude>org.apache.lucene:lucene-core</exclude>
             </excludes>
         </dependencySet>
         <dependencySet>

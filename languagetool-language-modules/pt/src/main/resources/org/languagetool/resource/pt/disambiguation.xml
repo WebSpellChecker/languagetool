@@ -6,7 +6,7 @@
 Portuguese - Grammar and Typo Rules for LanguageTool.
 
 See tagset.txt for the meaning of the POS tags.
-Copyright © 2001-2026 Daniel Naber (http://www.danielnaber.de),
+Copyright © 2001-2026 Daniel Naber (https://www.danielnaber.de),
 Marcin Miłkowski, and the LanguageTool contributors.
 
 This library is free software; you can redistribute it and/or
@@ -671,7 +671,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     <!-- Created by Tiago F. Santos, Portuguese rule, 2019-02-27 -->
     <antipattern> <!-- It can be both a verb and a non-verb -->
       <token postag='RG'/>
-      <token postag='VMIP2S0'/>
+      <token postag='VMIP2S0|VMN02S0' postag_regexp='yes'/>
       <token postag='NC.+|AQ.+' postag_regexp='yes'><exception postag_regexp='yes' postag='RG|NP.+'/></token>
       <!-- "inclusive certas organizações" -->
       <!-- "Quanto vales Bruno Fernandes?" -->
@@ -2420,6 +2420,36 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
   </rule>
 
   <rulegroup id="PUNCTUATION" name="punctuation">
+    <rule>
+      <pattern>
+        <marker>
+          <token regexp='yes'>[-]</token>
+        </marker>
+      </pattern>
+      <disambig action="add">
+        <wd pos="_PUNCT_HYPHEN"/>
+      </disambig>
+    </rule>
+    <rule>
+      <pattern>
+        <marker>
+          <token regexp='yes'>[–]</token>
+        </marker>
+      </pattern>
+      <disambig action="add">
+        <wd pos="_PUNCT_ENDASH"/>
+      </disambig>
+    </rule>
+    <rule>
+      <pattern>
+        <marker>
+          <token regexp='yes'>[—]</token>
+        </marker>
+      </pattern>
+      <disambig action="add">
+        <wd pos="_PUNCT_EMDASH"/>
+      </disambig>
+    </rule>
     <rule>
       <pattern>
         <marker>
@@ -5775,18 +5805,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       -->
   </rule>
 
-  <rule id="NCAQ_DP_VERB_NOUN_PARTPASS_NC_AQ_20260112_RARE" name="It is NC.+/AQ.+ not VMSP2S0">
+  <rule id="NCAQ_DP_VERB_NOUN_PARTPASS_NC_AQ_20260126_RARE" name="It is NC.+/AQ.+ not VM[SI]P2S0">
     <pattern>
       <token postag='AQ..P.+|NC.P.+|(SPS00:)?[DP].+' postag_regexp='yes'/>
       <marker>
         <and>
-          <token postag='VMIP2S0'/>
+          <token postag='VM[SI]P2S0' postag_regexp='yes'/>
           <token postag='NC.+|AQ.+' postag_regexp='yes'/>
         </and>
       </marker>
       <token postag='VMP00P.+|AQ..P.+|NC.P.+' postag_regexp='yes'/>
     </pattern>
-    <disambig action="remove" postag="VMSP2S0"/>
+    <disambig action="remove" postag="VM[SI]P2S0"/>
     <!--
     Examples:
              Os alunos pintaram-na e decoraram-na com estrelas amarelas recheadas de belas mensagens.
@@ -5912,6 +5942,94 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
              Posso falar sobre os melhores serviços, dicas para uma saúde e bem-estar melhores e qualquer coisa que me ocorra.
              Ela passou um filme super poético, belíssimo, daqueles que merecem ser assistidos várias e várias vezes!
              As repercussões fetais foram transitórias com o uso de efedrina e menos frequentes com uso de fenilefrina.
+      -->
+  </rule>
+
+  <rule id="VERB_TO_NC_ADJ_OTHER_20260120_RARE" name="It is NC.+/AQ.+">
+    <pattern>
+      <token postag='(SPS00:)?[DP].+' postag_regexp='yes'/>
+      <token min='1' max='2' postag='AQ.+|NC.+|VMP00.+' postag_regexp='yes'/>
+      <marker>
+        <and>
+          <token postag='VMIP2S0'/>
+          <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+        </and>
+      </marker>
+    </pattern>
+    <disambig action="remove" postag="VMIP2S0"/>
+    <!--
+    Examples:
+             Uma das primeiras grandes batalhas que ele teve foi entre as guilds Rise Against vs Hive.
+             Em fevereiro, a mudança veio de fora para dentro nas situações transformadoras externas representadas pelo raio que atinge A Torre.
+             Das vinte maiores empresas de petróleo do mundo, 15 são estatais.
+             Eu tive algumas conversas muito profundas enquanto selecionava peças de quebra-cabeças.
+             Os cem melhores poetas brasileiros do século, 2ª edição.
+             A peça marca datas especiais e traz um certo brilho para todo o ambiente.
+             Este veneno mata baratas, mas não é eficaz para ratos.
+             As folhas secas eram levadas pelo vento como plumas.
+             O que são estrelas fixas?
+             Minha mulher ama novelas românticas.
+             Fez ao professor várias perguntas.
+             Na Espanha, serve-se o almoço lá pelas duas.
+             Minha esposa pinta aquarelas.
+      -->
+  </rule>
+
+  <rule id="VERB_TO_NC_ADJ_OTHER_20260205_RARE" name="It is NC.+/AQ.+">
+    <pattern>
+      <token postag='(SPS00:)?[DP].+' postag_regexp='yes'><exception postag_regexp='no' postag='RG'/></token>
+      <token min='1' max='2' postag='AQ.+|NC.+|VMP00.+' postag_regexp='yes'/>
+      <marker>
+        <and>
+          <token postag='VMIP1S0'/>
+          <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+        </and>
+      </marker>
+    </pattern>
+    <disambig action="remove" postag="VMIP1S0"/>
+    <!--
+    Examples:
+             Esta animação mostra como funcionam os telemóveis.
+             Suas galinhas vão desfrutar de um amplo ar fresco e exercício com caminhada em corrida de galinha.
+             Começa no branco, passando por cores frias, chegando às quentes e terminando no vermelho bem vivo.
+             Poder vestir as mulheres e pô-las ainda mais belas é um impacto muito positivo.
+             O pneu dianteiro largo e alto deixa a frente mais “pesada” e isso é normal nos modelos clássicos.
+             As capas de brochura apresentam uma pequena mancha no canto inferior esquerdo, mas o miolo apresenta-se muito limpo.
+             Tarot Cigano – Explore o mundo esotérico cigano e aprenda as 36 cartas que compõem o baralho de Tarô Cigano (baralho cigano).
+             Ficávamos com o bichinho muito cedo.
+      -->
+  </rule>
+
+  <rule id="VERB_VMIS2S0_TO_SPS_20260211_RARE" name="It is SPS.+">
+    <pattern>
+      <token postag_regexp='yes' postag='V.+|RG'/>
+      <token min='0' max='1' postag='RG|RM|RN|NC.+|AQ.+|VMP00.+' postag_regexp='yes'/>
+      <marker>
+        <and>
+          <token postag='VMIS.+|VMSI.+' postag_regexp='yes'/>
+          <token postag='SPS.+' postag_regexp='yes'/>
+        </and>
+      </marker>
+      <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+    </pattern>
+    <disambig action="remove" postag="V.*"/>
+    <!--
+    Examples:
+             O que acham deste traje para o noivo: amam, odeiam ou ignoram?
+             Gostou deste comentário?
+             Quando soube deste lançamento da Editora Planeta, eu fiquei doida para ler.
+             Mas outras importantes lições se podem colher deste surpreendente fenómeno.
+             Fazem deste silêncio, “Uma próxima Jornada”.
+             Ora bem... eu... hum... Opá que á para dizer deste menino?!
+             A partir deste pressuposto, partem as outras observações.
+             Apesar deste tão longo tempo afastado deste blog, e de algumas outras atividades, eu estou vivo.
+             Você precisa deste livro?
+             Eu nunca me esquecerei deste acontecimento até o dia de minha morte.
+             A partir desse momento, as posições de Vargas e da UDN tornaram-se cada vez mais conflituosas.
+             Doze contingentes de várias forças para-militares da Índia e forças policiais também participam desse desfile.
+             O Marcos me disse que você você gosta desse tipo de música.
+             Tom foi obrigado a desistir desse plano.
+             Paulo é desses caras.
       -->
   </rule>
 
