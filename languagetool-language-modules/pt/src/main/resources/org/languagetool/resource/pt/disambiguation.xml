@@ -703,8 +703,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         <token postag="R.+" postag_regexp="yes"/>
         <marker>
           <and>
-            <token postag="AQ.+"/>
-            <token postag="V.+"/>
+            <token postag="AQ.+|SPS.+" postag_regexp="yes"/>
+            <token postag="V.+" postag_regexp="yes"/>
           </and>
         </marker>
       </antipattern>
@@ -1034,9 +1034,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
   </rule>
 
   <rule id="ADVERB_VERB_SINGULAR" name="Advérbio Verbo/nome Nome Singular">
-    <!-- Created by Tiago F. Santos, Portuguese rule, 2017-09-27  	-->
+    <!-- Created by Tiago F. Santos, Portuguese rule, 2017-09-27 -->
     <pattern>
-      <token postag="R.+" postag_regexp='yes'/>
+      <token postag="R.+" postag_regexp='yes'><exception scope='next' postag="SPS.+" postag_regexp='yes'/></token>
       <marker>
         <and>
           <token postag="V.+" postag_regexp='yes'/>
@@ -3919,6 +3919,41 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
   </rulegroup>
 
+  <rule id="PELA_VERB_20260217" name="Pela is not a verb, it is always SPS.+">
+    <!-- ChatGPT 5 -->
+    <pattern>
+      <marker>
+        <and>
+          <token regexp='yes'>pelas?</token>
+          <token postag='SPS.+' postag_regexp='yes'/>
+        </and>
+      </marker>
+      <token min='0' max='1' postag='[DP].+' postag_regexp='yes'/>
+      <token postag='AQ.+|N.+|VMP00.+' postag_regexp='yes'/>
+    </pattern>
+    <disambig action="remove" postag="V.*"/>
+      <!--
+      Examples:
+               O jogo foi um amistoso válido pela simbólica "taça guarani".
+               Pela seleção, marcou mais de mil gols.
+               O município é constituído pela comuna-sede, correspondente à cidade de Namacunde, e pela comuna de Chiede.
+               No entanto, conhecemos o real também pela intuição.
+               Pela convocação, Fermo recebeu muitos cumprimentos, e faz questão de manifestar seus agradecimentos.
+               Se tem a possibilidade e condições, opte sempre pela maior titulação, no caso, o da Federal.
+               O cidadão será avisado por telefone ou pela internet.
+               Durante um bom tempo fiquei mal: pela confiança, pela traição, depois de quase dois anos de convivência.
+               Não porque eu não o soubesse, apenas pela cortesia de me relembrar que o mundo não está feito para ter sol.
+               Mais uma vez muito obrigado, pela resposta.
+               O patinho estava sendo bicado não apenas pelos patos, mas também pelas galinhas.
+               Mas ele tropeçou: algo havia-o agarrado pelas pernas.
+               Tom me apunhalou pelas costas.
+               Alimentado pelas chuvas recentes, o rio cresce e ruge.
+               Na Convenção, a Gironda dividiu-se: alguns optaram por um indulto, outros pela pena de morte.
+               Fazia tudo pela calada e aparentava indiferença.
+               Tem pessoas que desprezam as outras pela simples razão de não terem dinheiro.
+      -->
+  </rule>
+
   <rule id="ANTES_VERB_20251104" name="Antes can't be a verb and an RG, it is always RG">
     <!-- ChatGPT 5 -->
     <pattern>
@@ -5880,10 +5915,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       -->
   </rule>
 
-  <rule id="VERB_2S_TO_VERB_3S_20260118_RARE" name="It is VMIP3S0">
+  <rule id="VERB_2S_TO_VERB_3S_20260310_RARE" name="It is VMIP3S0">
     <pattern>
       <token postag='(SPS00:)?[DP].+' postag_regexp='yes'/>
       <token min='1' max='2' postag='AQ.+|NC.+|VMP00.+' postag_regexp='yes'/>
+      <token min='0' max='1' postag='_PUNCT_COMMA' postag_regexp='no'/>
       <marker>
         <and>
           <token postag='VMIP3S0'/>
@@ -5903,6 +5939,36 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
              O sorriso convida à abertura e ao relaxamento.
              O desdobramento das cadeias musculares encontra seu espaço nas espirais.
              O movimento da mão tem sua fonte e sua força nos pés.
+      -->
+  </rule>
+
+  <rule id="VERB_3S_TO_NCAQ_20260310_RARE" name="It is not VMIP3S0">
+    <!-- The VMM02S0 exception below fixes: "A mulher precisa, mas" e "A mulher observa e o homem pensa." -->
+    <pattern>
+      <token postag='(SPS00:)?[DP].+' postag_regexp='yes'><exception scope='previous' regexp='yes'>que|e|ou</exception></token>
+      <token min='1' max='2' postag='AQ.+|NC.+|VMP00.+' postag_regexp='yes'/>
+      <token min='0' max='1' postag='_PUNCT_COMMA' postag_regexp='no'/>
+      <marker>
+        <and>
+          <token postag='VMIP3S0'/>
+          <token postag='AQ.+' postag_regexp='yes'/> <!-- NC.+ causes FPs -->
+        </and>
+      </marker>
+      <token postag='_PUNCT|SENT_END' postag_regexp='yes'><exception scope='previous' postag_regexp='yes' postag='VMM02S0|VMP00.+|NC.+'/></token>
+    </pattern>
+    <disambig action="remove" postag="VMIP3S0"/>
+    <!--
+    Examples:
+             Não seria também porventura possuir a capacidade de entender o semelhante e de compreender a dor alheia?
+             Desenvolveu o gosto pela literatura e devorou livros durante a vida inteira.
+             A primeira, além da base super estreita, tem um aramado quase tridimensional nas pernas.
+             Considerando a situação narrada, assinale a afirmativa correta.
+             Agradeço pela lembrança precisa.
+             O Expressionismo é a arte do instinto, trata-se de uma pintura dramática, subjetiva, “expressando” sentimentos humanos.
+             Talvez fossem as vozes, quem sabe uma desconfiança repentina?
+             Não é bom ler na sala escura.
+             Gosto de dormir numa cama macia.
+             O conceito se tornou um dos pilares da ecologia profunda.
       -->
   </rule>
 
@@ -6032,6 +6098,113 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
              Paulo é desses caras.
       -->
   </rule>
+
+  <rule id="VERB_VMIP2P0_TO_NCAQ_20260220_RARE" name="It is not VMIP2P0">
+    <pattern>
+      <token postag_regexp='yes' postag='(SPS00:)?[DP]...P.+'/>
+      <token min='1' max='2' postag_regexp='yes' postag='AQ..P.+|NC.P.+|VMP00P.+'/>
+      <token min='0' max='1' postag='RG|RM|RN' postag_regexp='yes'/>
+      <marker>
+        <and>
+          <token postag='VMIP2P0'/>
+          <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+        </and>
+      </marker>
+    </pattern>
+    <disambig action="remove" postag="VMIP2P0"/>
+    <!--
+    Examples:
+             Regional: são os serviços locais da CP efectuam paragem em todas ou quase todas as estações e apeadeiros.
+             Inclusive os proibiu de exercer seu comércio para os artesãos individuais, pelo menos até 1936.
+             Alguns desses trabalhos finais denotam as preocupações mais profundas de Van Gogh.
+             Essa relação está presente na maioria das plantas atuais.
+             Além disso, alguns de seus álbuns também foram citados como os álbuns digitais mais bem sucedidos da história.
+             Confira as letras originais, a tradução e cative seu amor!
+             Trazendo os presentes mais originais, mais engraçados e únicos até aqui!
+             O conteúdo deste portal pode ser utilizado para todos os fins não comerciais, respeitados e reservados os direitos morais dos autores.
+             Versátil, a peça vai desde o ambiente de trabalho até as ocasiões mais informais.
+             Estes clientes são considerados pelos médicos como potenciais “problemas” em virtude do risco de litígio legal por erros médicos.
+             Ela é uma das pessoas mais legais que eu conheço.
+      -->
+  </rule>
+
+  <rule id="NCAQ_SPS00DA_NCAQVMP_20260305_RARE" name="It is not VMP00.+">
+    <pattern>
+      <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+      <token postag='SPS00:DA.+' postag_regexp='yes'/>
+      <marker>
+        <and>
+          <token postag='VMP00.+' postag_regexp='yes'><exception scope='next' postag_regexp='yes' postag='SPS.+'/></token>
+          <token postag='NC.+|AQ.+' postag_regexp='yes'><exception scope='next' postag_regexp='yes' postag='SPS.+'/></token>
+        </and>
+      </marker>
+    </pattern>
+    <disambig action="remove" postag="VMP00.+"/>
+    <!--
+    Examples:
+             Outras leis proibiram a venda de cargos públicos e a isenção tributária das camadas privilegiadas.
+             Esta tradição pode ser revivida no núcleo das charqueadas, por meio de visitas orientadas.
+             As restantes naus da Armada portuguesa ficariam em defesa do porto de Lisboa.
+             Conviveu com figuras proeminentes do partido, como Artur Bernardes Filho, Clóvis Salgado da Gama e Tristão da Cunha.
+             Também foram feitas várias obras de reparação nas oficinas, incluindo a substituição do telhado e de bocas de incêndio, e nos escritórios.
+             Com vários problemas internos na banda, houve especulações sobre o fim do conjunto.
+      -->
+  </rule>
+
+
+  <rulegroup id="CONTEXT_BASED" name="contexto">
+    <rule>
+      <pattern>
+        <marker>
+          <token regexp='yes' inflected='yes'>beijo|boceta|broxe|caralho|carícia|clítoris|clitóris|coito|cona|cunilíngua|cunnilingus|ejaculação|ejacular|erótico|esperma|esporra|excitação|foda|foder|fornicar|langonha|masturbação|masturbar|minete|orgasmo|pénis|queca|sensual|sexo|sexual|sexualmente|submisso|vagina</token>
+        </marker>
+      </pattern>
+      <disambig action="add">
+        <wd pos="_CONTEXTO_SEXUAL_EROTICO"/>
+      </disambig>
+    </rule>
+    <rule>
+      <pattern>
+        <marker>
+          <token postag_regexp='yes' postag='NC.+|AQ.+' regexp='yes' inflected='yes'>anorak|avental|bata|bermuda|blazer|blusa|blusão|calça|calça-jeans|calção|calcinha|camisa|camiseta|camisola|cardigã|cardigan|casaco|colete|cueca|farda|fato|figurino|fraque|gabardina|indumentária|jaqueta|jardineira|jeans|kimono|lingerie|macacão|parka|pijama|pullover|pulover|quimono|regata|roupa|roupão|saia|short|smoking|sobretudo|soutien|suéter|sutiã|t-shirt|terno|top|traje|tshirt|túnica|uniforme|vestido</token>
+        </marker>
+      </pattern>
+      <disambig action="add">
+        <wd pos="_CONTEXTO_VESTUARIO_VESTIR"/>
+      </disambig>
+    </rule>
+    <rule>
+      <pattern>
+        <marker>
+          <token postag_regexp='yes' postag='NC.+|AQ.+' regexp='yes' inflected='yes'>alpargata|bota|bota-cano-curto|bota-cano-longo|botim|botina|chinelinho|chinelo|chuteira|clog|collant|coturno|derby|espadrilha|flipflop|galocha|havaiana|loafer|luva|meia|meia-calça|meias-calças|mocassim|monkstrap|oxford|papete|rasteirinha|sandalia|sandália|sandália-rasa|sandalia-salto|sandália-salto|sapatilha|sapatilha-corrida|sapatilha-desportiva|sapatilha-futebol|sapato|sapato-desportivo|sapato-social|soca|tamanco|tamanco-madeira|tenis|tênis</token>
+        </marker>
+      </pattern>
+      <disambig action="add">
+        <wd pos="_CONTEXTO_CALCADO_CALCAR"/>
+      </disambig>
+    </rule>
+    <rule>
+      <pattern>
+        <marker>
+          <token postag_regexp='yes' postag='NC.+|AQ.+' regexp='yes' inflected='yes'>alojamento|anexo|apartamento|bungalô|casa|chácara|chalé|cobertura|condomínio|domicílio|duplex|edifício|estúdio|fazenda|flat|habitação|hostel|imóvel|kitnet|loft|mansão|moradia|penthouse|pousada|prédio|propriedade|quarto|quinta|quitinete|rancho|república|residência|sítio|triplex|vivenda</token>
+        </marker>
+      </pattern>
+      <disambig action="add">
+        <wd pos="_CONTEXTO_HABITACAO_IMOVEIS"/>
+      </disambig>
+    </rule>
+    <rule>
+      <pattern>
+        <marker>
+          <token postag_regexp='yes' postag='NC.+|AQ.+' regexp='yes' inflected='yes'>autocarro|automóvel|bicicleta|bonde|buggy|camião|caminhão|caminhonete|camioneta|carrinha|carro|carroça|carruagem|charrete|comboio|diligência|elétrico|funicular|furgão|furgoneta|kart|locomotiva|metrô|metro|microônibus|minibus|monotrilho|moto|motocicleta|motociclo|motoneta|mototáxi|ônibus|patinete|pickup|quadriciclo|reboque|scooter|segway|táxi|taxi|trailer|trem|triciclo|trotinete|van|viatura|VLT</token>
+        </marker>
+      </pattern>
+      <disambig action="add">
+        <wd pos="_CONTEXTO_VEICULOS_TERRESTRES"/>
+      </disambig>
+    </rule>
+  </rulegroup>
+
 
   <rule id="PORTA_HIFEN_SUBSTANTIVOPLURAL" name="Remove verbs in porta-Substantivo_Plural">
     <pattern>
