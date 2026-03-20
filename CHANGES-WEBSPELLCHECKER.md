@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-03-19
+
+### Security
+- **jackson-core upgrade:** Updated `jackson-core` to **2.18.6** to address **GHSA-72hv-8253-57qq**.
+  - Scope: components depending on `jackson-core` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-02-13
 
 ### Security
