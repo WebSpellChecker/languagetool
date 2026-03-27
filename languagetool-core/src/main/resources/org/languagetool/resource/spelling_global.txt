@@ -803,7 +803,7 @@ MIT
 Stanford
 Oxford
 Heidi Klum
-Bar Rafaeli
+Bar Refaeli
 Gisele Bündchen
 Quentin Tarantino
 Tarantino
@@ -2155,6 +2155,7 @@ Konrad Adenauer
 Robert Koch
 Gottlieb Daimler
 Erich Maria Remarque
+Erich Remarque
 Ernst Lubitsch
 Rainer Werner Fassbinder
 Erwin Rommel
@@ -4095,7 +4096,6 @@ Bored Ape Yacht Club
 Bored Ape
 Boardwalk Empire
 Henri Nannen
-Dmytro Kuleba
 Village People
 Edvard Munch
 DK Metcalf
@@ -6257,6 +6257,9 @@ Mitt Romney
 European Space Agency
 International Atomic Energy Agency
 Henri Becquerel
+Antoine Becquerel
+Antoine César Becquerel
+Antoine Henri Becquerel
 Offenbach am Main
 Graham Greene
 Saul Bellow
@@ -8089,7 +8092,6 @@ Washington René Pfister
 Alexander Dubček
 Garbiñe Muguruza
 Agnès Varda
-Ekrem Imamoğlu
 Ján Kuciak
 Selahattin Demirtaş
 Ahmet Davutoğlu
@@ -8432,7 +8434,7 @@ César Grassi
 Cézar Toledo
 Cüneyt Topçu
 Cătălin Mihuleac
-Dacian Cioloş
+Dacian Cioloș
 Danilo Pantić
 Daouda Maïga
 Dario Edoardo Viganò
@@ -9993,7 +9995,6 @@ Joanne Woodward
 Douglas Fairbanks
 Monica Vitti
 Ed Harris
-Bulat Okudzhava
 Tricia Helfer
 Ludacris
 Romola Garai
@@ -10423,6 +10424,7 @@ Raoul Hausmann
 Ernst Gombrich
 Oskar Kokoschka
 Alexander von Zemlinsky
+Alexander Zemlinsky
 Eduard Hanslick
 Georg Trakl
 Jan Evangelista Purkyně
@@ -10636,6 +10638,7 @@ Georges-Louis Leclerc
 Gilles Deleuze
 Guillaume Apollinaire
 Guillaume de Machaut
+Guillaume de Machault
 Gérard de Nerval
 Hector Malot
 Henri Barbusse
@@ -11118,6 +11121,7 @@ August Heinrich Hoffmann von Fallersleben
 August Weismann
 Clemens Brentano
 E. T. A. Hoffmann
+Ernst Theodor Amadeus Hoffmann
 Ferdinand Lassalle
 Friedrich Carl von Savigny
 Friedrich Engels
@@ -12632,7 +12636,7 @@ Astrud Gilberto
 Heitor Villa-Lobos
 Rita Lee
 Gilberto Gil
-Vinícius de Moraes
+Vinicius de Moraes
 Chris Hadfield
 Cœur de pirate
 David Foster
@@ -12695,7 +12699,7 @@ Cécile Chaminade
 Daniel François Esprit Auber
 Django Reinhardt
 Edgard Varèse
-Edouard Lalo
+Édouard Lalo
 Emmanuel Chabrier
 Erik Satie
 Ernest Chausson
@@ -13313,6 +13317,7 @@ Captain Beefheart
 Cat Power
 Chaka Khan
 Charles G. Dawes
+Charles Gates Dawes
 Charlie Rich
 Chrissie Hynde
 Christopher Cross
@@ -13970,6 +13975,8 @@ Cameron Crowe
 Camille Coudari
 Carl Reiner
 Carl Theodor Dreyer
+Carl Th. Dreyer
+Carl Dreyer
 Carol Reed
 Carolee Schneemann
 Cary Joji Fukunaga
@@ -14144,6 +14151,7 @@ John Singleton
 John Turturro
 Jon Favreau
 Jon Stewart
+John Stewart
 Jonas Mekas
 Jonathan Demme
 Joris Ivens
@@ -15200,7 +15208,7 @@ Camarón de la Isla
 Beatriz Luengo
 Pablo Alborán
 Víctor Manuel
-Asier Etxeandía
+Asier Etxeandia
 Raquel Meller
 Ovidi Montllor
 María Dolores Pradera
@@ -16023,6 +16031,7 @@ Petr Pavel
 Jennifer Hermoso
 Jenni Hermoso
 # START SCIENTIFIC NAMES
+Camellia sinensis
 Dianthus caryophyllus
 Candida albicans
 Fumaria officinalis
@@ -19104,7 +19113,6 @@ Ceaușescu
 Timișoara
 Daniel Chițoiu
 Sorin Cîmpeanu
-Dacian Cioloș
 Victor Ciorbea
 Florin Cîtu
 Emil Constantinescu
@@ -19338,6 +19346,9 @@ Eugène Terre’Blanche
 Iván Duque Márquez
 Teodoro Obiang
 Teodoro Nguema Obiang
+Nguema Obiang
+Teodoro Obiang Nguema
+Obiang Nguema
 Xavier Espot Zamora
 Xavier Espot
 Francesc Areny
@@ -19469,6 +19480,7 @@ Paolo Caliari
 Jacob van Ruisdael
 Jean-Honoré Fragonard
 Jan Brueghel
+Jan Bruegel
 Jan Steen
 Charles Le Brun
 Pierre Soulages
@@ -19502,6 +19514,7 @@ Josef Albers
 Adriaen van Ostade
 Georges Rouault
 Pieter Brueghel
+Pieter Bruegel
 Bartolomé Esteban Murillo
 Edward Burne-Jones
 Alexander Calder
@@ -19725,6 +19738,7 @@ Lucas van Leyden
 Fra Bartolomeo
 Philip James de Loutherbourg
 George Inness
+George Innes
 Jacques Villon
 Pierre-Paul Prud'hon
 Pierre-Paul Prud’hon
@@ -20366,6 +20380,7 @@ Otto Fritz Meyerhof
 Otto Heinrich Warburg
 Otto Loewi
 Paul Ehrlich
+Paul R. Ehrlich
 Paul Greengard
 Paul Hermann Müller
 Paul Lauterbur
@@ -23054,6 +23069,7 @@ Rising Stars Challenge
 Dartmouth College
 Seattle SuperSonics
 Bab El Oued
+Bab El-Oued
 Ernesto Ekaizer
 GNU's Not Unix
 GNU’s Not Unix
@@ -25249,7 +25265,7 @@ Pierre Maurroy
 Porte de La Chapelle
 Pont Alexandre III
 Châteauroux
-Geoffrey-Guichard
+Geoffroy-Guichard
 La Défense
 Saint-Quentin-en-Yvelines
 Stade de France
@@ -25689,7 +25705,7 @@ Jeffrey Lewis
 Jimmy Eat World
 Jukebox the Ghost
 Julie Doiron
-Kate Tempest
+Kae Tempest
 Kate Nash
 Kishi Bashi
 The Kooks
@@ -26914,6 +26930,7 @@ Opel Vectra
 Adolf von Henselt
 Philippe Van Parijs
 Allium sativum
+Allium cepa
 Quincy Promes
 Jayson Tatum
 Joel Embiid
@@ -27183,7 +27200,7 @@ Julian Bream
 James Galway
 Steven Isserlis
 Albrecht Mayer
-Alban Berg Quartet
+Alban Berg Quartett
 Amadeus Quartet
 The King’s Singers
 The King's Singers
@@ -27277,6 +27294,8 @@ Park Chung-hee
 Manmohan Singh
 Tommy Robinson
 Jean-François Dandrieu
+Jean-François d'Andrieu
+Jean-François d’Andrieu
 Brian Ferneyhough
 Pierre Poilievre
 Holden Caulfield
@@ -29578,8 +29597,8 @@ Veronica Guerin
 Andrew Upton
 Joe Wright
 Steve Tisch
-Andrew Mountbatten Windsor
-Mountbatten Windsor
+Andrew Mountbatten-Windsor
+Mountbatten-Windsor
 Kathryn Ruemmler
 Latham & Watkins
 Joseph Matthew Alwyn
@@ -29587,6 +29606,8 @@ Joe Alwyn
 Jessie Buckley
 Herbert Alexander Simon
 Gloria Stuart
+Hyundai Elantra
+OpenClaw
 David Hirschfelder
 Valentina Cortese
 Margaret Herrick
@@ -29657,6 +29678,7 @@ Real Salt Lake
 San Diego FC
 San Jose Earthquakes
 Seattle Sounders FC
+Seattle Sounders
 St. Louis City SC
 Vancouver Whitecaps FC
 Quatuor Arod
@@ -29688,3 +29710,454 @@ Durek Verrett
 Thorbjørn Jagland
 Børge Brende
 Liliana Cavani
+Wunmi Mosaku
+Delroy Lindo
+Ludwig Göransson
+Ishmael Reed
+Hans Reichenbach
+Nature
+Anthropic
+Fritz Wolfgang London
+Fritz London
+Eileen Gu
+Casey Wasserman
+West Bromwich Albion Football Club
+West Bromwich Albion FC
+West Bromwich Albion
+West Brom.
+Wolverhampton Wanderers Football Club
+Wolverhampton Wanderers FC
+Wolverhampton Wanderers
+Charlton Athletic Football Club
+Charlton Athletic FC
+Charlton Athletic
+Kelly Johnson
+Malcolm Lowry
+James Whale
+Lewis Milestone
+Cardiff City Football Club
+Cardiff City FC
+Cardiff City
+AS Monaco FC
+AS Monaco
+Association Sportive de Monaco Football Club
+Kevin Barry
+Wajdi Mouawad
+Anne Case
+Hélène Carrère
+Hélène Carrère d'Encausse
+Hélène Carrère d’Encausse
+Midnight Cowboy
+Sylvia Miles
+Brenda Vaccaro
+Olaf Stapledon
+John Maddox
+Platinum Games
+Inflection AI
+Germaine Dulac
+Amanda Crew
+Armande de Polignac
+Paul Ehrenfest
+Maneki-neko
+Hello Kitty
+Ben McKenzie
+Benjamin McKenzie
+Monique Wittig
+Anderson Cooper
+John Terry
+Gerson Rodrigues
+Stevan Jovetić
+José Kanté
+Luis Aragonés
+Marcus Eriksson
+Álex de Miñaur
+David Goffin
+Michael Berrer
+Jan Polanc
+Jean Tubéry
+Andrè Schuen
+Andreas Schager
+Ann Murray
+Jean Pierre Moulin
+Jean Mouton
+Anthony Michaels-Moore
+Carlos Mena
+John McCabe
+Giacomo Manzoni
+Michaela Kaune
+John Hebden
+Friedrich Haider
+Nathan Gunn
+Raúl Giménez
+Jean Françaix
+William Corbett-Jones
+Wang Jianlin
+Bárbara Santa-Cruz
+Natalia Sánchez
+Rudolf Nureyev
+Carmen Mola
+Michelle Jenner
+Nicholas Hoult
+Ken Follett
+Maryse Condé
+Ronald Colman
+Javier Cámara
+Robert Benton
+John Key
+Kim Dae-jung
+Joseph Lambert
+Francisco Macías
+Francisco Macías Nguema
+Michael Makuei Lueth
+Michael Makuei
+Guido Manini
+Guido Manini Ríos
+Reinhard Marx
+Paula Vogel
+Tommie Smith
+Elisabeth Svantesson
+Adam Kinzinger
+Andrew Sullivan
+Andy Borowitz
+The Borowitz Report
+Dan Rather
+Heather Cox Richardson
+Jay Kuo
+Joyce Vance
+Judd Legum
+Meidas+
+Silver Bulletin
+Steve Schmidt
+The Contrarian
+The Preamble
+Zeteo
+Mehdi Hasan
+Lars Calmfors
+ICANN
+ICAN
+War Requiem
+Aramón Cerler
+Aramón Javalambre
+Kranjska Gora
+La Thuile
+Le Grand-Bornand
+Le Lioran
+Le Mont-Dore
+Veltins-Arena
+Sankt Gallen
+Volksparkstadion
+Marathon des Sables
+Linares Deportivo
+Istanbul Park
+Mary Keitany
+Lokomotiv Kuban
+Berlin Thunder
+Frankfurt Galaxy
+Kashima Antlers
+Thermomix
+Mossack Fonseca
+World Central Kitchen
+Wiener Zeitung
+Roscosmos
+Ouigo
+L'Humanité
+L’Humanité
+Die Zeit
+Reform UK
+Stade Toulousain
+Carles Rexach
+Nicolás Laprovittola
+Nico Laprovittola
+John Dunstable
+John Dunstaple
+Joseph Strauss
+Édouard Valéry
+São José
+Karl-Liebknecht-Haus
+The Sopranos
+Major League Soccer
+Maracanã
+Estádio Jornalista Mário Filho
+I due Foscari
+Il Giardino Armonico
+Das Lied von der Erde
+France Télécom
+Puerta de Alcalá
+Alcalá de Henares
+Lloyd Blankfein
+Severo Moto Nsá
+Severo Moto
+Saffir-Simpson
+France Football
+Lionel Andrés Messi
+Sigismondo d'India
+Sigismondo d’India
+Pierre Attaignant
+Pierre Attaingnant
+Jean-Baptiste Loeillet
+Nicolas Lebègue
+Tedros Adhanom
+Zoran Đinđić
+Jean-Claude Pennetier
+Nicanor Zabaleta
+Círculo de Bellas Artes
+Jamiroquai
+Juditha triumphans
+Un giorno di regno
+Giovanna d'Arco
+Giovanna d’Arco
+Cortina d'Ampezzo
+Cortina d’Ampezzo
+Étoile de Bessèges
+Yoshida Brothers
+Rusalka
+Maccabi Haifa
+Maccabi Rishon LeZion
+Spanair
+Finneas O'Connell
+Finneas O’Connell
+Finneas
+Igor Tuveri
+Shotaro Ishinomori
+Anna S. Þorvaldsdóttir
+Anna Þorvaldsdóttir
+Sayeret Matkal
+Ajuria Enea
+Bread & Butter
+Bread and Butter
+Football Leaks
+Oktoberfest
+Karolína Plíšková
+All-Star Weekend
+Vladimír Brodziansky
+L'arlesiana
+L’arlesiana
+L'Arlésienne
+L’Arlésienne
+Club Atlético Tucumán
+Atlético Tucumán
+Club Atlético Independiente
+Galatasaray
+Urawa Red Diamonds
+Urawa Reds
+Arena Corinthians
+Arena da Amazônia
+Arena das Dunas
+Anfield
+Allianz Riviera
+Merkur Spiel-Arena
+Kika Nazareth
+Philips Stadion
+Umar Sadiq
+Ronaël Pierre-Gabriel
+Strade Bianche
+O Gran Camiño
+Grindelwald
+Al Ittihad
+Al-Ittihad
+Paulo Dybala
+Ingrid Engen
+Vissel Kobe
+The Brutalist
+Adolf Schiffer
+Émile Sauret
+John Mulholland
+Alysa Liu
+56 Leonard Street
+Jenga Tower
+Christopher A. Wray
+Christopher Wray
+Cheryl Cole
+Ryūichi Sakamoto
+Alan Silvestri
+Ian Curtis
+Richard Clayderman
+Stefania Turkewich
+Layal Abboud
+Ichirō Mizuki
+James Hetfield
+Lisa Gerrard
+Dima Bilan
+Steve Harris
+Candice King
+Enver Hoxha
+Ottón Solís
+Lucien Febvre
+Lucien Favre
+Johnny Torrio
+John Torrio
+Francesca Duranti
+Francesco Durante
+John Lyly
+John Lill
+Anna Christie
+Magnus Eriksson
+Willa Cather
+Kim Soo-hyun
+Amr Diab
+Sezen Aksu
+Christina Grimmie
+Daniel Auber
+Daniel-François-Esprit Auber
+Brandy Norwood
+Shruti Haasan
+Üzeyir Hacıbəyov
+Beck Hansen
+Melanie Martinez
+Kamal Haasan
+Tony Iommi
+Manuel de Falla y Matheu
+Airat Ichmouratov
+Shreya Ghoshal
+Asha Bhosle
+Matt Bellamy
+Matthew James Bellamy
+Tayanna
+Andy Dick
+Andrew Dick
+Ani Lorak
+Sertab Erener
+Vanessa-Mae
+Sanna Viktoria Nielsen
+Sanna Nielsen
+Tarja Turunen
+Nusrat Fateh Ali Khan
+Stevie Ray Vaughan
+Jon Lord
+John Lord
+P. Ramlee
+Kaliopi
+José de Anchieta
+Hattie McDaniel
+Zemfira
+Varg Vikernes
+Zeami Motokiyo
+Philipp Kirkorov
+Marek Grechuta
+Marek Michał Grechuta
+Dave Mustaine
+Emmelie de Forest
+Tarkan
+Jeffrey Jacob Abrams
+Liliʻuokalani
+Billie Joe Armstrong
+Susan Rice
+Joris Hoefnagel
+Georg Hoefnagel
+La Belle et la Bête
+Armand de Brignac
+Morris Halle
+Alan Mathison Turing
+Alan M. Turing
+Alan Turing
+Nemesio Oseguera Cervantes
+Rubén Nemesio Oseguera Cervantes
+Oseguera Cervantes
+International Business Machines Corporation
+International Business Machines
+Quai d'Orsay
+Quai d’Orsay
+Barbican Centre
+Barbican Hall
+BBC Singers
+Béjart Ballet Lausanne
+Béjart Ballet
+Collegium Vocale Gent
+xAI
+Ronald Koeman
+Finnegans Wake
+Pierluigi Collina
+The Wire
+Tim Meadows
+John Conway
+John Horton Conway
+Martin Gardner
+Friedrich Salomon Perls
+Marubeni Coporation
+Rupert Lowe
+Restore Britain
+Francis M. Wilhoit
+Francis Wilhoit
+Puerto Vallarta
+Cabo San Lucas
+Theodore von Kármán
+Oumuamua
+Bloomingdale's
+Bloomingdale’s
+Scrub Daddy
+Trainspotting
+Irvine Welsh
+Mark Renton
+Kevin McKidd
+Christopher Eccleston
+Ewen Bremner
+Edward Goldenberg Robinson
+Edward G. Robinson
+Edward Robinson
+Kazuo Miyagawa
+Adam Curtis
+Marisa dos Reis Nunes
+Carlos Fernández de Cossío
+Carlos de Cossío
+Raphael Pumpelly
+Hèctor Parra
+David Maslanka
+Miramar Misiones
+Sabino de Arana
+Club Sportivo Miramar Misiones
+Bret Stephens
+Pierre Benoit
+QatarEnergy
+Qatar Petroleum
+Sean Astin
+Lorenzo Lamas
+Silvio Rodríguez Domínguez
+de Havilland
+Hendrika Johanna van Leeuwen
+van Leeuwen
+Gisela von Arnim
+von Arnim
+Universidad Nacional de Asunción
+Le Pré aux clercs
+Royal Scottish Academy
+Scottish Academy
+Anduril Industries
+Northeastern University
+Louis Le Vau
+Le Vau
+Jacques Lemercier
+A Space Odyssey
+John Glenn
+Epic Fury
+Joseph de Jussieu
+Thomas Fearnley
+Scarlett O'Hara
+Scarlett O’Hara
+Rhett Butler
+James Talarico
+Ras Laffan
+António Lobo Antunes
+Lobo Antunes
+Quentin Compson
+William Strunk Jr.
+Charles Malherbe
+Charles Théodore Malherbe
+Les Huguenots
+Grandma Moses
+Alfredo Bryce Echenique
+Alfredo Bryce
+Bryce Echenique
+Pluribus
+Rhea Seehorn
+Werner Wilhelm Jaeger
+Werner Jaeger
+Louis-Victor de Broglie
+Louis de Broglie
+Lutz Dieter Schmadel
+Lutz D. Schmadel
+Banque de France
+KPop Demon Hunters
+Olvido García Valdés
+Robin Gunningham
+Robert Del Naja
+Blek le Rat
