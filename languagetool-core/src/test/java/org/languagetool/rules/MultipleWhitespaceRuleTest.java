@@ -54,49 +54,47 @@ public class MultipleWhitespaceRuleTest {
 
     // incorrect sentences:
 
-    // "This  is"
-    matches = lt.check("This  is a test sentence.");
+    String input1 = "This  is a test sentence.";
+    matches = lt.check(input1);
     assertEquals(1, matches.size());
-    assertEquals(0, matches.get(0).getFromPos());   // "This"
-    assertEquals(8, matches.get(0).getToPos());     // "is"
+    assertEquals("This  is",
+      input1.substring(matches.get(0).getFromPos(), matches.get(0).getToPos()));
 
-    // "\n   This  is"
-    matches = lt.check("\n   This  is a test sentence.");
+    String input2 = "\n   This  is a test sentence.";
+    matches = lt.check(input2);
     assertEquals(1, matches.size());
-    assertEquals(4, matches.get(0).getFromPos());   // "This"
-    assertEquals(12, matches.get(0).getToPos());    // "is"
+    assertEquals("This  is",
+      input2.substring(matches.get(0).getFromPos(), matches.get(0).getToPos()));
 
-    // "test   sentence"
-    matches = lt.check("This is a test   sentence.");
+    String input3 = "This is a test   sentence.";
+    matches = lt.check(input3);
     assertEquals(1, matches.size());
-    assertEquals(10, matches.get(0).getFromPos());  // "test"
-    assertEquals(24, matches.get(0).getToPos());    // "sentence"
+    assertEquals("test   sentence",
+      input3.substring(matches.get(0).getFromPos(), matches.get(0).getToPos()));
 
-    // multiple errors
-    matches = lt.check("This is   a  test   sentence.");
+    String input4 = "This is   a  test   sentence.";
+    matches = lt.check(input4);
     assertEquals(3, matches.size());
 
-    // "is   a"
-    assertEquals(5, matches.get(0).getFromPos());
-    assertEquals(11, matches.get(0).getToPos());
+    assertEquals("is   a",
+      input4.substring(matches.get(0).getFromPos(), matches.get(0).getToPos()));
 
-    // "a  test"
-    assertEquals(10, matches.get(1).getFromPos());
-    assertEquals(17, matches.get(1).getToPos());
+    assertEquals("a  test",
+      input4.substring(matches.get(1).getFromPos(), matches.get(1).getToPos()));
 
-    // "test   sentence"
-    assertEquals(15, matches.get(2).getFromPos());
-    assertEquals(29, matches.get(2).getToPos());
+    assertEquals("test   sentence",
+      input4.substring(matches.get(2).getFromPos(), matches.get(2).getToPos()));
 
-    // whitespace only → unchanged behavior
+    // whitespace-only case (no context words)
     matches = lt.check("\t\t\t    \t\t\t\t  ");
     assertEquals(2, matches.size());
 
     // non-breaking space
-    matches = lt.check("This \u00A0is a test sentence.");
+    String input5 = "This \u00A0is a test sentence.";
+    matches = lt.check(input5);
     assertEquals(1, matches.size());
-    assertEquals(0, matches.get(0).getFromPos());
-    assertEquals(8, matches.get(0).getToPos());
+    assertEquals("This \u00A0is",
+      input5.substring(matches.get(0).getFromPos(), matches.get(0).getToPos()));
   }
 
   private void assertGood(String input, JLanguageTool lt) throws IOException {
