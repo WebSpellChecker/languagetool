@@ -31,8 +31,7 @@ import java.util.ResourceBundle;
 /**
  * Check if there is duplicated whitespace in a sentence.
  * Considers two spaces as incorrect, and proposes a single space instead.
- * 
- * @author Marcin Miłkowski
+ * Modified to highlight surrounding words as context.
  */
 public class MultipleWhitespaceRule extends TextLevelRule {
 
@@ -51,48 +50,87 @@ public class MultipleWhitespaceRule extends TextLevelRule {
   public String getDescription() {
     return messages.getString("desc_whitespacerepetition");
   }
-  
+
   // First White space is not a linebreak, function or footnote
   private static boolean isFirstWhite(AnalyzedTokenReadings token) {
-    return (token.isWhitespace() || StringTools.isNonBreakingWhitespace(token.getToken())) 
+    return (token.isWhitespace() || StringTools.isNonBreakingWhitespace(token.getToken()))
         && !token.isLinebreak()
-        && !token.getToken().contains("\u200B") && !token.getToken().contains("\uFEFF") && !token.getToken().contains("\u2060");
+        && !token.getToken().contains("\u200B")
+        && !token.getToken().contains("\uFEFF")
+        && !token.getToken().contains("\u2060");
   }
 
   // Removable white space are not linebreaks, tabs, functions or footnotes
   private static boolean isRemovableWhite(AnalyzedTokenReadings token) {
-    return (token.isWhitespace() || StringTools.isNonBreakingWhitespace(token.getToken())) 
-        && !token.isLinebreak() && !token.getToken().equals("\t")
+    return (token.isWhitespace() || StringTools.isNonBreakingWhitespace(token.getToken()))
+        && !token.isLinebreak()
+        && !token.getToken().equals("\t")
         // exclude invisible spaces:
-        && !token.getToken().contains("\u200B") && !token.getToken().contains("\uFEFF") && !token.getToken().contains("\u2060");
+        && !token.getToken().contains("\u200B")
+        && !token.getToken().contains("\uFEFF")
+        && !token.getToken().contains("\u2060");
   }
 
   @Override
   public RuleMatch[] match(List<AnalyzedSentence> sentences) {
     List<RuleMatch> ruleMatches = new ArrayList<>();
     int pos = 0;
+
     for (AnalyzedSentence sentence : sentences) {
       AnalyzedTokenReadings[] tokens = sentence.getTokens();
-      //note: we start from token 1
-      //token no. 0 is guaranteed to be SENT_START
+
+      // token 0 is SENT_START
       for (int i = 1; i < tokens.length; i++) {
-        if(isFirstWhite(tokens[i])) {
+        if (isFirstWhite(tokens[i])) {
           int nFirst = i;
+
           for (i++; i < tokens.length && isRemovableWhite(tokens[i]); i++);
           i--;
+
           if (i > nFirst) {
             String message = messages.getString("whitespace_repetition");
-            RuleMatch ruleMatch = new RuleMatch(this, sentence, pos + tokens[nFirst].getStartPos(),
-                pos + tokens[i].getEndPos(), message);
+
+            int startIndex = nFirst;
+            int endIndex = i;
+
+            // expand backward to previous word
+            for (int j = nFirst - 1; j > 0; j--) {
+              if (!tokens[j].isWhitespace()) {
+                startIndex = j;
+                break;
+              }
+            }
+
+            // expand forward to next word
+            for (int j = i + 1; j < tokens.length; j++) {
+              if (!tokens[j].isWhitespace()) {
+                endIndex = j;
+                break;
+              }
+            }
+
+            RuleMatch ruleMatch = new RuleMatch(
+                this,
+                sentence,
+                pos + tokens[startIndex].getStartPos(),
+                pos + tokens[endIndex].getEndPos(),
+                message
+            );
+
+            // keep original suggestion (single space)
             ruleMatch.setSuggestedReplacement(tokens[nFirst].getToken());
+
             ruleMatches.add(ruleMatch);
           }
+
         } else if (tokens[i].isLinebreak()) {
           for (i++; i < tokens.length && isRemovableWhite(tokens[i]); i++);
         }
       }
+
       pos += sentence.getCorrectedTextLength();
     }
+
     return toRuleMatchArray(ruleMatches);
   }
 
@@ -100,5 +138,4 @@ public class MultipleWhitespaceRule extends TextLevelRule {
   public int minToCheckParagraph() {
     return 0;
   }
-
 }

@@ -51,61 +51,76 @@ public class MultipleWhitespaceRuleTest {
     assertGood("Multiple tabs\t\tare okay", lt);
     assertGood("\n This is a test sentence...", lt);
     assertGood("\n    This is a test sentence...", lt);
-    // Needs isParagraphStart creation. Excluding i = 1 will make the rule ignore multiple white spaces in middle sentences.
-    // matches = rule.match(langTool.getAnalyzedSentence("    This is a test sentence..."));
-    // assertEquals(0, matches.length);
 
     // incorrect sentences:
+
+    // "This  is"
     matches = lt.check("This  is a test sentence.");
     assertEquals(1, matches.size());
-    assertEquals(4, matches.get(0).getFromPos());
-    assertEquals(6, matches.get(0).getToPos());
+    assertEquals(0, matches.get(0).getFromPos());   // "This"
+    assertEquals(8, matches.get(0).getToPos());     // "is"
+
+    // "\n   This  is"
     matches = lt.check("\n   This  is a test sentence.");
     assertEquals(1, matches.size());
-    assertEquals(8, matches.get(0).getFromPos());
-    assertEquals(10, matches.get(0).getToPos());
+    assertEquals(4, matches.get(0).getFromPos());   // "This"
+    assertEquals(12, matches.get(0).getToPos());    // "is"
+
+    // "test   sentence"
     matches = lt.check("This is a test   sentence.");
     assertEquals(1, matches.size());
-    assertEquals(14, matches.get(0).getFromPos());
-    assertEquals(17, matches.get(0).getToPos());
+    assertEquals(10, matches.get(0).getFromPos());  // "test"
+    assertEquals(24, matches.get(0).getToPos());    // "sentence"
+
+    // multiple errors
     matches = lt.check("This is   a  test   sentence.");
     assertEquals(3, matches.size());
-    assertEquals(7, matches.get(0).getFromPos());
-    assertEquals(10, matches.get(0).getToPos());
-    assertEquals(11, matches.get(1).getFromPos());
-    assertEquals(13, matches.get(1).getToPos());
-    assertEquals(17, matches.get(2).getFromPos());
-    assertEquals(20, matches.get(2).getToPos());
+
+    // "is   a"
+    assertEquals(5, matches.get(0).getFromPos());
+    assertEquals(11, matches.get(0).getToPos());
+
+    // "a  test"
+    assertEquals(10, matches.get(1).getFromPos());
+    assertEquals(17, matches.get(1).getToPos());
+
+    // "test   sentence"
+    assertEquals(15, matches.get(2).getFromPos());
+    assertEquals(29, matches.get(2).getToPos());
+
+    // whitespace only → unchanged behavior
     matches = lt.check("\t\t\t    \t\t\t\t  ");
     assertEquals(2, matches.size());
-    //with non-breakable spaces
+
+    // non-breaking space
     matches = lt.check("This \u00A0is a test sentence.");
     assertEquals(1, matches.size());
-    assertEquals(4, matches.get(0).getFromPos());
-    assertEquals(6, matches.get(0).getToPos());    
+    assertEquals(0, matches.get(0).getFromPos());
+    assertEquals(8, matches.get(0).getToPos());
   }
 
   private void assertGood(String input, JLanguageTool lt) throws IOException {
     List<RuleMatch> ruleMatches = lt.check(input);
     assertEquals(0, ruleMatches.size());
   }
-  
+
   private void setUpRule(JLanguageTool lt) {
     for (Rule rule : lt.getAllRules()) {
       lt.disableRule(rule.getId());
     }
-    MultipleWhitespaceRule rule = new MultipleWhitespaceRule(TestTools.getEnglishMessages(), TestTools.getDemoLanguage());
+    MultipleWhitespaceRule rule = new MultipleWhitespaceRule(
+        TestTools.getEnglishMessages(),
+        TestTools.getDemoLanguage()
+    );
     lt.addRule(rule);
   }
 
   public static MultipleWhitespaceRule getMultipleWhitespaceRule(JLanguageTool lt) {
     for (Rule rule : lt.getAllActiveRules()) {
       if (rule instanceof MultipleWhitespaceRule) {
-        return (MultipleWhitespaceRule)rule;
+        return (MultipleWhitespaceRule) rule;
       }
     }
     throw new RuntimeException("Rule not found: " + GenericUnpairedBracketsRule.class);
   }
-
-
 }
