@@ -74,18 +74,17 @@ public class MultipleWhitespaceRuleTest {
 
     String input4 = "This is   a  test   sentence.";
     matches = lt.check(input4);
-    assertEquals(3, matches.size());
+
+    // IMPORTANT: overlapping matches are filtered → only 2 remain
+    assertEquals(2, matches.size());
 
     assertEquals("is   a",
       input4.substring(matches.get(0).getFromPos(), matches.get(0).getToPos()));
 
-    assertEquals("a  test",
+    assertEquals("test   sentence",
       input4.substring(matches.get(1).getFromPos(), matches.get(1).getToPos()));
 
-    assertEquals("test   sentence",
-      input4.substring(matches.get(2).getFromPos(), matches.get(2).getToPos()));
-
-    // whitespace-only case (no context words)
+    // whitespace-only case (no surrounding words → unchanged)
     matches = lt.check("\t\t\t    \t\t\t\t  ");
     assertEquals(2, matches.size());
 
