@@ -1,5 +1,90 @@
 #Catalan multiwords file used for chunking
 #separatorRegExp=[\t;]
+Louis Isidore Duperrey;NPMSSP0
+Hans Lassen Martens;NPMSSP0
+Tübinger Stift;NPCSO00
+Ramon Martí i Alsina;NPMSSP0
+Martí Alsina;NPCNSP0
+Hidra de Lerna;NPFSSP0
+Völsunga saga;NPFSO00
+Saga völsunga;NPFSO00
+saga dels volsungs;NPFSO00
+il Fatto Quotidiano;NPMSO00
+Fatto Quotidiano;NPMSO00
+Minnie Mouse;NPFSSP0
+Chatbot Arena;NPMSO00
+Can Diviu;NPMSG00
+mas Diviu;NPMSG00
+Barron's;NPCNO00
+Just Sellés;NPMSSP0
+Just I. Sellés;NPMSSP0
+Pál Esterházy;NPMSSP0
+Òmnia l'Bakkali Tahiri;NPFSSP0
+Òmnia l'Bakkali;NPFSSP0
+l'Bakkali;NPFSSP0
+Mercatus Center;NPMSO00
+Zanny Minton Beddoes;NPFSSP0
+Gregor Samsa;NPMSSP0
+Pasqual Maragall;NPMSSP0
+Simona Sajeva;NPFSSP0
+Juan José Linz;NPMSSP0
+Juan J. Linz;NPMSSP0
+Juan Linz;NPMSSP0
+Louis-Gabriel Suchet;NPMSSP0
+New York Philharmonic;NPFSO00
+New York Philharmonic Orchestra;NPFSO00
+Eine kleine Nachtmusik;NPFSO00
+Sant Jeroni de Cotalba;NPMSG00
+Cartoixa de Valldecrist;NPFSG00
+Cartoixa de l'Annunciata;NPFSG00
+Annunciata de Porta Coeli;NPFSG00
+Afrika Bambaataa;NPMSSP0
+John Francis Clauser;NPMSSP0
+John F. Clauser;NPMSSP0
+Emilia Pérez;NPFSSP0
+Rachin Ravindra;NPMSSP0
+Iphigénie en Aulide;NPFSO00
+Iphigénie en Tauride;NPFSO00
+Freida McFadden;NPFSSP0
+Sarah Cohen;NPFSSP0
+Ágatha Ruiz de la Prada;NPFSSP0
+Llegenda àuria;NPFSO00
+Legenda aurea;NPFSO00
+Legenda sanctorum;NPFSO00
+Jacopo da Varazze;NPMSSP0
+Iacopo da Varazze;NPMSSP0
+Jacopo da Varagine;NPMSSP0
+Jaume de Voràgine;NPMSSP0
+Josep Maria Albaigès;NPMSSP0
+Sciences Po;NPMSO00
+Sciences Po Paris;NPMSO00
+Lunar Orbiter;NPMSO00
+Lunar Reconnaissance Orbiter;NPMSO00
+Feria de Abril;NPFSO00
+Sundiata Keita;NPMSSP0
+Charles-Jean de la Vallée-Poussin;NPMSSP0
+de la Vallée-Poussin;NPCNSP0
+David Bessis;NPMSSP0
+Omnilingual ASR;NPMSO00
+Josep Maria Farràs;NPMSSP0
+Albert Castellón;NPMSSP0
+Pont Euxí;NPMSG00
+pinot noir;AQ0CN0
+Pinot Noir;AQ0CN0
+Pagos de Anguix;NPCNO00
+Turró i Darder;NPCNSP0
+Ramon Turró;NPMSSP0
+Cristòfor Colom;NPMSSP0
+L'Esprit Nouveau;NPMSO00
+Woody Woodpecker;NPMSSP0
+Daffy Duck;NPMSSP0
+La Tour d'Argent;NPFSO00
+Tour d'Argent;NPFSO00
+Ramon Pelegero;NPMSSP0
+Rudolf Kalman;NPMSSP0
+happy flower;AQ0CN0
+happy flower;NCCS000
+happy flowers;NCCP000
 South Pars;NPCSG00
 Ludovico il Moro;NPMSSP0
 Victor Adler;NPMSSP0
@@ -1097,7 +1182,11 @@ Fábio Coentrao;NPMSSP0 # esadir Portugal
 Félix Alejandro Maradiaga Blandón;NPMSSP0 # esadir Nicaragua
 Félix Maradiaga;NPMSSP0 # esadir Nicaragua
 Gabriel Ferraté Pascual;NPMSSP0 # esadir Catalunya
+Gabriel Ferraté i Pascual;NPMSSP0 # esadir Catalunya
 Gabriel Ferraté;NPMSSP0 # esadir Catalunya
+Gabriel Ferrater;NPMSSP0
+Gabriel Ferrater Soler;NPMSSP0
+Ferraté Pascual;NPCNSP0
 Gabriel Magalhães;NPMSSP0 # esadir Portugal
 Gašper Marguč;NPMSSP0 # esadir Eslovènia
 Genís Sinca;NPMSSP0 # esadir Catalunya
@@ -9964,6 +10053,7 @@ Svetlana Aleksiévitx;NPFSSP0
 Mikola Líssenko;NPMSSP0
 Mili Balàkirev;NPMSSP0
 Modest Mussorgski;NPMSSP0
+Modest Mússorgski;NPMSSP0
 Mstislav Rostropóvitx;NPMSSP0
 Nikita Mikhalkov;NPMSSP0
 Nikolai Miaskovski;NPMSSP0
@@ -11172,7 +11262,6 @@ Doctor Music Festival	NPMSO00
 Black Music Festival	NPMSO00
 Universal Music	NPMSO00
 Universal Music Group	NPMSO00
-Feria de Abril	NCFS000
 edat mitjana	NCFS000
 pasta brisa	NCFS000
 silenci tens	NCMS000
@@ -11807,6 +11896,8 @@ Pedro Luis	NPMSSP0
 Pere Lluís;NPMSSP0
 Antonio Luis	NPMSSP0
 Antoni Lluís;NPMSSP0
+Sant Lluís;NPMSSP0
+sant Lluís;NPMSSP0
 Juan Luis	NPMSSP0
 Joan Lluís;NPMSSP0
 Joventut de Badalona	NPMSO00
@@ -13086,6 +13177,7 @@ apolat de sodi	NCMS000
 a bene placito;_Latin_
 a capite ad calcem;_Latin_
 a contrario;_Latin_
+a divinis;LOC_ADV
 a Deucalione;_Latin_
 a falsis principiis proficisci;_Latin_
 #a fortiori;_Latin_

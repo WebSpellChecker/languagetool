@@ -69,7 +69,7 @@ public class VerbSynthesizer {
   }
 
   public void setPostag(String postag) {
-    this.newLemma = tokens[iFirstVerb].readingWithTagRegex(pVerb).getLemma();
+    this.newLemma = tokens[iLastVerb].readingWithTagRegex(pVerb).getLemma();
     this.newPostag = postag;
   }
 
@@ -176,7 +176,7 @@ public class VerbSynthesizer {
     } else {
       for (int i = iFirstVerb; i <= iLastVerb; i++) {
         if (i == iFirstVerb) {
-          String[] synthesized = synth.synthesize(firstVerb, newPostag);
+          String[] synthesized = synth.synthesize(firstVerb, adjustPostagTolemma(firstVerb.getLemma(), newPostag));
           if (synthesized != null && synthesized.length > 0) {
             result.append(synthesized[0]);
           }
