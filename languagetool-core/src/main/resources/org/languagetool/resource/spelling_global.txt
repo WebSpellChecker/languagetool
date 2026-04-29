@@ -2113,6 +2113,8 @@ Hannah Arendt
 Francis Bacon
 Jacques Derrida
 Willard Van Orman Quine
+Willard V. Quine
+Willard Quine
 Karl Popper
 George Berkeley
 John Dewey
@@ -16031,6 +16033,7 @@ Petr Pavel
 Jennifer Hermoso
 Jenni Hermoso
 # START SCIENTIFIC NAMES
+Melanerpes formicivorus
 Camellia sinensis
 Dianthus caryophyllus
 Candida albicans
@@ -22319,7 +22322,6 @@ Sébastien Nicolas de Chamfort
 Andrea Alciato
 Dave Ramsey
 Rolf Schock
-Willard V. Quine
 Michael Dummett
 Dana S. Scott
 Saul A. Kripke
@@ -30161,3 +30163,43 @@ Olvido García Valdés
 Robin Gunningham
 Robert Del Naja
 Blek le Rat
+David Friedberg
+Théâtre royal de la Monnaie
+Théâtre de la Monnaie
+South Pars
+Tippi Hedren
+Rod Taylor
+Woody Woodpecker
+Daffy Duck
+Victor J. Glover
+Victor Jerome Glover
+Victor Glover
+Reid Wiseman
+Gregory Reid Wiseman
+Christina Koch
+Christina Hammock Koch
+Jeremy Hansen
+Jeremy Roger Hansen
+Sciences Po Paris
+Sciences Po
+Claude Mythos
+OpenAI Codex
+OpenCode
+Amazon Q Developer
+Emilia Pérez
+Rachin Ravindra
+John F. Clauser
+John Francis Clauser
+Afrika Bambaataa
+New York Philharmonic
+New York Philharmonic Orchestra
+Marie-Louise Eta
+Hedda Hopper
+Eric Swalwell
+Mercatus Center
+Zanny Minton Beddoes
+Gregor Samsa
+Barron's
+Barron’s
+Chatbot Arena
+Minnie Mouse

@@ -353,9 +353,14 @@ antipadrões
 apedeuta
 apedeutas
 arqueologicamente
+aspergiu
 autoevidência
 autoevidências
 autoinflingir
+autopropor
+autoproposição
+aviltante
+aviltantes
 bajouja
 bajoujas
 bajoujo
@@ -420,6 +425,7 @@ deslembranças
 desnorteante
 desnorteantes
 Draw
+egoisticamente
 egotismo
 egotismos
 eivada
@@ -444,7 +450,12 @@ fabulística
 fabulísticas
 fabulístico
 fabulísticos
+fartinha
+fartinhas
+fartinho
+fartinhos
 fauvismo
+fero
 fidedignamente
 fingerprint
 fingerprints
@@ -571,6 +582,7 @@ queirosianos
 rabicha
 rabichas
 recalculação
+recentrar
 reformazinha
 reformazinhas
 rinossinusite
@@ -599,6 +611,8 @@ sinoviais
 sinovial
 sociopatia
 sociopatias
+solteirice
+solteirices
 Sora
 sossegadinha
 sossegadinhas
