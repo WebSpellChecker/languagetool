@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-05-07
+
+### Security
+- **Netty upgrade:** Updated `io.netty` to **4.1.133.Final** to address **CVE-2026-42579** and **CVE-2026-42583**.
+  - Scope: components depending on `io.netty` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-03-19
 
 ### Security
