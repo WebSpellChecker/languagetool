@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-05-09
+
+### Security
+- **OpenNLP upgrade:** Updated `opennlp-tools` to **2.5.9** to address **CVE-2026-42027**, **CVE-2026-40682** and **CVE-2026-42440**.
+  - Scope: components depending on `opennlp-tools` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-05-07
 
 ### Security
