@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-05-19
+
+### Security
+- **Netty upgrade:** Updated `opentelemetry` to **1.62.0** to address **CVE-2026-45292**.
+  - Scope: components depending on `opentelemetry` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-05-07
 
 ### Security
