@@ -1,6 +1,7 @@
 #Només funciona amb verbs de la primera conjugació, acabats en -ar, que són la majoria
 #extendre=estendre #caldria afegir el paradigma verbal
 #acometre=escometre|envestir
+atenallar=tenallar
 recluir=recloure
 incluir=incloure
 concluir=concloure
@@ -380,7 +381,7 @@ mermar=minvar|disminuir
 minusvalorar=menysvalorar|subestimar|infravalorar
 moldejar=modelar|afaiçonar
 molturar=moldre|molinar
-monitoritzar=monitorar
+monitoritzar|monitorejar=monitorar
 miccionar=orinar
 ningunejar|ningunear=obviar|menysprear|menystenir|denigrar|humiliar
 objectivitzar=objectivar
