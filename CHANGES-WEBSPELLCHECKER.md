@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-05-31
+
+### Security
+- **opennlp-tools fork:** Replaced `org.apache.opennlp:opennlp-tools:1.9.4` with the in-house fork `com.webspellchecker:opennlp-tools:1.9.4-webspellchecker-1` to address **CVE-2026-40682** (XXE in DictionaryEntryPersistor), **CVE-2026-42027** (unsafe reflection in ExtensionLoader), and **CVE-2026-42440** (DoS in AbstractModelReader). The fork backports the upstream fixes onto the 1.9.4 baseline. Upgrading to opennlp-tools 2.x is not viable because the chunker feature emission format changed (OPENNLP-1332) and breaks the legacy 1.5-format models used by LanguageTool.
+  - Scope: components depending on `opennlp-tools` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-05-19
 
 ### Security
