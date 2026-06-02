@@ -52,7 +52,7 @@
             <artifactId>opennlp-tokenize-models</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.opennlp</groupId>
+            <groupId>com.webspellchecker</groupId>
             <artifactId>opennlp-tools</artifactId>
         </dependency>
         <dependency>
