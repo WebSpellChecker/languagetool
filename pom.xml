@@ -200,7 +200,7 @@
         <org.apache.commons.commons-pool2.version>2.12.0</org.apache.commons.commons-pool2.version>
         <org.apache.commons.lang3.version>3.18.0</org.apache.commons.lang3.version>
         <org.apache.commons.text.version>1.12.0</org.apache.commons.text.version>
-        <org.apache.opennlp.opennlp-tools.version>1.9.4</org.apache.opennlp.opennlp-tools.version>
+        <com.webspellchecker.opennlp.opennlp-tools.version>1.9.4-webspellchecker-1</com.webspellchecker.opennlp.opennlp-tools.version>
 
         <org.glassfish.jaxb.jaxb-runtime.version>4.0.5</org.glassfish.jaxb.jaxb-runtime.version>
         <org.ioperm.morphology-el.version>1.0.0</org.ioperm.morphology-el.version>
@@ -426,16 +426,34 @@
                 <groupId>edu.washington.cs.knowitall</groupId>
                 <artifactId>opennlp-chunk-models</artifactId>
                 <version>${edu.washington.cs.knowitall.opennlp.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.opennlp</groupId>
+                        <artifactId>opennlp-tools</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>edu.washington.cs.knowitall</groupId>
                 <artifactId>opennlp-postag-models</artifactId>
                 <version>${edu.washington.cs.knowitall.opennlp.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.opennlp</groupId>
+                        <artifactId>opennlp-tools</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>edu.washington.cs.knowitall</groupId>
                 <artifactId>opennlp-tokenize-models</artifactId>
                 <version>${edu.washington.cs.knowitall.opennlp.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.opennlp</groupId>
+                        <artifactId>opennlp-tools</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>edu.washington.cs.knowitall</groupId>
@@ -657,9 +675,9 @@
                 <version>${lucene.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.opennlp</groupId>
+                <groupId>com.webspellchecker</groupId>
                 <artifactId>opennlp-tools</artifactId>
-                <version>${org.apache.opennlp.opennlp-tools.version}</version>
+                <version>${com.webspellchecker.opennlp.opennlp-tools.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.carrot2</groupId>
