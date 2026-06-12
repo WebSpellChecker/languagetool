@@ -71335,7 +71335,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>Un verbe semble plus approprié.</message>
                 <suggestion>d'\2</suggestion>
                 <suggestion>\1{suggestion}</suggestion>
-                <example correction="d'arrêt|s'errait|s'orrait|s'arrêté|s'arrête|s'arrêta|s'erre|s'errer|s'errent|s'erré">La fille <marker>s'arrêt</marker>.</example>
+                <example correction="d'arrêt|s'arrêté|s'arrête|s'arrêta">La fille <marker>s'arrêt</marker>.</example>
             </rule>
             <rule>
                 <pattern>
@@ -79058,7 +79058,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="n'avait|avait|savait|lavait|bavait|cavait|gavait|havait|javait|navrait">Il <marker>navait</marker> pas cela.</example>
                 <example correction="s'était|serai|jetai|semai|fêtai|pétai|tétai">Il <marker>setai</marker> fait un dessin.</example>
                 <example correction="s'aperçoit|aperçoit">Il <marker>saperçoit</marker>.</example>
-                <example correction="n'appela|appela|rappela|capela|nappera|nippera|nappe la">Il <marker>nappela</marker> pas son frère hier</example>
+                <example correction="n'appela|appela|rappela|capela|nappera|nappe la">Il <marker>nappela</marker> pas son frère hier</example>
             </rule>
             <rule>
                 <pattern>
@@ -79793,7 +79793,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 </pattern>
                 <filter class="org.languagetool.rules.fr.FindSuggestionsFilter" args="wordFrom:2 desiredPostag:[NJZ].[fe].(s|sp)|V.ppa.[fe].(s|sp)"/>
                 <message>Le mot « \2 » ne peut pas être un verbe après « \1 ».</message>
-                <example correction="paille|pelle|Peille|Paillé|peille|palle|belle|peine|telle|veille">Une <marker>pèle</marker>.</example>
+                <example correction="paille|pelle|Peille|Paillé|peille|belle|peine|telle|veille|paire">Une <marker>pèle</marker>.</example>
                 <example correction="caméra">Je ne peux pas acheter une <marker>camera</marker> de plus de 300 dollars.</example>
                 <example correction="Fleuré|fleur|fleurie|Fleury|flexure|Fleurey|Floure|Flêtre|Pleure|fleurée">Elle a une <marker>fleure</marker> rouge.</example>
                 <example>Monsieur Ma avait hérité de son père une petite librairie.</example>

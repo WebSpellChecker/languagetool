@@ -76,7 +76,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 <!ENTITY barbarismos_rev3 "afición|aficiones|awareness|blockchains?|bodyboarders?|bolds?|buffers?|bugs?|builds?|bunkai|cents?|check-ins?|checkbox|checkboxes|chipsets?|clusters?|cookie-cutters?|cover-ups?|crowdfundings?|crowdsourcings?|default|desktops?|drafts?|emojis?|emoticons?|fanzines?|feedbacks?|fingerprints?|flags?|footnotes?|forecast|frameworks?|friendly|futons?|gaps?|geocachers?|geocaching|gilberts?|health|heights?|hotspots?|hoverboards?|icebergs?|input-output|interfaces?|jetpacks?|knowing-doing|logs?|LEDs?|likes?|marketplaces?|nudes?|open-source|overclockings?|pidgins?|podcasts?|previews?|rankings?|rap|resupply|reviews?|scams?|scammers?|scripts?|skippers?|smileys?|snipers?|spoofing|spreads?|sticks?|sudokus?|takeovers?|tatamis?|tokens?|top-down|trackpads?|thrashers?|trackings?|tweets?|underground|Unicode|uploads?|walkie-talkies?|warm-ups?|webcams?|webinars?|webmail|webmasters?|whalewatching|widths?|woks?|workshops?|yeah|yes-man|zen|zooms?">
 
 <!-- Termos depreciativos específicos pt_PT - the rule uses inflected='yes' to get all forms -->
-<!ENTITY depreciativo_pt_pt "alarve|alarvezinho|aldrabão|aldrabãozinho|badalhoco|badalhocozinho|badameco|badamecozinho|baianada|baianadinha|bandalho|bandalhozinho|bêbadinho|bêbado|beleguim|betinho|bimbalhada|bimbalhadinha|bimbinho|bimbo|bocó|bocozinho|bosta|bostinha|brasuca|brasuquinha|brega|breguinha|bumbinho|bumbo|cabrão|cabrãozinho|caguinchas|caguinchinhas|calão|calãozinho|campónio|campóniozinho|caralhão|caralhãozinho|chacha|chachinha|chico-espertinho|chico-esperto|china|chininha|chinoca|chinocinha|choninhas|chulo|chunga|chungaria|chunguice|chupista|ciganada|ciganagem|coirão|coninhas|crápula|cretino|escarumba|escória|escumalha|espertalhão|espertinho|estúpido|fanfarrão|fufa|gagá|gajo|gandulo|generaleco|gentalha|gentiaga|gordalhão|gordalhãozinho|idiota|idiotinha|imbecil|imbecilzinho|indigente|japa|japinha|labrego|labreguinho|lamechas|lamechinhas|larilas|larilinhas|lorpa|lorpinha|malditinho|maldito|maltrapilho|manientinho|maniento|maricão|maricãozinho|maricas|mariconcinho|mariconço|mariquinhas|mentecaptinho|mentecapto|mitra|mitrinha|molenga|molengão|molengãozinho|molenguinha|monhé|monhézinho|morcão|morcãozinho|negralhada|negralhadinha|nhurrice|nhurrinha|nhurrinho|nhurro|otário|pacóvio|palerma|palerminha|panaca|panaquinha|panasca|panasquinha|paneleirinho|paneleiro|panilas|panilinhas|parolinho|parolo|parvinho|parvo|parvozinho|patego|pateguinho|pelintra|pelintrinha|pindérico|pindéricozinho|pita|pitinha|pito|portuga|portuguinha|pretalhada|pretalhadinha|pretaria|pretarinha|prostituta|prostitutinha|pulha|pulhinha|puta|putinha|rabeta|rabetinha|ralé|reles|sacana|sacaninha|safardana|tansinho|tanso|tolinho|tolo|tótó|tuga|tuguinha|velhaco|velhaquinho|vigarista|vigaristinha|zé-ninguém|zé-povinho">
+<!ENTITY depreciativo_pt_pt "alarve|alarvezinho|aldrabão|aldrabãozinho|badalhoco|badalhocozinho|badameco|badamecozinho|baianada|baianadinha|bandalho|bandalhozinho|bêbadinho|bêbado|beleguim|betinho|bimbalhada|bimbalhadinha|bimbinho|bimbo|bocó|bocozinho|bosta|bostinha|brasuca|brasuquinha|brega|breguinha|bumbinho|bumbo|cabrão|cabrãozinho|caguinchas|caguinchinhas|calão|calãozinho|campónio|campóniozinho|caralhão|caralhãozinho|chacha|chachinha|charlatão|chico-espertinho|chico-esperto|china|chininha|chinoca|chinocinha|choninhas|chulo|chunga|chungaria|chunguice|chupista|ciganada|ciganagem|coirão|coninhas|crápula|cretino|escarumba|escória|escumalha|espertalhão|espertinho|estúpido|fanfarrão|fufa|gagá|gajo|gandulo|generaleco|gentalha|gentiaga|gordalhão|gordalhãozinho|idiota|idiotinha|imbecil|imbecilzinho|indigente|japa|japinha|labrego|labreguinho|lamechas|lamechinhas|larápio|larilas|larilinhas|lorpa|lorpinha|malditinho|maldito|maltrapilho|manientinho|maniento|maricão|maricãozinho|maricas|mariconcinho|mariconço|mariquinhas|mentecaptinho|mentecapto|mitra|mitrinha|molenga|molengão|molengãozinho|molenguinha|monhé|monhézinho|morcão|morcãozinho|negralhada|negralhadinha|nhurrice|nhurrinha|nhurrinho|nhurro|otário|pacóvio|palerma|palerminha|panaca|panaquinha|panasca|panasquinha|paneleirinho|paneleiro|panilas|panilinhas|parolinho|parolo|parvinho|parvo|parvozinho|patego|pateguinho|pelintra|pelintrinha|pindérico|pindéricozinho|pita|pitinha|pito|portuga|portuguinha|pretalhada|pretalhadinha|pretaria|pretarinha|prostituta|prostitutinha|pulha|pulhinha|puta|putinha|rabeta|rabetinha|ralé|reles|sacana|sacaninha|safardana|tansinho|tanso|tolinho|tolo|tótó|tuga|tuguinha|velhaco|velhaquinho|vigarista|vigaristinha|zé-ninguém|zé-povinho">
 
 <!ENTITY verbos_informais "és|estás|tens|tenhas">
 
@@ -170,31 +170,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <example>Vocês está sugerindo que pode não ter sido um acidente?</example>
         </antipattern>
 
-        <antipattern> <!-- ChatGPT 5.2: "Blocks 'ir + gerund' cases (e.g. 'ir juntando'); matches infinitive + gerund." -->
-            <token postag='VMN000+|VMN03.+' postag_regexp='yes' inflected='yes'>ir</token>
-            <token postag='VMG000+' postag_regexp='yes'/>
-            <example>É só ir juntando o texto revisto num DOCX vazio.</example>
-            <example>Ele passava o tempo a fazer perguntas desnecessárias para eu ir gastando as minhas tokens.</example>
-            <example>Mas também pode acrescentar mais polvilho e ir mexendo até "dá o ponto".</example>
-            <example>aos poucos (2/2 semanas), vai-se "apertando" de forma a ir movendo os dentes e colocá-los na posição certa.</example>
-            <example>Terá que ajeitar um jeito de ir investigando aos poucos como a ex dele era pra que não cometa os erros que ela cometeu.</example>
-            <example>Podem ir tirando o guarda-chuva do armário que chuva pouca é bobagem no último mês do ano.</example>
-            <example>Até me ofereceram carona, mas eu estava tão abismada pelo comportamento frio que quis ir andando até o ponto de ônibus.</example>
-            <example>E o legal do suco é que você pode ir variando sempre que tiver vontade.</example>
-            <example>Quanto tempo leva para ir andando daqui até a sua casa?</example>
-            <example>"Posso te ajudar com a louça?" "Se quiser, pode ir secando."</example>
-            <example>Ir caminhando da estação a casa leva apenas cinco minutos.</example>
-            <example>Um barco me apanha para uma excursão; à distância vejo a cidade ir diminuindo de tamanho.</example>
-            <example>Se eu for embora, quero ir lutando por algo que acredito. Pelo futuro dessa jovem.</example>
-            <example>Está em tratamento no Chicago Med, mas ele pode ir mancando quando o julgamento voltar.</example>
-            <example>E, em nada adiantando, ir mudando os métodos?</example>
-            <example>Você pode ir observando e aprendendo com o tempo, que “toda muda muda tudo”.</example>
-            <example>Desça a ladeira para já ir pegando o embalo.</example>
-            <example>Quanto tempo, mais ou menos, leva para ir caminhando daqui até a prefeitura?</example>
-            <example>Acho melhor eu ir andando.</example>
-            <example>É só irem juntando o texto revisto num DOCX vazio.</example>
-        </antipattern>
-
         <antipattern> <!-- #1: Verbos Auxiliares: most exceptions were taken from DeepSeek-V3 -->
             <token inflected='yes' regexp='yes'>&gerundio_verbos_auxiliares;</token>
             <token regexp='yes'>&gerundio_excecoes_verbos_auxiliares;</token>
@@ -230,7 +205,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </antipattern>
 
         <pattern>
-            <token inflected='yes' regexp='yes'>&gerundio_verbos_auxiliares;|&gerundio_verbos_nao_auxiliares;</token><!-- TODO Review all cases and confirm it can be safely expanded to more cases-->
+            <!-- TODO Review all cases and confirm it can be safely expanded to more cases-->
+            <token inflected='yes' regexp='yes'>&gerundio_verbos_auxiliares;|&gerundio_verbos_nao_auxiliares;
+                <exception regexp='no' inflected='yes'>ir</exception></token> <!-- Verbos problemáticos: gerúndio é quase sempre natural -->
             <token postag='VMG000+' postag_regexp='yes'/>
         </pattern>
         <message>Se possível, evite o gerúndio.</message>
@@ -238,6 +215,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         <url>https://pt.wikipedia.org/wiki/Gerundismo</url>
         <short>Possível gerundismo.</short>
         <example correction='está a levar'>A outra pessoa o <marker>está levando</marker> à loucura.</example>
+        <example>Acho melhor eu ir andando.</example>
+        <example>É só irem juntando o texto revisto num DOCX vazio.</example>
     </rule>
 
 
@@ -2183,6 +2162,37 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         <short>Coloquialismo</short>
         <example correction='falido|miserável'><marker>não tem onde cair morto</marker></example>
     </rule>
+    <rule id='VOZES_DE_BURRO_CÉU'>
+        <pattern>
+            <token>vozes</token>
+            <token>de</token>
+            <token>burro</token>
+            <token>não</token>
+            <token>chegam</token>
+            <token>ao</token>
+            <token>céu</token>
+        </pattern>
+        <message>&colloquialism_msg;</message>
+        <suggestion>as críticas infundadas não devem ser valorizadas</suggestion>
+        <suggestion>as críticas sem fundamento não merecem atenção</suggestion>
+        <suggestion>comentários depreciativos não devem ser tidos em conta</suggestion>
+        <short>Coloquialismo</short>
+        <example correction='as críticas infundadas não devem ser valorizadas|as críticas sem fundamento não merecem atenção|comentários depreciativos não devem ser tidos em conta'><marker>vozes de burro não chegam ao céu</marker></example>
+    </rule>
+    <rule id='NUM_PISCAR_DE_OLHOS'>
+        <pattern>
+            <token>num</token>
+            <token>piscar</token>
+            <token>de</token>
+            <token>olhos</token>
+        </pattern>
+        <message>&colloquialism_msg;</message>
+        <suggestion>rapidamente</suggestion>
+        <suggestion>em pouco tempo</suggestion>
+        <suggestion>de imediato</suggestion>
+        <short>Coloquialismo</short>
+        <example correction='rapidamente|em pouco tempo|de imediato'><marker>num piscar de olhos</marker></example>
+    </rule>
     </rulegroup>
 
 
@@ -3401,26 +3411,51 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-        <rule id='FORMAL_MONTES_DE' name="🇵🇹👔 'montes de' → inúmeros/imensos">
-        <!-- Created by Marco A.G.Pinto, Portuguese rule 2023-03-05 (Checked/Enhanced) (2-MAR-2023+) -->
-        <!--
-            Perdi montes de tempo. → Perdi imenso tempo.
-            Deparei-me com montes de obstáculos. → Deparei-me com inúmeros obstáculos.
-        -->
-            <pattern>
-                <token postag_regexp='yes' postag="V.+|SPS00"/>
-                <marker>
-                    <token>montes</token>
-                    <token>de</token>
-                </marker>
-                <token postag_regexp='yes' postag="NC.+"/>
-            </pattern>
-            <message>Num contexto formal, é preferível escrever:</message>
-            <suggestion><match no='4' postag='NC(..)000' postag_replace='AQ0$10'>imenso</match></suggestion>
-            <suggestion><match no='4' postag='NC(..)000' postag_replace='AQ0$10'>inúmero</match></suggestion>
-            <example correction="imenso|inúmero">Perdi <marker>montes de</marker> tempo.</example>
-            <example correction="imensos|inúmeros">Deparei-me com <marker>montes de</marker> obstáculos.</example>
-        </rule>
+      <rulegroup id='FORMAL_MONTES_DE' name="🇵🇹👔 'montes de' → inúmeros/imensos" tone_tags='formal'>
+          <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+          <antipattern>
+              <token postag_regexp='yes' postag='(SPS00:)?[DP]..MP.+'/>
+              <token>montes</token>
+              <token>de</token>
+              <token postag_regexp='yes' postag='NC.+'/>
+              <example>Genes que possuem a característica de resistência a metais entre as gramíneas dentro e fora dos montes de rejeito.</example>
+              <example>Eles finalmente localizam o que parece ser um antigo cemitério com sete montes de pedras pequenos.</example>
+              <example>Estes montes de terra e pirâmides continham estruturas subterrâneas, que eram revestidas com paredes de tijolos.</example>
+          </antipattern>
+
+          <rule> <!-- NCC.+ -->
+              <pattern>
+                  <marker>
+                      <token>montes
+                          <exception postag_regexp='yes' postag='NP.+'/><exception scope='previous' postag_regexp='yes' postag='Z0.+'/></token>
+                      <token>de</token>
+                  </marker>
+                  <token postag_regexp='yes' postag='NCC.+'/>
+              </pattern>
+              <message>Num contexto formal, pode preferir uma alternativa mais neutra a &quot;montes de&quot;.</message>
+              <suggestion><match no='3' postag='NC(.)(.)000' postag_replace='AQ0.$20'>imenso</match></suggestion>
+              <suggestion><match no='3' postag='NC(.)(.)000' postag_replace='AQ0.$20'>inúmero</match></suggestion>
+              <example correction="imensas|imensos|inúmeras|inúmeros">Deparei-me com <marker>montes de</marker> agentes.</example>
+              <example>Na manhã do quarto dia, eles encontram três montes de agentes.</example>
+          </rule>
+
+          <rule> <!-- NC[MF].+ -->
+              <pattern>
+                  <marker>
+                      <token>montes
+                          <exception postag_regexp='yes' postag='NP.+'/><exception scope='previous' postag_regexp='yes' postag='Z0.+'/></token>
+                      <token>de</token>
+                  </marker>
+                  <token postag_regexp='yes' postag='NC[MF].+'/>
+              </pattern>
+              <message>Num contexto formal, pode preferir uma alternativa mais neutra a &quot;montes de&quot;.</message>
+              <suggestion><match no='3' postag='NC(..)000' postag_replace='AQ0$10'>imenso</match></suggestion>
+              <suggestion><match no='3' postag='NC(..)000' postag_replace='AQ0$10'>inúmero</match></suggestion>
+              <example correction="imensos|inúmeros">Deparei-me com <marker>montes de</marker> obstáculos.</example>
+              <example>Na manhã do quarto dia, eles encontram três montes de pedras.</example>
+          </rule>
+      </rulegroup>
 
 
         <rule id='PARA_NADA_DESNECESSARIAMENTE' name="🇵🇹👔 Para nada → desnecessariamente" tone_tags='formal'>
@@ -3669,6 +3704,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
           <suggestion>gosto</suggestion>
           <example correction="gosto">Terei o maior <marker>prazer</marker> em convidá-los.</example>
           <example correction="gosto">É com enorme <marker>prazer</marker> que o recebemos.</example>
+          <example correction="gosto">Sinto náuseas e não tenho <marker>prazer</marker> em viver!</example>
       </rule>
 
 
