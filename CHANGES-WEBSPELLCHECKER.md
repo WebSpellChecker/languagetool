@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-06-12
+
+### Security
+- **jackson-core upgrade:** Updated `jackson-core` to **2.18.7** to address **CWE-770**.
+  - Scope: components depending on `jackson-core` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-06-09
 
 ### Security
