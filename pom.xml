@@ -215,10 +215,10 @@
         <org.tukaani.version>1.10</org.tukaani.version>
 
         <guava.version>33.5.0-jre</guava.version>
-        <jackson.version>2.18.6</jackson.version>
+        <jackson.version>2.18.7</jackson.version>
         <lombok.version>1.18.34</lombok.version>
         <lucene.version>5.5.5</lucene.version>
-        <morfologik.version>2.1.9</morfologik.version>
+        <morfologik.version>2.2.0</morfologik.version>
         <optimaize.languagedetector.language-detector.version>0.6</optimaize.languagedetector.language-detector.version>
         <!-- see https://github.com/languagetool-org/languagetool/issues/4088 before you upgrade this -->
         <spanish-pos-dict.version>2.5</spanish-pos-dict.version>

@@ -1,5 +1,44 @@
 #Catalan multiwords file used for chunking
 #separatorRegExp=[\t;]
+Raffaello Sanzio da Urbino;NPMSSP0
+Raffaello Sanzio;NPMSSP0
+Donato Bramante;NPMSSP0
+Museu Horne;NPMSO00
+Ali Akbar Hashemi Rafsandjani;NPMSSP0
+Akbar Hashemi Rafsandjani;NPMSSP0
+Maxim Vengerov;NPMSSP0
+Gustav Robert Kirchhoff;NPMSSP0
+Gustav Kirchhoff;NPMSSP0
+Also sprach Zarathustra;NPCNO00
+Arcadi España;NPMSSP0
+Arcadi España García;NPMSSP0
+Jorge Juan;NPMSSP0
+Jordi Joan;NPMSSP0
+Jorge Gaspar Juan;NPMSSP0
+Domènec Sugranyes;NPMSSP0
+Teresa de Calcuta;NPFSSP0
+Laura Montoya Upegui;NPFSSP0
+Laura Montoya;NPFSSP0
+Mordecai Richler;NPMSSP0
+Barney Panofsky;NPMSSP0
+Tui Na;NCMS000
+Amanda Askell;NPFSSP0
+Stana Katić;NPFSSP0
+The White Album;NPMSO00
+Christopher Olah;NPMSSP0
+cometa Lulin;NPMSO00
+UCC+I;NPFSO00
+Omnia nomina;NPFSO00
+núvol d'Oort;NPMSG00
+The Post;NPMSO00
+Jon Batiste;NPMSSP0
+Louis Cato;NPMSSP0
+Durand de Sant Porçan;NPMSSP0
+Medina del Campo;NPCSG00
+Georges Lhôte;NPMSSP0
+Johann Caspar Kerll;NPMSSP0
+Johann Kaspar Kerll;NPMSSP0
+Caspar Kerll;NPMSSP0
 Dan Wang;NPMSSP0
 Gilgeous-Alexander;NPCNSP0
 Joep Leerssen;NPMSSP0
@@ -10571,6 +10610,7 @@ Carmen Laforet;NPFSSP0
 Juan Andrés Benítez;NPMSSP0
 Max Cahner;NPMSSP0
 Folch i Torres;NPCNSP0
+Folch i Camarasa;NPCNSP0
 Abu Qir;NPCSG00
 Grand Prix;NPMNO00
 AC/DC;NPCNO00
