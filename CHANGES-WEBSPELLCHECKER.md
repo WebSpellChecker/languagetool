@@ -7,6 +7,8 @@ This document records WebSpellChecker-specific changes on top of upstream Langua
 ### Security
 - **jackson-databind upgrade:** Updated `jackson-databind` to **2.18.9** to address **CVE-2026-54515**.
   - Scope: components depending on `jackson-databind` (direct or transitive) packaging of `langtool/libs`.
+- **ch.qos.logback upgrade:** Updated `ch.qos.logback` to **1.5.35** to address **CVE-2026-9828** and **CVE-2026-10532**.
+  - Scope: components depending on `ch.qos.logback` (direct or transitive) packaging of `langtool/libs`.
 
 ## 2026-06-24
 
