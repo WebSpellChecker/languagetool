@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-07-14
+
+### Security
+- **jackson-databind upgrade:** Updated `jackson-databind` to **2.18.9** to address **CVE-2026-54515**.
+  - Scope: components depending on `jackson-databind` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-06-24
 
 ### Security
