@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-07-14
+
+### Security
+- **opennlp-tools upgrade:** Replaced the in-house fork `com.webspellchecker:opennlp-tools:1.9.4-webspellchecker-1` with the official `org.apache.opennlp:opennlp-tools:1.9.5`, which upstream released with fixes for **CVE-2026-40682**, **CVE-2026-42027** and **CVE-2026-42440**.
+  - Scope: components depending on `opennlp-tools` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-06-24
 
 ### Security
