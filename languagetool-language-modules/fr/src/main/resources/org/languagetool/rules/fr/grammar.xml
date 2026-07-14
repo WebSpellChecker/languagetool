@@ -117276,6 +117276,79 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>architecture 3D</example>
             </rule>
         </rulegroup>
+    
+<rule id="ACCORD_QUI_VERBE_PLURIEL" name="antécédent pluriel + qui + verbe au singulier" default="temp_off">
+            <pattern>
+                <token regexp="yes">plusieurs|certains|certaines|quelques|nombreux|nombreuses|les|ces|mes|tes|ses|leurs|nos|vos</token>
+                <token postag="N . p" postag_regexp="yes"/>
+                <token>qui</token>
+                <marker>
+                    <token postag="V (ind|sub) pres 3 s" postag_regexp="yes"/>
+                </marker>
+            </pattern>
+            <message>L'antécédent au pluriel « \2 » appelle un verbe au pluriel après « qui ».</message>
+            <suggestion><match no="4" postag="V (etre )?(avoir )?(ind|con|sub) (pres|impa|psim|futu) ([123]) ([sp])" postag_regexp="yes" postag_replace="V $1$2$3 $4 3 p"/></suggestion>
+            <example correction="préfigurent">plusieurs éléments qui <marker>préfigure</marker> la suite</example>
+            <example>plusieurs éléments qui triomphent tôt ou tard</example>
+        </rule>
+
+        <rule id="ACCORD_PRONOM_ET_VERBE" name="pronom sujet singulier + et + verbe au pluriel" default="temp_off">
+            <pattern>
+                <token regexp="yes">il|elle|on</token>
+                <token min="0" max="8">
+                    <exception regexp="yes">et|qui|que|qu'|dont|ou|où|,|;|:|\.|ils|elles|nous|vous|je|tu</exception>
+                </token>
+                <token>et</token>
+                <marker>
+                    <token postag="V (ind|sub) pres 3 p" postag_regexp="yes">
+                        <exception postag="V.* 3 s" postag_regexp="yes"/>
+                    </token>
+                </marker>
+            </pattern>
+            <message>Le sujet « \1 » est au singulier : ce verbe coordonné par « et » devrait être au singulier.</message>
+            <suggestion><match no="4" postag="V (etre )?(avoir )?(ind|con|sub) (pres|impa|psim|futu) ([123]) ([sp])" postag_regexp="yes" postag_replace="V $1$2$3 $4 3 s"/></suggestion>
+            <example correction="accumule">Il entre ensuite en guerre et <marker>accumulent</marker> les victoires.</example>
+            <example>Il chante et danse toute la nuit.</example>
+            <example>Ils entrent en guerre et accumulent les victoires.</example>
+        </rule>
+
+        <rule id="ACCORD_ATTRIBUT_PROXIMITE" name="sujet féminin pluriel + attracteur masculin + attribut masculin" default="temp_off">
+            <antipattern>
+                <token postag="N m p" postag_regexp="yes"/>
+                <token regexp="yes">qui|que|qu'|dont|lesquels|auxquels</token>
+            </antipattern>
+            <antipattern>
+                <token postag="N m p" postag_regexp="yes"/>
+                <token>,</token>
+                <token regexp="yes">qui|que|qu'|dont|lesquels|auxquels</token>
+            </antipattern>
+            <pattern>
+                <token postag="N f p" postag_regexp="yes"/>
+                <token regexp="yes">de|des|d'</token>
+                <token postag="N m p" postag_regexp="yes" skip="2"/>
+                <token postag="V etre .* 3 p" postag_regexp="yes" skip="5"/>
+                <marker>
+                    <token postag="(J|V.* ppa) m p" postag_regexp="yes"><exception postag="N .*" postag_regexp="yes"/></token>
+                </marker>
+            </pattern>
+            <message>L'attribut « \5 » devrait s'accorder avec le sujet féminin pluriel « \1 », non avec le nom masculin voisin.</message>
+            <suggestion><match no="5" postag="(J|V.* ppa) m p" postag_regexp="yes" postag_replace="$1 f p"/></suggestion>
+            <example correction="identifiées">Les motivations des insurgés ne sont pas toujours bien <marker>identifiés</marker>.</example>
+            <example>Les motivations des insurgés sont connues.</example>
+        </rule>
+
+        <rule id="MOUVEMENT_ISME_VS_ISTE" name="nom de courant + mot en -isme (adjectif en -iste attendu)" default="temp_off">
+            <pattern>
+                <token regexp="yes">mouvements?|courants?|partis?|régimes?|doctrines?|idéologies?|tendances?|mouvances?</token>
+                <marker>
+                    <token postag="N.*" postag_regexp="yes" regexp="yes">.*isme</token>
+                </marker>
+            </pattern>
+            <message>Après « \1 », un adjectif est attendu : « \2 » est un nom. Vouliez-vous l'adjectif en -iste ?</message>
+            <suggestion><match no="2" regexp_match="isme$" regexp_replace="iste"/></suggestion>
+            <example correction="socialiste">un parti <marker>socialisme</marker> qualifié de révolutionnaire.</example>
+            <example>Le mouvement ouvrier se développe.</example>
+        </rule>
     </category>
     <category id="CAT_TYPOGRAPHIE" name="Typographie" type="typographical">
         <rule id="QUART_DHEURE" name="quart d'heure">

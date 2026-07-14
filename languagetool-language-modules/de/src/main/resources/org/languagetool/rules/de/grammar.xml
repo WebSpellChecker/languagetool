@@ -2536,7 +2536,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
 
         <rule id="GENANT_SPELLING_RULE" name="genant (genannt)">
-            <regexp>\bgenant(e[rsnm]?)?\b</regexp>
+<regexp>\bgenant(e[rsnm]?)?\b</regexp>
             <message>Meinten Sie <suggestion>genannt\1</suggestion>, das Partizip von 'nennen'?</message>
             <example correction="genannt">Seit seiner Kindheit wurde er Tom <marker>genant</marker>.</example>
             <example correction="genannter">Ein 'Hundi' <marker>genanter</marker> Hund.</example>
@@ -2725,7 +2725,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
 
         <rule id="ZUR_STAND_SPELLING_RULEE" name="zur Stande (zustande, zu Stande)">
-            <regexp>\bzur Stande\b</regexp>
+<regexp>\bzur Stande\b</regexp>
             <message>Die feste Wendung lautet 'zustande bringen' (empfohlen) oder 'zu Stande bringen'</message>
             <suggestion>zustande</suggestion>
             <suggestion>zu Stande</suggestion> 
@@ -3175,7 +3175,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
         </rulegroup>
         <rule id="BEIM_BEI" name="'bei beim' etc.">
-            <regexp>\bbeim? beim?\b</regexp>
+<regexp>\bbeim? beim?\b</regexp>
             <message>Möglicherweise ist hier ein Wort zu viel.</message>
             <suggestion>bei</suggestion>
             <suggestion>beim</suggestion>
@@ -3306,7 +3306,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
         <rulegroup id="KOMMA_TLD" name="'example,com (example.com)'">
             <rule>
-                <regexp case_sensitive='yes'>([a-zäöü0-9\-]{2,20}),(com|de|net|org|ch|at|pl|eu)\b</regexp>
+<regexp case_sensitive='yes'>([a-zäöü0-9\-]{2,20}),(com|de|net|org|ch|at|pl|eu)\b</regexp>
                 <message>Möglicher Tippfehler: Meinten Sie <suggestion>\1.\2</suggestion>?</message>
                 <short>&typo;</short>
                 <example correction="example.com">Guck mal auf <marker>example,com</marker> nach.</example>
@@ -5128,7 +5128,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="E-Mails">Er schickt mir viele <marker>e-mails</marker>.</example>
             </rule>
             <rule><!--4-->
-                <regexp case_sensitive='yes'>\b(eMail|e-Mail|e-mail|E-mail|E[Mm]ail)-?([aA]dressen?|[aA]accounts?|[aA]nwendung(en)?|[cC]lients?|[kK]ontakte?|[kK]ont](os?|en)|[pP]ostf[aä]ch(ern?|es|s)?|[pP]rogramms?|[sS]oftware|[Vv]erkehrs?)</regexp>
+<regexp case_sensitive='yes'>\b(eMail|e-Mail|e-mail|E-mail|E[Mm]ail)-?([aA]dressen?|[aA]accounts?|[aA]nwendung(en)?|[cC]lients?|[kK]ontakte?|[kK]ont](os?|en)|[pP]ostf[aä]ch(ern?|es|s)?|[pP]rogramms?|[sS]oftware|[Vv]erkehrs?)</regexp>
                 <message>Meinten Sie <suggestion><match no="0" regexp_match=".*ail(.*)" regexp_replace="E-Mail$1"/></suggestion>? (E-Mail = elektronische Post, Email = Schmelzüberzug)</message>
                 <short>&typo;</short>
                 <example correction="E-Mail-Adresse">Das ist meine <marker>eMail-Adresse</marker>.</example>
@@ -5140,21 +5140,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>Kostenlos mit GMX FreeMail: E-Mail-Adresse, 1 GB Mail Speicher, Free SMS.</example>
             </rule>
             <rule><!--5-->
-                <regexp case_sensitive='yes'>\b(eMail|e-Mail|e-mail|E-mail|E[Mm]ail)-([A-ZÄÖÜ][a-zäüöß]+)\b</regexp>
+<regexp case_sensitive='yes'>\b(eMail|e-Mail|e-mail|E-mail|E[Mm]ail)-([A-ZÄÖÜ][a-zäüöß]+)\b</regexp>
                 <message>Meinten Sie <suggestion><match no="0" regexp_match=".*ail(.*)" regexp_replace="E-Mail$1"/></suggestion>?</message>
                 <short>&typo;</short>
                 <example correction="E-Mail-Suchauftrag">Mit Ihrem persönlichen <marker>eMail-Suchauftrag</marker> informieren wir Sie regelmäßig über neue Inserate die Ihren Suchkriterien entsprechen.</example>
                 <example correction="E-Mail-Benachrichtigung">Hat jemand ebenso wie Bernardo Probleme mit der <marker>E-mail-Benachrichtigung</marker>?</example>
             </rule>
             <rule><!--6-->
-                <regexp case_sensitive='yes'>\b([A-ZÄÖÜ][a-zäüöß]+\-)(eMail|e-Mail|e-mail|E-mail|E[Mm]ail)s?\b</regexp>
+<regexp case_sensitive='yes'>\b([A-ZÄÖÜ][a-zäüöß]+\-)(eMail|e-Mail|e-mail|E-mail|E[Mm]ail)s?\b</regexp>
                 <message>Meinten Sie <suggestion><match no="0" regexp_match="-.*ail(.*)" regexp_replace="-E-Mail$1"/></suggestion>?</message>
                 <short>&typo;</short>
                 <example correction="Betrugs-E-Mails">Vorsicht vor <marker>Betrugs-Emails</marker>.</example>
                 <example correction="Spam-E-Mail">Das ist eine <marker>Spam-Email</marker>.</example>
             </rule>
             <rule><!--7-->
-                <regexp case_sensitive='yes'>\b([A-ZäÖÜ][a-zäüöß]+\-)(eMail|e-Mail|e-mail|E-mail|E[Mm]ail)(-([aA]dressen?|[aA]accounts?|[aA]nwendung(en)?|[cC]lients?|[kK]ontakte?|[kK]ont](os?|en)|[pP]ostf[aä]ch(ern?|es|s)?|[pP]rogramms?|[sS]oftware|[Vv]erkehrs?))?\b</regexp>
+<regexp case_sensitive='yes'>\b([A-ZäÖÜ][a-zäüöß]+\-)(eMail|e-Mail|e-mail|E-mail|E[Mm]ail)(-([aA]dressen?|[aA]accounts?|[aA]nwendung(en)?|[cC]lients?|[kK]ontakte?|[kK]ont](os?|en)|[pP]ostf[aä]ch(ern?|es|s)?|[pP]rogramms?|[sS]oftware|[Vv]erkehrs?))?\b</regexp>
                 <message>Meinten Sie <suggestion><match no="0" regexp_match="-.*ail(.*)" regexp_replace="-E-Mail$1"/></suggestion>? (E-Mail = elektronische Post, Email = Schmelzüberzug)</message>
                 <short>&typo;</short>
                 <example correction="Team-E-Mail">Das ist unsere <marker>Team-Email</marker>.</example>
@@ -5588,7 +5588,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="in der Regel">Wir machen das <marker>in der Regeln</marker> folgendermaßen.</example>
             </rule>
             <rule>
-                <regexp case_sensitive='yes'>in aller Regeln\b</regexp>
+<regexp case_sensitive='yes'>in aller Regeln\b</regexp>
                 <message>Meinten Sie evtl. die Redewendung <suggestion>in aller Regel</suggestion>?</message>
                 <example correction="in aller Regel">Wir machen das <marker>in aller Regeln</marker> folgendermaßen.</example>
             </rule>
@@ -5956,12 +5956,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="FUER_UND_WIEDER" name="'für und wieder (wider)'">
             <url>https://languagetool.org/insights/de/beitrag/das-fur-und-wider-wieder/</url>
             <rule>
-                <regexp case_sensitive='yes'>\bfür-? und wieder\b</regexp>
+<regexp case_sensitive='yes'>\bfür-? und wieder\b</regexp>
                 <message>Meinten Sie <suggestion>für und wider</suggestion>?</message>
                 <example correction="für und wider">Die Argumente <marker>für und wieder</marker> diese Option halten sich die Waage.</example>
             </rule>
             <rule>
-                <regexp case_sensitive='yes'>Für-? und Wieder\b</regexp>
+<regexp case_sensitive='yes'>Für-? und Wieder\b</regexp>
                 <message>Meinten Sie <suggestion>Für und Wider</suggestion>?</message>
                 <example>Das <marker>Für und Wider</marker> sollte gründlich abgewogen werden.</example>
                 <example correction="Für und Wider">Das <marker>Für und Wieder</marker> wird erwogen.</example>
@@ -6278,7 +6278,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example type="triggers_error">Wann das <marker>war</marker> ist nicht bekannt.</example>
             </rule>
             <rule>
-                <regexp case_sensitive='yes'>\b([Ww]ird|[Ww]urden?|[Ww]ürde|[Ii]st|[Ss]ind|waren) (war)\b</regexp>
+<regexp case_sensitive='yes'>\b([Ww]ird|[Ww]urden?|[Ww]ürde|[Ii]st|[Ss]ind|waren) (war)\b</regexp>
                 <message>Meinten Sie <suggestion>wahr</suggestion> (=wahrhaftig, authentisch) statt 'war' (Vergangenheit von 'sein') &odkomma;?</message>
                 <suggestion>\1, \2</suggestion>
                 <suggestion>\2</suggestion>
@@ -7745,7 +7745,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example>Für die Menschen im Nahen Osten und in Nordafrika (MENA) soll dies Arbeitsplätze, Einkommen, Meerwasserentsalzung ohne CO2-Emissionen und eine Verbesserung der Infrastruktur bedeuten.</example>
         </rule>
         <rule id="ZU_NEIGE" name="zu Neige (zur Neige)">
-            <regexp>\bzu Neige\b</regexp>
+<regexp>\bzu Neige\b</regexp>
             <message>Die feste Wendung für 'bald aufgebraucht sein' lautet 'zur Neige gehen'</message>
             <suggestion>zur Neige</suggestion>
             <example correction="zur Neige">Der Sauerstoff ist <marker>zu Neige</marker> gegangen.</example>
@@ -12390,7 +12390,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="IN_PUNCTO" name="punkto/puncto">
             <url>https://www.korrekturen.de/beliebte_fehler/in_punkto.shtml</url>
             <rule>
-                <regexp>\bin punkto\b</regexp>
+<regexp>\bin punkto\b</regexp>
                 <message>Meinten Sie die feste Wendung <suggestion>in puncto</suggestion>?</message>
                 <example correction="In puncto"><marker>In punkto</marker> Gesamtnutzung liegt sie auf Platz vier der meistgelesenen Sprachausgaben.</example>
             </rule>
@@ -13446,7 +13446,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="Waage">Der wird seine zwanzig Kilo auf die <marker>Wage</marker> bringen.</example>
             </rule>
             <rule>
-                <regexp mark="1">\bZünglein an der (Wage)\b</regexp>
+<regexp mark="1">\bZünglein an der (Wage)\b</regexp>
                 <message>&verw;Meinten Sie <suggestion>Waage</suggestion>?</message>
                 <short>&verw;</short>
                 <example correction="Waage">Er ist das Zünglein an der <marker>Wage</marker>.</example>
@@ -15089,7 +15089,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="Gros">Für das <marker>Groß</marker> der Studierenden sind die Bedingungen schlecht.</example>
             </rule>
             <rule>
-                <regexp case_sensitive='yes'>\ben gro(ß|ss)\b</regexp>
+<regexp case_sensitive='yes'>\ben gro(ß|ss)\b</regexp>
                 <message>Meinten Sie <suggestion>en gros</suggestion>?</message>
                 <url>https://www.duden.de/rechtschreibung/en_gros</url>
                 <short>&verw;</short>
@@ -15097,7 +15097,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
         </rulegroup>
         <rule id="DER_GENUS" name="Genus/Genuss">
-            <regexp>\b(der|den) (Genus\b)</regexp>
+<regexp>\b(der|den) (Genus\b)</regexp>
             <message>Meinten Sie <suggestion>\1 Genuss</suggestion> oder <suggestion>das Genus</suggestion> (gramm. Geschlecht)?</message>
             <example><marker>Das Genus</marker> bezeichnet das grammatische Geschlecht.</example>
             <example correction="Der Genuss|Das Genus"><marker>Der Genus</marker> von Schokolade.</example>
@@ -15264,7 +15264,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="Schutzschilden">Den menschlichen <marker>Schutzschildern</marker>.</example>
             </rule>
             <rule>
-                <regexp>\bder (\w*(Verkehrs|Verbots|Namens|Hinweis|Warn)schild)</regexp>
+<regexp>\bder (\w*(Verkehrs|Verbots|Namens|Hinweis|Warn)schild)</regexp>
                 <message>'Schild' im Sinne von 'Zeichen, Tafel' ist ein Neutrum.</message>
                 <suggestion>das \1</suggestion>
                 <url>https://www.duden.de/rechtschreibung/Schild_Tafel_Platte_Fleck</url>
@@ -17129,7 +17129,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="iPhone">Ich habe jetzt ein <marker>i-Phone</marker>.</example>
             </rule>
             <rule>
-                <regexp>\bi-p[ao]ds?</regexp>
+<regexp>\bi-p[ao]ds?</regexp>
                 <message>Mit i beginnende Produktnamen von Apple wie <suggestion><match no="0" case_conversion="startlower" regexp_match="^[iI]\-[pP]" regexp_replace="iP"/></suggestion> oder 'iPhone' werden in der Regel zusammen, mit kleinem i und großem P geschrieben.</message>
                 <short>Möglicherweise falsch geschriebene Produktbezeichnung.</short>
                 <example correction="iPad">Ich habe jetzt ein <marker>i-Pad</marker>.</example>
@@ -17210,7 +17210,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
         </rulegroup>
         <rule id="IF_SCHLEIFE" name="Fachbegriff: 'if-Schleife (if-Bedingung)'">
-            <regexp>\bif[ -]Schleifen?</regexp>
+<regexp>\bif[ -]Schleifen?</regexp>
             <message>Meinten Sie <suggestion>if-Bedingung</suggestion>?</message>
             <example correction="if-Bedingung">Hier muss man eine <marker>if-Schleife</marker> verwenden.</example>
             <example correction="if-Bedingung">Hier muss man eine <marker>if Schleife</marker> verwenden.</example>
@@ -17390,7 +17390,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="Abraham Lincoln"><marker>Abraham Linken</marker> fiel einem Attentat zum Opfer.</example>
         </rule>
         <rule id="MAX_BROD" name="'Max Brot (Brod)'">
-            <regexp case_sensitive='yes'>Max Brot\b</regexp>
+<regexp case_sensitive='yes'>Max Brot\b</regexp>
             <message>Meinten Sie evtl. <suggestion>Max Brod</suggestion>, den Freund und Nachlassverwalter Franz Kafkas?</message>
             <url>https://de.wikipedia.org/wiki/Max_Brod</url>
             <short>&eigenname;</short>
@@ -17540,13 +17540,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <url>https://de.wikipedia.org/wiki/Elisabeth_Selbert</url>
             <short>&eigenname;</short>
             <rule>
-                <regexp case_sensitive="yes">Eli[sz]abeth? (Selbers?|Selberths?)\b</regexp>
+<regexp case_sensitive="yes">Eli[sz]abeth? (Selbers?|Selberths?)\b</regexp>
                 <message>Meinten Sie <suggestion>Elisabeth Selbert</suggestion> (deutsche Politikerin)?</message>
                 <example><marker>Elisabeth Selbert</marker> was eine der vier „Mütter des Grundgesetzes“.</example>
                 <example correction="Elisabeth Selbert"><marker>Elisabeth Selber</marker> war eine der vier „Mütter des Grundgesetzes“.</example>
             </rule>
             <rule>
-                <regexp case_sensitive="yes">Elisabeth (Selbers?|Selberths?)\b</regexp>
+<regexp case_sensitive="yes">Elisabeth (Selbers?|Selberths?)\b</regexp>
                 <message>Meinten Sie <suggestion>Elisabeth Selbert</suggestion> (deutsche Politikerin)?</message>
                 <example><marker>Elisabeth Selbert</marker> was eine der vier „Mütter des Grundgesetzes“.</example>
                 <example correction="Elisabeth Selbert"><marker>Elisabeth Selber</marker> war eine der vier „Mütter des Grundgesetzes“.</example>
@@ -17699,13 +17699,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <url>https://de.wikipedia.org/wiki/Joseph_Goebbels</url>
             <short>&eigenname;</short>
             <rule>
-                <regexp case_sensitive='yes'>Josef (G(oe|ö)bbels?)\b</regexp>
+<regexp case_sensitive='yes'>Josef (G(oe|ö)bbels?)\b</regexp>
                 <message>Meinen Sie <suggestion>Joseph Goebbels</suggestion>, den Propagandaminister des Dritten Reiches?</message>
                 <example correction="Joseph Goebbels"><marker>Josef Goebbels</marker></example>
                 <example correction="Joseph Goebbels"><marker>Josef Göbbels</marker></example>
             </rule>
             <rule>
-                <regexp case_sensitive='yes'>Joseph Göbbels?\b</regexp>
+<regexp case_sensitive='yes'>Joseph Göbbels?\b</regexp>
                 <message>Meinen Sie <suggestion>Joseph Goebbels</suggestion>, den Propagandaminister des Dritten Reiches?</message>
                 <example correction="Joseph Goebbels"><marker>Joseph Göbbels</marker></example>
             </rule>
@@ -24567,7 +24567,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <url>https://de.wikipedia.org/wiki/Nichtsdestotrotz</url>
             <short>&getrennt;.</short>
             <rule>
-                <regexp>\bnichts desto trotz\b</regexp>
+<regexp>\bnichts desto trotz\b</regexp>
                 <message>Meinten Sie <suggestion>nichtsdestotrotz</suggestion>? 'Nichtsdestotrotz' wird zusammengeschrieben.</message>
                 <example><marker>Nichtsdestotrotz</marker> finde ich es einfach ungerecht.</example>
                 <example correction="Nichtsdestotrotz"><marker>Nichts desto trotz</marker> wird einfach weiter geplant.</example>
@@ -26650,12 +26650,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
         </rulegroup>
         <rule id="EINST_WEILEN" name="'einst weilen (einstweilen)'">
-            <regexp>\beinst weilen\b</regexp>
+<regexp>\beinst weilen\b</regexp>
             <message>Meinten Sie evtl. <suggestion>einstweilen</suggestion> (vorerst)?</message>
             <example correction="einstweilen">Lasst uns das <marker>einst weilen</marker> verschieben.</example>
         </rule>
         <rule id="MITTLER_WEILE" name="'mittler Weile (mittlerweile)'">
-            <regexp>\bmittler weile\b</regexp>
+<regexp>\bmittler weile\b</regexp>
             <message>Meinten Sie evtl. <suggestion>mittlerweile</suggestion>?</message>
             <example correction="mittlerweile">Das sollte <marker>mittler Weile</marker> klappen.</example>
         </rule>
@@ -26665,7 +26665,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="überquellenden">Die <marker>über quellenden</marker> Mülleimer.</example>
         </rule>
         <rule id="HILF_REICH" name="'hilf reich (hilfreich)'">
-            <regexp>\b(hilf) (reich(e[rmns]?)?)\b</regexp>
+<regexp>\b(hilf) (reich(e[rmns]?)?)\b</regexp>
             <message>&getrennt;: Meinten Sie evtl. das Adjektiv <suggestion>\1\2</suggestion>?</message>
             <example correction="hilfreichen">Die <marker>hilf reichen</marker> Worte.</example>
         </rule>
@@ -26703,7 +26703,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="erfassen">Aufgabe war es, die Daten zu <marker>er fassen</marker>.</example>
         </rule>
         <rule id="ZU_ZUMUTEN" name="'zu zu ... (zuzu ...)'">
-            <regexp case_sensitive='yes'>\b([Zz]u) (zuarbeiten|zubauen|zubeißen|zubeissen|zubekommen|zubereiten|zubetonieren|zubilligen|zubinden|zubringen|zudecken|zudenken|zudienen|zudiktieren|zudrehen|zudrücken|zueignen|zuerkennen|zufallen|zufassen|zufaxen|zufliegen|zufließen|zufliessen|zufrieren|zufügen|zuführen|zugeben|zugehen|zugehören|zugesellen|zugestehen|zugießen|zugiessen|zugreifen|zuhaken|zuhalten|zuhängen|zuhauen|zuheilen|zuhören|zujauchzen|zukaufen|zukehren|zukiffen|zuklappen|zukleben|zuklinken|zuknallen|zuknöpfen|zukommen|zukorken|zulachen|zuladen|zulangen|zulassen|zulaufen|zulegen|zuleiten|zulöten|zumachen|zumessen|zumischen|zumuten|zunähen|zunehmen|zuneigen|zuordnen|zupacken|zupfropfen|zuprosten|zuraten|zuraunen|zurechnen|zureden|zureichen|zureiten|zurichten|zurollen|zurren|zurufen|zurüsten|zusagen|zuschalten|zuschanzen|zuschauen|zuschicken|zuschieben|zuschießen|zuschiessen|zuschlagen|zuschließen|zuschliessen|zuschmeißen|zuschmeissen|zuschmieren|zuschnallen|zuschnappen|zuschneiden|zuschnüren|zuschrauben|zuschreiben|zuschreien|zuschütten|zuschwellen|zusehen|zusetzen|zusperren|zuspielen|zuspitzen|zusprechen|zuspringen|zustechen|zustecken|zustehen|zustellen|zustimmen|zustopfen|zustoßen|zustossen|zustreben|zuströmen|zustürzen|zuteilen|zutragen|zutrauen|zutreffen|zutrinken|zuwachsen|zuwarten|zuweisen|zuwerfen|zuwinken|zuziehen)\b</regexp>
+<regexp case_sensitive='yes'>\b([Zz]u) (zuarbeiten|zubauen|zubeißen|zubeissen|zubekommen|zubereiten|zubetonieren|zubilligen|zubinden|zubringen|zudecken|zudenken|zudienen|zudiktieren|zudrehen|zudrücken|zueignen|zuerkennen|zufallen|zufassen|zufaxen|zufliegen|zufließen|zufliessen|zufrieren|zufügen|zuführen|zugeben|zugehen|zugehören|zugesellen|zugestehen|zugießen|zugiessen|zugreifen|zuhaken|zuhalten|zuhängen|zuhauen|zuheilen|zuhören|zujauchzen|zukaufen|zukehren|zukiffen|zuklappen|zukleben|zuklinken|zuknallen|zuknöpfen|zukommen|zukorken|zulachen|zuladen|zulangen|zulassen|zulaufen|zulegen|zuleiten|zulöten|zumachen|zumessen|zumischen|zumuten|zunähen|zunehmen|zuneigen|zuordnen|zupacken|zupfropfen|zuprosten|zuraten|zuraunen|zurechnen|zureden|zureichen|zureiten|zurichten|zurollen|zurren|zurufen|zurüsten|zusagen|zuschalten|zuschanzen|zuschauen|zuschicken|zuschieben|zuschießen|zuschiessen|zuschlagen|zuschließen|zuschliessen|zuschmeißen|zuschmeissen|zuschmieren|zuschnallen|zuschnappen|zuschneiden|zuschnüren|zuschrauben|zuschreiben|zuschreien|zuschütten|zuschwellen|zusehen|zusetzen|zusperren|zuspielen|zuspitzen|zusprechen|zuspringen|zustechen|zustecken|zustehen|zustellen|zustimmen|zustopfen|zustoßen|zustossen|zustreben|zuströmen|zustürzen|zuteilen|zutragen|zutrauen|zutreffen|zutrinken|zuwachsen|zuwarten|zuweisen|zuwerfen|zuwinken|zuziehen)\b</regexp>
             <message>&getrennt;: Meinten Sie <suggestion>\1\2</suggestion>?</message>
             <example correction="zuzumuten">Das ist ihm wohl nicht <marker>zu zumuten</marker>.</example>
         </rule>
@@ -26818,7 +26818,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="Zuerst|Anfangs|Zunächst"><marker>Zu erst</marker> wussten wir nicht, was wir überhaupt tun sollten.</example>
         </rule>
         <rule id="BIS_HER" name="'bis her (bisher)'">
-            <regexp>\bbis her\b</regexp>
+<regexp>\bbis her\b</regexp>
             <message><suggestion>bisher</suggestion> (Synonym: <suggestion>bis jetzt</suggestion>) schreibt man zusammen.</message>
             <example correction="bisher|bis jetzt">Wo das Rad <marker>bis her</marker> stand.</example>
         </rule>
@@ -26836,7 +26836,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="stattfindet">Wo das Fest das <marker>statt findet</marker>, ist noch nicht klar.</example>
         </rule>
         <rule id="NICHTSDESTOWENIGER" name="'nichts desto weniger (nichtsdestoweniger)'">
-            <regexp>\bnichts desto weniger\b</regexp>
+<regexp>\bnichts desto weniger\b</regexp>
             <message>&getrennt;: Meinten Sie <suggestion>nichtsdestoweniger</suggestion>?</message>
             <example correction="Nichtsdestoweniger"><marker>Nichts desto weniger</marker> finde ich es einfach ungerecht.</example>
         </rule>
@@ -26949,26 +26949,26 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
         </rulegroup>
         <rule id="INWIEFERN" name="'in wie fern (inwiefern)' etc.">
-            <regexp>\b(in) (wie|so)\s*(fern|weit)\b</regexp>
+<regexp>\b(in) (wie|so)\s*(fern|weit)\b</regexp>
             <message>&getrennt;: Meinten Sie <suggestion><match no="1"/><match no="2"/><match no="3"/></suggestion>?</message>
             <url>https://www.korrekturen.de/beliebte_fehler/in-wie-weit.shtml</url>
             <example correction="Inwiefern"><marker>In wie fern</marker> das auch für uns gilt, muss noch geklärt werden.</example>
         </rule>
         <rulegroup id="SOWIESO" name="'so wie so (sowieso)'">
             <rule>
-                <regexp>\bso wie so\b</regexp>
+<regexp>\bso wie so\b</regexp>
                 <message>&getrennt;: Meinten Sie <suggestion>sowieso</suggestion> (im Sinne von <suggestion>ohnehin</suggestion>)?</message>
                 <short>&getrennt;.</short>
                 <example correction="sowieso|ohnehin">Das geht <marker>so wie so</marker> nicht.</example>
             </rule>
             <rule>
-                <regexp>\bsowie so\b</regexp>
+<regexp>\bsowie so\b</regexp>
                 <message>&getrennt;: Meinten Sie <suggestion>sowieso</suggestion> (im Sinne von <suggestion>ohnehin</suggestion>)?</message>
                 <short>&getrennt;.</short>
                 <example correction="sowieso|ohnehin">Das geht <marker>sowie so</marker> nicht.</example>
             </rule>
             <rule>
-                <regexp>\bso wieso\b</regexp>
+<regexp>\bso wieso\b</regexp>
                 <message>&getrennt;: Meinten Sie <suggestion>sowieso</suggestion> (im Sinne von <suggestion>ohnehin</suggestion>)?</message>
                 <short>&getrennt;.</short>
                 <example correction="sowieso|ohnehin">Das geht <marker>so wieso</marker> nicht.</example>
@@ -30269,7 +30269,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
         <rulegroup id="UNGEFAEHR_GENAU" name="'ungefähr genau'">
             <rule>
-                <regexp>\b(ungefähr) (genau(so)?)\b</regexp>
+<regexp>\b(ungefähr) (genau(so)?)\b</regexp>
                 <message>&unstimmig; Bitte wählen Sie zwischen <suggestion>\1</suggestion> und <suggestion>\2</suggestion>.</message>
                 <example correction="ungefähr|genauso">Die sehen <marker>ungefähr genauso</marker> aus.</example>
                 <example correction="ungefähr|genau">Diese Wörter haben <marker>ungefähr genau</marker> dieselbe Bedeutung.</example>
@@ -30304,7 +30304,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
         <rulegroup id="IMMER_NIE" name="'immer nie'">
             <rule>
-                <regexp>\b(immer) (nie)\b</regexp>
+<regexp>\b(immer) (nie)\b</regexp>
                 <message>&unstimmig; Bitte wählen Sie zwischen <suggestion>\1</suggestion> und <suggestion>\2</suggestion>. Meist ist mit dieser Formulierung 'nie' gemeint.</message>
                 <example correction="immer|nie">Ich weiß <marker>immer nie</marker>, wo ich anfangen soll.</example>
             </rule>
@@ -30334,7 +30334,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
         <rulegroup id="LICHTJAHR" name="Lichtjahr als Zeiteinheit">
             <rule>
-                <regexp>\b((Lichtjahre? (alt(e[rsmn]?)?|(ge)?dauer[tn].*|später|da(nach|rauf)))|(dauer[nt].* (noch|ein|viele)?[ ]?(Lichtjahre?)))\b</regexp>
+<regexp>\b((Lichtjahre? (alt(e[rsmn]?)?|(ge)?dauer[tn].*|später|da(nach|rauf)))|(dauer[nt].* (noch|ein|viele)?[ ]?(Lichtjahre?)))\b</regexp>
                 <message>Ein Lichtjahr ist keine Zeiteinheit, sondern eine Längeneinheit.</message>
                 <short>Semantischer Fehler</short>
                 <example correction="">Wie lange <marker>dauert ein Lichtjahr</marker>?</example>
@@ -58284,12 +58284,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <exception>sein</exception>
                 </token>
                 <marker>
-                    <token postag="ADJ:(DAT|GEN):PLU:.*:GRU:SOL" postag_regexp="yes"><exception regexp="yes">weniger|weiter|lieber|früher|später|super</exception></token>
+                    <token postag="ADJ:(DAT|GEN):PLU:.*:GRU:SOL|ADJ:(DAT|GEN|NOM|AKK):PLU:.*:GRU:(DEF|IND)" postag_regexp="yes"><exception regexp="yes">weniger|weiter|lieber|früher|später|super</exception></token>
                 </marker>
                 <token postag="SUB:.*" postag_regexp="yes"></token>
                 <token postag="PA2:.*" postag_regexp="yes"></token>
             </pattern>
-            <message><suggestion><match no="2" postag_regexp="yes" postag="ADJ:DAT:PLU:(.*):GRU:SOL" postag_replace="ADJ:NOM:PLU:$1:GRU:SOL" /></suggestion>?</message>
+            <message><suggestion><match no="2" postag_regexp="yes" postag="ADJ:(DAT|GEN|NOM|AKK):PLU:(.*):GRU:(?:SOL|DEF|IND)" postag_replace="ADJ:NOM:PLU:$2:GRU:SOL" /></suggestion>?</message>
             <example correction="folgende">Durch den Tracking-Code werden <marker>folgenden</marker> Informationen gesammelt.</example>
             <example correction="schöne">Durch das Geld werden <marker>schönen</marker> Projekte unterstützt.</example>
             <example correction="folgende">Durch den Rabatt-Code werden <marker>folgenden</marker> Autos gefördert.</example>
@@ -64085,7 +64085,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example>Es war zu schrecklich, als daß man es mit Worten beschreiben könnte.</example><!-- found by speller rule, would result in "dass daß" -->
         </rule>
         <rule id="DER_KORPUS" name="der (das) Korpus">
-            <regexp>der Korpus\b</regexp>
+<regexp>der Korpus\b</regexp>
             <message>Meinten Sie möglicherweise <suggestion>das Korpus</suggestion>, eine Textsammlung?</message>
             <example correction="Das Korpus"><marker>Der Korpus</marker> besteht aus 1000 Zeitungsartikeln.</example>
         </rule>
@@ -67027,7 +67027,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example>Diese Reise war <marker>geplant gewesen</marker>.</example> TODO
         </rule>-->
         <rule id="AUSSER_LANDES" name="'außer Lande (Landes)'">
-            <regexp>au(ß|ss)er Lande\b</regexp>
+<regexp>au(ß|ss)er Lande\b</regexp>
             <message>&inwend;<suggestion>außer Landes</suggestion> steht die Präposition 'außer' mit Genitiv.</message>
             <url>https://www.duden.de/rechtschreibung/auszer_Praeposition</url>
             <example correction="außer Landes">Ich werde <marker>außer Lande</marker> sein.</example>
@@ -67036,7 +67036,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <url>https://dict.leo.org/grammatik/deutsch/Wort/Praeposition/Kasus/Dativ.html</url>
             <short>Präposition erfordert den Dativ</short>
             <rule><!--1-->
-                <regexp>\bgemä(ß|ss) des\b</regexp>
+<regexp>\bgemä(ß|ss) des\b</regexp>
                 <message>Meinten Sie <suggestion>gemäß dem</suggestion>? Die Präposition 'gemäß' erfordert den Dativ.</message>
                 <!-- TODO Nomen anpassen (aber s.u. und wird schon von PRAEP_DAT[12] gefunden...) -->
                 <example correction="Gemäß dem"><marker>Gemäß des</marker> Beschlusses der Kultusministerkonferenz</example>
@@ -69248,7 +69248,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
         </rulegroup>
         <rule id="EINE_MILLIONEN" name="'eine Millionen (Million)'">
-            <regexp>(?&lt;!,)\b(einer?|1) ([MB]illi(on|ard)|Tausend)en\b</regexp>
+<regexp>(?&lt;!,)\b(einer?|1) ([MB]illi(on|ard)|Tausend)en\b</regexp>
             <message>Meinten Sie <suggestion>\1 <match no="2" regexp_match="ard" regexp_replace="arde"/></suggestion>? '\2en' ist der Plural von '<match no="2" regexp_match="ard" regexp_replace="arde"/>' und sollte nur verwendet werden, wenn von mehr als einer <match no="2" regexp_match="ard" regexp_replace="arde"/> die Rede ist.</message>
             <example correction="eine Million">Sie verdient <marker>eine Millionen</marker> Euro im Jahr.</example>
             <example correction="1 Million">Sie verdient <marker>1 Millionen</marker> Euro im Jahr.</example>
@@ -73750,14 +73750,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="Hals-">Wir wünschen <marker>Hals</marker> und Beinbruch!</example>
             </rule>
             <rule><!--17-->
-                <regexp>\bin(\s(-|–))? und auswendig\b</regexp>
+<regexp>\bin(\s(-|–))? und auswendig\b</regexp>
                 <message>Die feste Wendung <suggestion>in- und auswendig</suggestion> wird mit Bindestrich geschrieben.</message>
                 <url>https://www.korrekturen.de/beliebte_fehler/in_und_auswendig.shtml</url>
                 <short>Fehlender Bindestrich</short>
                 <example correction="in- und auswendig">Sie kennt die Regeln <marker>in und auswendig</marker>.</example>
             </rule>
             <rule> <!--18-->
-                <regexp>\bhin und her\s?gerissen\b</regexp>
+<regexp>\bhin und her\s?gerissen\b</regexp>
                 <message>Die feste Wendung <suggestion>hin- und hergerissen</suggestion> wird mit Bindestrich geschrieben.</message>
                 <url>https://www.duden.de/rechtschreibung/hinreiszen</url>
                 <short>Fehlender Bindestrich</short>
@@ -74818,7 +74818,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="ABKUERZUNG_FEHLENDE_PUNKTE" name="Fehlende Punkte in Abkürzungen ('z B.', 'u.a' etc.)">
             <!-- TODO ergänzen -->
             <rule><!--1-->
-                <regexp>\bz B\.</regexp>
+<regexp>\bz B\.</regexp>
                 <message>Meinten Sie die Abkürzung <suggestion>z.&nbsp;B.</suggestion>?</message>
                 <example>Sie erkennt <marker>z. B.</marker> den Fehler in diesem Satz.</example>
                 <example correction="z.&nbsp;B.">Sie erkennt <marker>z B.</marker> den Fehler in diesem Satz.</example>
@@ -74839,7 +74839,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="z.&nbsp;B.">Sie erkennt <marker>z. B</marker> den Fehler in diesem Satz.</example>
             </rule>
             <rule><!--3-->
-                <regexp>\bz&nbsp;B\.</regexp>
+<regexp>\bz&nbsp;B\.</regexp>
                 <message>Meinten Sie <suggestion>z.&nbsp;B.</suggestion>?</message>
                 <example correction="z.&nbsp;B.">Sie erkennt <marker>z B.</marker> den Fehler in diesem Satz.</example>
             </rule>
@@ -75879,7 +75879,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="ANS_OHNE_APOSTROPH" name="Kein Apostroph bei 'ans', 'ins', 'aufs' etc.">
             <url>https://languagetool.org/insights/de/beitrag/grammatik-deppenapostroph/</url>
             <rule>
-                <regexp>\b(an|in|für|auf|durch|hinter|über|um|unter|vor)['’´`‘]s</regexp>
+<regexp>\b(an|in|für|auf|durch|hinter|über|um|unter|vor)['’´`‘]s</regexp>
                 <message>Das Wort <suggestion>\1s</suggestion> (\1 das) wird ohne Apostroph geschrieben.</message>
                 <short>'Ans', 'ins' usw. werden ohne Apostroph geschrieben.</short>
                 <example>Ich ging <marker>ans</marker> Fenster.</example>
@@ -75890,13 +75890,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="hinters">Er wurde <marker>hinter's</marker> Licht geführt!</example>
             </rule>
             <rule>
-                <regexp>\b(hinter|über|unter)['’´`‘](n|m)</regexp>
+<regexp>\b(hinter|über|unter)['’´`‘](n|m)</regexp>
                 <message>Das umgangssprachliche Wort <suggestion>\1\2</suggestion> wird ohne Apostroph geschrieben.</message>
                 <short>'übern', 'untern' usw. werden ohne Apostroph geschrieben.</short>
                 <example correction="übern">Ich bin <marker>über'n</marker> Berg.</example>
             </rule>
             <rule>
-                <regexp>\bvor['’´`‘](m|n)</regexp>
+<regexp>\bvor['’´`‘](m|n)</regexp>
                 <message>Das Wort <suggestion>vor\1</suggestion> wird ohne Apostroph geschrieben.</message>
                 <short>'vorm' und 'vorn' werden ohne Apostroph geschrieben.</short>
                 <example correction="vorm">Ich bin <marker>vor'm</marker> Supermarkt stehen geblieben.</example>
@@ -76250,7 +76250,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="PUNKT_NACH_ORDINALZAHL" name="Punkt nach Ordinalzahlen">
             <!-- TODO: SEHR VIEL allgemeiner; [zahl] - Wort im Sg.? -->
             <rule><!--1-->
-                <regexp>\b([0-9]{1,2}) (Jahrhunderts?|&monate;)\b</regexp>
+<regexp>\b([0-9]{1,2}) (Jahrhunderts?|&monate;)\b</regexp>
                 <message>Meinten Sie <suggestion>\1. \2</suggestion>? Möglicherweise haben Sie einen Punkt nach '\1' vergessen, oder '\2' müsste im Plural stehen.</message>
                 <short>Fehlender Bindestrich</short>
                 <example>In den vergangenen <marker>20 Jahrhunderten</marker> gab es zwei Weltkriege.</example>
@@ -76456,7 +76456,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
         <rulegroup id="EINHEIT_LEERZEICHEN" name="Falsches/Fehlendes Leerzeichen zwischen Zahl und Einheit">
             <rule>
-                <regexp case_sensitive='yes'>(?&lt;![A-Z])((\b|\-)[0-9]+[0-9,.]{0,15}(%|€|\$|¥|°C|°F|°De?|°R[éeøa]?|(Z|E|P|T|G|M|k|h|da|d|c|m|µ|n|p|f|a|z|y)?[ΩΩm]|(Z|E|P|T|G|M|k|h|da|d|c|m|µ|n|p|f|a|z|y)?N|[kKMGTPEZY]i?B|Stk|[kmµnp]?g|[Mk]t|kWh|GWa|MWd|MWh)(?![\w\-]))</regexp>
+<regexp case_sensitive='yes'>(?&lt;![A-Z])((\b|\-)[0-9]+[0-9,.]{0,15}(%|€|\$|¥|°C|°F|°De?|°R[éeøa]?|(Z|E|P|T|G|M|k|h|da|d|c|m|µ|n|p|f|a|z|y)?[ΩΩm]|(Z|E|P|T|G|M|k|h|da|d|c|m|µ|n|p|f|a|z|y)?N|[kKMGTPEZY]i?B|Stk|[kmµnp]?g|[Mk]t|kWh|GWa|MWd|MWh)(?![\w\-]))</regexp>
                 <message>Vor Einheitenzeichen sollte ein Leerzeichen gesetzt werden.</message>
                 <suggestion><match no="1" regexp_match="((\-)?[0-9]+[0-9,.]*{1,30})" regexp_replace="$1 "/></suggestion>
                 <url>https://languagetool.org/insights/de/beitrag/leerzeichen-masseinheiten/</url>
@@ -78176,7 +78176,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="Kellogg’s">Er isst gerne Müsli von <marker>Kellogs</marker> zum Frühstück.</example>
         </rule>
         <rule id="DIN_LEERZEICHEN" name="Geschütztes Leerzeichen in 'DIN A4'" tags="picky">
-            <regexp case_sensitive="yes" type="exact">\b(DIN) (\d+-\d+|[ABC]?\d+)\b</regexp>
+<regexp case_sensitive="yes" type="exact">\b(DIN) (\d+-\d+|[ABC]?\d+)\b</regexp>
             <message>In der DIN-Norm sollte in der Regel ein geschütztes Leerzeichen stehen.</message>
             <suggestion>\1&nbsp;\2</suggestion>
             <example correction="DIN&nbsp;A4">Kannst du mir das auf <marker>DIN A4</marker> drucken?</example>
@@ -79526,7 +79526,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>Die erste "Sarah´s Scribbles" Sammlung der Brooklyner Künstlerin Sarah Andersen kam in den Handel und war schon bald darauf ausverkauft.</example>
             </rule>
             <rule>
-                <regexp>[‘´`](nen|ne|n|s)\b</regexp>
+<regexp>[‘´`](nen|ne|n|s)\b</regexp>
                 <message>Typografisch korrekt sollte hier ein Apostroph verwendet werden.</message>
                 <suggestion>'\1</suggestion>
                 <suggestion>’\1</suggestion>
@@ -79537,7 +79537,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="'n|’n">Auf<marker>´n</marker> Dachboden musst du gehen.</example>
             </rule>
             <rule>
-                <regexp>\bc[´`‘]t\b</regexp>
+<regexp>\bc[´`‘]t\b</regexp>
                 <message>Der Name der Computerzeitschrift <suggestion>c’t</suggestion> wird mit einem Apostroph geschrieben.</message>
                 <short>Akzent statt Apostroph</short>
                 <example correction="c’t">Die <marker>c`t</marker> ist eine Computerzeitschrift.</example>
@@ -79678,7 +79678,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="Dr.&nbsp;phil."><marker>Dr.phil.</marker> Hans Müller</example>
             </rule>
             <rule><!--3-->
-                <regexp case_sensitive='yes'>(s|S)\.\s?(o|u)\.</regexp>
+                <regexp case_sensitive='yes'>(s|S)\.[ \t]?(o|u)\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>\1.&nbsp;\2.</suggestion>
                 <short>&gla;</short>
@@ -79687,7 +79687,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="s.&nbsp;o.">Das ist auch nicht gut, <marker>s. o.</marker></example>
             </rule>
             <rule><!--4-->
-                <regexp case_sensitive='yes'>(d|D)\.\s?h\.</regexp>
+                <regexp case_sensitive='yes'>(d|D)\.[ \t]?h\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>\1.&nbsp;h.</suggestion>
                 <short>&gla;</short>
@@ -79695,7 +79695,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="d.&nbsp;h.">Das ist falsch, <marker>d.h.</marker> schlecht.</example>
             </rule>
             <rule><!--5-->
-                <regexp case_sensitive='yes'>(m|M)\.\s?E\.</regexp>
+                <regexp case_sensitive='yes'>(m|M)\.[ \t]?E\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>\1.&nbsp;E.</suggestion>
                 <short>&gla;</short>
@@ -79726,7 +79726,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>D.M.A.</example>
             </rule>
             <rule><!--7-->
-                <regexp case_sensitive='yes'>(z|Z)\.\s?(B|K|T|Zt|Hd?)\.</regexp>
+                <regexp case_sensitive='yes'>(z|Z)\.[ \t]?(B|K|T|Zt|Hd?)\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>\1.&nbsp;\2.</suggestion>
                 <short>&gla;</short>
@@ -79736,7 +79736,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="z.&nbsp;B.">Das ist <marker>z. B.</marker> auch nicht gut.</example>
             </rule>
             <rule><!--8-->
-                <regexp case_sensitive='yes'>(v|n)\.\s?Chr\.</regexp>
+                <regexp case_sensitive='yes'>(v|n)\.[ \t]?Chr\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>\1.&nbsp;Chr.</suggestion>
                 <short>&gla;</short>
@@ -79752,7 +79752,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="c.&nbsp;t.">Das Seminar beginnt um 16 Uhr <marker>c.t.</marker></example>
             </rule>
             <rule><!--10-->
-                <regexp>(u|o|i)\.\s?(ö|ä|Ä|a|dgl)\.</regexp>
+                <regexp>(u|o|i)\.[ \t]?(ö|ä|Ä|a|dgl)\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>\1.&nbsp;\2.</suggestion>
                 <short>&gla;</short>
@@ -79763,7 +79763,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="u.&nbsp;dgl.">Das hier <marker>u. dgl.</marker> ist auch nicht gut.</example>
             </rule>
             <rule><!--11-->
-                <regexp case_sensitive='yes'>(e|i|n)\.\s?V\.</regexp>
+                <regexp case_sensitive='yes'>(e|i|n)\.[ \t]?V\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>\1.&nbsp;V.</suggestion>
                 <short>&gla;</short>
@@ -79772,7 +79772,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="n.&nbsp;V.">Sprechstunde <marker>n.V.</marker></example>
             </rule>
             <rule><!--12-->
-                <regexp>(u)\.\s?(v)\.\s?(m|a)\.</regexp>
+                <regexp>(u)\.[ \t]?(v)\.[ \t]?(m|a)\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>\1.&nbsp;\2.&nbsp;\3.</suggestion>
                 <url>https://languagetool.org/insights/de/beitrag/vielmehr-viel-mehr/</url>
@@ -79799,7 +79799,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="b.&nbsp;a.&nbsp;W.">Das ist <marker>b.a.W.</marker> inakzeptabel.</example>
             </rule>
             <rule><!--15-->
-                <regexp case_sensitive='yes'>\b(a|A)\.a\.O\.</regexp>
+<regexp case_sensitive='yes'>\b(a|A)\.a\.O\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>\1.&nbsp;a.&nbsp;O.</suggestion>
                 <short>&gla;</short>
@@ -79807,14 +79807,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="a.&nbsp;a.&nbsp;O.">Vgl. Radebrecher, <marker>a.a.O.</marker></example>
             </rule>
             <rule><!--16-->
-                <regexp case_sensitive='yes'>\bp\.\s?a\.</regexp>
+                <regexp case_sensitive='yes'>\bp\.[ \t]?a\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>p.&nbsp;a.</suggestion>
                 <short>&gla;</short>
                 <example correction="p.&nbsp;a.">Hier gibt es eine Rendite von 2 % <marker>p.a.</marker></example>
             </rule>
             <rule><!--17-->
-                <regexp case_sensitive='yes'>Dr\.\s?med\.\s?(dent|vet)\.</regexp>
+                <regexp case_sensitive='yes'>Dr\.[ \t]?med\.[ \t]?(dent|vet)\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>Dr.&nbsp;med.&nbsp;\1.</suggestion>
                 <short>&gla;</short>
@@ -79824,7 +79824,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="Dr.&nbsp;med.&nbsp;vet."><marker>Dr. med.vet.</marker> Hans Müller</example>
             </rule>
             <rule><!--18-->
-                <regexp case_sensitive='yes'>Dr\.\s?rer\.\s?(nat|pol)\.</regexp>
+                <regexp case_sensitive='yes'>Dr\.[ \t]?rer\.[ \t]?(nat|pol)\.</regexp>
                 <message>&glalong;</message>
                 <suggestion>Dr.&nbsp;rer.&nbsp;\1.</suggestion>
                 <short>&gla;</short>
@@ -81348,7 +81348,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
         <rulegroup id="KOMMA_DASS" name="Unter der Bedingung das (, dass)">
             <rule>
-                <regexp case_sensitive="yes">\b(l(iegt|ag) daran|[Uu]nter der bedingung|[uU]ngeachtet dessen|hat(te)? zur Folge),? das\b</regexp>
+<regexp case_sensitive="yes">\b(l(iegt|ag) daran|[Uu]nter der bedingung|[uU]ngeachtet dessen|hat(te)? zur Folge),? das\b</regexp>
                 <message>Meinten Sie <suggestion><match no="0" regexp_match=",? das$" regexp_replace=", dass"/></suggestion>?</message>
                 <!-- example correction="davon überzeugt, dass">Er war <marker>davon überzeugt das</marker> er gewonnen hatte.</example-->
                 <!-- example correction="davon überzeugt, dass">Er war <marker>davon überzeugt, das</marker> er gewonnen hatte.</example-->
@@ -82350,6 +82350,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
         <rulegroup id="FEHLERHAFTES_KOMMA_ALLG" name="Fehlerhaftes Komma"><!--this rule group consists of only 1 rule-->
             <rule>
+                <antipattern>
+                    <token>:</token>
+                    <token min="0" postag="(ADJ|PA[12]).*" postag_regexp="yes"/>
+                    <token postag="SUB.*|EIG.*|UNKNOWN" postag_regexp="yes"/>
+                    <token>,</token>
+                    <token min="0" postag="(ADJ|PA[12]).*" postag_regexp="yes"/>
+                    <token postag="SUB.*|EIG.*|UNKNOWN" postag_regexp="yes"/>
+                    <token>und</token>
+                    <example>Unsere Stärken: erfahrenes Team, strukturierte Prozesse und Weiterbildungsmöglichkeiten</example>
+                </antipattern>
                 <antipattern>
                     <token/>
                     <token>,</token>
@@ -83866,7 +83876,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="Schmerz zugefügt">Ich habe ihm großen <marker>Schmerz zugeführt</marker>.</example>
         </rule>
         <rule id="AUF_WEITEM_FLUR" name="'auf weitem (weiter) Flur'">
-            <regexp>\bauf weite[mn] Flur\b</regexp>
+<regexp>\bauf weite[mn] Flur\b</regexp>
             <message>Meinten Sie die Redewendung <suggestion>auf weiter Flur</suggestion>?</message>
             <url>https://www.duden.de/rechtschreibung/Flur_Boden_Land_Feld</url>
             <short>Möglicherweise falsch verwendete Redewendung</short>
@@ -84155,7 +84165,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="nimmer">Das ist nie und <marker>immer</marker> das beste Bier der Welt.</example>
         </rule>
         <rule id="GANG_UND_GEBE" name="'gang und gebe (gäbe)'">
-            <regexp>\bgang und gebe\b</regexp>
+<regexp>\bgang und gebe\b</regexp>
             <message>Meinten Sie <suggestion>gang und gäbe</suggestion>? (feste Redewendung)</message>
             <url>https://languagetool.org/insights/de/beitrag/rechtschreibung-gang-und-gabe-gebe/</url>
             <short>Möglicherweise falsch verwendete Redewendung</short>
@@ -84163,13 +84173,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
         <rulegroup id="STUMPF_UND_STIL" name="'mit Stumpf und Stil (Stiel)'">
             <rule>
-                <regexp>\bmit Stumpf und Stil\b</regexp>
+<regexp>\bmit Stumpf und Stil\b</regexp>
                 <message>Meinten Sie die Redewendung <suggestion>mit Stumpf und Stiel</suggestion> (im Sinne von 'vollständig')?</message>
                 <short>Möglicherweise falsch verwendete Redewendung</short>
                 <example correction="Mit Stumpf und Stiel"><marker>Mit Stumpf und Stil</marker> haben Unbekannte den Apparat aus dem Erdreich gerissen.</example>
             </rule>
             <rule>
-                <regexp>\bmit S(tr)?umpf und Stiel\b</regexp>
+<regexp>\bmit S(tr)?umpf und Stiel\b</regexp>
                 <message>Meinten Sie die Redewendung <suggestion>mit Stumpf und Stiel</suggestion> (im Sinne von 'vollständig')?</message>
                 <short>Möglicherweise falsch verwendete Redewendung</short>
                 <example correction="Mit Stumpf und Stiel"><marker>Mit Sumpf und Stiel</marker> haben Unbekannte den Apparat aus dem Erdreich gerissen.</example>
@@ -84729,7 +84739,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="Luis Suárez"><marker>Luiz Suárez</marker>.</example>
                 <example correction="São Francisco"><marker>Sao Francisco</marker>.</example>
                 <example correction="Sigmar Gabriel"><marker>Siegmar Gabriel</marker>.</example>
-                <example correction="Sigismund Thalberg|Sigismond Thalberg"><marker>Sigismand Thalberg</marker>.</example>
+                <example correction="Sigismond Thalberg|Sigismund Thalberg"><marker>Sigismand Thalberg</marker>.</example>
                 <example correction="ante portas">Hannibal <marker>ante Portas</marker>.</example>
                 <example correction="Spiegel Online">Im <marker>spiegel online</marker>.</example>
                 <!--<example correction="Spiegel Online"><marker>spiegel online</marker>.</example>-->
@@ -84761,7 +84771,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <short>Möglicher Fehler</short>
                 <example correction="Michael Jordan"><marker>Michael Jodan</marker>.</example>
                 <example correction="García Márquez"><marker>Garcia Marquez</marker>.</example>
-                <example correction="Stephen Hawking|Stephen Hawkings"><marker>Stephen Hawkins</marker></example>
+                <example correction="Stephen Hawkings|Stephen Hawking"><marker>Stephen Hawkins</marker></example>
                 <example correction="William Byrd"><marker>William Bird</marker></example>
                 <!--<example correction="Virginia Woolf"><marker>Virginia Wolf</marker></example>-->
                 <!--<example correction="Cyndi Lauper"><marker>Cindy Lauper</marker></example>-->

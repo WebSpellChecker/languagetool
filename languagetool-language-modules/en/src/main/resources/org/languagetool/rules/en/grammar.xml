@@ -26056,6 +26056,37 @@ USA
             <example>Kevin, Jo Williams said that you needed a quote for transportation from Mid 4 to Mid 3 in the Waha area.</example>
             <example>This cost is added in addition to the power price at MID C. Mennad's nose was hurting.</example>
         </rule>
+        <rule id="QUASI_HYPHEN" name="missing hyphen after 'quasi'">
+         <pattern>
+          <token>quasi</token>
+          <token postag='JJ.?|RB.?|NN.*|VB.*' postag_regexp='yes'></token>
+         </pattern>
+         <message>The prefix "quasi-" is always hyphenated.</message>
+         <suggestion>\1-\2</suggestion>
+          <url>https://languagetool.org/insights/post/hyphen/#compound-nouns-with-and-without-hyphens</url>
+         <short>Missing hyphen</short>
+         <example correction='quasi-judicial'>It was a <marker>quasi judicial</marker> proceeding.</example>
+         <example correction='quasi-governmental'>The <marker>quasi governmental</marker> body issued a report.</example>
+         <example>This is a quasi-static process.</example>
+        </rule>
+        <rule id="EX_ALWAYS_HYPHENATED" name="ex- (always hyphenated)">
+        <antipattern>
+            <token regexp="yes">fed|texas</token>
+            <token>ex</token>
+        </antipattern>
+         <pattern>
+          <token>ex</token>
+          <token postag='NN[^P].*' postag_regexp='yes'><exception regexp='yes'>post|today</exception></token>
+         </pattern>
+         <message>The prefix "ex-" is always hyphenated.</message>
+           <suggestion>\1-\2</suggestion>
+           <url>https://languagetool.org/insights/post/hyphen/#compound-nouns-with-and-without-hyphens</url>
+         <short>Missing hyphen</short>
+         <example correction='ex-president'>He is the <marker>ex president</marker>.</example>
+         <example>I had a run in with an ex today and it completely threw me off.</example>
+         <example>All proceeds will benefit the Houston Texas Ex Scholarship Fund.</example>
+         <example>Someone take care of this Fed Ex request ASAP.</example>
+        </rule>
         <rule id="DROP_IN_NN" name="drop-in">
             <antipattern><!-- a drop in NNS -->
                 <token regexp="yes">an?|this</token>
@@ -46207,7 +46238,7 @@ USA
                     <token regexp="yes">I|s?he|you|they|we|it</token>
                     <marker>
                         <token regexp="yes">not?</token>
-                        <token regexp="yes">can</token>
+                        <token>can</token>
                     </marker>
                     <token postag="VB" />
                 </pattern>
@@ -48479,7 +48510,8 @@ USA
                 <example correction="football">Tom is a great <marker>foot ball</marker> player.</example>
             </rule>
         </rulegroup>
-        <rule id="CYBER_COMPOUNDS" name="cyber security (cybersecurity)">
+        <rulegroup id="CYBER_COMPOUNDS" name="cyber security (cybersecurity)">
+        <rule>
             <antipattern>
                 <token>National</token>
                 <token>Cyber</token>
@@ -48499,6 +48531,15 @@ USA
             <example correction="cyberattack">The company suffered badly from a <marker>cyber attack</marker>.</example>
             <example>The National Cyber Security Centre (NCSC) provides security guidance and support helping to make the UK the safest place to live and work online.</example>
         </rule>
+        <rule>
+            <pattern>
+            <token regexp="yes">cyber\-.*</token>
+            </pattern>
+            <message>The word <suggestion suppress_misspelled="yes"><match no="1" regexp_match="cyber\-" regexp_replace="cyber"/></suggestion> is spelled as one.</message>
+            <example>The company suffered badly from a cyberattack.</example>
+            <example correction="cyberattack">The company suffered badly from a <marker>cyber-attack</marker>.</example>
+        </rule>
+        </rulegroup>
         <rule id="STEP_COMPOUNDS" name="step father (stepfather)">
             <antipattern case_sensitive="yes">
                 <token>Step</token>
@@ -109606,6 +109647,11 @@ The accident victim died from her injuries.
                     <example>Walk along the river and you will find the school.</example>
                     <example>Eat up the steak and then you can have a candy.</example>
                 </antipattern>
+                <antipattern>
+                    <token case_sensitive="yes" regexp="yes"  skip="5">and|but|n?or|yet|although</token>
+                    <token postag="SENT_END"/>
+                    <example>Something happens with reallocations, and old values may remain although they are ignored.</example>
+                </antipattern>
                 <pattern>
                     <token negate="yes" regexp="yes">\W+|and|n?or|&amp;|but|if|when|whether|because</token>
                     <marker>
@@ -109623,9 +109669,18 @@ The accident victim died from her injuries.
                 </pattern>
                 <message>Use a comma before '\2' if it connects two independent clauses (unless they are closely connected and short).</message>
                 <suggestion>, \2</suggestion>
-                <example correction=", but">She really purchased the car<marker> but</marker> she declined the extended warranty.</example>
+                <!-- Comma was suggested in these examples previously. -->
+                <example>She really purchased the car<marker> but</marker> she declined the extended warranty.</example>
+                <example>I tried to convert her to Islam<marker> but</marker> she politely declined.</example>
+                <example>They will transact at some point, maybe not until next week<marker> but</marker> they will do something.</example>
+                <example>If she could she would<marker> but</marker> we won't let her.</example>
+                <example>They are calling people directly now<marker> and</marker> we need to stop that.</example>
+                <example>They've acted irresponsibly and immorally<marker> and</marker> it has to stop.</example>
+                <example>Vince, Kevin Hannon is the executive lead for Cornell<marker> and</marker> he needs to approve.</example>
+                <example>Sami went looking for Layla<marker> and</marker> he found her backpack.</example>
+                <example>His sons were kings Chimalpilli II and Cuauhtémoc<marker> and</marker> he also had one daughter.</example>
+                <example>Thanks for your help, I have talked with Mr. Shaw<marker> and</marker> we are all set.</example>
                 <example correction=", and">He gave the picture to his daughter<marker> and</marker> she was so surprised that she forgot to say "thank you".</example>
-                <example correction=", but">I tried to convert her to Islam<marker> but</marker> she politely declined.</example>
                 <example correction=", and">BOD meeting is next week<marker> and</marker> we all have to jump for it.</example>
                 <example correction=", and">Can you give me deal numbers for those as well<marker> and</marker> we can take a peak and see why they were not killed.</example>
                 <example correction=", and">I get into town on June 23<marker> and</marker> I fly out the next Sunday.</example>
@@ -109637,32 +109692,25 @@ The accident victim died from her injuries.
                 <example correction=", although">I know one too<marker> although</marker> he hasn’t retired I think.</example>
                 <example correction=", and">Let's continue to talk<marker> and</marker> hopefully I can add a position down the road that will make more sense for everyone at that time.</example>
                 <example correction=", and">Something happens<marker> and</marker> immediately we react rather than just noticing.</example>
-                <example correction=", but">They will transact at some point, maybe not until next week<marker> but</marker> they will do something.</example>
-                <example correction=", but">If she could she would<marker> but</marker> we won't let her.</example>
                 <example correction=", and">I have run some report queries<marker> and</marker> it appears that although they have read the ETA and have about 10 users they have never traded online.</example>
                 <example correction=", but">Thank you<marker> but</marker> I’m trying to avoid running wires down this wall for another switch.</example>
                 <example correction=", and">I mentioned that I might call you<marker> and</marker> he has no problem with that.</example>
                 <example correction=", and">She asked about you<marker> and</marker> she didn't know Jill and Matt had a baby.</example>
                 <example correction=", or">I can submit the claim here and bill you<marker> or</marker> I can submit the claim to you.</example>
                 <example correction=", and">Sharen has inquired once before<marker> and</marker> we were under the impression that the deals were separate and not included.</example>
-                <example correction=", and">They are calling people directly now<marker> and</marker> we need to stop that.</example>
                 <example correction=", and">Cash is king for now<marker> and</marker> we need thepricing to get the rest of the cash.</example>
                 <example correction=", and">Let me know if you are going for sure<marker> and</marker> I will call back and reserve spots for us.</example>
                 <example correction=", and">Second, it is quite old and our forms have evolved since then<marker> and</marker> we would not want to replicate this form.</example>
                 <example correction=", and">I talked with Abbott Building Co. today<marker> and</marker> they said the building for this project should be ready in about a week.</example>
                 <example correction=", although">I think Little Woodrow's is on for tonight<marker> although</marker> I'm still waiting to see if my brother and his wife want to go out tonight.</example>
                 <example correction=", and">I seem to remember that our traders in Singapore did a deal with a PRC company a while back<marker> and</marker> it was our conclusion at the time that it was a very dangerous (perhaps unenforceable) thing to do.</example>
-                <example correction=", and">They've acted irresponsibly and immorally<marker> and</marker> it has to stop.</example>
                 <example correction=", and">I'm taking the first full week of Sept. off<marker> and</marker> it would be easiest for me to get everything done then if that's okay with y'all.</example>
                 <example correction=", and">She has placed her property and home on the market for $220K<marker> and</marker> she is planning to close on a new home during the month of December.</example>
                 <example correction=", and">We got him a fisher price farm for Christmas<marker> and</marker> he had just opened that when he opened the horses.</example>
-                <example correction=", and">Vince, Kevin Hannon is the executive lead for Cornell<marker> and</marker> he needs to approve.</example>
-                <example correction=", and">Sami went looking for Layla<marker> and</marker> he found her backpack.</example>
                 <example correction=", and">We checked Edgar for him<marker> and</marker> he didn't come up in any of the filings.</example>
-                <example>Judge for yourself<marker> and</marker> you won't be judged.</example> <!-- less than 9 words -->
-                <example correction=", and">His sons were kings Chimalpilli II and Cuauhtémoc<marker> and</marker> he also had one daughter.</example>
+                <example>Judge for yourself<marker> and</marker> you won't be judged.</example>
+                <!-- less than 9 words -->
                 <example correction=", and">I am not sure what Kevin is looking at, but Jenny's 2001 Plan had $17.4MM<marker> and</marker> we are currently forecasting $17.3MM for 2001.</example>
-                <example correction=", and">Thanks for your help, I have talked with Mr. Shaw<marker> and</marker> we are all set.</example>
                 <example correction=", and">The problems in OPEC have shaken investor confidence<marker> and</marker> therefore we think that energy will lag in a rally of the cyclicals.</example>
                 <example correction=", and">Please let me know what you decide to do<marker> and</marker> again I am sorry about the confusion.</example>
                 <example correction=", but">They probably planned for the students to park in the garages<marker> but</marker> instead they are used as extra rooms.</example>
@@ -110970,7 +111018,7 @@ The accident victim died from her injuries.
         </rule>
         <rulegroup id="UNIT_SPACE" name="Missing space between numeric value and unit (e.g., 25 km)" type="typographical" tags="picky">
             <rule>
-                <regexp case_sensitive='yes'>(?U)(?&lt;![A-Z\$€£¥฿฿=]-?[0-9\.]{0,5})((\b|\-)[0-9]{1,5}[0-9,.]{0,5}(€|¥|฿|฿|°C|°F|°De?|°R[éeøa]?|(Z|E|P|T|G|M|k|h|da|d|c|m|µ|n|f|z|y)[ΩΩm]|[ΩΩ]|(Z|E|P|T|G|M|k|h|da|d|c|m|µ|n|p|f|a|z|y)?N|[kKMGTPEZY]i?B|[kmµnp]g|[Mk]t|kWh|GWa|MWd|MWh)(?!\w))</regexp>
+                <regexp case_sensitive='yes'>(?&lt;![A-Z\$€£¥฿฿=]-?[0-9\.]{0,5})((\b|\-)[0-9]{1,5}[0-9,.]{0,5}(€|¥|฿|฿|°C|°F|°De?|°R[éeøa]?|(Z|E|P|T|G|M|k|h|da|d|c|m|µ|n|f|z|y)[ΩΩm]|[ΩΩ]|(Z|E|P|T|G|M|k|h|da|d|c|m|µ|n|p|f|a|z|y)?N|[kKMGTPEZY]i?B|[kmµnp]g|[Mk]t|kWh|GWa|MWd|MWh)(?!\w))</regexp>
                 <message>Insert a space between the numerical value and the unit symbol.</message>
                 <suggestion><match no="1" regexp_match="((\-)?[0-9]+[0-9,.]*{1,30})" regexp_replace="$1&nbsp;"/></suggestion>
                 <example correction="25&nbsp;°C">The temperature is <marker>25°C</marker>.</example>
@@ -135055,7 +135103,66 @@ The accident victim died from her injuries.
             <example>Tat, spoken in parts of Azerbaijan, Russia, and Transcaucasia...</example>
             <example>It's floor to ceiling tat; let's get out of this shop.</example>
         </rule>
-
+        <rulegroup id="BARE_BEAR" name="bare vs bear" default="temp_off"><!-- PR #4351 (hftf) -->
+            <!-- See also BARE_IN_MIND -->
+            <rule>
+                <pattern>
+                    <marker>
+                        <token inflected="yes">bare</token>
+                    </marker>
+                    <token min="0" regexp="yes">to|being|not?|many|a</token>
+                    <token inflected="yes" regexp="yes">repeat|mention|remember|note|watch|further</token>
+                </pattern>
+                <message>Typo. Use <suggestion><match no="1" postag="VB.*">bear</match></suggestion> (meaning 'is worth') instead of '\1' (meaning 'uncover').</message>
+                <example correction="bear">It might <marker>bare</marker> repeating often.</example>
+                <example correction="bears">It <marker>bares</marker> repeating often.</example>
+                <example correction="bore">It <marker>bared</marker> repeating often.</example>
+                <example correction="born|borne">It has <marker>bared</marker> repeating often.</example>
+            </rule>
+            <rule>
+                <antipattern>
+                    <token inflected="yes">bare</token>
+                    <token min="0" postag_regexp="yes" postag="JJ.*" />
+                    <token>thought</token>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token inflected="yes">bare</token>
+                    </marker>
+                    <token min="0" max="3" regexp="yes">to|not?|many|some|much|any|an?|the</token>
+                    <token min="0" max="3" postag_regexp="yes" postag="RB|JJ.*" />
+                    <token inflected="yes" regexp="yes">resemblance|relation|responsibilit(?:y|ies)|consequences?|relevance|meaning|thought|witness|weight|brunt|cost|with</token>
+                </pattern>
+                <message>Possible typo. Did you mean <suggestion><match no="1" postag="VB.*">bear</match></suggestion> (meaning 'carry' or 'endure') instead of '\1' (meaning 'uncover')?</message>
+                <example correction="bear">Please <marker>bare</marker> with us.</example>
+                <example correction="bears">It <marker>bares</marker> little resemblance.</example>
+                <example correction="bears">It <marker>bares</marker> an almost uncanny resemblance.</example>
+                <example correction="bore">It <marker>bared</marker> witness.</example>
+                <example correction="born|borne">It has <marker>bared</marker> the brunt.</example>
+                <example correction="bear">I can't <marker>bare</marker> the thought</example>
+                <example>the bare thought of such a possibility</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="UNDERMINE_UNDERLINE" name="undermine vs underline" default="temp_off"><!-- PR #4351 (hftf) -->
+            <rule>
+                <pattern>
+                    <token regexp="yes">I|we</token>
+                    <token min="0" regexp="yes">&apostrophe;</token>
+                    <token min="0" inflected="yes" regexp="yes">do|will</token>
+                    <token min="0" max="2" postag="RB" />
+                    <token min="0" regexp="yes">kind|sort</token>
+                    <token min="0">of</token>
+                    <token inflected="yes">want</token>
+                    <token>to</token>
+                    <token min="0" postag="RB" />
+                    <marker>
+                        <token>undermine</token>
+                    </marker>
+                </pattern>
+                <message>Did you mean <suggestion><match no="10" postag="VB.*">underline</match></suggestion> or <suggestion><match no="10" postag="VB.*">underscore</match></suggestion> (meaning 'emphasize') instead of '\10' (meaning 'sabotage')?</message>
+                <example correction="underline|underscore">I just want to <marker>undermine</marker> how important it is.</example>
+            </rule>
+        </rulegroup>
     </category>
 
     <!-- ====================================================================== -->
@@ -138518,6 +138625,41 @@ The accident victim died from her injuries.
                 </rule>
             </rulegroup>
 
+            <rule id="OTHERS_POSSESSIVE" name="other's (others')">
+                <antipattern>
+                    <token regexp="yes">each|the</token>
+                    <token>other</token>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token>other</token>
+                        <token spacebefore="no">'s</token>
+                    </marker>
+                    <token min="0" max="-1">
+                        <exception postag="NNS" />
+                        <exception postag="SENT_END" />
+                    </token>
+                    <token postag="NNS" />
+                </pattern>
+                <message>Did you mean the plural possessive <suggestion>others'</suggestion>?</message>
+                <example correction="others'">I get ideas from <marker>other's</marker> beautiful photos.</example>
+                <example correction="others'">I second-guess <marker>other's</marker> intentions.</example>
+                <example correction="others'">Some may be (or contain) <marker>other's</marker> trademarks</example>
+                <example correction="others'">Another venue for posting your (and answer <marker>other's</marker>) questions</example>
+            </rule>
+
+            <rule id="OTHER_THAN" name="Other's than (Other than)">
+                <pattern>
+                    <marker>
+                        <token>other</token>
+                        <token spacebefore="no">'s</token>
+                    </marker>
+                    <token>than</token>
+                </pattern>
+                <message>Did you mean <suggestion>other</suggestion>?</message>
+                <example correction="Other"><marker>Other's</marker> than that, I had a great time.</example>
+            </rule>
+
             <rule id="APOSTROPHE_IN_DATES" name="Apostrophe in dates">
                 <pattern>
                     <token spacebefore="yes" regexp='yes'>(:?[1-2]\d)?\d0<exception regexp='yes'>2[1-9]\d0</exception></token>
@@ -139993,7 +140135,7 @@ The accident victim died from her injuries.
             </rule>
             <rule>
                 <antipattern case_sensitive="yes">
-                    <token regexp="yes">COVID-19</token>
+                    <token>COVID-19</token>
                 </antipattern>
                 <pattern>
                     <token regexp="yes">[Cc]ovid\-?19</token>

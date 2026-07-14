@@ -1,5 +1,52 @@
 #Catalan multiwords file used for chunking
 #separatorRegExp=[\t;]
+Borís Khrístov;NPMSSP0
+Boris Christoff;NPMSSP0
+Giuseppe di Stefano;NPMSSP0
+El Correo Catalán;NPMSO00
+Correo Catalán;NPMSO00
+uilleann pipes;NCFN000
+Rubió i Lluch;NPCNSP0
+Lluch i Garriga;NPCNSP0
+Levante feliz;NPMSG00
+Llevant feliç;NPMSG00
+comme il faut;LOC_ADV
+Formica sanguinea;NCFN000
+F. sanguinea;NCFN000
+A. R. Ammons;NPMSSP0
+Archibald Randolph Ammons;NPMSSP0
+Matías Barrio;NPMSSP0
+Matías Barrio y Mier;NPMSSP0
+Martínez Barrio;NPCNSP0
+Marcos de Obregón;NPMSSP0
+Segundo Marey;NPMSSP0
+Abelardo de la Espriella;NPMSSP0
+de la Espriella;NPCNSP0
+Iván Cepeda;NPMSSP0
+José Manuel Restrepo;NPMSSP0
+Aida Quilcué;NPFSSP0
+Children of Men;NPCNO00
+Cao Dai;NPMSO00
+València Basket Club;NPMSO00
+València Basket;NPMSO00
+Víctor Luengo;NPMSSP0
+Rodolfo Reyes;NPMSSP0
+Julià Álvaro;NPMSSP0
+Elena Cebrián;NPFSSP0
+Marçal Forés;NPMSSP0
+Jean Marie del Moral;NPMSSP0
+Parque del Retiro;NPMSG00
+Parque del Buen Retiro;NPMSG00
+parc del Retiro;NPMSG00
+Javier Marín;NPMSSP0
+Fable 5;NPMSO00
+Mythos 5;NPMSO00
+Claude Fable;NPMSO00
+Claude Mythos;NPMSO00
+Mirage F1;NPMNO00
+Mirage III;NPMNO00
+Gestmusic Endemol;NPCNO00
+Jean Paul Gaultier;NPMSO00
 Raffaello Sanzio da Urbino;NPMSSP0
 Raffaello Sanzio;NPMSSP0
 Donato Bramante;NPMSSP0
@@ -8234,8 +8281,6 @@ López Casasnovas;NPCNSP0
 Joaquim Coello;NPMSSP0
 Joandomènec Ros;NPMSSP0
 Josep Antoni Acebillo;NPMSSP0
-fan zone;NCFS000
-fan zones;NCFP000
 àrees mirador;NCFP000
 àrea mirador;NCFS000
 Es Baluard;NPMSO00
