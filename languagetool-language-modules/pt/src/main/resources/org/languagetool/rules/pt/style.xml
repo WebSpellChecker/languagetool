@@ -3699,6 +3699,26 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     <category id='FORMAL' name='🤵 Linguagem formal' type='style' tone_tags="formal">
 
 
+
+        <rule id='IR_AOS_POUCOS_GRADUALMENTE' name="🤵 Ir 'aos poucos/pouquinhos' → gradualmente/pouco a pouco" tone_tags='formal'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <pattern>
+                <token inflected='yes'>ir</token>
+                <marker>
+                    <token>aos</token>
+                    <token regexp="yes">poucos|pouquinhos<exception scope='next'>que</exception></token>
+                </marker>
+            </pattern>
+            <message>&informal_msg;</message>
+            <suggestion>gradualmente</suggestion>
+            <suggestion>pouco a pouco</suggestion>
+            <example correction="gradualmente|pouco a pouco">O Rui começa da base indo <marker>aos poucos</marker> aumentando a dificuldade.</example>
+            <example correction="gradualmente|pouco a pouco">O Rui começa da base indo <marker>aos pouquinhos</marker> aumentando a pressão.</example>
+            <example>Ir aos poucos que restaram.</example>
+        </rule>
+
+
         <rulegroup id='LENTO_MOROSO' name="🤵 Lento → moroso" type='style' tone_tags='formal'>
             <!-- ChatGPT 5 and new disambiguator for 2026+ -->
 
@@ -4672,6 +4692,20 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
         <rule id='PEDIR_SOLICITAR_V3' name="Pedir → solicitar" tone_tags='formal' tags='picky'>
+
+            <antipattern> <!-- Expressão idiomática -->
+                <token regexp='yes'>[ao]s?|el[ea]s?|tu|vocês?</token>
+                <token min='0' max='2' postag_regexp='yes' postag='N.+|AQ.+|RM'/>
+                <token regexp='yes' inflected='yes'>andar|estar</token>
+                <token>a</token>
+                <token min='0' max='1' postag='_QUOT'/>
+                <token>pedi-las</token>
+                <example>Ele andava a pedi-las.</example>
+                <example>Os batoteiros estavam a pedi-las.</example>
+                <example>O jornalista andava a "pedi-las"…</example>
+                <example>Ela deliberadamente andava a pedi-las.</example>
+            </antipattern>
+
             <antipattern>
                 <token postag='SENT_START|Z0.+|DI.+|_PUNCT|VMN0000|VMG0000|_QUOT' postag_regexp='yes'>
                     <exception regexp='yes' inflected='yes'>estar|ter|ser</exception>
@@ -9674,33 +9708,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-        <rule id='IR_AOS_POUCOS_BOCADOS_BOCADINHOS' name="gradualmente" tags='picky'>
-            <!--      Created by Marco A.G.Pinto, Portuguese rule 2021-10-10 (Enhanced) (25-JUN-2021+)      -->
-
-            <!-- MARCOAGPINTO 2022-12-15 (Checked/Enhanced) (25-JUL-2022+) *START* -->
-            <antipattern>
-                <token>aos</token>
-                <token regexp="yes">(?:pouc|bocad)(?:os|inhos)</token>
-                <token postag_regexp='yes' postag="NC.+|AQ.+">
-                    <exception postag_regexp='yes' postag='V.+|RG'/>
-                </token>
-                <example>Deixo um agradecimento especial aos poucos amigos que tenho.</example>
-            </antipattern>
-            <!-- MARCOAGPINTO 2022-12-15 (Checked/Enhanced) (25-JUL-2022+) *END* -->
-
-            <pattern>
-                <marker>
-                    <token>aos</token>
-                    <token regexp="yes">(?:pouc|bocad)(?:os|inhos)</token>
-                </marker>
-            </pattern>
-            <message>&informal_msg;</message>
-            <suggestion>gradualmente</suggestion>
-            <suggestion>lentamente</suggestion>
-            <example correction="gradualmente|lentamente">O Rui começa da base indo <marker>aos poucos</marker> aumentando a dificuldade.</example>
-        </rule>
-
-
         <rulegroup id='SEM_DAR_NAS_VISTAS_V2' name="Sem dar nas vistas → discretamente">
             <!-- ChatGPT 5 and new disambiguator for 2026+ -->
 
@@ -12586,63 +12593,52 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <rulegroup id='TORNAR_MAIS_DIFICIL_FACIL' name='Tornar mais difícil/fácil → dificultar/facilitar' tone_tags='objective'>
+        <rulegroup id='TORNAR_MAIS_DIFICIL_FACIL' name='✂️ Tornar mais difícil/fácil → dificultar/facilitar' type='style' tone_tags='objective'>
             <!--IDEA shorten_it-->
-            <antipattern>
-                <token postag='V.+:.+|VMP00.+' postag_regexp='yes' inflected='yes'>tornar</token>
-                <token min='0' max='1'>mais</token>
-                <token regexp='yes'>difíc(il|eis)|fác(il|eis)</token>
-                <token postag='V.+' postag_regexp='yes'/>
-                <example>Consequentemente, torna-se difícil prever os resultados.</example>
-                <example>Consequentemente, torna-se difícil obter equipamento de equitação que sirva ao animal.</example>
-                <example>Com o cancelamento de shows, tornou-se difícil manter a estrutura de funcionamento do grupo.</example>
-                <example>A iniciativa obteve um certo sucesso pela Alemanha, também por ter se tornado mais fácil instalar o firmware.</example>
-            </antipattern>
-            <antipattern>
-                <token inflected='yes'>tornar</token>
-                <token min='0' max='1'>mais</token>
-                <token regexp='yes'>difíc(il|eis)|fác(il|eis)</token>
-                <token postag='SPS00' postag_regexp='no'><exception regexp='no'>a</exception></token>
-                <example>Seu sotaque torna difícil para mim acreditar no que ele está dizendo.</example>
-                <example>Seus deltoides grandes tornam difícil para ele encontrar camisas que encaixam.</example>
-                <example>À medida que o campo da genética se desenvolvia, essas visões se tornavam mais difíceis de manter.</example>
-            </antipattern>
-            <antipattern>
-                <token inflected='yes'>tornar</token>
-                <token min='0' max='1'>mais</token>
-                <token regexp='yes'>difíc(il|eis)|fác(il|eis)</token>
-                <token postag='CC' postag_regexp='no'/>
-                <token postag='N.+|AQ.+' postag_regexp='yes'/>
-                <example>Nós o ajudaremos a tornar fácil e econômico reduzir seu impacto de CO2.</example>
-                <example>O movimento de três eixos da cabeça de luz torna fácil e simples a posição e o braço excepcionalmente longo.</example>
-            </antipattern>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
 
             <rule> <!-- #1: dificultar -->
                 <pattern>
                     <marker>
-                        <token inflected='yes'>tornar</token>
+                        <token inflected='yes'>tornar
+                            <exception scope='previous'>se</exception>
+                            <exception scope='previous' postag_regexp='yes' postag='V.+:PP3CNO00'/>
+                            <exception postag_regexp='yes' postag='V.+:PP3CNO00'/></token>
                         <token min='0' max='1'>mais</token>
                         <token regexp='yes'>difíc(il|eis)</token>
                     </marker>
+                    <token postag='SPS.+|[DP].+|_PUNCT|SENT_END|V.+' postag_regexp='yes'><exception regexp='yes'>para|de|com</exception></token>
                 </pattern>
                 <message>&simplify_msg;</message>
                 <suggestion><match no='1' postag='V.+' postag_regexp='yes'>dificultar</match></suggestion>
                 <example correction="dificultar">As regras vão <marker>tornar mais difícil</marker> o jogo.</example>
+                <example correction="dificultar">As regras vão <marker>tornar mais difícil</marker> encontrar uma solução.</example>
                 <example>Está dificultando todo o processo.</example>
+                <example>Isso tornou mais difícil com a nova ferramenta.</example>
+                <example>A situação vai-se tornar mais difícil.</example>
+                <example>A situação vai tornar-se mais difícil.</example>
             </rule>
 
             <rule> <!-- #2: facilitar -->
                 <pattern>
                     <marker>
-                        <token inflected='yes'>tornar</token>
+                        <token inflected='yes'>tornar
+                            <exception scope='previous'>se</exception>
+                            <exception scope='previous' postag_regexp='yes' postag='V.+:PP3CNO00'/>
+                            <exception postag_regexp='yes' postag='V.+:PP3CNO00'/></token>
                         <token min='0' max='1'>mais</token>
                         <token regexp='yes'>fác(il|eis)</token>
                     </marker>
+                    <token postag='SPS.+|[DP].+|_PUNCT|SENT_END|V.+' postag_regexp='yes'><exception regexp='yes'>para|de|com</exception></token>
                 </pattern>
                 <message>&simplify_msg;</message>
                 <suggestion><match no='1' postag='V.+' postag_regexp='yes'>facilitar</match></suggestion>
                 <example correction="facilitar">As regras vão <marker>tornar mais fácil</marker> o jogo.</example>
+                <example correction="facilitar">As regras vão <marker>tornar mais fácil</marker> encontrar uma solução.</example>
                 <example>Está facilitando todo o processo.</example>
+                <example>Isso tornou mais fácil com a nova ferramenta.</example>
+                <example>A situação vai-se tornar mais fácil.</example>
+                <example>A situação vai tornar-se mais fácil.</example>
             </rule>
         </rulegroup>
 
@@ -13179,36 +13175,47 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <!-- ELA O QUE ELA ACHOU ela o que achou -->
-        <rule id='PRONOME_PESS_O_QUE_MESMO_PRONOME_PESS' name="✂️ Pronome P. + o + que + Pronome P. → Omitir segundo Pronome P." type="style">
-            <!-- Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-12-29 (25-JUL-2022+) -->
-            <!--
-            Pergunta a ela o que ela achou do texto. → Pergunta a ela o que achou do texto.
-            -->
+        <rule id='PRONOME_RETO_REPETIDO_APOS_O_QUE' name="✂️ Pronome reto repetido após 'o que' → omitir repetição" type='style'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <pattern>
-                <token/>
                 <marker>
                     <token regexp='yes'>&pronomes_retos;</token>
                     <token>o</token>
                     <token>que</token>
-                    <token><match no="1"/></token>
+                    <token><match no='0'/></token>
                 </marker>
                 <token postag='V.+' postag_regexp='yes'/>
             </pattern>
-            <message>Nesta perífrase poderá omitir o segundo pronome pessoal.</message>
-            <suggestion>\2 o que</suggestion>
+            <message>Nesta construção, a repetição do pronome após &quot;o que&quot; pode ser omitida.</message>
+            <suggestion>\1 o que</suggestion>
             <example correction="ela o que">Pergunta a <marker>ela o que ela</marker> achou do texto.</example>
+            <example correction="você o que">Pergunto a <marker>você o que você</marker> achou do texto.</example>
         </rule>
+
+
         <rulegroup id='EU_NÓS_REMOVAL' name="Omitir pronome pessoal eu/nós" type='style' tone_tags="povrem">
             <!--      Created by Marco A.G.Pinto, Portuguese rule      -->
+
+            <antipattern> <!-- "até/somente/só/apenas/mesmo/também eu/nós" é enfático/inclusivo; o pronome não deve ser removido. -->
+                <token regexp='yes'>até|somente|só|apenas|mesmo|também</token>
+                <token regexp='yes'>eu|nós</token>
+                <token postag='V.+' postag_regexp='yes'/>
+                <example>Somente eu sei como é duro.</example>
+                <example>Somente nós sabemos como é duro.</example>
+                <example>Até eu posso ser um "idiota útil" sem saber. </example>
+                <example>Mesmo eu posso estar enganado.</example>
+                <example>Mesmo nós podemos cometer erros.</example>
+                <example>Também eu pensei nisso.</example>
+                <example>1 João 4:11 Amados, se Deus assim nos amou, também nós devemos amar uns aos outros.</example>
+                <example>Até eu entendo esta frase. É muito fácil de entender.</example>
+                <example>Até eu sei isto.</example>
+                <example>Lembro uma frase dele: “Também eu fui algum tempo integralista.</example>
+                <example>Ontem mesmo eu pensei em desistir.</example>
+            </antipattern>
+
             <rule tags="picky">
                 <!-- MARCOAGPINTO 2020-06-07 + 2020-06-09 *START* -->
                 <!-- ! or ? or . at the end -->
-                <antipattern>
-                    <token regexp='yes'>somente|só|apenas</token>
-                    <token>eu</token>
-                    <example>Somente eu sei como é duro.</example>
-                </antipattern>
                 <antipattern case_sensitive='yes'>
                     <token regexp='yes' min='0'>\p{Ll}+</token>
                     <token>EU</token>
@@ -13259,11 +13266,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <rule tags="picky">
                 <!-- MARCOAGPINTO 2020-06-07 + 2020-06-09 *START* -->
                 <!-- ! or ? or . at the end -->
-                <antipattern>
-                    <token regexp='yes'>somente|só|apenas</token>
-                    <token>nós</token>
-                    <example>Somente nós sabemos como é duro.</example>
-                </antipattern>
                 <antipattern case_sensitive='yes'>
                     <token regexp='yes' min='0'>\p{Ll}+</token>
                     <token case_sensitive='yes'>NÓS</token>
@@ -13600,6 +13602,27 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             </rule>
 
         </rulegroup>
+
+
+        <rule id='PASSAR_ATRAVES_LUGAR_ATRAVESSAR' name="✂️ 'passar através de' → 'atravessar'">
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <marker>
+                    <token inflected='yes'>passar</token>
+                    <token>através</token>
+                    <token regexp='yes'>d[ao]s?</token>
+                </marker>
+                <token min='0' max='1' postag='DP.+' postag_regexp='yes'/>
+                <token inflected='yes' regexp='yes'>fronteira|porta|portão|entrada|saída|passagem|túnel|galeria|corredor|passadiço|ponte|viaduto|passarela|estrada|rua|avenida|travessa|autoestrada|caminho|atalho|trilho|vereda|obstáculo|barreira|muralha|vedação|cerca|grade|barricada|bloqueio|multidão</token> <!-- Safelist muito conservadora -->
+            </pattern>
+            <message>&simplify_msg;</message>
+            <suggestion><match no='1' postag='V.+' postag_regexp='yes'>atravessar</match> <match no='3' postag='SPS00:DA0(..)0' postag_replace='DA0$10'>o</match></suggestion>
+            <example correction="atravessar a">Vou <marker>passar através da</marker> fronteira.</example>
+            <example correction="atravessar as">Vou <marker>passar através das</marker> fronteiras.</example>
+            <example correction="atravessar o">Vou <marker>passar através do</marker> túnel.</example>
+            <example correction="atravessar os">Vou <marker>passar através dos</marker> portões.</example>
+            <example correction="atravessar o">Vou <marker>passar através do</marker> seu túnel.</example>
+        </rule>
 
 
         <rule id='DEPOIS_DE_APÓS' name="✂️ Depois de → após">
@@ -16935,12 +16958,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
         <!-- VERB + QUE + É/SÃO verb + ser(em) -->
-        <rulegroup id='VERB_QUE_É_VERB_SER' name="✂️ Que é/são → ser(em)" type="style" tags="picky">
+        <rulegroup id='VERB_QUE_É_VERB_SER' name="✂️ Que é/são → ser(em)" type='style' tags='picky'>
             <!--IDEA shorten_it-->
             <!--      Created by Marco A.G.Pinto, Portuguese rule 2021-01-14 + 2021-07-06 (Enhanced) (1-JAN-2021+)      -->
             <!--
       Eu acho que é perigoso subir aquela montanha sozinho. → Eu acho ser perigoso subir aquela montanha sozinho.
       -->
+
+            <antipattern>
+                <token postag='V.+' postag_regexp='yes'/>
+                <token postag='_PUNCT_COMMA'/>
+                <token>que</token>
+                <token inflected='yes'>ser</token>
+                <token postag='[DP].+' postag_regexp='yes'/>
+                <token min='1' max='2' postag='NC.+|AQ.+' postag_regexp='yes'/>
+                <token postag='_PUNCT_COMMA'/>
+                <example>A leitura flui, que é uma beleza, sem entraves e sem dor.</example>
+                <example>Lá no museu que ele fez, que é muito bonito, ele deixou a coisa árida.</example>
+            </antipattern>
 
             <antipattern>
                 <token postag='VMSF.+' postag_regexp='yes'/>
@@ -17545,48 +17580,28 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <!-- SERVE PARA permite -->
-        <rule id='SERVIR_PARA_PERMITIR' name="✂️ V.Servir + para → V.Permitir" type="style" tags="picky">
+        <rule id='SERVIR_PARA_PERMITIR' name="✂️ 'servir para' → 'permitir/possibilitar'" type='style' tags='picky'>
             <!--IDEA shorten_it-->
-            <!-- Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2023-03-20 (2-MAR-2023+) -->
-            <!--
-      Este botão serve para gravar ficheiros JPEG. → Este botão permite gravar ficheiros JPEG.
-      Estes botões servem para gravar ficheiros JPEG. → Estes botões permitem gravar ficheiros JPEG.
-      -->
-            <antipattern>
-                <token skip='-1'>que</token>
-                <token regexp='yes'>servem?</token>
-                <token>para</token>
-                <token postag='V.+' postag_regexp='yes'/>
-                <example>é uma herança da cultura popular que serve para contar as histórias do Japão antigo.</example>
-                <example>Parece que serve para torturar.</example>
-                <example>é um instrumento que serve para espancar.</example>
-            </antipattern>
-            <antipattern>
-                <token regexp='yes'>servem?</token>
-                <token>para</token>
-                <token postag='V.+' postag_regexp='yes'/>
-                <token postag='VMP.+' postag_regexp='yes'/>
-                <example>A informação serve para ser lida.</example>
-            </antipattern>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <pattern>
-                <token negate_pos='yes' postag='PI.+' postag_regexp='yes'/>
                 <marker>
-                    <token regexp='yes'>servem?
-                        <exception scope="previous" postag_regexp='yes' postag='RN|RG|V.+'/>
-                    </token>
+                    <token regexp='yes'>servem?<exception scope='previous' postag_regexp='yes' postag='CS|RN|RG'/></token>
                     <token>para</token>
                 </marker>
-                <token postag='V.+' postag_regexp='yes'>
-                    <exception postag='RN'/>
-                    <exception postag_regexp='yes' postag='N.+'/>
-                </token>
+                <token postag_regexp='yes' postag='V.+'><exception scope='next' postag_regexp='yes' postag='VMP.+'/></token>
             </pattern>
-            <message>&simplify_msg;</message>
-            <suggestion><match no='2' postag='V.+' postag_regexp='yes'>permitir</match></suggestion>
-            <suggestion><match no='2' postag='V.+' postag_regexp='yes'>possibilitar</match></suggestion>
+            <message>Formulação possivelmente mais direta:</message>
+            <suggestion><match no='1' postag='V.+' postag_regexp='yes'>permitir</match></suggestion>
+            <suggestion><match no='1' postag='V.+' postag_regexp='yes'>possibilitar</match></suggestion>
             <example correction="permite|possibilita">Este botão <marker>serve para</marker> gravar ficheiros JPEG.</example>
             <example correction="permitem|possibilitam">Estes botões <marker>servem para</marker> gravar ficheiros JPEG.</example>
+            <example>A informação serve para ser lida.</example>
+            <example>É uma herança da cultura popular que serve para contar as histórias do Japão antigo.</example>
+            <example>Parece que serve para torturar.</example>
+            <example>É um instrumento que serve para espancar.</example>
+            <example>Ela não serve para criar essa criança.</example>
+            <example>Nada de bom pode vir de algo que só serve para matar.</example>
+            <example>Pão bolorento ainda serve para comer?</example>
         </rule>
 
 
@@ -18357,50 +18372,47 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <example correction="fisicamente">A área é delimitada <marker>por fronteiras físicas</marker>.</example>
             <example>A área é delimitada <marker>fisicamente</marker>.</example>
         </rule>
-        <!-- AS QUE quais -->
-        <rule id='AS_OS_QUE_QUAIS' name="✂️ [ao]s que → quais" type="style">
-            <!-- Created by Marco A.G.Pinto, Portuguese rule 2022-10-01 (25-JUL-2022+) -->
-            <!--
-            E determinar as que obtiveram melhores resultados. → E determinar quais obtiveram melhores resultados.
-            -->
+
+
+        <rule id='AS_OS_QUE_QUAIS' name="✂️ 'as/os que' → quais" type='style'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <pattern>
-                <token postag='VMN0000|VMG0000|VMIP.+' postag_regexp='yes'>
-                    <exception postag_regexp='yes' postag='NC.+|AQ.+'/>
-                </token>
+                <token regexp='yes' inflected='yes'>determinar|identificar|indicar|selecionar|seleccionar|escolher|definir|decidir|verificar|apurar|saber|descobrir</token>
                 <marker>
                     <token regexp='yes'>[ao]s</token>
                     <token>que</token>
                 </marker>
-                <token postag='VMI[MS]3P0' postag_regexp='yes'/>
+                <token postag='VMI.3P.+' postag_regexp='yes'/>
             </pattern>
             <message>&simplify_msg;</message>
             <suggestion>quais</suggestion>
             <example correction="quais">E determinar <marker>as que</marker> obtiveram melhores resultados.</example>
+            <example correction="quais">É preciso identificar <marker>os que</marker> falharam.</example>
+            <example>A maioria das suas biografias, incluindo <marker>as que</marker> foram escritas pelas suas filhas.</example>
+            <example>A confusão se dá por que deveria dizer "ajudamos <marker>os que</marker> partiram".</example>
         </rule>
 
 
-        <!-- NADA ME VEM À MENTE nada me ocorre -->
-        <rule id='NADA_PRONOME_VEM_À_MENTE_NADA_OCORRE' name="Nada + Pron. + vem à mente → Nada + Pron. + ocorre">
-            <!-- Created by Marco A.G.Pinto, Portuguese rule 2023-03-01 (27-FEB-2023+) -->
-            <!--
-            Contudo, nada lhe vem à mente. → Contudo, nada lhe ocorre.
-            Contudo, nada vos vem à mente. → Contudo, nada vos ocorre.
-            Contudo, nada me vem à mente. → Contudo, nada me ocorre.
-            -->
+        <rule id='NADA_PRONOME_VEM_A_MENTE_NADA_OCORRE' name="✂️ Nada me/nos/lhe/vos 'vem à mente' → ocorre" type='style'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <pattern>
-                <token>nada</token>
+                <token skip='1'>nada</token>
                 <token regexp='yes'>&pronomes_obliquos_sem_a_as_o_os;</token>
                 <marker>
-                    <token>vem</token>
+                    <token regexp='yes'>vem|veio</token>
                     <token>à</token>
                     <token>mente</token>
                 </marker>
             </pattern>
-            <message>A gramática poderá ser melhorada nesta perífrase.</message>
-            <suggestion>ocorre</suggestion>
+            <message>Formulação possivelmente mais direta:</message>
+            <suggestion><match no='3' postag='V.+' postag_regexp='yes'>ocorrer</match></suggestion>
+            <example correction="ocorre">Contudo, nada me <marker>vem à mente</marker>.</example>
+            <example correction="ocorre">Contudo, nada nos <marker>vem à mente</marker>.</example>
             <example correction="ocorre">Contudo, nada lhe <marker>vem à mente</marker>.</example>
             <example correction="ocorre">Contudo, nada vos <marker>vem à mente</marker>.</example>
-            <example correction="ocorre">Contudo, nada me <marker>vem à mente</marker>.</example>
+            <example correction="ocorre">Contudo, nada melhor me <marker>vem à mente</marker>.</example>
+            <example correction="ocorre">Contudo, nada mais lhe <marker>vem à mente</marker>.</example>
+            <example correction="ocorreu">Contudo, nada mais lhe <marker>veio à mente</marker>.</example>
         </rule>
 
 
@@ -19728,16 +19740,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <!-- PARA O DOMINGO DE HOJE para este domingo -->
-        <rulegroup id='SIMPLIFICAR_PARA_DIA_SEMANA_PARA_ESTE_DIA' name="✂️ Para dia semana → Para este dia" type="style">
+        <rulegroup id='SIMPLIFICAR_DIA_DE_HOJE' name="✂️ 'dia/weekday de hoje' → hoje/este dia" type='style'>
             <!--IDEA shorten_it-->
-            <!--      Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-04-14/15 (1-JAN-2022+)      -->
-            <!--
-            Quero isto para o domingo de hoje. → Quero isto para este domingo.
-            Quero isto para a terça-feira de hoje. → Quero isto para esta terça-feira.
-            Quero isto para o dia de hoje. → Quero isto para este dia.
-            -->
-            <rule>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <rule> <!-- #1: dia da semana de hoje -->
                 <pattern>
                     <token>para</token>
                     <marker>
@@ -19751,6 +19758,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                 <suggestion><match no='2' postag='DA0(.)S0' postag_replace='DD0$1S0'>este</match> \3</suggestion>
                 <example correction="este domingo">Quero isto para <marker>o domingo de hoje</marker>.</example>
                 <example correction="esta segunda-feira">Quero isto para <marker>a segunda-feira de hoje</marker>.</example>
+            </rule>
+
+            <rule> <!-- #2: dia de hoje -->
+                <pattern>
+                    <token>para</token>
+                    <marker>
+                        <token>o</token>
+                        <token>dia</token>
+                        <token>de</token>
+                        <token>hoje</token>
+                    </marker>
+                </pattern>
+                <message>&simplify_msg;</message>
+                <suggestion>\5</suggestion>
+                <example correction="hoje">Quero isto para <marker>o dia de hoje</marker>.</example>
             </rule>
         </rulegroup>
 

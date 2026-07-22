@@ -260,10 +260,12 @@ googlar	googlar	VMN01S0
 googlar	googlar	VMN03S0
 googlar	googlar	VMSF1S0
 googlar	googlar	VMSF3S0
+holter	holter	NCMS000
 inumada	inumado	AQ0FS0
 inumadas	inumado	AQ0FP0
 inumado	inumado	AQ0MS0
 inumados	inumado	AQ0MP0
+Josefino	Josefino	NPMS000
 Jumarie	Jumarie	NPMS000
 Lemmy	Lemmy	NPMS000
 Lennon	Lennon	NPMSS00

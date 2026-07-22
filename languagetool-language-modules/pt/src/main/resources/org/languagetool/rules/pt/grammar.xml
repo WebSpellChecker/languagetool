@@ -173,6 +173,30 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
     <category id='GRAMMAR' name="Gramática Geral" type="grammar">
 
+
+        <rule id="SUBST_DE_QUE_TER_DIREITO_A_QUE" name="Substantivo 'de que' … tem direito' → 'a que'">
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <token postag_regexp='yes' postag='NC.+|AQ.+'><exception regexp='yes' inflected='yes'>suposição|certeza|ideia|convicção|noção|hipótese|possibilidade|facto|fato|afirmação|alegação|crença|opinião|teoria</exception></token>
+                <marker>
+                    <token>de</token>
+                    <token skip='3'>que</token>
+                </marker>
+                <token inflected='yes'>ter</token>
+                <token>direito</token>
+                <token postag_regexp='yes' postag='_PUNCT|SENT_END|V.+|RM|RG'/>
+            </pattern>
+            <message>A expressão é &quot;ter direito a&quot;; neste contexto, a forma esperada é:</message>
+            <suggestion>a que</suggestion>
+            <example correction="a que">Nem a classificação <marker>de que</marker> ela tem direito dão.</example>
+            <example correction="a que">É o apoio <marker>de que</marker> todos têm direito.</example>
+            <example correction="a que">É o apoio <marker>de que</marker> ela tem direito hoje.</example>
+            <example correction="a que">É o benefício <marker>de que</marker> ela tem direito legalmente.</example>
+            <example>A suposição de que eles têm direito legal à cerveja é falsa.</example>
+            <example>Tenho a certeza de que ela tem direito.</example>
+        </rule>
+
+
         <rulegroup id="A_TRAVES_ATRAVÉS_CONFUSAO" name="Confusão entre 'a traves' e 'através'">
             <rule>
                 <pattern>
@@ -840,6 +864,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <example correction="desde essa">Isso acontece <marker>des dessa</marker> época.</example>
         </rule>
 
+
+        <rule id='CASO_INDICATIVO_CONJUNTIVO' name="caso + 'indicativo' → conjuntivo">
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <pattern>
+                <token postag_regexp='yes' postag='SENT_START|_PUNCT|CC'><exception postag='RG'/></token> <!-- exception "segundo" -->
+                <token>caso</token>
+                <marker>
+                    <token postag='VMIP[23].+' postag_regexp='yes'><exception postag_regexp='yes' postag='VMSP3S0|NC.+|AQ.+'/></token>
+                </marker>
+            </pattern>
+            <message>Depois de &quot;caso&quot;, é normalmente usado o conjuntivo.</message>
+            <suggestion><match no='3' postag='VMIP(..)0' postag_regexp='yes' postag_replace='VMSP$10'/></suggestion>
+            <example correction="pareças">Caso <marker>pareces</marker> cansado, descansa.</example>
+            <example correction="pareça">Caso <marker>parece</marker> necessário, avisa-me.</example>
+            <example correction="pareçam">Caso <marker>parecem</marker> úteis, usa-os.</example>
+            <example>Eu acho melhor levares um guarda chuva, caso chova.</example>
+            <example>No segundo caso é chamada de Trombose Venosa Profunda.</example>
+        </rule>
 
 
         <rulegroup id='AUXILIARY_VERB_INFINITIVE' name="Erro de concordância: Verbo auxiliar + verbo no infinitivo">
@@ -41570,7 +41612,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
         <rulegroup id="GRAU_EM_COORDENADAS_ESPACAMENTO" name="Dar espaçamento entre o símbolo de grau e pontos cardeais em coordenadas geográficas" tags="picky">
             <rule>
-                <regexp case_sensitive="yes" type="exact">\b(&number_token;)\s?&deg;\s?(&cardinal_points;)\b</regexp>
+                <regexp case_sensitive="yes" type="exact">\b(&number_token;)[ \t]?&deg;[ \t]?(&cardinal_points;)\b</regexp>
                 <filter class="org.languagetool.rules.patterns.RegexAntiPatternFilter" args="antipatterns:\d&deg;\s&cardinal_points;"/>
                 <message>Em coordenadas geográficas, prefira a formato <suggestion>\1&deg;&nbsp;\2</suggestion>.</message>
                 <example correction="60&deg;&nbsp;N">Fica a <marker>60 &deg;N</marker>.</example>
