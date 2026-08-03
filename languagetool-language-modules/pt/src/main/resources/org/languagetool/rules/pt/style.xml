@@ -3700,6 +3700,50 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
 
+        <rule id='BAIXAR_DOSE_REDUZIR' name="🤵 'Baixar' dose/quantidade → reduzir" type='style' tone_tags='formal' tags='picky'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <!-- Evita o sentido informático de "baixar", equivalente a transferir/descarregar. -->
+
+            <pattern>
+                <marker>
+                    <token postag='V.+' postag_regexp='yes' inflected='yes'>baixar<exception postag='RG'/></token>
+                </marker>
+                <token min='0' regexp='yes'>[ao]s?|um(?:a)?|est[ae]s?|ess[ae]s?|su[ae]s?|minh[ao]s?|noss[ao]s?</token>
+                <token inflected='yes' regexp='yes'>concentração|dosagem|dose|frequência|intensidade|nível|quantidade|ritmo|valor|velocidade</token>
+            </pattern>
+            <message>Se a expressão indicar uma redução deliberada, considere &quot;reduzir&quot;.</message>
+            <suggestion><match no='1' postag='V.+' postag_regexp='yes'>reduzir</match></suggestion>
+            <example correction="reduzi">Eu <marker>baixei</marker> a dose.</example>
+            <example correction="reduziu">O médico <marker>baixou</marker> a dosagem.</example>
+            <example correction="reduziram">Eles <marker>baixaram</marker> os níveis de ruído.</example>
+            <example correction="reduzi">Eu <marker>baixei</marker> doses e quantidades.</example>
+            <example>Eu baixei o ficheiro ontem.</example>
+            <example>Ela baixou a aplicação para o telemóvel.</example>
+            <example>Baixa o volume da televisão.</example>
+        </rule>
+
+
+        <rule id='POUCO_IMPORTA_IRRELEVANTE' name="🤵 Pouco importa → é irrelevante" type='style' tone_tags='formal'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <pattern>
+                <token postag='CC|CS|SPS00|(SPS00:)?[DP].+|SENT_START|_PUNCT' postag_regexp='yes'/>
+                <token min='0' max='2' postag='N.+|AQ.+' postag_regexp='yes'><exception>pouco</exception></token>
+                <marker>
+                    <token>pouco</token>
+                    <token regexp='yes'>importam?</token>
+                </marker>
+            </pattern>
+            <message>Em textos formais, considere uma formulação mais impessoal e objetiva.</message>
+            <suggestion><match no='4' postag='VMIP3(.)0' postag_replace='VMIP3$10'>ser</match> <match no='4' postag='VMIP3(.)0' postag_replace='AQ0C$10'>irrelevante</match></suggestion>
+            <example correction="é irrelevante">Isso <marker>pouco importa</marker> ao dono da empresa.</example>
+            <example correction="é irrelevante">Para o Rui <marker>pouco importa</marker> o que pensam dele.</example>
+            <example correction="são irrelevantes">Os detalhes <marker>pouco importam</marker> para mim.</example>
+            <example>Para o Pedro é irrelevante como o processo decorre.</example>
+            <example>É irrelevante o processo entregue para análise.</example>
+        </rule>
+
+
         <rule id='IR_AOS_POUCOS_GRADUALMENTE' name="🤵 Ir 'aos poucos/pouquinhos' → gradualmente/pouco a pouco" tone_tags='formal'>
             <!-- ChatGPT 5 and new disambiguator for 2026+ -->
 
@@ -4811,12 +4855,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
         <rule id='ESTAR_LIXADO_ZANGADO_COM_PROBLEMAS' name="Lixado → zangado/'com problemas'" tone_tags='formal'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
             <pattern>
-                <token skip='2' inflected='yes' regexp='no'>estar</token>
+                <token skip='2' inflected='yes' regexp='yes'>andar|estar</token>
                 <marker>
                     <token skip='1' regexp='yes'>lixad[ao]s?</token>
                 </marker>
-                <token postag='SPS00' postag_regexp='no'/> <!-- com|para|por -->
+                <token regexp='yes'>com|comigo|contigo|consigo</token>
             </pattern>
             <message>&informal_msg;</message>
             <suggestion><match no='2' postag='V.+' postag_regexp='yes'>zangar</match></suggestion>
@@ -4825,10 +4871,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <suggestion><match no='2' postag='V.+' postag_regexp='yes'>aborrecer</match></suggestion>
             <suggestion>com problemas</suggestion>
             <example correction="zangado|irritado|descontente|aborrecido|com problemas">Estou <marker>lixado</marker> com o meu chefe.</example>
+            <example correction="zangado|irritado|descontente|aborrecido|com problemas">Ando <marker>lixado</marker> com o meu chefe.</example>
+            <example correction="zangadas|irritadas|descontentes|aborrecidas|com problemas">Elas andam <marker>lixadas</marker> com a tarefa.</example>
+            <example>A chefe está zangada comigo.</example> 
             <example>O Rui está zangado com a Ana.</example>
             <example>A Ana está mais que aborrecida com a Rute.</example>
             <example>O Rui está bastante descontente com a Ana.</example>
             <example>Estou com problemas com o meu PC novo.</example>
+            <example>Ando com problemas com o meu PC novo.</example>
         </rule>
 
 
@@ -4847,37 +4897,23 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <rule id='ESTAR_CONSTAR' name="Estar → constar" tone_tags='formal' tags='picky'>
-            <!-- Used DeepSeek-V3 -->
+        <rule id='ESTAR_CONSTAR' name="🤵 Estar em documento/registo → constar" type='style' tone_tags='formal' tags='picky'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
             <pattern>
                 <marker>
-                    <token inflected='yes' regexp='no'>estar</token>
+                    <token inflected='yes'>estar</token>
                 </marker>
-                <token regexp='yes'>n[ao]s?</token>
-                <token inflected='yes' regexp='yes'>anais|anexo|artigo|autos|bibliografia|biografia|carta|contrato|cr[óô]nica|currículo|CV|dissertação|documento|edital|ensaio|escritos|Europass|guia|licença|livro|manual|memorial|memórias|monografia|parecer|pesquisa|plano|projeto|publicação|referências|registo|relatório|revista|sentença|tese|texto|tratado</token>
+                <token regexp='yes'>n[ao]s?|em</token>
+                <token inflected='yes' regexp='yes'>auto|bibliografia|contrato|edital|dissertação|monografia|plano|projeto|projecto|registo|relatório|sentença|tese</token> <!-- Lista conservadora -->
             </pattern>
-            <message>Substitua &quot;está&quot; por &quot;consta&quot; para indicar registo oficial ou dar um tom mais formal.</message>
+            <message>Em textos formais, considere &quot;constar&quot; para indicar que a informação faz parte da fonte, do documento ou do registo referido.</message>
             <suggestion><match no='1' postag='V.+' postag_regexp='yes'>constar</match></suggestion>
             <example correction="consta">O conteúdo que <marker>está</marker> na tese é relevante.</example>
+            <example correction="consta">A informação <marker>está</marker> no relatório final.</example>
+            <example correction="consta">O conteúdo que <marker>está</marker> em edital é relevante.</example>
+            <example correction="constam">As condições <marker>estão</marker> no contrato.</example>
             <example>O que consta nos autos deve ser bastante levado em conta.</example>
-        </rule>
-
-
-        <rule id='ESTAR_AQUI_PARA_INF_VIR_INF' name="'Estar aqui para' Inf. → 'Vir Inf.'" tone_tags='formal'>
-            <pattern>
-                <marker>
-                    <token postag='VMIP.+' postag_regexp='yes' inflected='yes'>estar<exception scope='previous' postag_regexp='no' postag='RG'/></token>
-                    <token>aqui</token>
-                    <token>para</token>
-                    <token regexp='yes' inflected='yes'>ajudar|apresentar|buscar|debater|defender|discutir|entregar|esclarecer|negociar|oferecer|participar|propor|reclamar|resolver|solicitar</token> <!-- Add verbs as they are found. -->
-                </marker>
-            </pattern>
-            <message>&informal_msg;</message>
-            <suggestion><match no='1' postag='VMIP(...)' postag_replace='VMIS$1'>vir</match> \4</suggestion>
-            <example correction="vim defender">Bom dia, <marker>estou aqui para defender</marker> a minha tese.</example>
-            <example correction="vim ajudar">Eu <marker>estou aqui para ajudar</marker>.</example>
-            <example correction="viemos ajudar">Nós <marker>estamos aqui para ajudar</marker>.</example>
-            <example>Nós sempre estamos aqui para ajudar.</example>
         </rule>
 
 
@@ -13490,6 +13526,38 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     <category id='SHORTEN_IT' name="✂️ Linguagem concisa" type="style">
 
 
+        <rule id='ESTAR_AQUI_PARA_INFINITIVO' name="✂️ Estar aqui para + infinitivo → vir + infinitivo" type='style' tags='picky'>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+            <!-- A substituição pode alterar o sentido, pois "estar aqui para" também pode indicar função, presença ou disponibilidade, e não necessariamente o motivo de uma deslocação. -->
+
+            <pattern>
+                <marker>
+                    <token postag='VMIP.+' postag_regexp='yes' inflected='yes'>estar
+                    <exception scope='previous' regexp='yes'>frequentemente|geralmente|habitualmente|normalmente|regularmente|sempre</exception></token>
+                    <token>aqui</token>
+                    <token>para</token>
+                    <token regexp='yes'>apresentar|debater|defender|discutir|entregar|esclarecer|negociar|propor|reclamar|solicitar</token>
+                </marker>
+            </pattern>
+            <message>Se a expressão indicar o motivo da deslocação, considere uma formulação mais direta com &quot;vir&quot;.</message>
+            <suggestion><match no='1' postag='VMIP(...)' postag_replace='VMIS$1'>vir</match> \4</suggestion>
+            <example correction="vim apresentar">Bom dia, <marker>estou aqui para apresentar</marker> o projeto.</example>
+            <example correction="vim defender">Bom dia, <marker>estou aqui para defender</marker> a minha tese.</example>
+            <example correction="vim entregar">Bom dia, <marker>estou aqui para entregar</marker> estes documentos.</example>
+            <example correction="vim esclarecer">Bom dia, <marker>estou aqui para esclarecer</marker> algumas dúvidas.</example>
+            <example correction="vim negociar">Bom dia, <marker>estou aqui para negociar</marker> as condições do contrato.</example>
+            <example correction="vim propor">Bom dia, <marker>estou aqui para propor</marker> uma solução.</example>
+            <example correction="vim reclamar">Bom dia, <marker>estou aqui para reclamar</marker> desta cobrança.</example>
+            <example correction="vim solicitar">Bom dia, <marker>estou aqui para solicitar</marker> uma certidão.</example>
+            <example correction="vieste entregar">Tu <marker>estás aqui para entregar</marker> os documentos.</example>
+            <example correction="veio apresentar">Ela <marker>está aqui para apresentar</marker> o projeto.</example>
+            <example correction="viemos discutir">Nós <marker>estamos aqui para discutir</marker> a proposta.</example>
+            <example correction="viestes negociar">Vós <marker>estais aqui para negociar</marker> as condições.</example>
+            <example correction="vieram debater">Eles <marker>estão aqui para debater</marker> o problema.</example>
+            <example>Nós sempre estamos aqui para apresentar os resultados.</example>
+        </rule>
+
+
         <rulegroup id='LOCALIZADA_SITUADA_EM_NA_NO_V3' name="✂️ Localizada/situada em/na(s)/no(s) → em/na(s)/no(s)" tone_tags='objective'>
             <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <rule> <!-- #1: Proper name, keep/add comma, and show extra suggestion -->
@@ -14100,8 +14168,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <rule id='DAR_VALOR_VALORIZAR' name="✂️ Verbo 'dar' + valor → valorizar" tags="picky">
+        <rule id='DAR_VALOR_VALORIZAR' name="✂️ 'dar valor' → valorizar" type='style' tags='picky'>
             <!-- IDEA shorten_it -->
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
+            <antipattern>
+                <token skip='5' regexp='yes' inflected='yes'>avaliador|perito|banco|seguradora|tribunal</token>
+                <token inflected='yes'>dar</token>
+                <token>valor</token>
+                <token regexp='yes'>às?|aos?</token>
+                <example>O avaliador deu valor ao imóvel com base nos preços de mercado.</example>
+                <example>O perito e a Ana Silva deram valor ao imóvel com base nos preços de mercado.</example>
+            </antipattern>
+
             <pattern>
                 <marker>
                     <token inflected='yes'>dar</token>
@@ -14109,7 +14188,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                     <token regexp='yes'>às?|aos?</token>
                 </marker>
             </pattern>
-            <message>&simplify_msg;</message>
+            <message>Se a expressão significar reconhecer a importância de algo ou alguém, considere &quot;valorizar&quot;.</message>
             <suggestion><match no='1' postag='V.+' postag_regexp='yes'>valorizar</match> <match no='3' postag='SPS00:DA0(..)0' postag_replace='DA0$10'>o</match></suggestion>
             <example correction="valoriza a">Ele não <marker>dá valor à</marker> mulher.</example>
             <example correction="valoriza o">Ele <marker>dá valor ao</marker> trabalho do Rui.</example>
@@ -14148,80 +14227,27 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <example correction="nada vai">Em princípio <marker>as coisas não vão</marker> melhorar.</example>
         </rule>
 
-        <!-- É NECESSÁRIO ESTAR PRESENTE é presencial -->
-        <!--      Created by Marco A.G.Pinto, Portuguese rule 2020-12-02 (21-OCT-2020+)  *START*   -->
-        <rulegroup id='PRESENTE_PRESENCIAL' name="✂️ é presencial">
+
+        <rule id='PRESENTE_PRESENCIAL' name="✂️ 'Necessário estar presente' → presencial" type='style'>
             <!--IDEA shorten_it-->
-            <rule>
-                <pattern>
-                    <token>é</token>
-                    <token>necessário</token>
-                    <token>estar</token>
-                    <token min="0" max="1" regexp='yes'>fisicamente|pessoalmente|presencialmente</token>
-                    <token>presente</token>
-                    <token regexp='yes'>[\.,!\?]</token>
-                </pattern>
-                <message>Substitua por <suggestion>é presencial\6</suggestion>.</message>
-                <example correction="É presencial?"><marker>É necessário estar presente?</marker></example>
-            </rule>
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
 
-            <rule>
-                <pattern>
-                    <token>é</token>
-                    <token>necessário</token>
-                    <token>estar</token>
-                    <token min="0" max="1" regexp='yes'>fisicamente|pessoalmente|presencialmente</token>
-                    <token>presente</token>
-                    <token>na</token>
-                    <token postag='NC.+' postag_regexp='yes'/>
-                </pattern>
-                <message>Substitua por <suggestion>a \7 é presencial</suggestion>.</message>
-                <example correction="A reunião é presencial"><marker>É necessário estar presente na reunião</marker>?</example>
-            </rule>
-
-            <rule>
-                <pattern>
-                    <token>é</token>
-                    <token>necessário</token>
-                    <token>estar</token>
-                    <token min="0" max="1" regexp='yes'>fisicamente|pessoalmente|presencialmente</token>
-                    <token>presente</token>
-                    <token>nas</token>
-                    <token postag='NC.+' postag_regexp='yes'/>
-                </pattern>
-                <message>Substitua por <suggestion>as \7 são presenciais</suggestion>.</message>
-                <example correction="As aulas são presenciais"><marker>É necessário estar presente nas aulas</marker>?</example>
-            </rule>
-
-            <rule>
-                <pattern>
-                    <token>é</token>
-                    <token>necessário</token>
-                    <token>estar</token>
-                    <token min="0" max="1" regexp='yes'>fisicamente|pessoalmente|presencialmente</token>
-                    <token>presente</token>
-                    <token>no</token>
-                    <token postag='NC.+' postag_regexp='yes'/>
-                </pattern>
-                <message>Substitua por <suggestion>o \7 é presencial</suggestion>.</message>
-                <example correction="O curso é presencial"><marker>É necessário estar presente no curso</marker>?</example>
-            </rule>
-
-            <rule>
-                <pattern>
-                    <token>é</token>
-                    <token>necessário</token>
-                    <token>estar</token>
-                    <token min="0" max="1" regexp='yes'>fisicamente|pessoalmente|presencialmente</token>
-                    <token>presente</token>
-                    <token>nos</token>
-                    <token postag='NC.+' postag_regexp='yes'/>
-                </pattern>
-                <message>Substitua por <suggestion>os \7 são presenciais</suggestion>.</message>
-                <example correction="Os cursos são presenciais"><marker>É necessário estar presente nos cursos</marker>?</example>
-            </rule>
-
-        </rulegroup>
+            <pattern>
+                <token>é</token>
+                <token>necessário</token>
+                <token>estar</token>
+                <token regexp='yes'>fisicamente|pessoalmente|presencialmente</token>
+                <token>presente</token>
+                <token regexp='yes'>n[ao]s?</token>
+                <token regexp='yes' inflected='yes'>aula|cerimónia|conferência|consulta|curso|evento|exame|formação|reunião|sessão</token>
+            </pattern>
+            <message>Considere uma formulação mais direta com &quot;presencial&quot;.</message>
+            <suggestion><match no='6' postag='SPS00:DA0(..)0' postag_replace='DA0$10'>o</match> \7 <match no='6' postag='SPS00:DA0(.)(.)0' postag_replace='VMIP3$20'>ser</match> <match no='6' postag='SPS00:DA0(.)(.)0' postag_replace='AQ0C$20'>presencial</match></suggestion>
+            <example correction="A reunião é presencial"><marker>É necessário estar pessoalmente presente na reunião</marker>?</example>
+            <example correction="As aulas são presenciais"><marker>É necessário estar fisicamente presente nas aulas</marker>?</example>
+            <example correction="O curso é presencial"><marker>É necessário estar pessoalmente presente no curso</marker>?</example>
+            <example correction="Os cursos são presenciais"><marker>É necessário estar fisicamente presente nos cursos</marker>?</example>
+        </rule>
 
 
         <rule id='ESTAR_NO_ECRA' name="✂️ Estar no ecrã">
@@ -14458,30 +14484,29 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-        <!-- ATÉ QUE SURGIRAM  até surgirem -->
-        <rulegroup id='SIMPLIFICAR_ATÉ_QUE_ATÉ_VERBO' name="✂️ Até que + Verbo → Até + V.Inf." type='style'>
+        <rule id='ATE_QUE_VERBO_ATE_INFINITIVO' name="✂️ Até que + verbo → até + infinitivo" type='style' tags='picky'>
             <!--IDEA shorten_it-->
-            <!-- Created by Marco A.G.Pinto, Portuguese rule 2023-02-23 (25-JUL-2022+) -->
-            <!--
-      Foi-lhe dada demasiada importância até que surgira uma nova teoria. → Foi-lhe dada demasiada importância até surgir uma nova teoria.
-      Foi-lhes dada demasiada importância até que surgiram novas teorias. → Foi-lhes dada demasiada importância até surgirem novas teorias.
-      -->
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
 
-            <rule>
-                <pattern>
-                    <marker>
-                        <token>até</token>
-                        <token>que</token>
-                        <token postag='VMIM3.+' postag_regexp='yes'/>
-                    </marker>
-                </pattern>
-                <message>&simplify_msg;</message>
-                <suggestion>\1 <match no='3' postag='VMIM3(.)0' postag_regexp="yes" postag_replace='VMN03$10'/></suggestion>
-                <example correction="até surgir">Foi-lhe dada demasiada importância <marker>até que surgira</marker> uma nova teoria.</example>
-                <example correction="até surgirem">Foi-lhes dada demasiada importância <marker>até que surgiram</marker> novas teorias.</example>
-            </rule>
+            <pattern>
+                <marker>
+                    <token>até<exception scope='previous' postag='SENT_START'/></token>
+                    <token>que</token>
+                    <token regexp='yes' inflected='yes' postag='VMI[SM]3.+' postag_regexp='yes'>aparecer|começar|chegar|ocorrer|surgir|terminar
+                        <exception scope='next' regexp='yes'>e|ou</exception></token>
+                </marker>
+            </pattern>
+            <message>Considere uma construção mais concisa com &quot;até&quot; seguido de infinitivo.</message>
+            <suggestion>\1 <match no='3' postag='VMI(.)3(.)0' postag_regexp='yes' postag_replace='VMN03$20'/></suggestion>
+            <example correction="até surgir">Foi-lhe dada demasiada importância <marker>até que surgiu</marker> uma nova teoria.</example>
+            <example correction="até surgir">Foi-lhe dada demasiada importância <marker>até que surgira</marker> uma nova teoria.</example>
+            <example correction="até surgirem">Foi-lhes dada demasiada importância <marker>até que surgiram</marker> novas teorias.</example>
+            <example correction="até terminar">A sessão continuou <marker>até que terminou</marker> o debate.</example>
+            <example correction="até aparecerem">Tudo permaneceu calmo <marker>até que apareceram</marker> novos problemas.</example>
+            <example>A estrela que os magos viram no Oriente os precedia, até que chegou e parou sobre o lugar onde estava o menino.</example>
+            <example>Até que chegou um soninho... e o colo do papai foi o lugar de descanso!</example>
+        </rule>
 
-        </rulegroup>
 
         <!-- COMO É VISTO conforme visto -->
         <rule id='COMO_É_CONFORME' name="✂️ Como é → Conforme" type='style'>
@@ -15276,22 +15301,25 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <rule id='EM_QUE_NAO_HA_PRONOME-INDEFINIDO' name="✂️ Em que não há + Pron.Indef. → Sem Pron.Indef." type="style" tags="picky">
+        <rule id='EM_QUE_NAO_HA_SEM' name="✂️ 'em que não há' → 'sem'" type='style' tags='picky'>
             <!--IDEA shorten_it-->
-            <!-- Created by Marco A.G.Pinto, Portuguese rule 2023-03-31 (Checked/Enhanced) (2-MAR-2023+) -->
-            <!--
-      Temos um período em que não há qualquer registo histórico. → Temos um período sem qualquer registo histórico.
-      -->
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
             <pattern>
                 <token>em</token>
                 <token>que</token>
                 <token>não</token>
                 <token>há</token>
-                <token postag_regexp='yes' postag='DI.+'/>
+                <token regexp='yes' inflected='yes'>qualquer|nenhum</token>
             </pattern>
-            <message>&simplify_msg;</message>
+            <message>Considere uma construção mais concisa com &quot;sem&quot;.</message>
             <suggestion>sem \5</suggestion>
             <example correction="sem qualquer">Temos um período <marker>em que não há qualquer</marker> registo histórico.</example>
+            <example correction="sem quaisquer">Temos um período <marker>em que não há quaisquer</marker> registos históricos.</example>
+            <example correction="sem nenhum">Temos um período <marker>em que não há nenhum</marker> registo histórico.</example>
+            <example correction="sem nenhuns">Temos um período <marker>em que não há nenhuns</marker> registos históricos.</example>
+            <example correction="sem nenhuma">Temos uma época <marker>em que não há nenhuma</marker> referência ao acontecimento.</example>
+            <example correction="sem nenhumas">Temos uma época <marker>em que não há nenhumas</marker> referências ao acontecimento.</example>
         </rule>
 
 
@@ -15360,27 +15388,26 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-        <rule id='QUALQUER_QUE_SEJA' name="'qualquer/quaisquer que seja(m)/fosse(m)' → 'independentemente'" tone_tags="formal" type="style">
+        <rule id='QUALQUER_QUE_SEJA_INDEPENDENTEMENTE_DE' name="✂️ 'qualquer que seja' → 'independentemente de'" type='style' tags='picky'>
             <!--IDEA shorten_it-->
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
             <pattern>
                 <marker>
-                    <token regexp="yes">qua(l|is)quer
-                        <exception scope="previous" postag='SPS00'/>
-                    </token>
+                    <token regexp='yes'>qualquer|quaisquer<exception scope='previous' postag='SPS00'/></token>
                     <token>que</token>
-                    <token regexp="yes">(seja|fosse)m?</token>
-                    <token regexp="yes">[ao]s?
-                        <exception scope='next' regexp='yes'>d[ao]s?</exception>
-                    </token>
+                    <token regexp='yes'>sejam?|fossem?</token>
+                    <token regexp='yes'>[ao]s?</token>
                 </marker>
             </pattern>
-            <message>&simplify_msg;</message>
+            <message>Considere uma formulação mais concisa com &quot;independentemente de&quot;.</message>
             <suggestion>independentemente <match no='4' postag='DA0(..)0' postag_replace='SPS00:DA0$10'>de:o</match></suggestion>
             <example correction="independentemente do">O Rui vencerá <marker>qualquer que seja o</marker> resultado.</example>
             <example correction="independentemente do">O Rui vencia <marker>qualquer que fosse o</marker> desfecho.</example>
             <example correction="independentemente dos">Os resultados mantêm-se <marker>quaisquer que sejam os</marker> valores.</example>
+            <example correction="independentemente da">A decisão mantém-se <marker>qualquer que seja a</marker> razão apresentada.</example>
             <example>Maria é uma pessoa muito espontânea; explode por qualquer que seja o motivo.</example>
-            <example>...heiro que mais me remete à minha mãe é o do perfume dela: sempre forte, com presença e notas doces (qualquer que seja o do momento... rs).</example>
+            <example>A proposta pode ser aplicada em qualquer que seja o contexto.</example>
         </rule>
 
 
@@ -15646,14 +15673,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <!-- O QUE TEM DE MAL que mal tem -->
-        <rule id='O_QUE_TEM_DE_MAL_QUE_MAL_TEM' name="✂️ 'o que tem de mal' → 'que mal tem'" type="style">
+        <rule id='O_QUE_TEM_DE_MAL_QUE_MAL_TEM' name="✂️ 'O que tem de mal' → 'Que mal tem'" type='style'>
             <!--IDEA shorten_it-->
-            <!-- Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2023-05-23 (2-MAR-2023+) -->
-            <!--
-      O que tem de mal partir o spaghetti antes de cozer? → Que mal tem partir o spaghetti antes de cozer?
-      O que tem de mal a abordagem holística? → Que mal tem a abordagem holística?
-      -->
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
             <pattern>
                 <marker>
                     <token>o</token>
@@ -15664,46 +15687,48 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                 </marker>
                 <token postag='V.+|(SPS00:)?D[AI].+' postag_regexp='yes'/>
             </pattern>
-            <message>&simplify_msg;</message>
+            <message>Considere a construção mais concisa &quot;que mal tem&quot;.</message>
             <suggestion>que mal tem</suggestion>
-            <example correction="Que mal tem"><marker>O que tem de mal</marker> partir o spaghetti antes de cozer?</example>
+            <example correction="Que mal tem"><marker>O que tem de mal</marker> partir o esparguete antes de o cozer?</example>
             <example correction="Que mal tem"><marker>O que tem de mal</marker> a abordagem holística?</example>
         </rule>
 
 
-        <!-- DE SOFTWARE PARA O PÚBLICO de software público -->
-        <rule id='PARA_O_PÚBLICO_PÚBLICO_PÚBLICA' name="✂️ Para o público → público(a)" type="style">
+        <rule id='PARA_O_PUBLICO_PUBLICO' name="✂️ 'para o público' → 'público(a)'" type='style' tags='picky'>
             <!--IDEA shorten_it-->
-            <!-- Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-11-17 (25-JUL-2022+) -->
-            <!--
-      Esta é a primeira versão do software para o público. → Esta é a primeira versão pública do software.
-      -->
+            <!-- ChatGPT 5 and new disambiguator for 2026+ -->
+
             <pattern>
                 <marker>
-                    <token postag='NC[FM].+' postag_regexp='yes'/>
-                    <token postag='SPS00:.+' postag_regexp='yes'/>
-                    <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+                    <token postag='NC[FM].+' postag_regexp='yes' regexp='yes' inflected='yes'>apresentação|consulta|demonstração|distribuição|edição|exibição|sessão|versão|visita</token>
+                    <token regexp='yes'>d[ao]s?</token>
+                    <token postag='NC.+' postag_regexp='yes'/>
                     <token>para</token>
                     <token>o</token>
-                    <token>público</token>
+                    <token>público<exception spacebefore='no' scope='next' postag='_PUNCT_HYPHEN'/></token>
                 </marker>
-                <token negate_pos='yes' postag='AQ0MS0'/>
             </pattern>
-            <message>&simplify_msg;</message>
+            <message>Se a expressão indicar que algo está aberto ou se destina ao público, considere usar o adjetivo &quot;público&quot;.</message>
             <suggestion>\1 <match no='1' postag='NC(..)000' postag_replace='AQ0$10'>público</match> \2 \3</suggestion>
+            <example correction="edição pública da tese">Esta é a primeira <marker>edição da tese para o público</marker>.</example>
             <example correction="versão pública do software">Esta é a primeira <marker>versão do software para o público</marker>.</example>
+            <example correction="apresentação pública do projeto">Foi realizada uma <marker>apresentação do projeto para o público</marker>.</example>
+            <example correction="exibição pública do documentário">Haverá uma <marker>exibição do documentário para o público</marker>.</example>
+            <example correction="versões públicas dos programas">Foram lançadas <marker>versões dos programas para o público</marker>.</example>
+            <example>A empresa promoveu visitas às instalações para o público-alvo.</example>
+            <example>Serão realizadas consultas para o público-alvo definido no estudo.</example>
+            <example>A edição do manual destina-se ao público escolar.</example>
         </rule>
 
 
-        <!-- PARA QUANDO quando -->
-        <rule id='PARA_QUANDO_QUANDO' name="✂️ Para quando → quando" type="style">
+        <rule id='PARA_QUANDO_QUANDO' name="✂️ 'para quando' → 'quando'" type='style' tags='picky'>
             <!--IDEA shorten_it-->
-            <!-- Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-11-03 (25-JUL-2022+) -->
-            <!--
-      A fiabilidade das equações é necessária para quando se quer transmitir dados. → A fiabilidade das equações é necessária quando se quer transmitir dados.
-      -->
+            <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+            <!-- A substituição só é adequada quando "para" é dispensável
+                 e não exprime finalidade, preparação ou disponibilidade futura. -->
+
             <pattern>
-                <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+                <token regexp='yes' inflected='yes' postag='AQ.+' postag_regexp='yes'>importante|necessário|relevante</token>
                 <marker>
                     <token>para</token>
                     <token>quando</token>
@@ -15711,9 +15736,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                 <token regexp='yes'>&pronomes_obliquos_sem_a_as_o_os;</token>
                 <token postag='V.+' postag_regexp='yes'/>
             </pattern>
-            <message>&simplify_msg;</message>
+            <message>Considere eliminar a preposição &quot;para&quot; nesta construção temporal.</message>
             <suggestion>quando</suggestion>
             <example correction="quando">A fiabilidade das equações é necessária <marker>para quando</marker> se quer transmitir dados.</example>
+            <example correction="quando">Esta distinção é importante <marker>para quando</marker> se pretende comparar os resultados.</example>
+            <example correction="quando">A confirmação é relevante <marker>para quando</marker> nos pedem informações adicionais.</example>
         </rule>
 
 
@@ -20221,10 +20248,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
     </category>
 
+
+
     <category id="GENERAL" name="🖌️ Regras gerais de estilo" type="style" tone_tags="general">
+
+
         <rule id="GRAU_KELVIN" name="🖌️ Evitar 'grau' antes da unidade Kelvin">
             <pattern>
-                <token regexp="yes">graus?</token>
+                <token regexp='yes'>graus?</token>
                 <token>kelvin</token>
             </pattern>
             <message>Não se deve referir à unidade de temperatura Kelvin como um &quot;grau&quot;.</message>
@@ -20233,12 +20264,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <example correction="kelvins">O sol tem a temperatura de 15,7 milhões de <marker>graus kelvin</marker>.</example>
         </rule>
 
-        <rule id="OK_EM_MINUSCULA" name="🖌️ Preferência por 'OK' em vez de 'ok'" tags="picky">
+
+        <rule id="OK_EM_MINUSCULA" name="🖌️ Preferência por 'OK' em vez de 'ok'" tags='picky'>
             <pattern>
-                <token case_sensitive="yes">ok</token>
+                <token case_sensitive='yes'>ok</token>
             </pattern>
             <message>Prefira <suggestion>OK</suggestion>.</message>
             <example correction="OK">Está tudo <marker>ok</marker> com ela?</example>
         </rule>
+
+
     </category>
+
+
+
 </rules>

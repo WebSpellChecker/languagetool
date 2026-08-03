@@ -500,9 +500,10 @@ taxa de fecunditat
 entitat local
 entitats locals
 Amèrica Llatina
-Codi Civil
-Codi Militar
-Codi Penal
+Codi civil
+Codi militar
+Codi penal
+Codi Internacional de Nomenclatura Zoològica
 nit de Cap d'Any
 nit de Nadal
 #Carta Magna
@@ -522,8 +523,8 @@ llei de memòria democràtica
 llei de memòria històrica
 llei trans
 llei d'amnistia
-Estatut d'Autonomia
-Estatut dels Treballadors
+Estatut d'autonomia
+Estatut dels treballadors
 pla Marshall
 pla Ibarretxe
 pla Tenet
@@ -2612,3 +2613,13 @@ Abelardo de la Espriella
 de la Espriella
 Sagrada Família
 vudú
+Pau de Westfàlia
+Acta Única Europea
+diputacions provincials
+Georges de Rham
+De Rham
+serra d'Espadà
+Parc Natural Serra d'Espadà
+Parc Natural de la Serra d'Espadà
+IES Serra d'Espadà
+3CatInfo
