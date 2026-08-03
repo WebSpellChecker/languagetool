@@ -159,7 +159,7 @@
 
         <at.favre.lib.bcrypt.version>0.10.2</at.favre.lib.bcrypt.version>
         <caffeine.version>3.2.0</caffeine.version>
-        <ch.qos.logback.version>1.5.25</ch.qos.logback.version>
+        <ch.qos.logback.version>1.5.38</ch.qos.logback.version>
 
         <com.carrotsearch.hppc.version>0.8.2</com.carrotsearch.hppc.version>
         <com.gitlab.dumonts.hunspell.version>2.1.2</com.gitlab.dumonts.hunspell.version>
@@ -215,7 +215,7 @@
         <org.tukaani.version>1.10</org.tukaani.version>
 
         <guava.version>33.5.0-jre</guava.version>
-        <jackson.version>2.18.8</jackson.version>
+        <jackson.version>2.18.9</jackson.version>
         <lombok.version>1.18.34</lombok.version>
         <lucene.version>5.5.5</lucene.version>
         <morfologik.version>2.2.0</morfologik.version>
@@ -1251,7 +1251,7 @@
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-bom</artifactId>
-                <version>4.1.135.Final</version>
+                <version>4.1.136.Final</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

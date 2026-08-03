@@ -4846,12 +4846,17 @@
 <beforebreak>\{[^\}]*\.[\s\u00A0]</beforebreak>
 <afterbreak>[^\}\r\n]*\}</afterbreak>
 </rule>
-<!-- 'Fisica I. En aquest cas' -->
+<!-- 'la publicació a X. No és'-->
 <rule break="yes">
-<beforebreak>(?iu)(?U)(Pràctiques|Pràctica|Pràcticum|Nivell|Construcció|Ramon|Berenguer|Títol|Capítol|Tema|Apartat|fase|tipus|classe|segle|Grau|Muhàmmad|Bartomeu|Jaume|Carles|Felip|Alfons|Pere|Ferran|Lluís|Enric|Eduard|Frederic|Napoleó|Nicolau|Pau|Guillem|Manuel|Víctor|Pau|Benet|Climent|Constantí|Alexandre|Física|Economia|Matemàtiques|Química|Biologia|Història|Filosofia|Economia|Estadística|Programació|Informàtica|Llengua|Catalana|Literatura|Àlgebra|Anàlisi|Matemàtica|Civil|Dret|Psicologia|Sociologia|Microeconomia|Fonètica|Gramàtica)[\s\u00A0][IXV]\.[\s\u00A0]+</beforebreak>
+<beforebreak>\b\.\s+</beforebreak>
+<afterbreak>([A-ZÀÈÉÍÒÓÚ][a-zàèéíòóïü]+ment|Ahir|Així|Aleshores|Algun|Alguna|Algú|Allà|Allí|Amb|Aquell|Aquella|Aquelles|Aquells|Aquest|Aquesta|Aquestes|Aquests|Aquí|Ara|Atès|Avui|Cada|Cadascuna|Cadascú|Cal|Caldria|Com|De|Demà|Des|Després|Doncs|Eixa|Eixe|Eixes|Eixos|El|Ell|Ella|Elles|Ells|Els|En|Encara|Envers|Esta|Este|Estes|Estos|Fins|Ha|Han|Has|Havia|Havien|Hi|Ja|Jo|La|Les|Llavors|Mai|Malgrat|Mentre|Mentrestant|Moltes|Molts|Més|No|Nogensmenys|Només|Nosaltres|On|Pel|Per|Perquè|Però|Poc|Poca|Pocs|Poques|Potser|Primer|Quan|Qui|Què|Res|Resulta|Segons|Sembla|Sempre|Sense|Si|Sobre|Solament|Sols|Sota|Són|Tal|Tanmateix|Tant|Tants|Tanta|Tantes|Tot|Tota|Totes|Tothom|Tots|Tu|Un|Una|Unes|Uns|Vosaltres|És|[LSMTDN]'|Em|Et|Es|Ens|Us)\b</afterbreak><!-- És molt poc general -->
+</rule>
+<!-- [...] d'Alfons I. Ell era [...] -->
+<rule break="yes">
+<beforebreak>(?iu)(Pràctiques|Pràctica|Pràcticum|Nivell|Construcció|Ramon|Berenguer|Títol|Capítol|Tema|Apartat|fase|tipus|classe|segle|Grau|Muhàmmad|Bartomeu|Jaume|Carles|Felip|Alfons|Pere|Ferran|Lluís|Enric|Eduard|Frederic|Napoleó|Nicolau|Pau|Guillem|Manuel|Víctor|Pau|Benet|Climent|Constantí|Alexandre|Física|Economia|Matemàtiques|Química|Biologia|Història|Filosofia|Economia|Estadística|Programació|Informàtica|Llengua|Catalana|Literatura|Àlgebra|Anàlisi|Matemàtica|Civil|Dret|Psicologia|Sociologia|Microeconomia|Fonètica|Gramàtica)[\s\u00A0][IXV]+\.[\s\u00A0]+</beforebreak>
 <afterbreak>\p{Lu}</afterbreak>
 </rule>
-<!-- initials: A. C. Jones. Problem: [...] d'Alfons I. Ell era [...] -->
+<!-- initials: A. C. Jones.  -->
 <rule break="no">
 <beforebreak>\b[A-ZÀÉÈÍÓÒÚ]\.[\s\u00A0]</beforebreak>
 <afterbreak></afterbreak>
@@ -4862,7 +4867,7 @@
 </rule>
 <!-- Abbreviations that cannot finish sentences-->
 <rule break="no">
-<beforebreak>(?iu)(?U)\b(sp|spp|inst|coop|n|Mr|C|Dr|Dra|Dra\. Ma|Sta\. Ma|E|Emm|Emma|Excm|Excma|Hble|I|Il·lm|Il·lma|Il·ltre|Im|Ima|Mgfc|Mgfca|Mn|R|Rev|Sr|Sra|Sres|Srs|St|Sta|a|abr|abs|acad|add|adj|adm|admdor|admdora|admtiu|admtiva|adv|ag|agl|agr|agron|agròn|aj|ajud|al|alim|amb|ampl|ant|ap|apmt|apnt|apr|aprox|apt|arm|arq|arqueol|arquit|assign|assoc|atm|aut|aux|av|avda|b|batx|bda|bibl|bl|bnc|butll|bxs|c|calef|cartogr|cat|catedr|catol|cf|cia|cin|cint|circul|cit|climat|col|col·l|compt|cons|constr|cont|contr|conv|corp|corr|cpl|cpt|cró|ct|cte|ctra|cts|d|dept|dep|derog|des|desp|dg|dip|disp|distr|div|dj|dl|doc|drec|ds|dt|dta|dte|dupl|dv|e|econ|ed|ef|entl|esc|esp|espf|esq|ex|exc|exp|exped|ext|f|fac|fca|febr|fig|figs|fra|gen|gov|gral|i|imp|impr|impt|inc|insp|inst|int|inv|j|jul|jur|jurispr|leg|llic|loc|ltda|làm|merc|mil·l|màx|mín|neg|nov|nre|núm|o|oct|op|p|pàg|pàgs|paq|par|pda|pg|pl|pobl|pol|ppda|ppt|pral|prev|prof|progr|prov|pta|ptes|ptge|pvt|pàg|quadr|quint|r|rbla|ref|reg|rev|secr|serv|sgt|sotsp|subsp|supl|supt|t|tel|telegr|tit|trad|trans|transcr|transf|trav|tripl|trv|tt|tèc|univ|urb|v|var|veg|vg|venc|vid|vig|vocab|vs|x|àt|íd|subg|nro|num|fund)\.[\s\u00A0]</beforebreak>
+<beforebreak>(?iu)\b(sp|spp|inst|coop|n|Mr|C|Dr|Dra|Dra\. Ma|Sta\. Ma|E|Emm|Emma|Excm|Excma|Hble|I|Il·lm|Il·lma|Il·ltre|Im|Ima|Mgfc|Mgfca|Mn|R|Rev|Sr|Sra|Sres|Srs|St|Sta|a|abr|abs|acad|add|adj|adm|admdor|admdora|admtiu|admtiva|adv|ag|agl|agr|agron|agròn|aj|ajud|al|alim|amb|ampl|ant|ap|apmt|apnt|apr|aprox|apt|arm|arq|arqueol|arquit|assign|assoc|atm|aut|aux|av|avda|b|batx|bda|bibl|bl|bnc|butll|bxs|c|calef|cartogr|cat|catedr|catol|cf|cia|cin|cint|circul|cit|climat|col|col·l|compt|cons|constr|cont|contr|conv|corp|corr|cpl|cpt|cró|ct|cte|ctra|cts|d|dept|dep|derog|des|desp|dg|dip|disp|distr|div|dj|dl|doc|drec|ds|dt|dta|dte|dupl|dv|e|econ|ed|ef|entl|esc|esp|espf|esq|ex|exc|exp|exped|ext|f|fac|fca|febr|fig|figs|fra|gen|gov|gral|i|imp|impr|impt|inc|insp|inst|int|inv|j|jul|jur|jurispr|leg|llic|loc|ltda|làm|merc|mil·l|màx|mín|neg|nov|nre|núm|o|oct|op|p|pàg|pàgs|paq|par|pda|pg|pl|pobl|pol|ppda|ppt|pral|prev|prof|progr|prov|pta|ptes|ptge|pvt|pàg|quadr|quint|r|rbla|ref|reg|rev|secr|serv|sgt|sotsp|subsp|supl|supt|t|tel|telegr|tit|trad|trans|transcr|transf|trav|tripl|trv|tt|tèc|univ|urb|v|var|veg|vg|venc|vid|vig|vocab|vs|x|àt|íd|subg|nro|num|fund)\.[\s\u00A0]</beforebreak>
 <afterbreak></afterbreak>
 </rule>
 <rule break="no">

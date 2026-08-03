@@ -2,11 +2,31 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
-## 2026-07-14
+## 2026-08-03
 
 ### Security
 - **opennlp-tools upgrade:** Replaced the in-house fork `com.webspellchecker:opennlp-tools:1.9.4-webspellchecker-1` with the official `org.apache.opennlp:opennlp-tools:1.9.5`, which upstream released with fixes for **CVE-2026-40682**, **CVE-2026-42027** and **CVE-2026-42440**.
   - Scope: components depending on `opennlp-tools` (direct or transitive) packaging of `langtool/libs`.
+
+## 2026-07-24
+
+### Security
+- **Netty upgrade:** Updated `io.netty` to **4.1.136.Final** to address **CVE-2026-59901**.
+  - Scope: components depending on `io.netty` (direct or transitive) packaging of `langtool/libs`.
+
+## 2026-07-22
+
+### Security
+- **ch.qos.logback upgrade:** Updated `ch.qos.logback` to **1.5.38** to address **CVE-2026-13006**.
+  - Scope: components depending on `ch.qos.logback` (direct or transitive) packaging of `langtool/libs`.
+
+## 2026-07-14
+
+### Security
+- **jackson-databind upgrade:** Updated `jackson-databind` to **2.18.9** to address **CVE-2026-54515**.
+  - Scope: components depending on `jackson-databind` (direct or transitive) packaging of `langtool/libs`.
+- **ch.qos.logback upgrade:** Updated `ch.qos.logback` to **1.5.35** to address **CVE-2026-9828** and **CVE-2026-10532**.
+  - Scope: components depending on `ch.qos.logback` (direct or transitive) packaging of `langtool/libs`.
 
 ## 2026-06-24
 
