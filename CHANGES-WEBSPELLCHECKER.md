@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-08-10
+
+### Security
+- **micrometer upgrade:** Updated `io.micrometer` to **1.15.12** to address **CVE-2026-40984**. Switched the registry dependency from `micrometer-registry-prometheus` to `micrometer-registry-prometheus-simpleclient`, which keeps the legacy `io.micrometer.prometheus` API (used by `CircuitBreakers`) on the 1.15.x line without migrating to the new Prometheus client.
+  - Scope: components depending on `micrometer-core` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-07-24
 
 ### Security
