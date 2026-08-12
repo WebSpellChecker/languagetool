@@ -1,6 +1,8 @@
 #Només funciona amb verbs de la primera conjugació, acabats en -ar, que són la majoria
 #extendre=estendre #caldria afegir el paradigma verbal
 #acometre=escometre|envestir
+desgañitar|desganyitar=esgargamellar|escarcanyar
+escriturar=escripturar
 retumbar=retrunyir|ressonar|retronar|retentir
 desbalançar=desequilibrar
 atrontollar=trontollar

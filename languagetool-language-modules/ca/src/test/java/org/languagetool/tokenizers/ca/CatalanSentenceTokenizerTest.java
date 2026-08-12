@@ -70,8 +70,11 @@ public class CatalanSentenceTokenizerTest {
     testSplit("A l'atenció d'A. Comes.");
     testSplit("A l'atenció d'À. Comes.");
     testSplit("Són els alumnes de Física I. ", "Ara no venen ben preparats.");
+    testSplit("Són els alumnes de Física II. ", "Ara no venen ben preparats.");
     testSplit("Va ser obra de Felip V. ", "Ara ho sabem.");
     testSplit("Va ser obra d'Alfons X. ", "Ara ho sabem.");
+    testSplit("La manera com funciona la publicació a X. ", "No és una decisió fàcil.");
+    testSplit("La manera com funciona la publicació a X. ", "Probablement no és una decisió fàcil.");
     testSplit("Núm. operació 220130000138.");
 
     // Ellipsis

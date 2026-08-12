@@ -1,3 +1,15 @@
+raru=rar|rarot|estrany
+rarus=rars|rarots|estranys
+escritura=escriptura
+escritor=escriptor
+escritora=escriptora
+escritors=escriptors
+escritores=escriptores
+utillero|utiller|utilero=encarregat de material
+utilleros|utillers|utileros=encarregats de material
+utillera|utilera=encarregada de material
+utilleras|utileras=encarregades de material
+perfavort=per favor
 sinembarg|sinembargo|sensembarg|sensembargament=tanmateix|no obstant això|això no obstant
 correció|correcio|corecció|coreccio=correcció
 correcions|correcións|coreccions|coreccións=correccions
@@ -3630,6 +3642,7 @@ estupents=estupends
 multiusuària=multiusuari
 multiusuàries=multiusuari
 # errors in tagger dictionary; unnecessary after dictionary update
+tengues=tenguis|tinguis|tingues
 Serengueti=Serengeti
 preglaciar=preglacial
 preglaciars=preglacials
