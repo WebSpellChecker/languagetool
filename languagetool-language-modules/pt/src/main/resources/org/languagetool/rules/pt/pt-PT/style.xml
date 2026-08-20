@@ -71,9 +71,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 <!ENTITY informal "abéculas?|ajavardar|anhar|anjinhos?|bacan[ao]s?|badalos?|baita|baixinh[ao]s?|balof[ao]s?|baril|barracadas?|batelada|baza|bazam|bazas|bazaste|bazei|bazámos|bazamos|beijoqueir[ao]s?|bejecas?|bezanas?|bichan[ao]s?|bichinh[ao]s?|biscates?|bitaites?|blablablá|boazonas?|bonz(ão|ões)|bófias?|bonzudos?|bora|bués?|cadê|calhamaços?|camandros?|camisinhas?|caraças|carago|caramba|carangos?|carradas?|casinhas?|casórios?|caxamolas?|certinh[ao]s?|chaval[ao]s?|chilindrós?|cocó|coisar|copião|cornear|cum|cuscar|cusc[ao]s?|cuzinhos?|danad[ao]s?|drunfos?|encrencas?|engonhanço|engonhar|epa|esbardalhar|estrambótic[ao]s?|estrilho|fartazanas?|festarolas?|fezadas?|fixes|fixolas|fofinh[ao]s?|fónix|gabarolas?|gaj[ao]s?|garinas?|gatunar|gentinhas?|gosmas?|guit[ao]|gunas?|janad[ao]s?|javardices?|jolas?|larachas?|lelés?|mãezinhas?|malta|mamalhud[ao]s?|mamocas?|man[ao]s?|marad[ao]s?|maralhas?|marimbar|milhent[ao]s?|moinas?|motoqueir[ao]s?|népias?|oi|olhómetros?|paizinhos?|papão|papo|passarocas?|peid[ao]s?|peidar|petiza?|piegas|porra|porrada|porre|porreiros?|poucochinhos?|prenhas?|putos?|quecas?|queridinh[ao]s?|rabiosques?|rapaziadas?|tabefes?|tadinh[ao]s?|tanas|topar|trampas?|transar|traques?|tretas?|trouxas?|vaquinhas?|velhot[ae]s?|vó|vô|xi|xixi|zilh(ão|ões)">
 
 <!-- Estrangeirismos específicos pt_PT - the rule also tests with adding a "s" (plural) at the end of each word -->
-<!ENTITY barbarismos "accelerandos?|agitato|allegretto|allegro|amabile|apfelstrudel|backups?|badine|bavaroise|beagle|becquerel|bip|blague|blister|boate|bonsai|breakdance|brie|cache-sexe|calzone|camber|campus|caniche|cânon|cantabile|cantata|carpaccio|chaise-longue|charleston|chartreuse|cheddar|clarke|clear|clearance|cloisonné|códex|coloratura|continuum|cookies?|cordon-bleu|corpus|coulomb|crevasse|croissant|cumbia|czarina|datcha|debye|deficit|design|designers?|doping|doppler|drives?|duce|duplex|ecstasy|ensalada|ensemble|entente|evasé|fait-divers|fanfreluche|farads?|fatwa|fax|fermata|flamenco|flash|flashes|fondue|forint|fortran|fox|freeware|fugato|funk|gay|glamour|glide|gospel|gouda|grunge|guaracha|habanera|habitat|habitus|hip-hop|hippies?|homo|horseball|hype|ibidem|id|impedimenta|influenza|in-octavo|interferon|internet|item|jacuzzi|jamboree|jazz|joint-venture|joule|junkies?|kamikazes?|karaoke|karting|kasba|ketchup|kina|kitchenette|kuna|kwacha|kwanza|lamé|larghetto|leasing|legato|lingerie|locus|maestoso|majorette|mambo|managers?|maquis|marketing|maser|matrioska|maxwell|microfarad|milcurie|miserere|misters?|modems?|moderato|modus|mohair|muesli|mvdol|napalm|necessaire|net|new-age|noir|nomenklatura|nuance|nylon|offshores?|opus|origami|ossobuco|ouguiya|paanga|pahoehoe|paparazzi|parsec|patchouli|pecorino|pence|perestroika|petit-suisse|pianoforte|pickles?|piercing|pilé|pince-nez|pinscher|playboys?|poche|pogrom|poise|poodle|pop|posteriori|pot-pourri|práxis|priori|prise|promenade|punks?|putter|puzzle|quantum|quark|quiche|ralenti|rallentando|rave|ready-made|reggae|régie|reprise|reps|réveillon|rickettsia|rinforzando|ritardando|rocaille|rodeo|roentgen|rookie|rubato|samples?|sashimi|scherzando|scherzo|scone|set|setter|sexy|sfogato|sforzando|shareware|shar-pei|shiatsu|shopping|sic|sidecar|sievert|single|skates?|slalom|smorzando|socialite|sottovoce|soul|spas?|spins?|sprays?|sprue|staccato|stands?|stilb|stock|stop|stress|strippers?|superstars?|surf|sushi|tai-chi|tandem|tavolatura|techno|teflon|telex|terylene|tickets?|timeshare|tiramisu|tofu|toner|tópos|tops?|tori|trailer|tremolo|trial|triplex|tsunami|tupperware|tutilimúndi|tutti|tutu|vaudeville|velcro|vernissage|vibrato|vide|vides|vintage|vitae|vitrine|vivace|volte-face|waffle|web|weber|yang|yeti|yin|yuppie">
-<!ENTITY barbarismos_rev2 "abstracts?|apartheids?|applets?|apps?|baby-dolls?|backbones?|backdoors?|baconburgers?|banners?|bear|bestsellers?|bitcoins?|bloggers?|blueprints?|bluetooth|bogies?|boids?|boneheads?|boosts?|bots?|bottom-up|brainstorms?|bull|bullying|burnouts?|cameraman|carjacking|chairman|commodit(y|ies)|contactless|crackers?|cracking|cyberbullying|debugging|demands?|developers?|dildos?|dojos?|downgrades?|downloads?|downtimes?|drones?|drugstores?|e-bullying|e-commerce|e-learning|e-manuals?|e-newsletters?|e-readers?|exploits?|fair-plays?|feeders?|flats?|flyers?|forwarding|forwards?|führers?|gaming|gangbang|geeks?|goals?|gold|hardwares?|hits?|homebanking|homepages?|idem|idle|inputs?|items?|hacks?|hackers?|hacking|kits?|know-hows?|KOs?|lasers?|layers?|legacy|lags?|lob|logins?|loops?|lossless|mailbombings?|marines?|marketeers?|mayday|milkshakes?|mindsets?|nerds?|netiquette|networking|newsgroups?|off-label|offline|offsides?|on-label|outputs?|overbooking|overflows?|p-values?|palmiers?|papers?|patch(es)?|pens?|players?|ransomwares?|reboots?|reggaeton|restarts?|réveillons?|roadmaps?|royalt(y|ies)|screenshots?|scroll|seals?|shell|shelters?|shows?|slogans?|smartphones?|snobs?|sockets?|softwares?|spam|spammers?|sprites?|stalking|standards?|stealth|steps?|streaming|strogonoffs?|strings?|suspenses?|swarms?|tablets?|tagging|task-forces?|telemarketing|thresholds?|time-sharing|tips?|toolkits?|topless|triggers?|trolls?|tweeters?|on-line|online|underscores?|updates?|upgrades?|uptimes?|users?|wannabes|wargames?|webpages?|westerns?|wikis?|wireless|woofers?">
-<!ENTITY barbarismos_rev3 "afición|aficiones|awareness|blockchains?|bodyboarders?|bolds?|buffers?|bugs?|builds?|bunkai|cents?|check-ins?|checkbox|checkboxes|chipsets?|clusters?|cookie-cutters?|cover-ups?|crowdfundings?|crowdsourcings?|default|desktops?|drafts?|emoticons?|fanzines?|feedbacks?|fingerprints?|flags?|footnotes?|forecast|frameworks?|friendly|futons?|gaps?|geocachers?|geocaching|gilberts?|health|heights?|hotspots?|hoverboards?|icebergs?|input-output|interfaces?|jetpacks?|knowing-doing|logs?|LEDs?|likes?|marketplaces?|nudes?|open-source|overclockings?|pidgins?|podcasts?|previews?|rankings?|rap|resupply|reviews?|scams?|scammers?|scripts?|skippers?|smileys?|snipers?|spoofing|spreads?|sticks?|sudokus?|takeovers?|tatamis?|tokens?|top-down|trackpads?|thrashers?|trackings?|tweets?|underground|Unicode|uploads?|walkie-talkies?|warm-ups?|webcams?|webinars?|webmail|webmasters?|whalewatching|widths?|woks?|workshops?|yeah|yes-man|zen|zooms?">
+<!ENTITY barbarismos "accelerando|agitato|allegretto|allegro|amabile|apfelstrudel|backup|badine|bavaroise|beagle|bip|blague|blister|boate|breakdance|brie|cache-sexe|calzone|camber|campus|caniche|cantabile|cantata|carpaccio|chaise-longue|charleston|chartreuse|cheddar|clarke|clear|clearance|cloisonné|coloratura|continuum|cookie|cordon-bleu|corpus|corpora|crevasse|croissant|cumbia|datcha|deficit|design|designer|doping|doppler|drive|duce|duplex|ecstasy|ensalada|ensemble|entente|evasé|fait-divers|fanfreluche|fatwa|fax|fermata|flamenco|flash|flashes|fondue|forint|fox|freeware|fugato|funk|gay|glamour|glide|gospel|gouda|grunge|guaracha|habanera|habitat|habitus|hip-hop|hippie|homo|horseball|hype|ibidem|id|impedimenta|in-octavo|influenza|interferon|jamboree|jazz|joint-venture|junkie|kamikaze|karaoke|karting|kasba|ketchup|kina|kitchenette|kuna|kwacha|kwanza|lamé|larghetto|leasing|legato|lingerie|locus|maestoso|majorette|mambo|manager|maquis|marketing|maser|matrioska|miserere|mister|modem|moderato|modus|mohair|muesli|mvdol|napalm|necessaire|net|new-age|noir|nomenklatura|nuance|nylon|offshore|opus|origami|ossobuco|ouguiya|paanga|pahoehoe|paparazzo|paparazzi|patchouli|pecorino|pence|perestroika|petit-suisse|pianoforte|pickle|piercing|pilé|pince-nez|pinscher|playboy|poche|pogrom|poodle|pop|posteriori|pot-pourri|priori|prise|promenade|punk|putter|puzzle|quantum|quark|quiche|ralenti|rallentando|rave|ready-made|reggae|rep|reprise|rickettsia|rinforzando|ritardando|rocaille|rodeo|rookie|rubato|régie|réveillon|sample|sashimi|scherzando|scherzo|scone|set|setter|sexy|sfogato|sforzando|shar-pei|shareware|shiatsu|shopping|sic|sidecar|single|skate|slalom|smorzando|socialite|sottovoce|soul|spa|spin|spray|sprue|staccato|stand|stock|stop|stress|stripper|superstar|surf|sushi|tai-chi|tandem|tavolatura|techno|telex|terylene|ticket|timeshare|tiramisu|tofu|toner|top|tori|trailer|tremolo|trial|triplex|tsunami|tutilimúndi|tutti|tutu|vaudeville|vernissage|vibrato|vintage|vitae|vitrine|vivace|volte-face|waffle|web|yang|yeti|yin|yuppie">
+
+<!ENTITY barbarismos_rev2 "abstract|apartheid|app|applet|baby-doll|backbone|backdoor|baconburger|banner|bestseller|bitcoin|blogger|blueprint|bogie|boid|boost|bot|bottom-up|brainstorm|bullying|burnout|cameraman|carjacking|chairman|commodity|commodities|contactless|cracker|cracking|cyberbullying|debugging|developer|dildo|dojo|downgrade|download|downtime|drone|drugstore|e-bullying|e-commerce|e-learning|e-manual|e-newsletter|e-reader|exploit|fair-play|feeder|flat|flyer|forward|forwarding|führer|gaming|gangbang|geek|goal|hack|hacker|hacking|hardware|hit|homebanking|homepage|idem|idle|input|kit|know-how|lag|laser|layer|legacy|lob|login|loop|lossless|mailbombing|marketeer|milkshake|mindset|nerd|netiquette|networking|newsgroup|off-label|offline|offside|on-label|on-line|online|output|overbooking|overflow|palmier|paper|patch|patches|player|ransomware|reboot|reggaeton|restart|roadmap|royalty|royalties|screenshot|scroll|shell|show|slogan|smartphone|snob|socket|software|spam|spammer|sprite|stalking|standard|stealth|step|streaming|string|strogonoff|suspense|swarm|tablet|tagging|task-force|telemarketing|threshold|time-sharing|tip|toolkit|topless|trigger|troll|tweeter|underscore|update|upgrade|uptime|user|wannabe|wargame|webpage|western|wiki|wireless|woofer">
+
+<!ENTITY barbarismos_rev3 "abat-jour|affair|afición|aficiones|aftershave|airbag|alibi|anorak|anti-dumping|antitrust|aquaplaning|atelier|avant-garde|awareness|back-end|back-up|backend|background|backstage|badge|badminton|ballet|barbecue|barman|benchmark|benchmarking|best-seller|big-bang|bitmap|blackout|blazer|blitzkrieg|blockbuster|blockchain|blog|body-building|bodyboard|bodyboarder|bold|boom|bowling|box-office|brainstorming|briefing|broker|browser|brunch|budget|buffer|bug|build|bunkai|byte|cache|camping|cappuccino|case-study|cash|cash-flow|casting|catering|cent|chat|chatbot|check-in|check-up|checkbox|checkboxes|checkout|checkpoint|chip|chipset|clipboard|close-up|cloud|cluster|cockpit|cookie-cutter|copyright|copywriter|cover-up|cowboy|crash|cross-country|crowdfunding|crowdsourcing|cyberspace|cyborg|dashboard|dataset|deadline|dealer|debug|deepfake|default|delivery|desktop|display|draft|driver|dumping|déjà-vu|e-book|e-mail|e-zine|editing|emoticon|endpoint|entertainment|expertise|extranet|eyeliner|factoring|fan|fanzine|feedback|feeling|ferry|fingerprint|firewall|firmware|fitness|flag|flashback|flirt|flop|follow-up|forecast|framework|freelance|freelancer|front-end|frontend|full-time|futon|gadget|gangster|gap|gateway|gentleman|geocacher|geocaching|ghetto|goal-average|goodwill|hall|hamburger|handicap|handling|happening|hard-core|hash|heavy-metal|high-tech|hobby|holding|hooligan|hotspot|hoverboard|hovercraft|ice-cream|iceberg|impeachment|import-export|indoor|infotainment|input-output|insight|interface|intranet|jam-session|jeans|jet-lag|jet-set|jetpack|jingle|job|jockey|jogging|joystick|jukebox|kabuki|karaté|kart|kayak|kernel|kickboxing|kilim|kimono|kitsch|kiwi|knock-out|knowing-doing|kung-fu|laptop|layout|lead|leader|like|link|lobby|lockout|log|look|lounge|low-profile|mail|mailing|mainframe|mainstream|management|marketplace|master|match|meeting|merchandising|middleware|motherboard|motocross|mouse|network|newsletter|non-stop|nude|office-boy|offset|ombudsman|open-source|outdoor|outlier|outsider|outsourcing|overclocking|pacemaker|package|paintball|palmtop|parking|part-time|password|patchwork|pedigree|penalty|pick-up|pickpocket|picnic|pidgin|pin-up|pipeline|pixel|playback|playlist|playmaker|plug-in|plugin|podcast|pool|portfolio|preprint|preview|prompt|proxy|pub|publisher|pullover|putsch|rafting|raid|rally|ranking|rap|rating|ratio|realpolitik|remake|replay|resort|review|riff|ring|roadshow|roaming|rock|router|rugby|runtime|sampler|scam|scammer|scanner|score|script|self-service|serial-killer|server|set-point|show-off|showbiz|sitcom|site|sketch|skipper|smiley|sniper|snowboard|spoofing|spread|staff|standby|start-up|startup|stick|storyboard|striptease|subwoofer|sudoku|survey|sweater|sweatshirt|swing|takeaway|takeover|talk-show|target|tatami|tattoo|team|teenager|thriller|tie-break|timer|timing|toast|token|top-down|tracking|trackpad|training|trip-hop|trust|turnover|tweed|tweet|twist|underground|underwear|unisex|up-to-date|upload|videogame|voice-mail|voucher|voyeur|walkie-talkie|warm-up|webcam|webinar|webmail|webmaster|weekend|whalewatching|windsurf|winner|wok|workaholic|workflow|workshop|workstation|yes-man|zapping|zeitgeist|zen|zip|zombie|zoom">
 
 <!-- Termos depreciativos específicos pt_PT - the rule uses inflected='yes' to get all forms -->
 <!ENTITY depreciativo_pt_pt "alarve|alarvezinho|aldrabão|aldrabãozinho|badalhoco|badalhocozinho|badameco|badamecozinho|baianada|baianadinha|bandalho|bandalhozinho|bêbadinho|bêbado|beleguim|betinho|bimbalhada|bimbalhadinha|bimbinho|bimbo|bocó|bocozinho|bosta|bostinha|brasuca|brasuquinha|brega|breguinha|bumbinho|bumbo|cabrão|cabrãozinho|cafajeste|caguinchas|caguinchinhas|calão|calãozinho|campónio|campóniozinho|caralhão|caralhãozinho|chacha|chachinha|charlatão|chico-espertinho|chico-esperto|china|chininha|chinoca|chinocinha|choninhas|chulo|chunga|chungaria|chunguice|chupista|ciganada|ciganagem|coirão|coninhas|crápula|cretino|escarumba|escória|escumalha|espertalhão|espertinho|estúpido|fanfarrão|fufa|gagá|gajo|gandulo|generaleco|gentalha|gentiaga|gordalhão|gordalhãozinho|idiota|idiotinha|imbecil|imbecilzinho|indigente|japa|japinha|labrego|labreguinho|lamechas|lamechinhas|larápio|larilas|larilinhas|lorpa|lorpinha|malditinho|maldito|maltrapilho|manientinho|maniento|maricão|maricãozinho|maricas|mariconcinho|mariconço|mariquinhas|mentecaptinho|mentecapto|mitra|mitrinha|molenga|molengão|molengãozinho|molenguinha|monhé|monhézinho|morcão|morcãozinho|negralhada|negralhadinha|nhurrice|nhurrinha|nhurrinho|nhurro|otário|pacóvio|palerma|palerminha|panaca|panaquinha|panasca|panasquinha|paneleirinho|paneleiro|panilas|panilinhas|parolinho|parolo|parvinho|parvo|parvozinho|patego|pateguinho|pelintra|pelintrinha|pindérico|pindéricozinho|pita|pitinha|pito|portuga|portuguinha|pretalhada|pretalhadinha|pretaria|pretarinha|prostituta|prostitutinha|pulha|pulhinha|puta|putinha|rabeta|rabetinha|ralé|reles|sacana|sacaninha|safardana|tansinho|tanso|tolinho|tolo|tótó|trapaceiro|tuga|tuguinha|velhaco|velhaquinho|vigarista|vigaristinha|zé-ninguém|zé-povinho">
@@ -234,27 +236,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
 
 
-        <!-- EM DETALHE detalhadamente -->
-        <rule id='EM_DETALHE_DETALHADAMENTE_PT_PT' name="🇵🇹✂️ 'em detalhe' → detalhadamente" type='style' tone_tags="objective">
-            <!-- Created by Marco A.G.Pinto, Portuguese rule 2023-03-10 (2-MAR-2023+) -->
-            <!--
-                Queira explicar em detalhe o tema. → Queira explicar detalhadamente o tema.
-                Queira explicar o tema em detalhe. → Queira explicar o tema detalhadamente.
-            -->
-            <pattern>
-                <token postag='V.+|RG|PD.+|NC.+|AQ.+' postag_regexp='yes'/>
-                <token min="0" max="1" postag='_PUNCT' postag_regexp='no'/>
-                <marker>
-                    <token>em</token>
-                    <token>detalhe</token>
-                </marker>
-                <token postag='_PUNCT|SPS00|(SPS00:)?D[AI].+|PI.+' postag_regexp='yes'/>
-            </pattern>
-            <message>&simplify_msg;</message>
-            <suggestion>detalhadamente</suggestion>
-            <example correction="detalhadamente">Queira explicar <marker>em detalhe</marker> o tema.</example>
-            <example correction="detalhadamente">Queira explicar o tema <marker>em detalhe</marker>.</example>
-        </rule>
+      <rule id='EM_DETALHE_DETALHADAMENTE_PT_PT' name="🇵🇹✂️ 'em detalhe' → detalhadamente" type='style' tone_tags='objective'>
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <token skip='2' postag='V.+' postag_regexp='yes'/>
+              <marker>
+                  <token>em</token>
+                  <token>detalhe</token>
+              </marker>
+          </pattern>
+          <message>&simplify_msg;</message>
+          <suggestion>detalhadamente</suggestion>
+          <example correction="detalhadamente">Queira explicar <marker>em detalhe</marker> o tema.</example>
+          <example correction="detalhadamente">Queira explicar o tema <marker>em detalhe</marker>.</example>
+          <example correction="detalhadamente">O relatório descreve <marker>em detalhe</marker> o procedimento.</example>
+          <example correction="detalhadamente">O autor analisou os resultados <marker>em detalhe</marker>.</example>
+          <example correction="detalhadamente">Vamos discutir esta questão <marker>em detalhe</marker>.</example>
+      </rule>
 
 
         <!-- EM RELAÇÃO À SITUAÇÃO relativamente à situação -->
@@ -3628,23 +3627,25 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-        <rule id='PERANTE_O_MESMO_IDENTICO' name="🇵🇹👔 Perante 'o mesmo' → idêntico">
-            <pattern>
-                <token regexp='yes'>ante|diante|perante</token>
-                <marker>
-                    <token regexp='yes'>d?[ao]s?|uma?</token>
-                    <token regexp='yes'>mesm[ao]s?</token>
-                </marker>
-                <token postag='NC.+|AQ.+' postag_regexp='yes'/>
-            </pattern>
-            <message>&informal_msg;</message>
-            <suggestion><match no='3' postag='DD0(..)0' postag_replace='AQ0$10'>idêntico</match></suggestion>
-            <suggestion><match no='3' postag='DD0(..)0' postag_replace='DI0$10'>um</match> <match no='3' postag='DD0(..)0' postag_replace='AQ0$10'>idêntico</match></suggestion>
-            <example correction="idêntico|um idêntico">Perante <marker>o mesmo</marker> conjunto de dados avaliamos a média.</example>
-            <example correction="idêntico|um idêntico">Estamos perante <marker>um mesmo</marker> conjunto de dados.</example>
-            <example correction="idêntica|uma idêntica">Perante <marker>a mesma</marker> categoria de dados avaliamos a média.</example>
-            <example correction="idêntica|uma idêntica">Estamos perante <marker>uma mesma</marker> categoria de dados.</example>
-        </rule>
+      <rule id='PERANTE_O_MESMO_IDENTICO' name="🇵🇹👔 Perante 'o mesmo' → idêntico" type='style' tone_tags='formal'>
+            <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <token regexp='yes'>ante|perante</token>
+              <marker>
+                  <token regexp='yes'>[ao]s?|uma?</token>
+                  <token regexp='yes'>mesm[ao]s?</token>
+              </marker>
+              <token regexp='yes' inflected='yes'>cenário|condição|contexto|critério|circunstância|configuração|situação</token>
+          </pattern>
+          <message>Num contexto formal, considere substituir &quot;mesmo&quot; por &quot;idêntico&quot; quando se pretende exprimir igualdade e não identidade.</message>
+          <suggestion><match no='3' postag='DD0(..)0' postag_replace='AQ0$10'>idêntico</match></suggestion>
+          <suggestion><match no='3' postag='DD0(..)0' postag_replace='DI0$10'>um</match> <match no='3' postag='DD0(..)0' postag_replace='AQ0$10'>idêntico</match></suggestion>
+          <example correction="idêntico|um idêntico">Perante <marker>o mesmo</marker> cenário, os resultados foram semelhantes.</example>
+          <example correction="idênticos|uns idênticos">Perante <marker>os mesmos</marker> critérios, os resultados foram semelhantes.</example>
+          <example correction="idêntica|uma idêntica">Perante <marker>a mesma</marker> situação, o sistema reagiu de forma diferente.</example>
+          <example correction="idênticas|umas idênticas">Perante <marker>as mesmas</marker> condições, os resultados foram semelhantes.</example>
+      </rule>
 
 
       <rule id='FAZER_DESPORTO_V2' name="🇵🇹👔 'Fazer' desporto → Praticar" tone_tags='formal'>
@@ -3725,7 +3726,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     <category id='ACADEMIC_SCIENTIFIC_PT_PT' name="🇵🇹🎓🔬 Regras académicas e científicas" type="other">
 
 
-      <rule id='BARBARISMS_PT_PT_V4' name="🇵🇹🎓 Estrangeirismos específicos pt_PT" type='style' tone_tags='academic'>
+      <rule id='BARBARISMS_PT_PT_V4' name="🇵🇹🎓 Estrangeirismos específicos pt_PT" type='style' tone_tags='academic' is_goal_specific='true'>
           <!-- ChatGPT 5 and new disambiguator for 2026+ -->
           <!-- IDEA foreign_terms -->
           <!--
@@ -3759,7 +3760,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
               <token spacebefore='no' regexp='yes'>(?:&barbarismos;|&barbarismos_rev2;|&barbarismos_rev3;)s?</token>
               <example>Para se ter ideia do poder do estilo, o Brasil foi o sexto País que mais falou sobre k-pop no Twitter em 2019.</example>
               <example>O que é Eco-Drive?</example>
-              <example>Aceitar cartões de crédito a partir do seu próprio site e se completa no-show e cancelamento Protection.</example>
           </antipattern>
 
           <antipattern>
@@ -3823,7 +3823,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
               <token regexp='yes'>(?:&barbarismos;|&barbarismos_rev2;|&barbarismos_rev3;)s?
               <exception postag_regexp='yes' postag='NP.+'/></token> <!-- "Internet" in uppercase is a NP thus ignored. -->
           </pattern>
-          <message>Os estrangeirismos (português europeu) devem estar entre aspas ou ser italizados.</message>
+          <message>Em textos académicos ou científicos, considere escrever este estrangeirismo em itálico.</message>
           <suggestion>‘\1’</suggestion>
           <suggestion>“\1”</suggestion>
           <suggestion>*\1*</suggestion>
@@ -4059,65 +4059,84 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-        <rule id='CIENTÍFICO_DETERMINADAS_ESPECÍFICAS' name="🇵🇹🔬 Determinados → Específicos" type="style" tone_tags="academic">
-            <pattern>
-                <token regexp="yes">para|como|por</token>
-                <token skip='4' postag='V.+' postag_regexp='yes'/>
-                <marker>
-                    <token regexp="yes">determinad[ao]s</token>
-                    <token postag='AQ..P.+|NC.P.+' postag_regexp='yes'/>
-                </marker>
-            </pattern>
-            <message>Num contexto formal/científico, é preferível escrever &quot;específico&quot;.</message>
-            <suggestion>\4 <match no='3' postag='AQ0(..)0' postag_replace='AQ0$10'>específico</match></suggestion>
-            <example correction="funções específicas">Estes foram criados para desempenhar <marker>determinadas funções</marker>.</example>
-        </rule>
+      <rule id='CIENTÍFICO_DETERMINADAS_ESPECÍFICAS' name="🇵🇹🔬 Determinados → específicos" type='style' tone_tags='academic'>
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <token skip='2' regexp='yes' inflected='yes'>cumprir|desempenhar|exercer</token>
+              <marker>
+                  <token regexp='yes'>determinad[ao]s</token>
+                  <token postag='NC.P.+' postag_regexp='yes'/>
+              </marker>
+          </pattern>
+          <message>Num contexto formal/científico, é preferível escrever &quot;específico&quot;.</message>
+          <suggestion>\3 <match no='2' postag='AQ0(..)0' postag_replace='AQ0$10'>específico</match></suggestion>
+          <example correction="funções específicas">Estes foram criados para desempenhar <marker>determinadas funções</marker>.</example>
+          <example correction="funções específicas">Cada componente foi concebido para cumprir <marker>determinadas funções</marker>.</example>
+          <example correction="funções específicas">Os diferentes módulos permitem exercer <marker>determinadas funções</marker>.</example>
+          <example correction="objetivos específicos">A equipa foi criada para cumprir <marker>determinados objetivos</marker>.</example>
+          <example correction="papéis específicos">Os agentes foram concebidos para desempenhar <marker>determinados papéis</marker>.</example>
+          <example correction="cargos específicos">Os membros foram selecionados para exercer <marker>determinados cargos</marker>.</example>
+          <example>O estudo foi realizado em determinadas condições.</example>
+          <example>Os resultados variam para determinados parâmetros.</example>
+          <example>A decisão foi tomada por determinadas razões.</example>
+          <example>Determinados participantes abandonaram o estudo.</example>
+      </rule>
 
 
-        <rule id='CIENTÍFICO_MAIS_IMPORTANTE_CHAVE_V3' name="🇵🇹🔬 mais conhecidos/importantes → -chave" type="style">
-            <pattern>
-                <marker>
-                    <token postag='NC.+' postag_regexp='yes' regexp='yes' inflected='yes'>adversário|área|aspec?to|ac?tividade|autor|batalha|carac?terística|categoria|cientista|cineasta|conceito|contribuição|decisão|descoberta|detalhe|domínio|elemento|escritor|escultor|etapa|evento|exemplo|fac?to|fac?tor|feito|ferramenta|figura|homem|ideia|indústria|informação|instituição|investigador|jogador|jornalista|líder|local|lugar|membro|momento|movimento|mulher|objec?tivo|objec?to|palavra|papel|peça|pergunta|período|pessoa|pesquisador|ponto|problema|questão|sec?tor|tarefa|tema|tópico|trabalho|vitória</token>
-                    <token>mais</token>
-                    <token regexp='yes'>conhecidos?|importantes?</token>
-                </marker>
-            </pattern>
-            <message>Num contexto formal/científico, é preferível escrever &quot;-chave&quot;.</message>
-            <suggestion>\1-chave</suggestion>
-            <example correction="conceitos-chave">A entropia é um dos <marker>conceitos mais conhecidos</marker> na teoria.</example>
-        </rule>
+      <rule id='CIENTÍFICO_MAIS_IMPORTANTE_CHAVE_V4' name="🇵🇹🔬 'mais importante(s)' → -chave" type='style' tone_tags='academic'>
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <marker>
+                  <token postag='NC.+' postag_regexp='yes' regexp='yes' inflected='yes'>aspecto|aspeto|característica|conceito|contribuição|decisão|elemento|etapa|factor|fator|ferramenta|ideia|informação|objectivo|objetivo|papel|ponto|questão|tema</token>
+                  <token>mais</token>
+                  <token regexp='yes'>importantes?</token>
+              </marker>
+          </pattern>
+          <message>Num contexto formal/científico, é preferível escrever &quot;-chave&quot;.</message>
+          <suggestion>\1-chave</suggestion>
+          <example correction="conceito-chave">A entropia é o <marker>conceito mais importante</marker> na teoria.</example>
+          <example correction="conceitos-chave">Estes são os <marker>conceitos mais importantes</marker> da teoria.</example>
+      </rule>
 
 
-        <rulegroup id='GRANDES_ENORMES_RECURSOS_FINANCEIROS_AVULTADOS' name="🇵🇹🔬 'grandes/enormes' recursos financeiros → avultados" type="style" tags="picky">
+        <rulegroup id='GRANDES_ENORMES_RECURSOS_FINANCEIROS_AVULTADOS' name="🇵🇹🔬 'grandes/enormes' recursos financeiros → avultados" type='style' tone_tags='academic' tags='picky'>
+            <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
             <rule>
                 <pattern>
                     <token regexp='yes'>recursos?|ganhos?|proveitos?|meios?|quantias?|perdas?|quebras?|prejuízos?</token>
-                    <token skip='4' regexp='yes'>financeir[ao]s?|monetári[ao]s?</token>
+                    <token regexp='yes'>financeir[ao]s?|monetári[ao]s?</token>
                     <marker>
-                        <token regexp='yes'>grandes?|enormes?|elevad[ao]s?</token>
+                        <token regexp='yes'>grandes?|enormes?</token>
                     </marker>
                 </pattern>
-                <message>Num contexto formal/científico, é preferível escrever &quot;avultados&quot;.</message>
+                <message>Num contexto formal/científico, é preferível usar &quot;avultado&quot;.</message>
                 <suggestion><match no='2' postag='AQ0(..)0' postag_replace='AQ0$10'>avultado</match></suggestion>
                 <example correction="avultados">Era expectável face aos recursos financeiros <marker>grandes</marker>.</example>
-                <example correction="avultados">Era expectável face aos ganhos financeiros <marker>grandes</marker>.</example>
+                <example correction="avultados">Era expectável face aos ganhos financeiros <marker>enormes</marker>.</example>
                 <example correction="avultados">Era expectável face aos proveitos financeiros <marker>grandes</marker>.</example>
-                <example correction="avultados">Era expectável face aos meios financeiros <marker>grandes</marker>.</example>
+                <example correction="avultados">Era expectável face aos meios financeiros <marker>enormes</marker>.</example>
+                <example correction="avultadas">Era expectável face às perdas financeiras <marker>enormes</marker>.</example>
+                <example correction="avultadas">Era expectável face às quantias monetárias <marker>grandes</marker>.</example>
             </rule>
             <rule>
                 <pattern>
                     <marker>
-                        <token regexp='yes'>grandes?|enormes?|elevad[ao]s?</token>
+                        <token regexp='yes'>grandes?|enormes?</token>
                     </marker>
                     <token regexp='yes'>recursos?|ganhos?|proveitos?|meios?|quantias?|perdas?|quebras?|prejuízos?</token>
                     <token regexp='yes'>financeir[ao]s?|monetári[ao]s?</token>
                 </pattern>
-                <message>Num contexto formal/científico, é preferível escrever &quot;avultados&quot;.</message>
+                <message>Num contexto formal/científico, é preferível usar &quot;avultado&quot;.</message>
                 <suggestion><match no='3' postag='AQ0(..)0' postag_replace='AQ0$10'>avultado</match></suggestion>
                 <example correction="avultados">Era expectável face aos <marker>grandes</marker> recursos financeiros envolvidos.</example>
-                <example correction="avultados">Era expectável face aos <marker>grandes</marker> ganhos financeiros envolvidos.</example>
+                <example correction="avultados">Era expectável face aos <marker>enormes</marker> ganhos financeiros envolvidos.</example>
                 <example correction="avultados">Era expectável face aos <marker>grandes</marker> proveitos financeiros envolvidos.</example>
-                <example correction="avultados">Era expectável face aos <marker>grandes</marker> meios financeiros envolvidos.</example>
+                <example correction="avultados">Era expectável face aos <marker>enormes</marker> meios financeiros envolvidos.</example>
+                <example correction="avultadas">O relatório registou <marker>grandes</marker> perdas financeiras.</example>
+                <example correction="avultadas">A operação envolveu <marker>enormes</marker> quantias monetárias.</example>
             </rule>
         </rulegroup>
 
@@ -5161,30 +5180,27 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     </rulegroup>
 
 
-    <rule id='SIMPLIFICAR_QUE_VERBO_A_VERBOINFINITIVO' name="🇵🇹✂️ Que + V. → A + V. Infinitivo" type="style">
-        <pattern>
-            <token postag='NC.+|AQ.+' postag_regexp='yes'><exception scope='previous' postag_regexp='yes' postag='VMN000.+'/></token>
-            <marker>
-                <token>que</token>
-                <token skip='2' postag='VMIP3P0' postag_regexp='no'> <!-- It only works with plural, using singular generates lots of FPs -->
-                    <exception postag_regexp='yes' postag='NP.+'/>
-                    <exception inflected='yes' regexp='yes'>haver|estar|existir|ser|ter</exception>
-                    <exception scope='next' postag_regexp='yes' postag='VMN000.+'/>
-                </token>
-            </marker>
-            <token regexp='yes'>conforme|sobre <!-- Obtained with: NC.+ AND SPS00 -->
-                <exception scope='previous' postag_regexp='yes' postag='VMN000.+|RG'/>
-            </token>
-        </pattern>
-        <message>&simplify_msg;</message>
-        <suggestion>a <match no='3' postag='VMIP3.+' postag_regexp="yes" postag_replace='VMN0000'/></suggestion>
-        <example correction="a atuar">Isto resume todas as forças <marker>que atuam</marker> sobre o objeto.</example>
-        <example>Em cujas ruas se localizam casas que parecem despenhar-se sobre o Cantábrico.</example>
-        <example>Principalmente sobre o impacto que podem causar sobre a natureza colaborativa da internet.</example>
-        <example>Até lá vamos baloiçando a nossa amizade por tempos indeterminados que determinam muito sobre quem nos quer bem.</example>
-        <example>Durante o curso, os alunos de Logística podem aprender disciplinas que oferecem conhecimento sobre administração.</example>
-        <example>A publicação reúne uma série de pesquisas que procuram jogar luz sobre os diferentes nós do problema educacional.</example>
-    </rule>
+      <rule id='SIMPLIFICAR_QUE_VERBO_A_VERBOINFINITIVO' name="🇵🇹✂️ 'que + verbo + sobre' → 'a + infinitivo + sobre'" type='style' tags='picky'>
+          <!--IDEA shorten_it-->
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <token postag='NC.+|AQ.+' postag_regexp='yes'/>
+              <marker>
+                  <token>que</token>
+                  <token postag='VMIP3.+' postag_regexp='yes' inflected='yes' regexp='yes'>atuar|agir|incidir|recair</token>
+              </marker>
+              <token>sobre</token>
+          </pattern>
+          <message>&simplify_msg;</message>
+          <suggestion>a <match no='3' postag='VMIP3.+' postag_regexp='yes' postag_replace='VMN0000'/></suggestion>
+          <example correction="a atuar">Isto resume toda a força <marker>que atua</marker> sobre o objeto.</example>
+          <example correction="a atuar">Isto resume todas as forças <marker>que atuam</marker> sobre o objeto.</example>
+          <example correction="a incidir">Analise a pressão <marker>que incide</marker> sobre a superfície.</example>
+          <example correction="a agir">As forças <marker>que agem</marker> sobre o corpo.</example>
+          <example correction="a recair">Os encargos <marker>que recaem</marker> sobre a empresa.</example>
+          <example correction="a incidir">As pressões <marker>que incidem</marker> sobre a superfície.</example>
+      </rule>
 
 
         <rule id='QUE_SE_VERBO_PART_PASSADO' name="🇵🇹✂️ 'Que se Verbo' → Verbo Part. Passado">
