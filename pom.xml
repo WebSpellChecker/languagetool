@@ -551,6 +551,11 @@
                 <version>${io.opentelemetry.semconv.version}</version>
             </dependency>
             <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-core</artifactId>
+                <version>3.8.7</version>
+            </dependency>
+            <dependency>
                 <groupId>io.prometheus</groupId>
                 <artifactId>simpleclient</artifactId>
                 <version>${io.prometheus.simpleclient.version}</version>

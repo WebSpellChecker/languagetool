@@ -9,6 +9,8 @@ This document records WebSpellChecker-specific changes on top of upstream Langua
   - Scope: components depending on `micrometer-core` (direct or transitive) packaging of `langtool/libs`.
 - **Netty upgrade:** Updated `io.netty` to **4.1.137.Final** to address two issues reported against `netty-handler` 4.1.136.Final: improper validation of certificate with host mismatch (high) and improper check for unusual or exceptional conditions (critical).
   - Scope: components depending on `io.netty` (direct or transitive) packaging of `langtool/libs`.
+- **reactor-core pin:** Pinned `io.projectreactor:reactor-core` to **3.8.7** to address allocation of resources without limits or throttling (high, SNYK-JAVA-IOPROJECTREACTOR-19267101) and a race condition (high, SNYK-JAVA-IOPROJECTREACTOR-19267102) in 3.6.6.
+  - Scope: components depending on `reactor-core` (transitive through `lettuce-core` in `languagetool-server`) packaging of `langtool/libs`.
 
 ## 2026-08-10
 
