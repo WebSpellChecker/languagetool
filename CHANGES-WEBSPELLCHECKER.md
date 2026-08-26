@@ -2,6 +2,14 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-08-26
+
+### Security
+- **micrometer upgrade:** Updated `io.micrometer` to **1.16.7** to address two issues reported against `micrometer-core` 1.15.12: injection (low) and missing release of memory after effective lifetime (high).
+  - Scope: components depending on `micrometer-core` (direct or transitive) packaging of `langtool/libs`.
+- **Netty upgrade:** Updated `io.netty` to **4.1.137.Final** to address two issues reported against `netty-handler` 4.1.136.Final: improper validation of certificate with host mismatch (high) and improper check for unusual or exceptional conditions (critical).
+  - Scope: components depending on `io.netty` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-08-10
 
 ### Security
