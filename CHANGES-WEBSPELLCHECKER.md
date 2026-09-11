@@ -2,6 +2,14 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-09-11
+
+### Security
+- **netty pin dropped:** Removed the `io.netty:netty-bom` 4.1.137.Final import from `dependencyManagement`. Netty is not managed upstream at all, it arrives transitively from `lettuce-core`, which now requires 4.2.13.Final.
+  - Scope: components depending on `io.netty` (direct or transitive) packaging of `langtool/libs`.
+- **micrometer registry back on the upstream artifact:** Reverted `micrometer-registry-prometheus-simpleclient` to `micrometer-registry-prometheus` (1.17.1, the version upstream now uses).
+  - Scope: components depending on `micrometer-core` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-08-26
 
 ### Security
@@ -66,7 +74,7 @@ This document records WebSpellChecker-specific changes on top of upstream Langua
 ## 2026-05-19
 
 ### Security
-- **Netty upgrade:** Updated `opentelemetry` to **1.62.0** to address **CVE-2026-45292**.
+- **opentelemetry upgrade:** Updated `opentelemetry` to **1.62.0** to address **CVE-2026-45292**.
   - Scope: components depending on `opentelemetry` (direct or transitive) packaging of `langtool/libs`.
 
 ## 2026-05-07
