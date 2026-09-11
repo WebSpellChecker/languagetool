@@ -72,10 +72,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 <!-- Estrangeirismos específicos pt_PT - the rule also tests with adding a "s" (plural) at the end of each word -->
 <!ENTITY barbarismos "accelerando|agitato|allegretto|allegro|amabile|apfelstrudel|backup|badine|bavaroise|beagle|bip|blague|blister|boate|breakdance|brie|cache-sexe|calzone|camber|campus|caniche|cantabile|cantata|carpaccio|chaise-longue|charleston|chartreuse|cheddar|clarke|clear|clearance|cloisonné|coloratura|continuum|cookie|cordon-bleu|corpus|corpora|crevasse|croissant|cumbia|datcha|deficit|design|designer|doping|doppler|drive|duce|duplex|ecstasy|ensalada|ensemble|entente|evasé|fait-divers|fanfreluche|fatwa|fax|fermata|flamenco|flash|flashes|fondue|forint|fox|freeware|fugato|funk|gay|glamour|glide|gospel|gouda|grunge|guaracha|habanera|habitat|habitus|hip-hop|hippie|homo|horseball|hype|ibidem|id|impedimenta|in-octavo|influenza|interferon|jamboree|jazz|joint-venture|junkie|kamikaze|karaoke|karting|kasba|ketchup|kina|kitchenette|kuna|kwacha|kwanza|lamé|larghetto|leasing|legato|lingerie|locus|maestoso|majorette|mambo|manager|maquis|marketing|maser|matrioska|miserere|mister|modem|moderato|modus|mohair|muesli|mvdol|napalm|necessaire|net|new-age|noir|nomenklatura|nuance|nylon|offshore|opus|origami|ossobuco|ouguiya|paanga|pahoehoe|paparazzo|paparazzi|patchouli|pecorino|pence|perestroika|petit-suisse|pianoforte|pickle|piercing|pilé|pince-nez|pinscher|playboy|poche|pogrom|poodle|pop|posteriori|pot-pourri|priori|prise|promenade|punk|putter|puzzle|quantum|quark|quiche|ralenti|rallentando|rave|ready-made|reggae|rep|reprise|rickettsia|rinforzando|ritardando|rocaille|rodeo|rookie|rubato|régie|réveillon|sample|sashimi|scherzando|scherzo|scone|set|setter|sexy|sfogato|sforzando|shar-pei|shareware|shiatsu|shopping|sic|sidecar|single|skate|slalom|smorzando|socialite|sottovoce|soul|spa|spin|spray|sprue|staccato|stand|stock|stop|stress|stripper|superstar|surf|sushi|tai-chi|tandem|tavolatura|techno|telex|terylene|ticket|timeshare|tiramisu|tofu|toner|top|tori|trailer|tremolo|trial|triplex|tsunami|tutilimúndi|tutti|tutu|vaudeville|vernissage|vibrato|vintage|vitae|vitrine|vivace|volte-face|waffle|web|yang|yeti|yin|yuppie">
-
 <!ENTITY barbarismos_rev2 "abstract|apartheid|app|applet|baby-doll|backbone|backdoor|baconburger|banner|bestseller|bitcoin|blogger|blueprint|bogie|boid|boost|bot|bottom-up|brainstorm|bullying|burnout|cameraman|carjacking|chairman|commodity|commodities|contactless|cracker|cracking|cyberbullying|debugging|developer|dildo|dojo|downgrade|download|downtime|drone|drugstore|e-bullying|e-commerce|e-learning|e-manual|e-newsletter|e-reader|exploit|fair-play|feeder|flat|flyer|forward|forwarding|führer|gaming|gangbang|geek|goal|hack|hacker|hacking|hardware|hit|homebanking|homepage|idem|idle|input|kit|know-how|lag|laser|layer|legacy|lob|login|loop|lossless|mailbombing|marketeer|milkshake|mindset|nerd|netiquette|networking|newsgroup|off-label|offline|offside|on-label|on-line|online|output|overbooking|overflow|palmier|paper|patch|patches|player|ransomware|reboot|reggaeton|restart|roadmap|royalty|royalties|screenshot|scroll|shell|show|slogan|smartphone|snob|socket|software|spam|spammer|sprite|stalking|standard|stealth|step|streaming|string|strogonoff|suspense|swarm|tablet|tagging|task-force|telemarketing|threshold|time-sharing|tip|toolkit|topless|trigger|troll|tweeter|underscore|update|upgrade|uptime|user|wannabe|wargame|webpage|western|wiki|wireless|woofer">
-
-<!ENTITY barbarismos_rev3 "abat-jour|affair|afición|aficiones|aftershave|airbag|alibi|anorak|anti-dumping|antitrust|aquaplaning|atelier|avant-garde|awareness|back-end|back-up|backend|background|backstage|badge|badminton|ballet|barbecue|barman|benchmark|benchmarking|best-seller|big-bang|bitmap|blackout|blazer|blitzkrieg|blockbuster|blockchain|blog|body-building|bodyboard|bodyboarder|bold|boom|bowling|box-office|brainstorming|briefing|broker|browser|brunch|budget|buffer|bug|build|bunkai|byte|cache|camping|cappuccino|case-study|cash|cash-flow|casting|catering|cent|chat|chatbot|check-in|check-up|checkbox|checkboxes|checkout|checkpoint|chip|chipset|clipboard|close-up|cloud|cluster|cockpit|cookie-cutter|copyright|copywriter|cover-up|cowboy|crash|cross-country|crowdfunding|crowdsourcing|cyberspace|cyborg|dashboard|dataset|deadline|dealer|debug|deepfake|default|delivery|desktop|display|draft|driver|dumping|déjà-vu|e-book|e-mail|e-zine|editing|emoticon|endpoint|entertainment|expertise|extranet|eyeliner|factoring|fan|fanzine|feedback|feeling|ferry|fingerprint|firewall|firmware|fitness|flag|flashback|flirt|flop|follow-up|forecast|framework|freelance|freelancer|front-end|frontend|full-time|futon|gadget|gangster|gap|gateway|gentleman|geocacher|geocaching|ghetto|goal-average|goodwill|hall|hamburger|handicap|handling|happening|hard-core|hash|heavy-metal|high-tech|hobby|holding|hooligan|hotspot|hoverboard|hovercraft|ice-cream|iceberg|impeachment|import-export|indoor|infotainment|input-output|insight|interface|intranet|jam-session|jeans|jet-lag|jet-set|jetpack|jingle|job|jockey|jogging|joystick|jukebox|kabuki|karaté|kart|kayak|kernel|kickboxing|kilim|kimono|kitsch|kiwi|knock-out|knowing-doing|kung-fu|laptop|layout|lead|leader|like|link|lobby|lockout|log|look|lounge|low-profile|mail|mailing|mainframe|mainstream|management|marketplace|master|match|meeting|merchandising|middleware|motherboard|motocross|mouse|network|newsletter|non-stop|nude|office-boy|offset|ombudsman|open-source|outdoor|outlier|outsider|outsourcing|overclocking|pacemaker|package|paintball|palmtop|parking|part-time|password|patchwork|pedigree|penalty|pick-up|pickpocket|picnic|pidgin|pin-up|pipeline|pixel|playback|playlist|playmaker|plug-in|plugin|podcast|pool|portfolio|preprint|preview|prompt|proxy|pub|publisher|pullover|putsch|rafting|raid|rally|ranking|rap|rating|ratio|realpolitik|remake|replay|resort|review|riff|ring|roadshow|roaming|rock|router|rugby|runtime|sampler|scam|scammer|scanner|score|script|self-service|serial-killer|server|set-point|show-off|showbiz|sitcom|site|sketch|skipper|smiley|sniper|snowboard|spoofing|spread|staff|standby|start-up|startup|stick|storyboard|striptease|subwoofer|sudoku|survey|sweater|sweatshirt|swing|takeaway|takeover|talk-show|target|tatami|tattoo|team|teenager|thriller|tie-break|timer|timing|toast|token|top-down|tracking|trackpad|training|trip-hop|trust|turnover|tweed|tweet|twist|underground|underwear|unisex|up-to-date|upload|videogame|voice-mail|voucher|voyeur|walkie-talkie|warm-up|webcam|webinar|webmail|webmaster|weekend|whalewatching|windsurf|winner|wok|workaholic|workflow|workshop|workstation|yes-man|zapping|zeitgeist|zen|zip|zombie|zoom">
+<!ENTITY barbarismos_rev3 "abat-jour|affair|afición|aficiones|aftershave|airbag|alibi|anorak|anti-dumping|antitrust|aquaplaning|atelier|avant-garde|awareness|back-end|back-up|backend|background|backstage|badge|badminton|ballet|barbecue|barman|benchmark|benchmarking|best-seller|big-bang|bitmap|blackout|blazer|blitzkrieg|blockbuster|blockchain|blog|body-building|bodyboard|bodyboarder|bold|boom|botnet|bowling|box-office|brainstorming|briefing|broker|browser|brunch|budget|buffer|bug|build|bunkai|byte|cache|camping|cappuccino|case-study|cash|cash-flow|casting|catering|cent|chat|chatbot|check-in|check-up|checkbox|checkboxes|checkout|checkpoint|chip|chipset|clipboard|close-up|cloud|cluster|cockpit|cookie-cutter|copyright|copywriter|cover-up|cowboy|crash|cross-country|crowdfunding|crowdsourcing|crimeware|cyberspace|cyborg|dashboard|dataset|deadline|dealer|debug|deepfake|default|delivery|desktop|display|draft|driver|dumping|déjà-vu|e-book|e-mail|e-zine|editing|emoticon|endpoint|entertainment|expertise|extranet|eyeliner|factoring|fan|fanzine|feedback|feeling|ferry|fingerprint|firewall|firmware|fitness|flag|flashback|flirt|flood|flop|follow-up|forecast|framework|freelance|freelancer|front-end|frontend|full-time|futon|gadget|gangster|gap|gateway|gentleman|geocacher|geocaching|ghetto|goal-average|goodwill|hall|hamburger|handicap|handling|happening|hard-core|hash|heavy-metal|high-tech|hijacking|hobby|holding|hooligan|hotspot|hoverboard|hovercraft|ice-cream|iceberg|impeachment|import-export|indoor|infotainment|input-output|insight|interface|intranet|jam-session|jeans|jet-lag|jet-set|jetpack|jingle|job|jockey|jogging|joystick|jukebox|kabuki|karaté|kart|kayak|kernel|kickboxing|kilim|kimono|kitsch|kiwi|knock-out|knowing-doing|kung-fu|laptop|layout|lead|leader|like|link|lobby|lockout|log|look|lounge|low-profile|mail|mailing|mainframe|mainstream|management|marketplace|master|master-slave|match|meeting|merchandising|middleware|motherboard|motocross|mouse|network|newsletter|non-stop|nude|office-boy|offset|ombudsman|open-source|outdoor|outlier|outsider|outsourcing|overclocking|pacemaker|package|paintball|palmtop|parking|part-time|password|patchwork|payload|pedigree|peer-to-peer|penalty|phisher|pick-up|pickpocket|picnic|pidgin|pin-up|pipeline|pixel|playback|playlist|playmaker|plug-in|plugin|podcast|pool|pop-up|portfolio|preprint|preview|prompt|proxy|pub|publisher|pullover|putsch|rafting|raid|rally|ranking|rap|rating|ratio|realpolitik|remake|replay|resort|review|riff|ring|roadshow|roaming|rock|router|rugby|runtime|sampler|scam|scammer|scan|scanner|score|script|self-service|serial-killer|server|set-point|show-off|showbiz|sitcom|site|sketch|skipper|smiley|sniffer|sniper|snowboard|spoof|spoofing|spread|spyware|staff|standby|start-up|startup|stick|storyboard|striptease|subwoofer|sudoku|survey|sweater|sweatshirt|swing|takeaway|takeover|talk-show|target|tatami|tattoo|team|teenager|thriller|tie-break|timer|timing|toast|token|top-down|tracking|trackpad|training|trojan|twist|underground|underwear|unisex|up-to-date|upload|videogame|voice-mail|voucher|voyeur|walkie-talkie|warm-up|webcam|webinar|webmail|webmaster|weekend|whalewatching|windsurf|winner|wok|workaholic|workflow|workshop|worm|yes-man|zapping|zeitgeist|zen|zip|zombie|zoom">
 
 <!-- Termos depreciativos específicos pt_PT - the rule uses inflected='yes' to get all forms -->
 <!ENTITY depreciativo_pt_pt "alarve|alarvezinho|aldrabão|aldrabãozinho|badalhoco|badalhocozinho|badameco|badamecozinho|baianada|baianadinha|bandalho|bandalhozinho|bêbadinho|bêbado|beleguim|betinho|bimbalhada|bimbalhadinha|bimbinho|bimbo|bocó|bocozinho|bosta|bostinha|brasuca|brasuquinha|brega|breguinha|bumbinho|bumbo|cabrão|cabrãozinho|cafajeste|caguinchas|caguinchinhas|calão|calãozinho|campónio|campóniozinho|caralhão|caralhãozinho|chacha|chachinha|charlatão|chico-espertinho|chico-esperto|china|chininha|chinoca|chinocinha|choninhas|chulo|chunga|chungaria|chunguice|chupista|ciganada|ciganagem|coirão|coninhas|crápula|cretino|escarumba|escória|escumalha|espertalhão|espertinho|estúpido|fanfarrão|fufa|gagá|gajo|gandulo|generaleco|gentalha|gentiaga|gordalhão|gordalhãozinho|idiota|idiotinha|imbecil|imbecilzinho|indigente|japa|japinha|labrego|labreguinho|lamechas|lamechinhas|larápio|larilas|larilinhas|lorpa|lorpinha|malditinho|maldito|maltrapilho|manientinho|maniento|maricão|maricãozinho|maricas|mariconcinho|mariconço|mariquinhas|mentecaptinho|mentecapto|mitra|mitrinha|molenga|molengão|molengãozinho|molenguinha|monhé|monhézinho|morcão|morcãozinho|negralhada|negralhadinha|nhurrice|nhurrinha|nhurrinho|nhurro|otário|pacóvio|palerma|palerminha|panaca|panaquinha|panasca|panasquinha|paneleirinho|paneleiro|panilas|panilinhas|parolinho|parolo|parvinho|parvo|parvozinho|patego|pateguinho|pelintra|pelintrinha|pindérico|pindéricozinho|pita|pitinha|pito|portuga|portuguinha|pretalhada|pretalhadinha|pretaria|pretarinha|prostituta|prostitutinha|pulha|pulhinha|puta|putinha|rabeta|rabetinha|ralé|reles|sacana|sacaninha|safardana|tansinho|tanso|tolinho|tolo|tótó|trapaceiro|tuga|tuguinha|velhaco|velhaquinho|vigarista|vigaristinha|zé-ninguém|zé-povinho">
@@ -103,7 +101,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
 
 
-      <rulegroup id="CONFUSAO_CAIXA_EMBALAGEM_FARMACOS" name="🇵🇹 Confusão: caixa/embalagem (fármacos)" tone_tags='objective'>
+      <rulegroup id="CONFUSAO_CAIXA_EMBALAGEM_FARMACOS" name="🇵🇹🖌 Confusão: caixa/embalagem (fármacos)" tone_tags='objective'>
       <!-- ChatGPT 5 and new disambiguator for 2026+ -->
 
             <!-- #1: (mais comum): verbo + caixa + medicamento (alta precisão) -->
@@ -141,7 +139,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rulegroup>
 
 
-    <rule id='CICLO_VICIOSO' name="🇵🇹 Calinada: 'ciclo' vicioso → 'círculo'" tone_tags='objective'>
+    <rule id='CICLO_VICIOSO' name="🇵🇹🖌 Calinada: 'ciclo' vicioso → 'círculo'" tone_tags='objective'>
        <!-- ChatGPT 5 and new disambiguator for 2026+ -->
        <pattern>
             <marker>
@@ -158,7 +156,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     </rule>
 
 
-    <rule id='AVOID_GERUND' name='🇵🇹 Evitar o Gerúndio (perifrásico)' type='style' tone_tags='objective'>
+    <rule id='AVOID_GERUND' name='🇵🇹🖌 Evitar o Gerúndio (perifrásico)' type='style' tone_tags='objective'>
         <!-- Created by Tiago F. Santos , Portuguese rule, 2016-11-24 -->
 
         <antipattern> <!-- Add number agreement exceptions so that rule ID:GENERAL_VERB_AGREEMENT_ERRORS is triggered -->
@@ -256,77 +254,48 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
 
 
-        <!-- EM RELAÇÃO À SITUAÇÃO relativamente à situação -->
-        <rulegroup id='EM_RELAÇÃO_RELATIVAMENTE_PT_PT' name="🇵🇹✂️ Em relação → relativamente" type='style' tone_tags='objective'>
-        <!-- Created by Marco A.G.Pinto, Portuguese rule 2023-01-25 + 2023-02-14 (25-JUL-2022+) -->
-        <!--
-            O que fazer em relação a esta situação? → O que fazer relativamente a esta situação?
-            Pede ajuda em relação a temas não abrangidos neste documento. → Pede ajuda relativamente a temas não abrangidos neste documento.
-            O que fazer em relação à situação? → O que fazer relativamente à situação?
-            O que fazer em relação ao projeto? → O que fazer relativamente ao projeto?
+      <rule id='EM_RELAÇÃO_RELATIVAMENTE_PT_PT' name="🇵🇹🖌️ Em relação a → relativamente a" type='style' tone_tags='objective'>
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
 
-            Preposition "a" was the one causing the problems because of the crasis issue.
-        -->
+          <antipattern> <!-- "em relação à média" is a statistical term -->
+              <token>em</token>
+              <token>relação</token>
+              <token>à</token>
+              <token>média</token>
+              <example>Isto é feito em relação à média.</example>
+              <example>Daqueles que têm capacidade e potencial superior em relação à média da população.</example>
+          </antipattern>
 
-        <antipattern> <!-- "em relação à média" is a statistical term -->
-            <token>em</token>
-            <token>relação</token>
-            <token>à</token>
-            <token>média</token>
-            <example>Isto é feito em relação à média.</example>
-            <example>Daqueles que têm capacidade e potencial superior em relação à média da população.</example>
-        </antipattern>
+          <pattern>
+              <token postag='SENT_START|_PUNCT_COMMA|V.+' postag_regexp='yes'/>
+              <marker>
+                  <token>em</token>
+                  <token>relação</token>
+              </marker>
+              <token regexp='yes'>a|às?|aos?</token>
+              <token min='0' postag='DD.+' postag_regexp='yes'/> <!-- determinante demonstrativo opcional -->
+              <token postag='N.+|AQ.+' postag_regexp='yes'/>
+          </pattern>
+          <message>Para uma formulação mais concisa, pode usar <suggestion>relativamente</suggestion>.</message>
 
-        <!-- A -->
-            <rule>
-                <pattern>
-                    <marker>
-                        <token>em
-                        <exception scope="previous" postag_regexp='yes' postag='RG|Z0.+|PI.+|DI.+|RM'/>
-                    </token>
-                    <token>relação</token>
-                </marker>
-                <token regexp='no'>a</token>
-                <token postag='PP.+|DI.+|DD.+|PD.+|VMN0000|DP.+|PE.+|NC.+|AQ.+|NP.+' postag_regexp='yes'/>
-                <token min="1" max="2" postag='NC.+|AQ.+|NP.+|RN' postag_regexp='yes'/>
-                <token><exception regexp='no'>antes</exception></token>
-            </pattern>
-            <message>&simplify_msg;</message>
-            <suggestion>relativamente</suggestion>
-            <example correction="relativamente">O que fazer <marker>em relação</marker> a esta situação?</example>
-            <example correction="relativamente">Pede ajuda <marker>em relação</marker> a temas não abrangidos neste documento.</example>
-            <example>Já em relação a outros recursos, o DualShock 4 parece ser exatamente o mesmo que temos atualmente, sem qualquer g...</example>
-        </rule>
+          <!-- infinitivo -->
+          <example correction="relativamente">O que fazer <marker>em relação</marker> a esta situação?</example>
+          <example correction="relativamente">É necessário decidir <marker>em relação</marker> a este assunto.</example>
+          <example correction="relativamente">O que fazer <marker>em relação</marker> à situação?</example>
+          <example correction="relativamente">O que decidir <marker>em relação</marker> ao projeto?</example>
 
-        <!-- À(S)/AO(S) -->
-        <rule>
-            <pattern>
-                <marker>
-                    <token>em
-                    <exception scope="previous" postag_regexp='yes' postag='RG|Z0.+|PI.+|DI.+|RM'/>
-                </token>
-                <token>relação</token>
-            </marker>
-            <token regexp='yes'>às?|aos?</token>
-            <token min="1" max="2" postag='NC.+|AQ.+|NP.+' postag_regexp='yes'/>
-            <token><exception regexp='no'>antes</exception></token>
-        </pattern>
-        <message>&simplify_msg;</message>
-        <suggestion>relativamente</suggestion>
-        <example correction="relativamente">O que fazer <marker>em relação</marker> à situação?</example>
-        <example correction="relativamente">O que fazer <marker>em relação</marker> ao projeto?</example>
-        <example>A euforia da vitória não nos cega em relação às realidades</example>
-        <example>A taxa normalmente fica entre R$ 50,00 e R$ 100,00 para um óculos, sem variar muito em relação ao preço do óculos.</example>
-        <example>Ainda em relação ao PR um outro mail dizia que o homem de Boliqueime teve um deslize.</example>
-        <example>Essa regra possui algumas limitações, principalmente em relação aos sistemas operacionais.</example>
-        <example>...iores a 60 km/h em condições de tráfego congestionado em vias de circulação delimitadas fisicamente em relação ao sentido contrário (por exemplo autoestradas que têm separadores centrais).</example>
-        <example>A mulher sentiu-se tímida em relação ao padre momentos antes de se confessar.</example>
-    </rule>
+          <!-- verbo finito -->
+          <example correction="relativamente">Falamos <marker>em relação</marker> à proposta.</example>
+          <example correction="relativamente">A comissão deliberou <marker>em relação</marker> ao projeto.</example>
+          <example correction="relativamente">Eles discutiram <marker>em relação</marker> aos resultados.</example>
+          <example correction="relativamente">Pronunciaram-se <marker>em relação</marker> às propostas apresentadas.</example>
 
-</rulegroup>
+          <!-- depois de vírgula -->
+          <example correction="relativamente">Quanto ao relatório, <marker>em relação</marker> a esta questão, nada mudou.</example>
+      </rule>
 
 
-    <rule id='VELHA_ESCOLA_VELHA_GUARDA' name="🇵🇹 Velha 'escola' → guarda" tone_tags='formal'>
+    <rule id='VELHA_ESCOLA_VELHA_GUARDA' name="🇵🇹🖌 Velha 'escola' → guarda" tone_tags='formal'>
         <pattern>
             <token inflected='yes'>ser</token>
             <token>da</token>
@@ -340,7 +309,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     </rule>
 
 
-    <rulegroup id="PORTUGUESE_ADDRESSES" name="🇵🇹 Formato de endereços em Portugal" type="style" tone_tags="formal">
+    <rulegroup id="PORTUGUESE_ADDRESSES" name="🇵🇹🖌 Formato de endereços em Portugal" type="style" tone_tags="formal">
         <!--  Localized from French, by Tiago F. Santos, 2017-10-01      -->
         <rule>
             <regexp type="exact" mark="1">\b(?:Rua|R\.|Arruamento|Avenida|Av\.|Praça|Pr\.|Cruzamento|Caminho|Via|Estrada|Piso)[  ][^,\n]+\s*[,\n]\s*(\p{Lu}[^,%\d\n]+[  ]\d{4}(?:\-\d{3})?)\s*[,\n]\s*(?:PORTUGAL|PORTOGALLO|PORTOGALIA)\b</regexp>
@@ -371,7 +340,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     </rulegroup>
 
 
-<rulegroup id='ORDINAL_ABREVIATION' name="🇵🇹 Abreviatura de ordinais: 1º → 1.º" tone_tags="formal">
+<rulegroup id='ORDINAL_ABREVIATION' name="🇵🇹🖌 Abreviatura de ordinais: 1º → 1.º" tone_tags="formal">
     <!--  Created by Tiago F. Santos, 20-07-2017 -->
     <url>https://ciberduvidas.iscte-iul.pt/artigos/rubricas/idioma/ainda-sobre-a-abreviatura-do-numeral-ordinal-com-ou-sem-o-sobrescrito-sublinhado/2680</url>
     <antipattern>
@@ -460,10 +429,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
 
-    <category id='FORMAL_SPEECH_PT_PT' name='🇵🇹 Linguagem Formal' type='register' tone_tags="formal">
+    <category id='FORMAL_SPEECH_PT_PT' name='🇵🇹🤵 Linguagem Formal' type='register' tone_tags="formal">
 
 
-        <rule id='SER_CARO_ONEROSO_DISPENDIOSO' name="🤵 Ser 'caro' → oneroso/dispendioso" type='style' tone_tags='formal' tags='picky'>
+        <rule id='SER_CARO_ONEROSO_DISPENDIOSO' name="🇵🇹🤵 Ser 'caro' → oneroso/dispendioso" type='style' tone_tags='formal' tags='picky'>
             <!-- ChatGPT 5 and new disambiguator for 2026+ -->
             <!-- It is a Portuguese European rule only because "cara(s)" is commonly used in Brazil to address people informally -->
 
@@ -574,7 +543,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
 
 
-        <rulegroup id='INFORMALITIES' name="🇵🇹👔 Evitar linguagem informal" default="on" tags="picky" tone_tags="formal">
+        <rulegroup id='INFORMALITIES' name="🇵🇹🤵 Evitar linguagem informal" default="on" tags="picky" tone_tags="formal">
             <!-- Created by Tiago F. Santos, Portuguese rule, 2017-05-09 -->
             <url>https://pt.wiktionary.org/wiki/Categoria:Coloquialismo_(Portugu%C3%AAs)</url>
             <rule>
@@ -1253,7 +1222,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 </rulegroup>
 
 
-    <rulegroup id='COLOQUIALISMOS_PT_PT' name="🇵🇹👔 Coloquialismos: evitar expressões orais" default='on' tone_tags='formal'>
+    <rulegroup id='COLOQUIALISMOS_PT_PT' name="🇵🇹🤵 Coloquialismos: evitar expressões orais" default='on' tone_tags='formal'>
 
         <rule>
             <pattern>
@@ -2221,7 +2190,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     </rulegroup>
 
 
-        <rulegroup id='GASTAR_DESPENDER_DESEMBOLSAR' name='🇵🇹👔 gastar → despender/desembolsar' tone_tags='formal' is_goal_specific='true'>
+        <rulegroup id='GASTAR_DESPENDER_DESEMBOLSAR' name='🇵🇹🤵 gastar → despender/desembolsar' tone_tags='formal' is_goal_specific='true'>
         <!-- Used ChatGPT 4o for enhancements and extra accuracy -->
 
             <rule> <!-- #1: No past participle of "gastar" -->
@@ -2278,24 +2247,68 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-        <rule id='DIFICULDADES_PROVAÇÕES' name="🇵🇹👔 Passar 'dificuldades' → 'provações'" tags='picky' tone_tags='formal'>
-            <pattern>
-                <token skip='4' inflected='yes'>passar</token>
-                <marker>
-                    <token regexp='yes'>dificuldades?
-                        <exception scope='previous' regexp='yes' inflected='yes'>ter</exception>
-                        <exception scope='next' regexp='yes'>acrescidas?</exception>
-                    </token>
-                </marker>
-            </pattern>
-            <message>Num contexto formal empregue <suggestion><match no='2' postag='NCF(.)000' postag_replace='NCF$1000'>provação</match></suggestion>.</message>
-            <example correction="provações">Eles passaram muitas <marker>dificuldades</marker> ao longo da vida.</example>
-            <example>Para aqueles que passaram por muitos anos tiveram dificuldades na colaboração entre projetos.</example>
-            <example>Tomava esteroides para ganhar massa muscular e foi por isso que passou a ter dificuldades para emagrecer.</example>
-         </rule>
+      <rule id='DIFICULDADES_PROVACOES' name="🇵🇹🤵 'Dificuldades' → 'provações' com 'passar'" type='style' tags='picky' tone_tags='formal'>
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <antipattern> <!-- passar a ter dificuldades -->
+              <token inflected='yes'>passar</token>
+              <token>a</token>
+              <token inflected='yes'>ter</token>
+              <token regexp='yes'>dificuldades?</token>
+              <example>Tomava esteroides para ganhar massa muscular e foi por isso que passou a ter dificuldades para emagrecer.</example>
+              <example>O doente passou a ter dificuldades respiratórias.</example>
+          </antipattern>
+
+          <antipattern> <!-- passar com/sem [X] dificuldades -->
+              <token inflected='yes'>passar</token>
+              <token skip='1' regexp='yes'>com|sem</token>
+              <token regexp='yes'>dificuldades?</token>
+              <example>A equipa passou com dificuldades à fase seguinte.</example>
+              <example>A equipa passou com algumas dificuldades à fase seguinte.</example>
+              <example>Apesar do problema, tudo passou sem dificuldades.</example>
+              <example>Apesar do problema, tudo passou sem grandes dificuldades.</example>
+          </antipattern>
+
+          <antipattern> <!-- dificuldades de/em/no/na/nos/nas/para... -->
+              <token skip='2' inflected='yes'>passar</token>
+              <token regexp='yes'>dificuldades?</token>
+              <token regexp='yes'>de|em|n[oa]s?|para</token>
+              <example>O aluno passou por dificuldades de aprendizagem.</example>
+              <example>O aluno passou por dificuldades em compreender o exercício.</example>
+              <example>Ela passou por dificuldades para encontrar emprego.</example>
+              <example>O utilizador passou por dificuldades no acesso ao sistema.</example>
+              <example>A criança passou por dificuldades na aprendizagem.</example>
+              <example>Os alunos passaram por dificuldades nos exames.</example>
+              <example>As empresas passaram por dificuldades nas exportações.</example>
+          </antipattern>
+
+          <antipattern> <!-- dificuldades + adjetivo/particípio -->
+              <token skip='2' inflected='yes'>passar</token>
+              <token regexp='yes'>dificuldades?</token>
+              <token postag='AQ.+|VMP.+' postag_regexp='yes'/>
+              <example>A empresa passou por dificuldades financeiras.</example>
+              <example>O programa passou por dificuldades técnicas durante os testes.</example>
+              <example>A empresa passou por dificuldades acrescidas devido ao aumento dos custos.</example>
+          </antipattern>
+
+          <pattern>
+              <token skip='2' inflected='yes'>passar</token>
+              <marker>
+                  <token regexp='yes'>dificuldades?</token>
+              </marker>
+          </pattern>
+          <message>Num contexto formal, quando se refere a adversidades ou sofrimentos, considere <suggestion><match no='2' postag='NC.+' postag_regexp='yes'>provação</match></suggestion>.</message>
+          <example correction="provações">Eles passaram muitas <marker>dificuldades</marker> ao longo da vida.</example>
+          <example correction="provações">Eles passaram por muitas <marker>dificuldades</marker> ao longo da vida.</example>
+          <example correction="provações">A família passou por inúmeras <marker>dificuldades</marker> durante aqueles anos.</example>
+          <example correction="provações">Ao longo da guerra, a população passou por grandes <marker>dificuldades</marker>.</example>
+          <example correction="provações">Ela passou enormes <marker>dificuldades</marker> antes de reconstruir a sua vida.</example>
+          <example correction="provações">Os refugiados passaram por terríveis <marker>dificuldades</marker> durante a viagem.</example>
+          <example correction="provações">A população passou muitas <marker>dificuldades</marker> durante a ocupação.</example>
+      </rule>
 
 
-        <rule id='CHUMBAR_REPROVAR_PT_PT' name="🇵🇹👔 Chumbar → reprovar" type='style' tone_tags='formal' tags='picky'>
+        <rule id='CHUMBAR_REPROVAR_PT_PT' name="🇵🇹🤵 Chumbar → reprovar" type='style' tone_tags='formal' tags='picky'>
             <antipattern>
                 <token skip='2' regexp='yes'>chumbos?</token>
                 <token regexp='yes' case_sensitive='yes'>Pb|pb|PB</token>
@@ -2343,7 +2356,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-      <rulegroup id='NÃO_TER_REUNIDAS_CONDIÇÕES_PARA' name="🇵🇹👔 não 'ter' condições para → 'ver reunidas'" tone_tags='formal'>
+      <rulegroup id='NÃO_TER_REUNIDAS_CONDIÇÕES_PARA' name="🇵🇹🤵 não 'ter' condições para → 'ver reunidas'" tone_tags='formal'>
           <!-- ChatGPT 5 and new disambiguator for 2026+ -->
           <rule>
               <pattern>
@@ -2381,7 +2394,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rulegroup>
 
 
-    <rule id='PÔR_FIM_TERMO' name="🇵🇹👔 pôr 'fim' → 'termo/término'" tags="picky" tone_tags="formal">
+    <rule id='PÔR_FIM_TERMO' name="🇵🇹🤵 pôr 'fim' → 'termo/término'" tags="picky" tone_tags="formal">
         <pattern>
             <token skip='4' inflected='yes'>pôr</token>
             <marker>
@@ -2402,7 +2415,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     </rule>
 
 
-      <rule id='TER_QUE_DE' name="🇵🇹👔 Ter 'que' infinitivo → 'de'" tone_tags='formal'>
+      <rule id='TER_QUE_DE' name="🇵🇹🤵 Ter 'que' infinitivo → 'de'" tone_tags='formal'>
           <!-- ChatGPT 5 and new disambiguator for 2026+ -->
           <pattern>
               <token inflected='yes'>ter</token>
@@ -2417,7 +2430,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
 
 
-        <rule id='FORMAL_DEPRECIATIVO' name="🇵🇹👔 Termos depreciativos">
+        <rule id='FORMAL_DEPRECIATIVO' name="🇵🇹🤵 Termos depreciativos">
             <!-- IDEA inclusive -->
             <pattern>
                 <token regexp='yes' inflected="yes">&depreciativo_pt_pt;<exception postag_regexp='yes' postag='NP.+'/></token>
@@ -2430,7 +2443,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
     <!-- TODO Add antipattern for dash and quotations -->
-    <rulegroup id='FORMAL_T-V_DISTINCTION' name='🇵🇹👔 Tratamento formal: Tu,Você; Vós,Vocês' default='on' tags='picky'>
+    <rulegroup id='FORMAL_T-V_DISTINCTION' name='🇵🇹🤵 Tratamento formal: Tu,Você; Vós,Vocês' default='on' tags='picky'>
         <!-- Created by Tiago F. Santos , Portuguese rule, 2016-12-28 -->
         <url>https://pt.wikipedia.org/wiki/Distin%C3%A7%C3%A3o_t-v</url>
 
@@ -3254,7 +3267,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
 
-<rulegroup id='FORMAL_T-V_DISTINCTION_ALL' name='🇵🇹👔 Tratamento formal: Todas as formas na segunda pessoa, sem salvaguardas' default='off'>
+<rulegroup id='FORMAL_T-V_DISTINCTION_ALL' name='🇵🇹🤵 Tratamento formal: Todas as formas na segunda pessoa, sem salvaguardas' default='off'>
     <!-- Created by Tiago F. Santos , Portuguese rule, 2016-12-28 -->
     <!-- MARCOAGPINTO inserted global antipatterns for all subrules on top -->
 
@@ -3360,7 +3373,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
 <!-- COM A GENTE connosco COM NÓS connosco -->
-<rulegroup id='FORMAL_COM_A_GENTE_COM_NÓS_CONNOSCO_PT_PT' name="🇵🇹👔 'com a gente'/'com nós' → connosco">
+<rulegroup id='FORMAL_COM_A_GENTE_COM_NÓS_CONNOSCO_PT_PT' name="🇵🇹🤵 'com a gente'/'com nós' → connosco">
 <!-- Created by Tiago F. Santos (2016-12-28) and improved by Marco A.G.Pinto, Portuguese rule 2023-04-09 (2-MAR-2023+) -->
 <!--
     MARCOAGPINTO inserted global antipatterns for all subrules on top using the logic (2-MAR-2023+)
@@ -3420,7 +3433,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-      <rulegroup id='FORMAL_MONTES_DE' name="🇵🇹👔 'montes de' → inúmeros/imensos" tone_tags='formal'>
+      <rulegroup id='FORMAL_MONTES_DE' name="🇵🇹🤵 'montes de' → inúmeros/imensos" tone_tags='formal'>
           <!-- ChatGPT 5 and new disambiguator for 2026+ -->
 
           <antipattern>
@@ -3467,7 +3480,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rulegroup>
 
 
-        <rule id='PARA_NADA_DESNECESSARIAMENTE' name="🇵🇹👔 Para nada → desnecessariamente" tone_tags='formal'>
+        <rule id='PARA_NADA_DESNECESSARIAMENTE' name="🇵🇹🤵 Para nada → desnecessariamente" tone_tags='formal'>
             <!-- Used ChatGPT 4o for enhancements and extra accuracy -->
             <antipattern>
                 <token>não</token>
@@ -3492,7 +3505,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rule>
 
 
-        <rulegroup id='PASSAR_TEMPO_DECORRER_TEMPO' name="🇵🇹👔 'passar' tempo → decorrer">
+        <rulegroup id='PASSAR_TEMPO_DECORRER_TEMPO' name="🇵🇹🤵 'passar' tempo → decorrer">
 
             <antipattern>
                 <token regexp='yes'>&expressoes_de_tempo_simples;
@@ -3627,7 +3640,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
         </rulegroup>
 
 
-      <rule id='PERANTE_O_MESMO_IDENTICO' name="🇵🇹👔 Perante 'o mesmo' → idêntico" type='style' tone_tags='formal'>
+      <rule id='PERANTE_O_MESMO_IDENTICO' name="🇵🇹🤵 Perante 'o mesmo' → idêntico" type='style' tone_tags='formal'>
             <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
 
           <pattern>
@@ -3648,7 +3661,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
 
 
-      <rule id='FAZER_DESPORTO_V2' name="🇵🇹👔 'Fazer' desporto → Praticar" tone_tags='formal'>
+      <rule id='FAZER_DESPORTO_V2' name="🇵🇹🤵 'Fazer' desporto → Praticar" tone_tags='formal'>
           <!-- ChatGPT 5 and new disambiguator for 2026+ -->
           <pattern>
               <marker>
@@ -3664,7 +3677,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
 
 
-    <rule id='TIVER_ESTIVER' name='🇵🇹👔 tiver/estiver' tone_tags="formal">
+    <rule id='TIVER_ESTIVER' name='🇵🇹🤵 tiver/estiver' tone_tags="formal">
         <antipattern>
             <token postag='NC.+|AQ.+|CS|RG' postag_regexp='yes'/>
             <token regexp='yes'>teve|tiveste|tiver|tiveres|tiverem|tivermos|tiveram</token>
@@ -3723,7 +3736,27 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
 
-    <category id='ACADEMIC_SCIENTIFIC_PT_PT' name="🇵🇹🎓🔬 Regras académicas e científicas" type="other">
+  <category id='ACADEMIC_SCIENTIFIC_PT_PT' name="🇵🇹🎓🔬 Regras académicas e científicas" type="other">
+
+
+      <rule id='CIENTÍFICO_ROUBAR_FURTAR_IDENTIDADE_USURPAR' name="🇵🇹🔬 Roubar/furtar identidade → usurpar" type='style' tone_tags='academic'>
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <marker>
+                  <token skip='3' postag='V.+' postag_regexp='yes' inflected='yes' regexp='yes'>furtar|roubar</token>
+              </marker>
+              <token regexp='yes'>identidades?</token>
+          </pattern>
+          <message>Num contexto formal/científico, considere usar o verbo &quot;usurpar&quot;.</message>
+          <suggestion><match no='1' postag='V.+' postag_regexp='yes'>usurpar</match></suggestion>
+          <example correction="usurpou">Alguém <marker>furtou</marker> as identidades dos funcionários da empresa.</example>
+          <example correction="usurpou">Alguém <marker>roubou</marker> a identidade do dono da empresa.</example>
+          <example>Alguém usurpou a minha identidade.</example>
+          <example>Achamos que este indivíduo usurpou a identidade dele.</example>
+          <example>Este senhor usurpou a identidade do Rui.</example>
+          <example>Ele roubou muita atenção e a identidade do suspeito foi confirmada.</example>
+      </rule>
 
 
       <rule id='BARBARISMS_PT_PT_V4' name="🇵🇹🎓 Estrangeirismos específicos pt_PT" type='style' tone_tags='academic' is_goal_specific='true'>

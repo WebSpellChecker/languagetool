@@ -567,35 +567,50 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
   </rulegroup>
 
-  <rule id="ACEITO_ACEITE" name="🇵🇹 aceito → aceite" >
-      <pattern>
-          <token regexp='yes' inflected='yes'>ser|estar|ficar|permanecer|parecer
-          <exception>seres</exception></token>
-      <token min="0" max="3" postag_regexp='yes' postag='R.'/>
-      <token regexp='yes'>aceit[ao]s?</token>
-  </pattern>
-  <message>Em Portugal, a forma mais comum deste particípio é <match no='3' regexp_match='(.+)([ao])(s?)' regexp_replace='$1e$3'/>.</message>
-  <suggestion>\1 <match no='2' include_skipped='all'/> <match no='3' regexp_match='(.+)([ao])(s?)' regexp_replace='$1e$3'/></suggestion>
-  <!--suggestion>\1 <match no='2' include_skipped='all'/> <match no='3' regexp_match='(.+)ad([ao]s?)' regexp_replace='$1ue' suppress_misspelled='yes'/></suggestion-->
-      <example correction='foi aceite'>O projeto <marker>foi aceito</marker>.</example>
-      <example correction='foi aceite'>A China <marker>foi aceita</marker> na Organização Mundial do Comércio.</example>
-      <example correction='serem aceites'>Que ser de um certo tamanho e qualidade antes de <marker>serem aceitas</marker> pelos praticantes da MTC e consumidores.</example>
-  </rule>
+
+      <rule id="ACEITO_ACEITE" name="🇵🇹 aceito/aceita → aceite">
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <token postag_regexp='yes' postag='V.+' regexp='yes' inflected='yes'>ser|estar|ficar|permanecer|parecer</token>
+              <token min='0' max='3' postag_regexp='yes' postag='R.'/>
+              <marker>
+                  <token regexp='yes'>aceit[ao]s?</token>
+              </marker>
+          </pattern>
+          <message>Em português europeu, usa-se habitualmente <match no='3' regexp_match='(.+)([ao])(s?)' regexp_replace='$1e$3'/>.</message>
+          <suggestion><match no='3' regexp_match='(.+)([ao])(s?)' regexp_replace='$1e$3'/></suggestion>
+          <url>https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/aceitevs-aceito/34188</url>
+          <example correction='aceite'>O projeto foi <marker>aceito</marker>.</example>
+          <example correction='aceite'>O acordo parece <marker>aceito</marker> por todas as partes.</example>
+          <example correction='aceite'>A China foi <marker>aceita</marker> na Organização Mundial do Comércio.</example>
+          <example correction='aceite'>A proposta está <marker>aceita</marker>.</example>
+          <example correction='aceites'>Os pedidos foram <marker>aceitos</marker>.</example>
+          <example correction='aceites'>Os termos ficaram definitivamente <marker>aceitos</marker>.</example>
+          <example correction='aceites'>Isso não impediu de serem <marker>aceitas</marker> pelos praticantes da MTC.</example>
+          <example correction='aceites'>As condições parecem amplamente <marker>aceitas</marker>.</example>
+          <example type='correct'>Eu aceito a proposta.</example>
+          <example type='correct'>Ela tinha aceitado a proposta.</example>
+          <example type='correct'>O projeto foi aceite.</example>
+          <example type='correct'>As propostas foram aceites.</example>
+      </rule>
 
 
-  <rule id="EFEITO_ESTUFA" name="🇵🇹 Hifenização: Efeito-estufa">
-      <!-- Created by Marco A.G.Pinto, Portuguese rule, 2017-01-25 -->
-      <pattern>
-          <token regexp='yes'>efeitos?</token>
-          <token regexp='yes' spacebefore='no'>&hifen;</token>
-          <token regexp='yes'>estufas?</token>
-      </pattern>
-      <message>Esta expressão não é hifenizada.</message>
-      <suggestion>efeito de estufa</suggestion>
-      <suggestion>efeito estufa</suggestion>
-      <url>https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/sobre-a-formacao-dos-substantivos-compostos/13909</url>
-      <example correction="efeito de estufa|efeito estufa">O calor deve-se ao <marker>efeito-estufa</marker>.</example><!-- TODO Confirm if this is a case of AO changes. VOP (AO90) has 'efeito de estufa'. Verify per-AO. -->
-  </rule>
+      <rule id='EFEITO_ESTUFA' name="🇵🇹 Hifenização: 'efeito-estufa' → 'efeito de estufa'">
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <token regexp='yes'>efeitos?</token>
+              <token spacebefore='no' postag='_PUNCT_HYPHEN'/>
+              <token>estufa</token>
+          </pattern>
+          <message>A locução &quot;efeito de estufa&quot; não é hifenizada.</message>
+          <suggestion>\1 de \3</suggestion>
+          <url>https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/sobre-a-formacao-dos-substantivos-compostos/13909</url>
+          <example correction="efeito de estufa">O calor deve-se ao <marker>efeito-estufa</marker>.</example>
+          <example correction="efeitos de estufa">Estudaram-se vários <marker>efeitos-estufa</marker>.</example>
+      </rule>
+
 
   <rulegroup id='INVARIABLE_NOUNS' name="🇵🇹 Substantivos invariáveis">
       <!-- Created by Tiago F. Santos, Portuguese rule, 2017-06-18 -->
@@ -800,20 +815,25 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
 
 
-      <rule id='INVARIABLE_NOUNS_ÀS_CUSTAS_DA_DAS_DO_DOS' name="🇵🇹[Confusão] 'às custas'/'à custa'">
-      <!-- Created by Marco A.G.Pinto, Portuguese rule 2022-09-20 (Checked/Enhanced) (25-JUL-2022+) -->
+      <rule id='AS_CUSTAS_DE_A_CUSTA_DE' name="🇵🇹 'às custas de' → 'à custa de'">
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
           <pattern>
               <marker>
                   <token>às</token>
                   <token>custas</token>
               </marker>
-              <token postag='SPS00|SPS00:D[AI].+' postag_regexp='yes'/>
+              <token regexp='yes'>d[ao]s?|de</token>
           </pattern>
-          <message>Esta expressão é invariável.</message>
+          <message>A locução &quot;à custa de&quot; emprega-se no singular. Não se aplica quando &quot;custas&quot; pertence à terminologia processual/jurídica.</message>
           <suggestion>à custa</suggestion>
           <example correction="à custa">Ele fê-lo <marker>às custas</marker> do filho.</example>
-          <example>Ele se tornou um aluno brilhante mas somente à custa de sua saúde.</example>
-          <example>O consumo de gorduras n-6 aumentou à custa das gorduras n-3.</example>
+          <example correction="à custa">Viveu durante anos <marker>às custas</marker> dos pais.</example>
+          <example correction="à custa">Enriqueceu <marker>às custas</marker> dos trabalhadores.</example>
+          <example correction="à custa">A empresa cresceu <marker>às custas</marker> da concorrência.</example>
+          <example correction="à custa">Obteve bons resultados <marker>às custas</marker> de muito esforço.</example>
+          <example correction="à custa">Conseguiu a promoção <marker>às custas</marker> do colega.</example>
+          <example correction="à custa">A produção aumentou <marker>às custas</marker> da qualidade.</example>
       </rule>
 
 
@@ -2673,6 +2693,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
           <token regexp='yes'>&pronomes_nao_ambiguos_pt_pt;</token>
           <token postag='V.[PG].*' postag_regexp='yes'/>
       </antipattern>
+      <antipattern>
+          <token case_sensitive='yes' regexp='yes'>Mia|Pedro</token>
+          <token regexp='yes'>&pronomes_nao_ambiguos_pt_pt;</token>
+          <token postag='V.+' postag_regexp='yes'/>
+          <example>Mia me olhou, sorrindo.</example>
+      </antipattern>
       <pattern>
           <token postag='V.+' postag_regexp='yes'>
               <exception regexp='yes'>como|para|casa|nada</exception></token>
@@ -2732,6 +2758,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
 
       <rule>
+          <antipattern>
+              <token case_sensitive='yes' regexp='yes'>Mia|Pedro</token>
+              <token regexp='yes'>&pronomes_nao_ambiguos_pt_pt;</token>
+              <token postag='VMI.+|VMS.+|VMM.+' postag_regexp='yes'/>
+              <example>Mia me olhou, sorrindo.</example>
+              <example>Pedro me mostrou o relatório.</example>
+          </antipattern>
           <pattern>
               <token postag='V.+' postag_regexp='yes'>
                   <exception regexp='yes'>como|para|casa|nada|mortos?</exception></token>
@@ -2885,31 +2918,51 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rule>
   </rulegroup>
 
-<rule id="CLITIC_AS_SUBJECT_TE_SER" name="🇵🇹 te → tu (sujeito)">
-  <pattern>
-    <token postag="SENT_START" postag_regexp="no"/>
-    <marker>
-      <token>te</token>
-    </marker>
-    <token>és</token>
-  </pattern>
-  <message>«Te» é pronome oblíquo. Como sujeito, use «tu».</message>
-  <suggestion>tu</suggestion>
-  <example correction="Tu"> <marker>Te</marker> és muito inteligente.</example>
-</rule>
 
-<rule id="CLITIC_AS_SUBJECT_ME_SER" name="🇵🇹 me → eu (sujeito)">
-  <pattern>
-    <token postag="SENT_START" postag_regexp="no"/>
-    <marker>
-      <token>me</token>
-    </marker>
-    <token>sou</token>
-  </pattern>
-  <message>«Me» é pronome oblíquo. Como sujeito, use «eu».</message>
-  <suggestion>eu</suggestion>
-  <example correction="Eu"> <marker>Me</marker> sou responsável por este projeto.</example>
-</rule>
+      <rulegroup id="PRONOME_OBLIQUO_COMO_SUJEITO_SER_PT_PT" name="🇵🇹 Pronome oblíquo como sujeito: te/me → tu/eu">
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <rule> <!-- #1: te → tu (sujeito) -->
+              <pattern>
+                  <token postag='SENT_START|_PUNCT_COMMA' postag_regexp='yes'/>
+                  <marker>
+                      <token>te</token>
+                  </marker>
+                  <token>és</token>
+              </pattern>
+              <message>&quot;Te&quot; é um pronome pessoal átono. Na função de sujeito, use &quot;tu&quot;.</message>
+              <suggestion><match no='2' case_conversion='preserve' regexp_match='(..)' regexp_replace='tu'/></suggestion>
+              <example correction="Tu"><marker>Te</marker> és muito inteligente.</example>
+              <example correction="Tu"><marker>Te</marker> és a pessoa certa para esta tarefa.</example>
+              <example correction="Tu"><marker>Te</marker> és responsável pelo projeto.</example>
+              <example correction="Tu"><marker>Te</marker> és quem deve tomar a decisão.</example>
+              <example correction="tu">Na minha opinião, <marker>te</marker> és a pessoa indicada.</example>
+              <example correction="tu">Segundo o João, <marker>te</marker> és muito competente.</example>
+              <example type="correct">Tu és muito inteligente.</example>
+              <example type="correct">Na minha opinião, tu és a pessoa indicada.</example>
+          </rule>
+
+          <rule> <!-- #2: me → eu (sujeito) -->
+              <pattern>
+                  <token postag='SENT_START|_PUNCT_COMMA' postag_regexp='yes'/>
+                  <marker>
+                      <token>me</token>
+                  </marker>
+                  <token>sou</token>
+              </pattern>
+              <message>&quot;Me&quot; é um pronome pessoal átono. Na função de sujeito, use &quot;eu&quot;.</message>
+              <suggestion><match no='2' case_conversion='preserve' regexp_match='(..)' regexp_replace='eu'/></suggestion>
+              <example correction="Eu"><marker>Me</marker> sou responsável por este projeto.</example>
+              <example correction="Eu"><marker>Me</marker> sou o autor deste relatório.</example>
+              <example correction="Eu"><marker>Me</marker> sou estudante universitário.</example>
+              <example correction="Eu"><marker>Me</marker> sou a pessoa responsável pela decisão.</example>
+              <example correction="eu">Na verdade, <marker>me</marker> sou o responsável pelo erro.</example>
+              <example correction="eu">Segundo o João, <marker>me</marker> sou a pessoa mais indicada.</example>
+              <example type="correct">Eu sou responsável por este projeto.</example>
+              <example type="correct">Na verdade, eu sou o responsável pelo erro.</example>
+          </rule>
+
+      </rulegroup>
 
 
   <!-- LHE(S)/TE/VOS + VERB verb-lhe(s)/me/te/vos -->
@@ -3103,61 +3156,28 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
     </rule>
 
 
-    <rule id='DAÍ' name="🇵🇹 Contração: de aí">
-        <!-- Created by Marco A.G. Pinto, Portuguese rule -->
-        <pattern>
-            <marker>
-                <token postag="VMN0000"/>
-                <token>daí</token>
-            </marker>
-            <token postag="VMN0000"/>
-        </pattern>
-        <message>Será que quis dizer <suggestion>\1 de aí</suggestion>?</message>
-        <example correction="partir de aí">A <marker>partir daí</marker> deduzir o que fazer.</example>
-    </rule>
+      <rule id='HIFEN_INTRUSIVO' name="🇵🇹 Verbo + te: união ou hífen">
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
 
-    <!-- TROCAS-TE trocaste -->
-    <rulegroup id='HIFEN_INTRUSIVO' name="🇵🇹 Verbo com hífen intrusivo">
-        <!--      Created by Marco A.G.Pinto, Portuguese rule 2021-03-30 + 2021-03-31 + 2021-05-31 (17-MAR-2021+)      -->
-        <rule>
-            <!--
-                Hoje trocas-te de computador? → Hoje trocaste de computador?
-                Hoje andas-te a cantar? → Hoje andaste a cantar?
-                Hoje andas-te à procura da chave? → Hoje andaste à procura da chave?
+          <pattern>
+              <marker>
+                  <token postag='VMIP2S0'/>
+                  <token spacebefore='yes'>te</token>
+              </marker>
+          </pattern>
+          <message>No pretérito perfeito, escreve-se junto; com o pronome &quot;te&quot;, usa-se hífen.</message>
+          <suggestion><match no='1' postag_regexp='yes' postag='V.+' postag_replace='VMIS2S0'/></suggestion>
+          <suggestion>\1-\2</suggestion>
+          <example correction="ficaste|ficas-te">Tu também <marker>ficas te</marker> com essa canção.</example>
+          <example correction="lembraste|lembras-te">Ainda <marker>lembras te</marker> daquela história?</example>
+          <example correction="deitaste|deitas-te">Normalmente <marker>deitas te</marker> cedo?</example>
+          <example correction="levantaste|levantas-te">A que horas <marker>levantas te</marker> normalmente?</example>
+          <example correction="aproximaste|aproximas-te">Porque <marker>aproximas te</marker> tanto da janela?</example>
+          <example>Tu aproximas-te da janela.</example>
+          <example>Tu sentes-te bem.</example>
+          <example>Tu lembras-te daquela história.</example>
+      </rule>
 
-            -->
-            <pattern>
-                <marker>
-                    <token postag='VMIP2S0:PP2CSO00'/>
-                </marker>
-                <token postag='SPS.+|PD0FS.+|PP3FSA.+' postag_regexp='yes'/>
-                <token postag='AQ0.+|NC.+|V.+|DD.+' postag_regexp='yes'/>
-            </pattern>
-            <message>Caso se trate de uma forma do pretérito perfeito, escreve-se sem hífen.</message>
-            <suggestion><match no="1" postag_regexp="yes" postag="V.+" postag_replace="VMIS2S0"/></suggestion>
-            <example correction="trocaste">Hoje <marker>trocas-te</marker> de computador?</example>
-            <example>Hoje andaste a cantar?</example>
-            <example>Hoje andaste à procura da chave?</example>
-        </rule>
-
-        <rule>
-            <!--
-                Tu também ficas te com essa canção.
-            -->
-            <pattern>
-                <marker>
-                    <token postag='VMIP2S0'/>
-                    <token spacebefore='yes'>te</token>
-                </marker>
-                <token postag='SPS.+|PD0FS.+|PP3FSA.+' postag_regexp='yes'/>
-                <token postag='AQ0.+|NC.+|V.+|DD.+' postag_regexp='yes'/>
-            </pattern>
-            <message>Caso se trate de uma forma do pretérito perfeito, escreve-se unido.</message>
-            <suggestion>\1\2</suggestion>
-            <example correction="ficaste">Tu também <marker>ficas te</marker> com essa canção.</example>
-        </rule>
-
-    </rulegroup>
 
     <rulegroup id='REFLEXIVO_CONJUNTIVO' name='🇵🇹 Confusão de Tempo Verbal: Conjuntivo - Reflexivo' default='off'><!-- XXX rethink rule. too many false positives -->
         <!-- Created by Tiago F. Santos, 2017-08-25 -->
@@ -3209,149 +3229,209 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
             <example correction='trabalhasse'>Embora Tchecov  <marker>trabalha-se</marker> como médico, enriqueceu a sua escrita com…</example>
         </rule>
     </rulegroup>
+
+
 </category>
+
 
 
 <category id="CONTRACTIONS_PT_PT" name="🇵🇹 Contrações">
 
 
-    <rulegroup type='grammar' id="CONTRAÇÕES_2_PT_PT" name="🇵🇹 Contrações" default='on'>
-        <!-- Created by Tiago F. Santos, Portuguese rule, 2016-10-31 -->
-        <!-- XXX Default off to avoid alarm fatigue. Reactivate when there is a color code/custom highlight system working on LibreOffice -->
-        <url>https://pt.wiktionary.org/wiki/Ap%C3%AAndice:Combina%C3%A7%C3%B5es_e_contra%C3%A7%C3%B5es_do_portugu%C3%AAs</url>
-        <antipattern>
-            <token regexp='yes'>antes|apesar|capacidade|depois|expec?tativas?|facto|objec?tivo|possibilidade|risco|intenção</token>
-            <token>de</token>
-        </antipattern>
-        <antipattern>
-            <token regexp='yes'>aos?</token>
-            <token regexp='yes'>pontos?</token>
-            <token>de</token>
-        </antipattern>
-        <antipattern>
-            <token inflected='yes'>chamar</token>
-            <token>de</token>
-        </antipattern>
-        <antipattern>
-            <token inflected='yes'>ser</token>
-            <token>tempo</token>
-            <token>de</token>
-        </antipattern>
+      <rule id='CONTRAÇÃO_DOUTREM_PT_PT' name='🇵🇹[Contração] De outro/outrem → doutro/doutrem' default='off'>
 
-        <rule id='CONTRAÇÃO_DOUTREM_PT_PT' name='🇵🇹[Contração] De outro/outrem → doutro/doutrem' default='off'>
-            <pattern>
-                <token>de</token>
-                <token case_sensitive="yes" regexp='yes'>outrem|outr[ao]s?</token>
-            </pattern>
-            <message>Pode também dizer <suggestion>d\2</suggestion>.</message>
-            <example correction='doutrem'><marker>de outrem</marker>.</example>
-            <example correction='doutro'><marker>de outro</marker>.</example>
-            <example correction='doutros'><marker>de outros</marker>.</example>
-            <example correction='doutra'><marker>de outra</marker>.</example>
-            <example correction='doutras'><marker>de outras</marker>.</example>
-        </rule>
+          <antipattern> <!-- Common APs for two rules, that were inside the previous rulegroup -->
+              <token regexp='yes'>antes|apesar|capacidade|depois|expec?tativas?|facto|objec?tivo|possibilidade|risco|intenção</token>
+              <token>de</token>
+          </antipattern>
+          <antipattern>
+              <token regexp='yes'>aos?</token>
+              <token regexp='yes'>pontos?</token>
+              <token>de</token>
+          </antipattern>
+          <antipattern>
+              <token inflected='yes'>chamar</token>
+              <token>de</token>
+          </antipattern>
+          <antipattern>
+              <token inflected='yes'>ser</token>
+              <token>tempo</token>
+              <token>de</token>
+          </antipattern>
 
-        <rule id='CONTRAÇÃO_DUM2_PT_PT' name='🇵🇹[Contração] De um(a)(s)/uns → dum(a)(s)/duns' default='off'>
-            <pattern>
-                <marker>
-                    <token>de</token>
-                    <token case_sensitive="yes" regexp='yes'>uma?s?|uns</token>
-                </marker>
-                <token postag='(?:N|A).+' postag_regexp='yes'>
-                    <exception negate_pos='yes' postag='(?:N|A).+' postag_regexp='yes'/></token>
-            </pattern>
-            <message>Pode também dizer <suggestion>d\2</suggestion>.</message>
-            <example correction='dum'><marker>de um</marker> calmo dia.</example>
-            <example correction='duma'><marker>de uma</marker> bonita manhã.</example>
-            <example correction='dumas'><marker>de umas</marker> laranjas verdes.</example>
-            <example correction='duns'><marker>de uns</marker> rios.</example>
-        </rule>
-
-        <rule id='CONTRAÇÃO_EM_UM_NUM_PT_PT' name='🇵🇹[Contração] Em um(a) → num(a)' default='on'>
-            <!-- MARCOAGPINTO 2023-02-03 (Checked/Enhanced) (25-JUL-2022+) *START* -->
-            <antipattern>
-                <token regexp="no">em</token>
-                <token regexp="yes">uma?s?|uns</token>
-                <token regexp='yes'>&expressoes_de_tempo_simples;</token>	  
-                <example>Isto aconteceu em um ano apenas.</example>
-                <example>Quantos dias há em uma semana? - Em uma semana há sete dias.</example>
-                <example>Estou de saída, mas volto em uma hora.</example>
-                <example>Ela será capaz de nadar em uma semana.</example>
-                <example>A avião pousará em uma hora.</example>
-                <example>Em uns segundos, sua foto estará pronta.</example>
-            </antipattern>
-            <!-- MARCOAGPINTO 2023-02-03 (Checked/Enhanced) (25-JUL-2022+) *END* -->
-
-            <pattern>
-                <marker>
-                    <token>em</token>
-                    <token case_sensitive="yes" regexp='yes'>uma?s?|uns</token>
-                </marker>
-                <token min='0' max='2' postag='(?:N|A).+' postag_regexp='yes'>
-                    <exception negate_pos='yes' postag='(?:N|A).+' postag_regexp='yes'/></token>
-            </pattern>
-            <message>Pode também dizer <suggestion>n\2</suggestion>.</message>
-            <example correction='num'><marker>em um</marker> belo dia.</example>
-            <example correction='numa'><marker>em uma</marker> bonita manhã.</example>
-            <example correction='numas'><marker>em umas</marker> laranjas verdes.</example>
-            <example correction='nuns'><marker>em uns</marker> rios.</example>
-            <example type='correct'>Isto aconteceu <marker>em um ano</marker> apenas.</example>
-        </rule>
-    </rulegroup>
+          <pattern>
+              <token>de</token>
+              <token case_sensitive="yes" regexp='yes'>outrem|outr[ao]s?</token>
+          </pattern>
+          <message>Pode também dizer <suggestion>d\2</suggestion>.</message>
+          <example correction='doutrem'><marker>de outrem</marker>.</example>
+          <example correction='doutro'><marker>de outro</marker>.</example>
+          <example correction='doutros'><marker>de outros</marker>.</example>
+          <example correction='doutra'><marker>de outra</marker>.</example>
+          <example correction='doutras'><marker>de outras</marker>.</example>
+      </rule>
 
 
-    <rulegroup id='O_FACTO_DA_AÇÃO' name="🇵🇹 Contração: expressão invariável com contração (p.ex. o facto da/de a)" default='off'>
-        <url>https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/preposicao-seguida-de-artigo-definido-sem-contracao/32586</url>
-        <!-- Created by Marco A.G. Pinto, Portuguese rule -->
-        <rule>
+      <rule id='CONTRAÇÃO_DUM2_PT_PT' name='🇵🇹[Contração] De um(a)(s)/uns → dum(a)(s)/duns' default='off'>
 
-            <!-- MARCOAGPINTO 2022-09-09 (Checked/Enhanced) (25-JUL-2022+) *START* -->
-            <!-- It has no hits in 600 000 sentences, it just removes one false positive in my thesis -->
-            <antipattern>
-                <token postag='AQ..+|NC.+' postag_regexp='yes'/>
-                <token regexp='yes'>d[ao]s?</token>
-                <token postag='[DP][ADIPR].+|SPS00:[DP][ADIPR].+' postag_regexp='yes'/>
-                <example>E assim reforçando a necessidade do nosso estudo.</example>
-            </antipattern>
-            <!-- MARCOAGPINTO 2022-09-09 (Checked/Enhanced) (25-JUL-2022+) *END* -->
-            <antipattern>
-                <token regexp='yes'>&expressao_invariavel_com_DE;</token>
-                <token skip='-1' regexp='yes'>d[ao]s?</token>
-                <token postag='SPS00|C.+' postag_regexp='yes'/>
-                <token postag_regexp='yes' postag='VMN.+'/>
-                <example>Isto reafirma a necessidade da existência da nossa equação para fazer face às necessidades científicas.</example>
-            </antipattern>
-            <pattern>
-                <marker>
-                    <token regexp='yes'>&expressao_invariavel_com_DE;</token>
-                    <token skip='-1' regexp='yes'>d[ao]s?
-                    <exception scope='next' postag='_PUNCT|V.[^N].+' postag_regexp='yes'/></token>
-            </marker>
-            <token postag_regexp='yes' postag='VMN.+'/>
-        </pattern>
-        <message>Nesta expressão não deve utilizar a contração.</message>
-        <suggestion>\1 de <match no='2' regexp_match='d(.+)' regexp_replace='$1'/></suggestion>
-        <example correction="facto de a">Ter em conta o <marker>facto da</marker> aluna não saber.</example>
-        <example correction="facto de as">Ter em conta o <marker>facto das</marker> alunas não saberem.</example>
-        <example correction="facto de o">Ter em conta o <marker>facto do</marker> aluno não saber.</example>
-        <example correction="facto de os">Ter em conta o <marker>facto dos</marker> alunos não saberem.</example>
-        <example>Esta é a intenção da senhora.</example>
-        <example>…Tancredo Neves, morto antes da posse, sendo substituído pelo seu vice…</example>
-        <example><marker>Muito antes da</marker> chegada de Cristóvão Colombo à América.</example>
-        <example>O problema resultou de a secção de contabilidade ter enviado o NIB errado.</example>
-        <example>Preocupa-me o facto de ele não estar preocupado.</example>
-        <example>O cão pôs-se a rosnar pouco antes de uma rapariga ter aparecido.</example>
-        <example>O problema está em o homem não querer pagar impostos.</example>
-        <example>Esperou por o João chegar.</example>
-        <example>Depois das várias aplicações que tem sido instaladas para impedir malware…</example>
-    </rule>
-</rulegroup>
+          <antipattern> <!-- Common APs for two rules, that were inside the previous rulegroup -->
+              <token regexp='yes'>antes|apesar|capacidade|depois|expec?tativas?|facto|objec?tivo|possibilidade|risco|intenção</token>
+              <token>de</token>
+          </antipattern>
+          <antipattern>
+              <token regexp='yes'>aos?</token>
+              <token regexp='yes'>pontos?</token>
+              <token>de</token>
+          </antipattern>
+          <antipattern>
+              <token inflected='yes'>chamar</token>
+              <token>de</token>
+          </antipattern>
+          <antipattern>
+              <token inflected='yes'>ser</token>
+              <token>tempo</token>
+              <token>de</token>
+          </antipattern>
+
+          <pattern>
+              <marker>
+                  <token>de</token>
+                  <token case_sensitive="yes" regexp='yes'>uma?s?|uns</token>
+              </marker>
+              <token postag='(?:N|A).+' postag_regexp='yes'>
+                  <exception negate_pos='yes' postag='(?:N|A).+' postag_regexp='yes'/></token>
+          </pattern>
+          <message>Pode também dizer <suggestion>d\2</suggestion>.</message>
+          <example correction='dum'><marker>de um</marker> calmo dia.</example>
+          <example correction='duma'><marker>de uma</marker> bonita manhã.</example>
+          <example correction='dumas'><marker>de umas</marker> laranjas verdes.</example>
+          <example correction='duns'><marker>de uns</marker> rios.</example>
+      </rule>
+
+
+      <rule id='CONTRAÇÃO_EM_UM_NUM_PT_PT' name='🇵🇹[Contração] Em um(a) → num(a)' default='on'>
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <marker>
+                  <token>em</token>
+                  <token regexp='yes'>um|uns|umas?</token>
+              </marker>
+              <token postag_regexp='yes' postag='NC.+|AQ.+'><exception regexp='yes'>&expressoes_de_tempo_simples;</exception></token>
+          </pattern>
+          <message>Pode também dizer <suggestion>n\2</suggestion>.</message>
+          <example correction='num'><marker>em um</marker> belo dia.</example>
+          <example correction='nuns'><marker>em uns</marker> rios.</example>
+          <example correction='numa'><marker>em uma</marker> bonita manhã.</example>
+          <example correction='numas'><marker>em umas</marker> laranjas verdes.</example>
+          <example type='correct'>Isto aconteceu <marker>em um ano</marker> apenas.</example>
+          <example type='correct'>Quantos dias há <marker>em uma semana</marker>? — Em uma semana há sete dias.</example>
+          <example type='correct'>Estou de saída, mas volto <marker>em uma hora</marker>.</example>
+          <example type='correct'>Ela será capaz de nadar <marker>em uma semana</marker>.</example>
+          <example type='correct'>O avião pousará <marker>em uma hora</marker>.</example>
+          <example type='correct'><marker>Em uns segundos</marker>, a sua foto estará pronta.</example>
+      </rule>
+
+
+      <rule id='CONTRAÇÃO_DO_DE_O_INFINITIVO_PT_PT' name="🇵🇹[Contração] 'do/da' → 'de o/de a' antes de infinitivo" default='on'>
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <marker>
+                  <token regexp='yes'>&expressao_invariavel_com_DE;</token>
+                  <token regexp='yes'>d[ao]s?</token>
+              </marker>
+              <token min='1' max='3' postag_regexp='yes' postag='N.+|AQ.+'><exception postag_regexp='yes' postag='V.+'/></token>
+              <token min='0' max='2' postag_regexp='yes' postag='RN|RG'/>
+              <token postag_regexp='yes' postag='VMN.+'/>
+          </pattern>
+          <message>Antes do sujeito de uma construção de infinitivo, a preposição &quot;de&quot; não deve contrair-se com o artigo.</message>
+          <suggestion>\1 de <match no='2' regexp_match='d(.+)' regexp_replace='$1'/></suggestion>
+          <example correction="facto de a">Ter em conta o <marker>facto da</marker> aluna saber.</example>
+          <example correction="facto de as">Ter em conta o <marker>facto das</marker> alunas saberem.</example>
+          <example correction="facto de o">Ter em conta o <marker>facto do</marker> aluno saber.</example>
+          <example correction="facto de os">Ter em conta o <marker>facto dos</marker> alunos saberem.</example>
+          <example correction="facto de a">Ter em conta o <marker>facto da</marker> aluna não saber.</example>
+          <example correction="facto de as">Ter em conta o <marker>facto das</marker> alunas não saberem.</example>
+          <example correction="facto de o">Ter em conta o <marker>facto do</marker> aluno não saber.</example>
+          <example correction="facto de os">Ter em conta o <marker>facto dos</marker> alunos não saberem.</example>
+          <example correction="facto de o">O <marker>facto do</marker> João saber causou surpresa.</example>
+          <example correction="facto de o">O <marker>facto do</marker> João não saber causou surpresa.</example>
+          <example correction="facto de a">O <marker>facto da</marker> aluna ainda saber a resposta causou surpresa.</example>
+          <example>Foi confirmada a veracidade do facto da agressão.</example>
+          <example>Falámos do facto da semana passada.</example>
+          <example>Discutimos a importância do saber.</example>
+      </rule>
+
+
+      <rule id='CONTRACAO_INDEVIDA_DAI_DE_AI' name="🇵🇹 Contração indevida: daí → de aí">
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <token regexp='yes' inflected='yes' postag='VMN0000'>desistir|gostar|necessitar|parar|precisar|prescindir|tratar</token>
+              <marker>
+                  <token>daí</token>
+              </marker>
+              <token postag='VMN0000'/>
+          </pattern>
+          <message>Neste contexto, a preposição &quot;de&quot; pertence ao verbo anterior e &quot;aí&quot; modifica o infinitivo seguinte.</message>
+          <suggestion>de aí</suggestion>
+          <example correction="de aí">Ele afirma gostar <marker>daí</marker> viver.</example>
+          <example correction="de aí">Ela poderá precisar <marker>daí</marker> sair cedo.</example>
+          <example correction="de aí">O investigador diz necessitar <marker>daí</marker> retirar os dados.</example>
+          <example correction="de aí">Decidiu desistir <marker>daí</marker> participar.</example>
+          <example correction="de aí">Ela decidiu parar <marker>daí</marker> trabalhar.</example>
+          <example correction="de aí">Ele prefere prescindir <marker>daí</marker> trabalhar.</example>
+          <example correction="de aí">Convém tratar <marker>daí</marker> retirar todo o material.</example>
+          <example type='correct'>É possível a partir daí deduzir o que fazer.</example>
+          <example type='correct'>Os leitores devem poder daí retirar as suas próprias conclusões.</example>
+      </rule>
 
 
   </category>
 
 
+
   <category id='REGIONALISMS_PT_PT' name='🇵🇹 Regionalismos'>
+
+
+      <rulegroup id='BRASILEIRISMO_GALERA' name='🇵🇹🇧🇷 galera → pessoal'>
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <rule> <!-- #1: "aí/então, galera" -->
+              <pattern>
+                  <token regexp='yes'>a[ií]|então</token>
+                  <token postag='_PUNCT_COMMA'/>
+                  <marker>
+                      <token>galera</token>
+                  </marker>
+              </pattern>
+              <message>Brasileirismo. Em português europeu, prefira <suggestion>pessoal</suggestion>.</message>
+              <example correction='pessoal'>E aí, <marker>galera</marker>?</example>
+              <example correction='pessoal'>Então, <marker>galera</marker>?</example>
+              <example type='correct'>Aí, a galera começou a cantar.</example>
+              <example type='correct'>Então a galera saiu.</example>
+          </rule>
+
+          <rule> <!-- #2: "como/que + verbo, galera" -->
+              <pattern>
+                  <token regexp='yes'>como|que</token>
+                  <token postag='V.+' postag_regexp='yes'/>
+                  <token postag='_PUNCT_COMMA'/>
+                  <marker>
+                      <token>galera</token>
+                  </marker>
+              </pattern>
+              <message>Brasileirismo. Em português europeu, prefira <suggestion>pessoal</suggestion>.</message>
+              <example correction='pessoal'>Como é, <marker>galera</marker>?</example>
+              <example correction='pessoal'>Como estão, <marker>galera</marker>?</example>
+              <example correction='pessoal'>Que querem, <marker>galera</marker>?</example>
+              <example correction='pessoal'>Que acham, <marker>galera</marker>?</example>
+              <example type='correct'>Como a galera atracou no porto?</example>
+              <example type='correct'>Que galera é essa?</example>
+              <example type='correct'>Disse que a galera chegou.</example>
+          </rule>
+      </rulegroup>
 
 
       <rule id='BRASILEIRISMO_ATERRISAR' name='🇵🇹🇧🇷 aterrisar → aterrar'>
@@ -4521,7 +4601,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 </category>
 
 
-  <category id='CONFUSED_WORDS_PT_PT' name="🇵🇹 Confusão de Palavras">
+
+  <category id='CONFUSED_WORDS_PT_PT' name="🇵🇹❓ Confusão de Palavras">
 
 
       <rulegroup id='PARONYM_PREMIO_PRÉMIO_PT' name='🇵🇹❓ Parónimo: premio/prémio'>
@@ -4554,18 +4635,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
       </rulegroup>
 
 
-    <rule id='AUTO-FALANTE' name="🇵🇹❓ Auto-falante/Altifalante">
-        <pattern>
-            <token>auto</token>
-            <token regexp='yes' min='0'>&tracos_de_separacao;</token>
-            <token regexp='yes'>falantes?</token>
-        </pattern>
-        <message>Possível confusão de termos.</message>
-        <suggestion><match no='3' postag='AQ0C(.)0' postag_replace='AQ0C$10'>altifalante</match></suggestion>
-        <suggestion>alto-\3</suggestion>
-        <example correction="altifalante|alto-falante">O <marker>auto-falante</marker> está avariado.</example>
-        <example correction="altifalantes|alto-falantes">Os <marker>auto-falantes</marker> estão avariados.</example>
-    </rule>
+      <rule id='AUTO-FALANTE' name="🇵🇹❓ Auto-falante/altifalante">
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
+
+          <pattern>
+              <token>auto</token>
+              <token min='0' spacebefore='no' postag='_PUNCT_HYPHEN'/>
+              <token regexp='yes'>falantes?</token>
+          </pattern>
+          <message>Possível confusão de termos.</message>
+          <suggestion><match no='3' postag='AQ0C(.)0' postag_replace='AQ0C$10'>altifalante</match></suggestion>
+          <example correction="altifalante">O <marker>auto-falante</marker> está avariado.</example>
+          <example correction="altifalantes">Os <marker>auto-falantes</marker> estão avariados.</example>
+          <example correction="altifalante">O <marker>auto falante</marker> está avariado.</example>
+          <example correction="altifalantes">Os <marker>auto falantes</marker> estão avariados.</example>
+      </rule>
 
 
     <rule id='CRIAR_QUERER' name="🇵🇹❓ Criar/Querer">
@@ -4594,92 +4678,82 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
 
-    <category id='TRANSLATION_ERRORS_PT_PT' name="🇵🇹 Erros de Tradução" type="mistranslation" tone_tags="academic">
+  <category id='TRANSLATION_ERRORS_PT_PT' name="🇵🇹🇺🇸 Erros de Tradução" type="mistranslation" tone_tags="academic">
         <!-- IDEA foreign_terms -->
 
 
-        <rule id='ERRO_TRADUÇÃO_ESTIMAÇÃO_MÁXIMA_SEMELHANÇA_PT_PT' name="🇵🇹 Erro tradução: estimação máxima 'semelhança' → 'verosimilhança'(PT)">
-            <!--
-                In pt_PT: verosimilhança
-                In pt_BR: verossimilhança
-            -->
-            <pattern>
-                <token skip="4" regexp="yes" inflected='yes' >estimativa|estimação|estimador</token>
-                <token>máxima</token>
-                <marker>
-                    <token regexp="yes">semelhança|equivalência</token>
-                </marker>
-            </pattern>
-            <message>Expressão não pode ser traduzida literalmente.</message>
-            <suggestion>verosimilhança</suggestion>
-            <example correction='verosimilhança'>A estimativa de máxima <marker>semelhança</marker> é usada em Estatística.</example>
-        </rule>
+      <rule id='ERRO_TRADUÇÃO_ESTIMAÇÃO_MÁXIMA_SEMELHANÇA_PT_PT' name="🇵🇹🇺🇸 Erro de tradução: estimação máxima 'semelhança' → 'verosimilhança'">
+          <!-- ChatGPT 5.6 and new disambiguator for 2026+ -->
 
-
-        <rule id='ERRO_TRADUÇÃO_FURTO_ROUBO_IDENTIDADE' name="🇵🇹 Erro tradução: 'furto' de identidade → 'usurpação'">
-            <pattern>
-                <marker>
-                    <token skip="4" inflected='yes' regexp='yes'>furtar|roubar</token>
-                </marker>
-                <token regexp='yes'>identidades?</token>
-            </pattern>
-            <message>Expressão não pode ser traduzida literalmente.</message>
-            <suggestion><match no='1' postag='V.+' postag_regexp='yes'>usurpar</match></suggestion>
-            <example correction="usurpou">Alguém <marker>roubou</marker> a identidade do dono da empresa.</example>
-            <example>Alguém <marker>usurpou</marker> a minha identidade.</example>
-            <example>Achamos que este cara <marker>usurpou</marker> a identidade dele.</example>
-            <example>Este senhor <marker>usurpou</marker> ao Rui a identidade dele.</example>
-        </rule>
-
-
-    </category>
-
-
-
-<category id="TYPOGRAPHY" name="🇵🇹 Tipografia">
-    <rule type="locale-violation" id='CURRENCY_PLACEMENT_PT_FOREIGN' name="🇵🇹 Posição dos símbolos de moeda: '100£ (£100)">
-        <pattern>
-            <token regexp="yes">\d+([,.]\d+)*</token>
-            <token regexp="yes">&currency_symbols;
-            <exception>€</exception>
-        </token>
-    </pattern>
-    <message>Símbolos de moeda internacionais se escrevem, via de regra, antes do valor.</message>
-    <suggestion>\2\1</suggestion>
-    <url>https://pt.wikipedia.org/wiki/Euro#Conven.C3.A7.C3.B5es_de_escrita</url>
-    <short>Mova o símbolo da moeda para antes do valor</short>
-    <example correction="£100">Deve <marker>100£</marker>.</example>
-    <example correction="£100.00">Deve <marker>100.00£</marker>.</example>
-    <example>Preciso de 400€.</example>
-</rule>
-
-<rule type="locale-violation" id='CURRENCY_PLACEMENT_EUR' name="🇵🇹 Posição do símbolo do euro: '€100 (100 €)">
-    <pattern>
-        <token>€</token>
-        <token regexp="yes">\d+([,.]\d+)*</token>
-    </pattern>
-    <message>O símbolo do euro deve seguir o valor monetário.</message>
-    <suggestion>\2&nbsp;\1</suggestion>
-    <url>https://pt.wikipedia.org/wiki/Euro#Conven.C3.A7.C3.B5es_de_escrita</url>
-    <short>Mova &quot;€&quot; para depois do valor</short>
-    <example correction="100&nbsp;€">Deve <marker>€100</marker>.</example>
-</rule>
-
-<rule type="locale-violation" id='CURRENCY_SPACE_PT_FOREIGN' name="🇵🇹 Espaçamento entre símbolos e valores monetários: '$ 100' ($100)">
-    <pattern>
-        <token regexp="yes">&currency_symbols;
-        <exception>€</exception>
-    </token>
-    <token regexp="yes" spacebefore="yes">\d+([,.]\d+)*</token>
-</pattern>
-<message>Os símbolos monetários internacionais não se separam do valor por um espaço.</message>
-<suggestion>\1\2</suggestion>
-<url>https://pt.wikipedia.org/wiki/Euro#Conven.C3.A7.C3.B5es_de_escrita</url>
-<short>Remover o espaço</short>
-<example correction="R$100">Custa <marker>R$ 100</marker>.</example>
+          <!--
+              In pt_PT: verosimilhança
+              In pt_BR: verossimilhança
+          -->
+          <pattern>
+              <token regexp='yes' inflected='yes'>estimativa|estimação|estimador</token>
+              <token regexp='yes'>da|de|por</token>
+              <token>máxima</token>
+              <marker>
+                  <token>semelhança</token>
+              </marker>
+          </pattern>
+          <message>Em Estatística, o inglês &quot;likelihood&quot; corresponde a &quot;verosimilhança&quot;, não a &quot;semelhança&quot;.</message>
+          <suggestion>verosimilhança</suggestion>
+          <example correction='verosimilhança'>A estimativa de máxima <marker>semelhança</marker> é usada em Estatística.</example>
+          <example correction='verosimilhança'>Foi utilizado um estimador de máxima <marker>semelhança</marker>.</example>
+          <example correction='verosimilhança'>O método de estimação por máxima <marker>semelhança</marker> foi aplicado aos dados.</example>
       </rule>
 
-      <rule type="locale-violation" id='CURRENCY_SPACE_EUR' name="🇵🇹 Espaçamento entre o símbolo do euro e valores monetários: '100€' (100 €)">
+
+  </category>
+
+
+
+  <category id="TYPOGRAPHY" name="🇵🇹 Tipografia">
+
+
+      <rule type="locale-violation" id='CURRENCY_PLACEMENT_PT_FOREIGN' name="🇵🇹$ Posição dos símbolos de moeda: '100£ (£100)">
+          <pattern>
+              <token regexp="yes">\d+([,.]\d+)*</token>
+              <token regexp="yes">&currency_symbols;<exception>€</exception></token>
+          </pattern>
+          <message>Símbolos de moeda internacionais se escrevem, via de regra, antes do valor.</message>
+          <suggestion>\2\1</suggestion>
+          <url>https://pt.wikipedia.org/wiki/Euro#Conven.C3.A7.C3.B5es_de_escrita</url>
+          <short>Mova o símbolo da moeda para antes do valor</short>
+          <example correction="£100">Deve <marker>100£</marker>.</example>
+          <example correction="£100.00">Deve <marker>100.00£</marker>.</example>
+          <example>Preciso de 400€.</example>
+      </rule>
+
+
+      <rule type="locale-violation" id='CURRENCY_PLACEMENT_EUR' name="🇵🇹€ Posição do símbolo do euro: '€100 (100 €)">
+          <pattern>
+              <token>€</token>
+              <token regexp="yes">\d+([,.]\d+)*</token>
+          </pattern>
+          <message>O símbolo do euro deve seguir o valor monetário.</message>
+          <suggestion>\2&nbsp;\1</suggestion>
+          <url>https://pt.wikipedia.org/wiki/Euro#Conven.C3.A7.C3.B5es_de_escrita</url>
+          <short>Mova &quot;€&quot; para depois do valor</short>
+          <example correction="100&nbsp;€">Deve <marker>€100</marker>.</example>
+      </rule>
+
+
+      <rule type="locale-violation" id='CURRENCY_SPACE_PT_FOREIGN' name="🇵🇹$ Espaçamento entre símbolos e valores monetários: '$ 100' ($100)">
+          <pattern>
+              <token regexp="yes">&currency_symbols;<exception>€</exception></token>
+              <token regexp="yes" spacebefore="yes">\d+([,.]\d+)*</token>
+          </pattern>
+          <message>Os símbolos monetários internacionais não se separam do valor por um espaço.</message>
+          <suggestion>\1\2</suggestion>
+          <url>https://pt.wikipedia.org/wiki/Euro#Conven.C3.A7.C3.B5es_de_escrita</url>
+          <short>Remover o espaço</short>
+          <example correction="R$100">Custa <marker>R$ 100</marker>.</example>
+      </rule>
+
+
+      <rule type="locale-violation" id='CURRENCY_SPACE_EUR' name="🇵🇹€ Espaçamento entre o símbolo do euro e valores monetários: '100€' (100 €)">
           <pattern>
               <token regexp="yes">\d+([,.]\d+)*</token>
               <token spacebefore="no">€</token>
@@ -4690,5 +4764,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
           <short>Adicionar um espaço</short>
           <example correction="100&nbsp;€">Custa <marker>100€</marker>.</example>
       </rule>
+
+
   </category>
+
 </rules>

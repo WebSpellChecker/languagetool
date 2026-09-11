@@ -51,7 +51,7 @@ public final class MorfologikCatalanSpellerRule extends MorfologikSpellerRule {
   private static final List<String> PREFIX_AMB_ESPAI = Arrays.asList("pod", "ultra", "eco", "tele", "anti", "re", "des",
     "sen", "sem", "s", "avant", "auto", "ex", "extra", "macro", "mega", "meta", "micro", "multi", "mono", "mini", "post",
     "retro", "semi", "super", "trans", "pro", "g", "l", "m", "e", "pos", "acost");
-  private static final List<String> ESPAI_AMB_SUFIX_NO = Arrays.asList("mi", "lis");
+  private static final List<String> ESPAI_AMB_SUFIX_NO = Arrays.asList("mi", "lis", "isme");
   private static final List<String> ESPAI_AMB_SUFIX_SI = Arrays.asList("a", "o", "i");
 
   private static final List<String> PRONOM_INICIAL = Arrays.asList("em", "et", "es", "se", "ens", "us", "vos", "li", "hi",
@@ -158,9 +158,10 @@ public final class MorfologikCatalanSpellerRule extends MorfologikSpellerRule {
         continue;
       }
       // avoid capitalized suggestions if there are previous all lower case suggestions
-      if (i > 0 && StringTools.IsAllLowercase(word) && StringTools.isCapitalizedWord(replacement)
-      && StringTools.IsAllLowercase(newSuggestions.get(0).getReplacement())
-      && !StringTools.equalsIgnoreCaseAndDiacritics(word, replacement)
+      if (i > 0 && !newSuggestions.isEmpty()
+        && StringTools.IsAllLowercase(word) && StringTools.isCapitalizedWord(replacement)
+        && StringTools.IsAllLowercase(newSuggestions.get(0).getReplacement())
+        && !StringTools.equalsIgnoreCaseAndDiacritics(word, replacement)
       ) {
         continue;
       }
