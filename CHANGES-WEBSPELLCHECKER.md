@@ -5,8 +5,10 @@ This document records WebSpellChecker-specific changes on top of upstream Langua
 ## 2026-09-11
 
 ### Security
-- **netty pin dropped:** Removed the `io.netty:netty-bom` 4.1.137.Final import from `dependencyManagement`. Netty is not managed upstream at all, it arrives transitively from `lettuce-core`, which now requires 4.2.13.Final.
+- **netty pin moved to the 4.2 line:** Replaced the `io.netty:netty-bom` 4.1.137.Final import with **4.2.17.Final**, the lowest version on the line `lettuce-core` requires that clears all nine issues reported against the 4.2.13.Final it brings in, including **CVE-2026-75595** (critical), **CVE-2026-75596**, **CVE-2026-73508**, **CVE-2026-44249**, **CVE-2026-45416**, **CVE-2026-50010**, **CVE-2026-45674**, **CVE-2026-47691** and **CVE-2026-45673**.
   - Scope: components depending on `io.netty` (direct or transitive) packaging of `langtool/libs`.
+- **mariadb-java-client upgrade:** Updated `org.mariadb.jdbc:mariadb-java-client` to **3.4.3** (upstream is still on 3.4.1) to address **CVE-2026-55856**, **CVE-2026-55857** and **CVE-2026-55858**.
+  - Scope: components depending on `mariadb-java-client` (direct or transitive, through `languagetool-server`) packaging of `langtool/libs`.
 - **micrometer registry back on the upstream artifact:** Reverted `micrometer-registry-prometheus-simpleclient` to `micrometer-registry-prometheus` (1.17.1, the version upstream now uses).
   - Scope: components depending on `micrometer-core` (direct or transitive) packaging of `langtool/libs`.
 
