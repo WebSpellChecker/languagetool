@@ -2,6 +2,16 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-09-21
+
+### Security
+- **ch.qos.logback upgrade:** Updated `ch.qos.logback` to **1.6.3** to address **CVE-2026-19880** (directory traversal, medium, SNYK-JAVA-CHQOSLOGBACK-19882330) in 1.5.38.
+  - Scope: components depending on `ch.qos.logback` (direct or transitive) packaging of `langtool/libs`.
+- **slf4j upgrade:** Updated `org.slf4j` to **2.0.19** alongside logback. logback 1.6 is built against slf4j-api 2.0.18, and our `dependencyManagement` excludes `slf4j-api` from `logback-classic`, so the project pin (previously 2.0.16) wins at runtime and would have risked `NoSuchMethodError`.
+  - Scope: components depending on `org.slf4j` (direct or transitive) packaging of `langtool/libs`.
+- **jackson-databind upgrade:** Updated `jackson-databind` to **2.18.11** to address three issues reported against 2.18.9: unsafe reflection (medium, SNYK-JAVA-COMFASTERXMLJACKSONCORE-19477042), deserialization of untrusted data (medium, SNYK-JAVA-COMFASTERXMLJACKSONCORE-19496766) and allocation of resources without limits or throttling (high, SNYK-JAVA-COMFASTERXMLJACKSONCORE-19778370).
+  - Scope: components depending on `jackson-databind` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-09-11
 
 ### Security
