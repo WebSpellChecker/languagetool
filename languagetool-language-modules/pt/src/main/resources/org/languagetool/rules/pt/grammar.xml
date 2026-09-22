@@ -43356,6 +43356,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
                 <example>O novo telemóvel Galaxy S9 da Samsung tem uma câmara mesmo boa.</example>
             </antipattern>
 
+            <antipattern> <!-- Serviço Nacional de Saúde 24 (Portugal) -->
+                <token case_sensitive='yes'>SNS24</token>
+                <example>Na altura liguei para o SNS24 conforme sugerido pelo Centro de Saúde.</example>
+            </antipattern>
+
             <antipattern>
                 <token regexp='yes'>BBB|CC|Y|C2C|B2C|U|V|W|PB|SiO|COP|FS|SnO</token>
                 <token regexp='yes'>\d+</token>

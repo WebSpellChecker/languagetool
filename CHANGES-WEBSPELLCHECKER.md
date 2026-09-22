@@ -2,6 +2,26 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-09-21
+
+### Security
+- **ch.qos.logback upgrade:** Updated `ch.qos.logback` to **1.6.3** to address **CVE-2026-19880** (directory traversal, medium, SNYK-JAVA-CHQOSLOGBACK-19882330) in 1.5.38.
+  - Scope: components depending on `ch.qos.logback` (direct or transitive) packaging of `langtool/libs`.
+- **slf4j upgrade:** Updated `org.slf4j` to **2.0.19** alongside logback. logback 1.6 is built against slf4j-api 2.0.18, and our `dependencyManagement` excludes `slf4j-api` from `logback-classic`, so the project pin (previously 2.0.16) wins at runtime and would have risked `NoSuchMethodError`.
+  - Scope: components depending on `org.slf4j` (direct or transitive) packaging of `langtool/libs`.
+- **jackson-databind upgrade:** Updated `jackson-databind` to **2.18.11** to address three issues reported against 2.18.9: unsafe reflection (medium, SNYK-JAVA-COMFASTERXMLJACKSONCORE-19477042), deserialization of untrusted data (medium, SNYK-JAVA-COMFASTERXMLJACKSONCORE-19496766) and allocation of resources without limits or throttling (high, SNYK-JAVA-COMFASTERXMLJACKSONCORE-19778370).
+  - Scope: components depending on `jackson-databind` (direct or transitive) packaging of `langtool/libs`.
+
+## 2026-09-11
+
+### Security
+- **netty pin moved to the 4.2 line:** Replaced the `io.netty:netty-bom` 4.1.137.Final import with **4.2.17.Final**, the lowest version on the line `lettuce-core` requires that clears all nine issues reported against the 4.2.13.Final it brings in, including **CVE-2026-75595** (critical), **CVE-2026-75596**, **CVE-2026-73508**, **CVE-2026-44249**, **CVE-2026-45416**, **CVE-2026-50010**, **CVE-2026-45674**, **CVE-2026-47691** and **CVE-2026-45673**.
+  - Scope: components depending on `io.netty` (direct or transitive) packaging of `langtool/libs`.
+- **mariadb-java-client upgrade:** Updated `org.mariadb.jdbc:mariadb-java-client` to **3.4.3** (upstream is still on 3.4.1) to address **CVE-2026-55856**, **CVE-2026-55857** and **CVE-2026-55858**.
+  - Scope: components depending on `mariadb-java-client` (direct or transitive, through `languagetool-server`) packaging of `langtool/libs`.
+- **micrometer registry back on the upstream artifact:** Reverted `micrometer-registry-prometheus-simpleclient` to `micrometer-registry-prometheus` (1.17.1, the version upstream now uses).
+  - Scope: components depending on `micrometer-core` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-08-26
 
 ### Security
@@ -66,7 +86,7 @@ This document records WebSpellChecker-specific changes on top of upstream Langua
 ## 2026-05-19
 
 ### Security
-- **Netty upgrade:** Updated `opentelemetry` to **1.62.0** to address **CVE-2026-45292**.
+- **opentelemetry upgrade:** Updated `opentelemetry` to **1.62.0** to address **CVE-2026-45292**.
   - Scope: components depending on `opentelemetry` (direct or transitive) packaging of `langtool/libs`.
 
 ## 2026-05-07

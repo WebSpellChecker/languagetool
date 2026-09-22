@@ -1,5 +1,25 @@
 #Catalan multiwords file used for chunking
 #separatorRegExp=[\t;]
+Air Force 1;NPCNO00
+Air Jordan;NPCNO00
+Erik Hoel;NPMSSP0
+Ulrich Siegmund;NPMSSP0
+Van Gilse;NPCNSP0
+Canal de Navarrés;NPFSG00
+forma mentis;NCFS000
+Elena Rybakina;NPFSSP0
+Ielena Ribàkina;NPFSSP0
+Ábrego García;NPMSSP0
+home granota;NCMS000
+homes granota;NCMP000
+dona granota;NCFS000
+dones granota;NCFP000
+Josep Munté;NPMSSP0
+Joan Pons Pons;NPMSSP0
+BATE Boríssov;NPMSO00
+BATE Baríssau;NPMSO00
+Celtic de Glasgow;NPMSO00
+Lactuca sativa;NCFS000
 Ouissam Alauita;NPMSSP0
 Juan Sebastián Elkano;NPMSSP0
 cap de setmana;NCMS000
@@ -9679,6 +9699,7 @@ Miquel Mayol;NPMSSP0
 Adolf Pizcueta;NPMSSP0
 Maximilià Thous;NPMSSP0
 Josep Pascual Tirado;NPMSSP0
+Pascual Tirado;NPCNSP0
 Jorès Ivànovitx Alfiórov;NPMSSP0
 Jorès Alfiórov;NPMSSP0
 Ilià Frank;NPMSSP0

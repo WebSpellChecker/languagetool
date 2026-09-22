@@ -56,6 +56,8 @@ Pekin	Pekin	NPCN000
 Relevant	Relevant	NPCN000
 Rusafa	Rusafa	NPCN000
 Russafa	Russafa	NPCSG00
+Salambô	Salambô	NPCN000
+Salammbô	Salammbô	NPCN000
 Salon	Salon	NPCN000
 Sangre	Sangre	NPCN000
 UTC+07:30	UTC+07:30	NPCN000
@@ -493,6 +495,8 @@ junyí	júnyer	VMIS1S00
 junyíem	júnyer	VMII1P00
 junyíeu	júnyer	VMII2P00
 júnyer	júnyer	VMN00000
+lactuca	lactuca	NCMS000
+lactuques	lactuca	NCMP000
 lent	lent1	NCFS000
 lent	lent2	AQ0MS0
 lenta	lent2	AQ0FS0
