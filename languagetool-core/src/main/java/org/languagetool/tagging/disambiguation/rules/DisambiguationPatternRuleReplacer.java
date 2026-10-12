@@ -54,35 +54,52 @@ class DisambiguationPatternRuleReplacer extends AbstractPatternRulePerformer {
     boolean[] changed = {false};
 
     doMatch(sentence, tokens, (tokenPositions, firstMatchToken, lastMatchToken, firstMarkerMatchToken, lastMarkerMatchToken) -> {
-      int ruleMatchFromPos = -1;
-      int ruleMatchToPos = -1;
-      int tokenCount = 0;
-      for (AnalyzedTokenReadings token : tokens) {
-        if (ruleMatchFromPos == -1 && tokenCount == firstMatchToken) {
-          ruleMatchFromPos = token.getStartPos();
-        }
-        if (ruleMatchToPos == -1 && tokenCount == lastMatchToken) {
-          ruleMatchToPos = token.getEndPos();
-        }
-        tokenCount++;
-      }
+      // direct lookup instead of a scan over all tokens (which made each match O(n) on long sentences)
+      int ruleMatchFromPos = firstMatchToken >= 0 && firstMatchToken < tokens.length ? tokens[firstMatchToken].getStartPos() : -1;
+      int ruleMatchToPos = lastMatchToken >= 0 && lastMatchToken < tokens.length ? tokens[lastMatchToken].getEndPos() : -1;
       int matchingTokens = (int)Arrays.stream(tokenPositions).filter(i -> i != 0).count();
-      if (keepDespiteFilter(tokens, tokenPositions, firstMatchToken, lastMatchToken) && keepByDisambig(sentence, ruleMatchFromPos, ruleMatchToPos)) {
+      if (keepDespiteFilter(tokens, tokenPositions, firstMatchToken, lastMatchToken) && keepByDisambig(sentence, ruleMatchFromPos, ruleMatchToPos, firstMatchToken, lastMatchToken)) {
+        if (!changed[0]) {
+          // copy-on-first-write: sentence.getTokens() must not be modified, but the copy can be reused for
+          // all further matches of this rule (instead of cloning the whole array per match)
+          whTokens[0] = whTokens[0].clone();
+        }
         whTokens[0] = executeAction(sentence, whTokens[0], unifiedTokens, firstMatchToken, lastMarkerMatchToken, matchingTokens, tokenPositions);
         changed[0] = true;
       }
     });
     if (changed[0]) {
-      return new AnalyzedSentence(whTokens[0], preDisambigTokens);
+      DisambiguationPatternRule.DisambiguatorAction action = ((DisambiguationPatternRule) rule).getAction();
+      // these actions only set flags on the tokens, they don't touch the readings:
+      boolean readingsUnchanged = action == DisambiguationPatternRule.DisambiguatorAction.IMMUNIZE ||
+                                  action == DisambiguationPatternRule.DisambiguatorAction.IGNORE_SPELLING;
+      // ADD modifies the shared token objects in place and may change their surface string
+      // (AnalyzedTokenReadings.addReading), so the previous token index can't be trusted then:
+      AnalyzedSentence previous = action == DisambiguationPatternRule.DisambiguatorAction.ADD ? null : sentence;
+      return new AnalyzedSentence(whTokens[0], preDisambigTokens, previous, readingsUnchanged);
     }
     return sentence;
   }
 
-  private boolean keepByDisambig(AnalyzedSentence sentence, int ruleMatchFromPos, int ruleMatchToPos) throws IOException {
+  private boolean keepByDisambig(AnalyzedSentence sentence, int ruleMatchFromPos, int ruleMatchToPos, int firstMatchToken, int lastMatchToken) throws IOException {
     List<DisambiguationPatternRule> antiPatterns = rule.getAntiPatterns();
+    // Computed lazily, at most once per call: rule.getLanguage() is invariant across the loop below,
+    // so there's no need to re-resolve the default language variant / build a new Unifier per antipattern.
+    Unifier antiPatternUnifier = null;
     for (DisambiguationPatternRule antiPattern : antiPatterns) {
       if (!antiPattern.canBeIgnoredFor(sentence)) {
-        RuleMatch[] matches = new PatternRuleMatcher(antiPattern, false).match(sentence);
+        if (antiPatternUnifier == null) {
+          // antipatterns of disambiguation rules must use the disambiguation unifier (see constructor),
+          // not the grammar unifier of the rule's language, which may not even be configured yet
+          antiPatternUnifier = rule.getLanguage().getDefaultLanguageVariant().getDisambiguationUnifier();
+        }
+        // Restrict the search to the tokens that can overlap the rule's match: an antipattern match that
+        // overlaps must start at or before the rule match's last token. If the antipattern cannot skip tokens,
+        // it can also span at most `maxSpanTokens`, which bounds how far before the match it can start.
+        int maxSpanTokens = antiPattern.getMaxSpanTokens();
+        int minStartIndex = maxSpanTokens < 0 ? 0 : Math.max(0, firstMatchToken - maxSpanTokens);
+        int maxStartIndex = lastMatchToken;
+        RuleMatch[] matches = new PatternRuleMatcher(antiPattern, false, antiPatternUnifier).match(sentence, minStartIndex, maxStartIndex);
         for (RuleMatch disMatch : matches) {
           if ((disMatch.getFromPos() <= ruleMatchFromPos && disMatch.getToPos() >= ruleMatchFromPos) ||  // left overlap of rule match start
               (disMatch.getFromPos() <= ruleMatchToPos && disMatch.getToPos() >= ruleMatchToPos) ||  // right overlap of rule match end
@@ -113,7 +130,7 @@ class DisambiguationPatternRuleReplacer extends AbstractPatternRulePerformer {
                                                 AnalyzedTokenReadings[] unifiedTokens,
                                                 int firstMatchToken, int lastMatchToken,
                                                 int matchingTokens, int[] tokenPositions) {
-    AnalyzedTokenReadings[] whTokens = whiteTokens.clone();
+    AnalyzedTokenReadings[] whTokens = whiteTokens; // already a private copy, see replace()
     DisambiguationPatternRule rule = (DisambiguationPatternRule) this.rule;
 
     int correctedStPos = 0;
