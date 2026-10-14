@@ -18940,6 +18940,20 @@ USA
             <url>https://languagetool.org/insights/post/your-vs-youre/</url>
             <rule>
                 <pattern>
+                    <marker>
+                        <token>you</token>
+                        <token>'re</token>
+                    </marker>
+                    <token postag_regexp="yes" postag="NN.*"/>
+                    <token postag_regexp="yes" postag="VBZ|VBP|VBD|MD"/>
+                </pattern>
+                <message>Did you mean <suggestion>your</suggestion>?</message>
+                <example correction="your">The tracking notification will be sent to you once <marker>you're</marker> order ships out.</example>
+                <example correction="your">Let me know when <marker>you're</marker> package arrives.</example>
+                <example correction="your">We will contact you after <marker>you're</marker> payment clears.</example>
+            </rule>
+            <rule>
+                <pattern>
                     <token postag="SENT_START|PCT|UH|CC" postag_regexp="yes">
                         <exception postag="IN|VB.*|RP" postag_regexp="yes" /><!-- "check" is UH, "for" is CC -->
                     </token>
@@ -89980,6 +89994,13 @@ USA
                     <token postag="NNP?S" postag_regexp="yes" />
                     <example>There are no vendor, regulatory, or otherwise, specifications for vibrations in this range.</example>
                 </antipattern>
+                <!-- majority/minority of + noun/pronoun -->
+                <antipattern>
+                    <token>the</token>
+                    <token regexp="yes">majority|minority</token>
+                    <token>of</token>
+                    <example>There are the majority of people who face difficulties when searching for their first job.</example>
+                </antipattern>
                 <pattern>
                     <token>there</token>
                     <token regexp="yes">are|were</token>
@@ -103956,7 +103977,7 @@ The accident victim died from her injuries.
       <antipattern>
         <token postag="SENT_START" />
         <token>no</token>
-        <token regexp="yes">your|his|her|my</token>
+        <token regexp="yes">your|his|her|my|its</token>
       </antipattern>
       <antipattern><!-- https://en.wikipedia.org/wiki/The_My_Hero_Project -->
         <token>my</token>
@@ -110385,6 +110406,15 @@ The accident victim died from her injuries.
                     <token postag="NNS" />
                     <token>were</token>
                 </antipattern>
+                <antipattern>
+                <!-- Short clauses connected by "and" -->
+                    <token postag="VB.*" postag_regexp="yes"/>
+                    <token skip="3">and</token>
+                    <token postag="DT">the</token>
+                    <token postag="NN.*" postag_regexp="yes"/>
+                    <token postag="VB.*" postag_regexp="yes"/>
+                    <example>The rain stopped and the children went outside for a play.</example>
+                </antipattern>
                 <pattern>
                     <token />
                     <token>
@@ -110410,7 +110440,6 @@ The accident victim died from her injuries.
                 </pattern>
                 <message>Use a comma before "\5" if it connects two independent clauses (unless they are closely connected and short).</message>
                 <suggestion>, \5</suggestion>
-                <example correction=", and">It was raining<marker> and</marker> the game was called off.</example>
                 <example correction=", and">Gómez was defeated and captured<marker> and</marker> the rebellion was snuffed out.</example>
                 <example correction=", and">That is exactly what it was<marker> and</marker> your response was both thoughtful and informative.</example>
                 <example correction=", and">I looked back<marker> and</marker> the truck was ordering.</example>
