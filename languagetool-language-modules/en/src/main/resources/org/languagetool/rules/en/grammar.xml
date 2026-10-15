@@ -110407,13 +110407,24 @@ The accident victim died from her injuries.
                     <token>were</token>
                 </antipattern>
                 <antipattern>
-                <!-- Short clauses connected by "and" -->
+                <!-- Short compound clauses without preceding coordination -->
+                    <token>
+                        <exception>and</exception>
+                    </token>
                     <token postag="VB.*" postag_regexp="yes"/>
-                    <token skip="3">and</token>
+                    <token>and</token>
                     <token postag="DT">the</token>
                     <token postag="NN.*" postag_regexp="yes"/>
                     <token postag="VB.*" postag_regexp="yes"/>
-                    <example>The rain stopped and the children went outside for a play.</example>
+                </antipattern>
+                <antipattern>
+                <!-- Auxiliary + verb + and + the + noun + verb -->
+                    <token postag="VB.*" postag_regexp="yes"/>
+                    <token postag="VB.*" postag_regexp="yes"/>
+                    <token>and</token>
+                    <token postag="DT">the</token>
+                    <token postag="NN.*" postag_regexp="yes"/>
+                    <token postag="VB.*" postag_regexp="yes"/>
                 </antipattern>
                 <pattern>
                     <token />
@@ -110442,7 +110453,6 @@ The accident victim died from her injuries.
                 <suggestion>, \5</suggestion>
                 <example correction=", and">Gómez was defeated and captured<marker> and</marker> the rebellion was snuffed out.</example>
                 <example correction=", and">That is exactly what it was<marker> and</marker> your response was both thoughtful and informative.</example>
-                <example correction=", and">I looked back<marker> and</marker> the truck was ordering.</example>
                 <example correction=", or">The motor is shot<marker> or</marker> the regulator is dry and binding.</example>
                 <example>That's the same voltage that's measured when the switch is off and the wire is connected.</example>
                 <example>I can confirm the light goes on when a code is entered or the door is unlocked manually.</example>
