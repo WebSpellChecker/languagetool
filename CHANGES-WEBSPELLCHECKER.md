@@ -2,6 +2,20 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-10-19
+
+### Security
+- **Netty and Redis client removal:** Removed `io.lettuce:lettuce-core`, `io.projectreactor:reactor-core`, `redis.clients.authentication:redis-authx-core` and all `io.netty` artifacts to address the hardcoded private keys (SQ34109, Spectra Assure SAFE level L3) found in Netty's `SslUtils` and `JdkSslServerContext`. Updating Netty does not help: the keys are still in the 4.2 line. These artifacts come only from `lettuce-core`, which `languagetool-server` declares but no shipped code uses.
+  - Scope: components depending on `io.lettuce:lettuce-core` and `io.netty` (direct or transitive) packaging of `langtool/libs`.
+- **grpc-netty-shaded removal:** Removed `io.grpc:grpc-netty-shaded` to address the same hardcoded private key (SQ34109) in its shaded copy of Netty's `OpenSsl`. It is only the gRPC transport for remote rules (`GRPCRule`, `BERTSuggestionRanking`), which are enabled only through `remoteRulesFile` or `activateRemoteRules`, and WebSpellChecker uses neither. The other `io.grpc` artifacts stay, because `languagetool-core` loads classes from `grpc-api` during every check.
+  - Scope: components depending on `io.grpc:grpc-netty-shaded` (direct or transitive) packaging of `langtool/libs`.
+- **bcrypt removal:** Removed `at.favre.lib:bcrypt` and its dependency `at.favre.lib:bytes` to address a code signing certificate without the code signing extended key usage (SQ20122) on `bytes.jar`. `languagetool-server` declares bcrypt but no shipped code uses it.
+  - Scope: components depending on `at.favre.lib:bcrypt` (direct or transitive) packaging of `langtool/libs`.
+- **ch.qos.logback upgrade:** Updated `ch.qos.logback` to **1.6.5** to address directory traversal (medium, SNYK-JAVA-CHQOSLOGBACK-20824362) in 1.6.3. logback 1.6.5 is built against slf4j 2.0.19, the version we already pin.
+  - Scope: components depending on `ch.qos.logback` (direct or transitive) packaging of `langtool/libs`.
+- **guava upgrade:** Updated `com.google.guava:guava` to **33.7.2-jre** to address allocation of resources without limits or throttling (high, SNYK-JAVA-COMGOOGLEGUAVA-20825054) in 33.5.0-jre.
+  - Scope: components depending on `com.google.guava:guava` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-09-21
 
 ### Security
