@@ -343,7 +343,7 @@ public final class CommandLineTools {
 
     long analyzeEndTime = tagEndTime;
     long analyzeTime = analyzeEndTime-analyzeStartTime;
-    System.out.printf("Analyze time: %d ms, %.1f sent/sec\n\n", analyzeTime, (float)sentences.size()/analyzeTime);
+    System.out.printf("Analyze time: %d ms, %.1f sent/sec\n\n", analyzeTime, (float)sentences.size()/analyzeTime*1000);
 
     Language language = lt.getLanguage();
     
@@ -365,7 +365,7 @@ public final class CommandLineTools {
 
     long disambigEndTime = System.currentTimeMillis();
     long disambigTime = disambigEndTime-tagEndTime;
-    System.out.printf("Disambig time: %d ms, %f sent/sec\n\n", disambigTime, (float)sentences.size()/disambigTime);
+    System.out.printf("Disambig time: %d ms, %f sent/sec\n\n", disambigTime, (float)sentences.size()/disambigTime*1000);
 
     System.out.printf("Testing %d rules%n", ruleCount);
     System.out.printf("%-40s%10s%10s%10s%15s\n", "Rule ID", "Time", "Sentences", "Matches", "Sentences per sec.");
@@ -396,7 +396,9 @@ public final class CommandLineTools {
     }
     
     long ruleEndTime =  System.currentTimeMillis();
-    System.out.printf("\nTotal rule time: %d ms\n", (ruleEndTime - disambigEndTime)/iterationCount);
+    long totalRuleTime = (ruleEndTime - disambigEndTime)/iterationCount;
+    System.out.printf("\nTotal rule time: %d ms\n", totalRuleTime);
+    System.out.printf("Total time: %d ms (analyze + disambig + rules)\n", analyzeTime + disambigTime + totalRuleTime);
   }
 
   private static long median(long[] m) {

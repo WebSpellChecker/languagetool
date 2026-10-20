@@ -20,6 +20,7 @@ package org.languagetool.language;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 import org.languagetool.*;
 import org.languagetool.markup.AnnotatedText;
 import org.languagetool.rules.*;
@@ -63,12 +64,23 @@ public class Catalan extends Language {
   protected Catalan(boolean fakeValue) {
   }
 
-  public static @NotNull Catalan getInstance() {
-    Language language = Objects.requireNonNull(Languages.getLanguageForShortCode(LANGUAGE_SHORT_CODE));
-    if (language instanceof Catalan catalan) {
-      return catalan;
+  // Lazy, thread-safe, lock-free holder
+  private static class InstanceHolder {
+    private static final Catalan INSTANCE = fetchInstance();
+    private static Catalan fetchInstance() {
+      Language language = Objects.requireNonNull(
+        Languages.getLanguageForShortCode(LANGUAGE_SHORT_CODE),
+        "Language lookup returned null for code: " + LANGUAGE_SHORT_CODE
+      );
+      if (language instanceof Catalan catalan) {
+        return catalan;
+      }
+      throw new IllegalStateException("Catalan language expected, got " + language.getClass().getName());
     }
-    throw new RuntimeException("Catalan language expected, got " + language);
+  }
+
+  public static @NotNull Catalan getInstance() {
+    return InstanceHolder.INSTANCE;
   }
 
   @Override
@@ -87,8 +99,8 @@ public class Catalan extends Language {
   }
 
   @Override
-  public Language getDefaultLanguageVariant() {
-    return Languages.getLanguageForShortCode("ca-ES");
+  public @NonNull Language getDefaultLanguageVariant() {
+    return InstanceHolder.INSTANCE;
   }
 
   @Override
@@ -113,6 +125,7 @@ public class Catalan extends Language {
       new LongSentenceRule(messages, userConfig, 60),
       // specific to Catalan:
       new CatalanWordRepeatRule(messages, this),
+      new CatalanPhraseRepeatRule(messages, this),
       new MorfologikCatalanSpellerRule(messages, this, userConfig, altLanguages),
       new CatalanUnpairedQuestionMarksRule(messages, this),
       new CatalanUnpairedExclamationMarksRule(messages, this),
@@ -134,7 +147,7 @@ public class Catalan extends Language {
       new SimpleReplaceDNVColloquialRule(messages, this),
       new SimpleReplaceDNVSecondaryRule(messages, this),
       new WordCoherencyRule(messages),
-      new PunctuationMarkAtParagraphEnd(messages, this),
+      new CatalanPunctuationMarkAtParagraphEnd(messages, this),
       new CatalanRemoteRule(messages, userConfig),
       new CatalanSplitLongSentenceRule(messages, userConfig, 60),
       new IgnoreProperNouns(messages)
@@ -485,6 +498,8 @@ public class Catalan extends Language {
       //case "APOSTROFACIO_MOT_DESCONEGUT": return -120; // lesser than MORFOLOGIK_RULE_CA_ES
       case "PHRASE_REPETITION":
         return -150;
+      case "CATALAN_PHRASE_REPEAT_RULE":
+        return -150;
       case "SUBSTANTIUS_JUNTS":
         return -150;
       case "REPETITION_ADJ_N_ADJ":
@@ -553,13 +568,13 @@ public class Catalan extends Language {
     String errorStr = ruleMatch.getOriginalErrorStr();
     List<String> suggestedReplacements = ruleMatch.getSuggestedReplacements();
     // Avoid two white spaces after removing a word
-    if (suggestedReplacements.size() == 1 && suggestedReplacements.get(0).equals("")) {
+    if (suggestedReplacements.size() == 1 && suggestedReplacements.get(0).isEmpty()) {
       String sentenceText = ruleMatch.getSentence().getText();
       int fromSent = ruleMatch.getFromPosSentence();
       int toSent = ruleMatch.getToPosSentence();
       if (fromSent >= 0 && toSent + 1 <= sentenceText.length()
-        && (fromSent == 0 || sentenceText.substring(fromSent - 1, fromSent).equals(" "))
-        && sentenceText.substring(toSent, toSent + 1).equals(" ")) {
+        && (fromSent == 0 || sentenceText.charAt(fromSent - 1) == ' ')
+        && sentenceText.charAt(toSent) == ' ') {
         RuleMatch newRuleMatch = new RuleMatch(ruleMatch.getRule(), ruleMatch.getSentence(),
           ruleMatch.getFromPos(), ruleMatch.getToPos() + 1,
           ruleMatch.getMessage(), ruleMatch.getShortMessage());
@@ -635,7 +650,7 @@ public class Catalan extends Language {
       .replace("dónes", "dones")
       .replace("sóc", "soc")
       .replace("vénen", "venen")
-      .replace("véns", "véns")
+      .replace("véns", "vens")
       .replace("fóra", "fora")
       .replace("Vés", "Ves")
       .replace("Féu", "Feu")
@@ -707,7 +722,7 @@ public class Catalan extends Language {
     s = m7.replaceAll("$1 l'$2");
     // T'comença -> Et comença
     Matcher m8 = CA_APOSTROPHES8.matcher(s);
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
     while (m8.find()) {
       String group1 = m8.group(1).toLowerCase();
       String group2 = m8.group(2);
@@ -735,22 +750,22 @@ public class Catalan extends Language {
   public List<String> prepareLineForSpeller(String line) {
     String[] parts = line.split("#");
     if (parts.length == 0) {
-      return Arrays.asList(line);
+      return List.of(line);
     }
     String[] formTag = parts[0].split("[\t;]");
     String form = formTag[0].trim();
     if (spellerExceptions.contains(form)) {
-      return Arrays.asList("");
+      return List.of("");
     }
     if (formTag.length > 1) {
       String tag = formTag[1].trim();
       if (tag.startsWith("N") || tag.equals("_Latin_")) {
-        return Arrays.asList(form);
+        return List.of(form);
       } else {
-        return Arrays.asList("");
+        return List.of("");
       }
     }
-    return Arrays.asList(line);
+    return List.of(line);
   }
 
   public MultitokenSpeller getMultitokenSpeller() {
@@ -759,10 +774,7 @@ public class Catalan extends Language {
 
   @Override
   public List<RuleMatch> filterRuleMatchesAfterOverlapping(List<RuleMatch> ruleMatches) {
-    List<RuleMatch> result =
-      ruleMatches.stream().map(RuleMatch::trimMatchEnds).collect(java.util.stream.Collectors.toList());
-    Collections.sort(result);
-    return result;
+    return ruleMatches.stream().map(RuleMatch::trimMatchEnds).sorted().collect(java.util.stream.Collectors.toList());
   }
 
   @Override
@@ -772,6 +784,13 @@ public class Catalan extends Language {
     RuleMatch previousRuleMatch = null;
     for (int i = 0; i < ruleMatches.size(); i++) {
       RuleMatch ruleMatch = ruleMatches.get(i);
+      // ignore rules that change nothing
+      if (!ruleMatch.getRule().getId().equals("MORFOLOGIK_RULE_CA_ES")) {
+        if ((ruleMatch.getSuggestedReplacements().size() == 1) &&
+          ruleMatch.getOriginalErrorStr().equals(ruleMatch.getSuggestedReplacements().get(0))) {
+          continue;
+        }
+      }
       // remove rules IGNORE_PROPER_NOUNS and MORFOLOGIK_RULE_CA_ES if they are in the same position
       if (ruleMatch.getRule().getId().equals("IGNORE_PROPER_NOUNS")) {
         if (previousRuleMatch != null && previousRuleMatch.getRule().getId().equals("MORFOLOGIK_RULE_CA_ES")
@@ -806,6 +825,23 @@ public class Catalan extends Language {
     }
     Collections.sort(results);
     return results;
+  }
+
+  @Override
+  public List<String> getAllPossibleTags() throws IOException {
+    List<String> myPossibleTags = CatalanSynthesizer.INSTANCE_CAT.getPossibleTagsForSynthesis();
+    myPossibleTags.addAll(Arrays.asList("_abrev_biblia", "_allow_darrera", "_allow_mig", "_allow_repeat",
+      "_C_LLOC", "_complement_directe", "_data_concreta", "_english_ignore_", "_enumeracio", "_es_impersonal_pl",
+      "_es_impersonal_sg", "_es_personal_pl", "_es_personal_sg", "_frances_", "_GN_FP", "_GN_FS", "_GN_MP", "_GN_MS",
+      "_GV_", "_Latin_", "_loc_enma", "_loc_meitat", "_loc_nosequi", "_loc_unavegada", "_marca_passat", "_no_relatiu"
+      , "_obligacio", "_perfet", "_possible_nompropi", "_PUNCT", "_PUNCT_CONT", "_PUNCT_SENT_START", "_QM_CLOSE",
+      "_QM_OPEN", "_reflexiu", "_reflexiu_complement", "_trespunts", "UNKNOWN", "_IS_URL", "_C_TEMPS",
+      "contraccio", "allow_com", "allow_masculine",
+      "allow_repetition", "allow_saxon_genitive", "allow_tant", "AQ0MN0", "comparatiu", "complement", "complement_a",
+      "complement_cada", "conjuncio", "DA0CN0", "decimal_comma", "DN0CS0", "GV", "hac_aspirada", "ignore_concordance"
+      , "IS_URL", "K", "LOC_ADJ", "LOC_ADV", "LOC_ADV_TEMP", "LOC_CONJ", "LOC_PREP", "mot_foraster", "no_comparatiu",
+      "NPCPO00", "NPCNM00", "PTime", "relatiu", "repeated", "repeated_negation", "RG_anteposat", "SENT_END", "SENT_START"));
+    return myPossibleTags;
   }
 
 }
