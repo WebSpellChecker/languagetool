@@ -2,6 +2,17 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-10-23
+
+### Security
+- **SBOM matches the package:** Moved the removal of `io.lettuce:lettuce-core` (with `reactor-core`, `redis-authx-core` and `io.netty`), `at.favre.lib:bcrypt`, `org.mybatis:mybatis`, `io.grpc:grpc-netty-shaded` and `org.apache.lucene:lucene-core` from `zip.xml` to Maven exclusions in `languagetool-standalone/pom.xml`. The SBOM (`cyclonedx-maven-plugin`) reads the Maven dependency graph, so it listed these artifacts although they were not in `libs`. `lucene-core` is also declared `provided` in `languagetool-standalone`, because the `HomophoneOccurrenceDumper` dev tool compiles against it.
+  - The exclusions also drop the dependencies that came only with these artifacts and were still packaged: `io.grpc:grpc-core`, `grpc-context`, `grpc-util`, `com.google.code.gson:gson` and `io.perfmark:perfmark-api` (through `grpc-netty-shaded`), `org.reactivestreams:reactive-streams` (through `reactor-core`). The checks AppServer runs load none of their classes; `io.grpc:grpc-api`, which `languagetool-core` loads during every check, stays.
+  - Scope: `languagetool_sbom.json` and packaging of `langtool/libs`.
+- **JAXB 4 runtime removal:** Removed `org.glassfish.jaxb:jaxb-runtime` 4.0.5 and its dependencies (`jaxb-core` 4.0.5, `txw2`, `istack-commons-runtime` 4.1.2, `angus-activation`, `jakarta.activation-api` 2.1.3). Nothing in the package uses `jakarta.xml.bind`; the `javax.xml.bind` implementation (`com.sun.xml.bind:jaxb-impl` 2.3.3) stays. Its `jaxb-core.jar` was overwritten in `libs` by `com.sun.xml.bind:jaxb-core` 2.3.0.1, so the SBOM listed a jar that was not shipped and Snyk reported it (XXE, high, CVE-2026-92877, SNYK-JAVA-ORGGLASSFISHJAXB-20883142).
+  - Scope: components depending on `org.glassfish.jaxb:jaxb-runtime` (direct or transitive) packaging of `langtool/libs`.
+- **Android annotations removal:** Removed `com.google.android:annotations`, which comes with `grpc-core`. Its `annotations.jar` was overwritten in `libs` by `com.intellij:annotations`, so the SBOM listed a jar that was not shipped.
+  - Scope: `languagetool_sbom.json`.
+
 ## 2026-10-19
 
 ### Security
