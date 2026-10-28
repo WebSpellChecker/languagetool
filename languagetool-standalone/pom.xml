@@ -21,6 +21,60 @@
         </license>
     </licenses>
 
+    <dependencyManagement>
+        <!-- Artifacts left out of the package. Excluding them from the dependency graph instead of in zip.xml
+             keeps the SBOM (cyclonedx-maven-plugin below) identical to the libs folder. -->
+        <dependencies>
+            <dependency>
+                <groupId>org.languagetool</groupId>
+                <artifactId>languagetool-core</artifactId>
+                <version>${revision}</version>
+                <exclusions>
+                    <!-- gRPC transport for remote rules only, embeds Netty's hardcoded private key (SQ34109) -->
+                    <exclusion>
+                        <groupId>io.grpc</groupId>
+                        <artifactId>grpc-netty-shaded</artifactId>
+                    </exclusion>
+                    <!-- PRISMA-2021-0081, declared as provided below for the dev tool that compiles against it -->
+                    <exclusion>
+                        <groupId>org.apache.lucene</groupId>
+                        <artifactId>lucene-core</artifactId>
+                    </exclusion>
+                    <!-- unused JAXB 4 runtime, its jaxb-core.jar collides with com.sun.xml.bind:jaxb-core in libs -->
+                    <exclusion>
+                        <groupId>org.glassfish.jaxb</groupId>
+                        <artifactId>jaxb-runtime</artifactId>
+                    </exclusion>
+                    <!-- Android-only annotations from grpc-core, collide with com.intellij:annotations in libs -->
+                    <exclusion>
+                        <groupId>com.google.android</groupId>
+                        <artifactId>annotations</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.languagetool</groupId>
+                <artifactId>languagetool-server</artifactId>
+                <version>${revision}</version>
+                <!-- declared by languagetool-server, not used by the code we ship -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.lettuce</groupId>
+                        <artifactId>lettuce-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>at.favre.lib</groupId>
+                        <artifactId>bcrypt</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -35,6 +89,12 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
+        </dependency>
+        <dependency>
+            <!-- only the HomophoneOccurrenceDumper dev tool needs it, so it is not packaged (PRISMA-2021-0081) -->
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.languagetool</groupId>
@@ -55,6 +115,13 @@
             <type>test-jar</type>
             <!-- Some tests are used at runtime for rule developers, thus no 'test' scope here -->
             <scope>compile</scope>
+            <!-- its dependencies are those of languagetool-core, which brings them in with the exclusions above -->
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.languagetool</groupId>
@@ -170,6 +237,8 @@
                     <outputFormat>JSON</outputFormat>
                     <outputName>languagetool_sbom</outputName>
                     <skipNotDeployed>false</skipNotDeployed>
+                    <!-- the assembly packages compile and runtime scope only -->
+                    <includeProvidedScope>false</includeProvidedScope>
                   </configuration>
                 </execution>
               </executions>
