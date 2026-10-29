@@ -139685,7 +139685,7 @@ The accident victim died from her injuries.
             <rule><!-- D. : Drosophila -->
                 <pattern case_sensitive="yes">
                     <token>D</token>
-                    <token regexp="yes">melanogaster</token>
+                    <token>melanogaster</token>
                 </pattern>
                 <message>An abbreviated genus name is followed by a period.</message>
                 <suggestion>\1. \2</suggestion>
@@ -139758,7 +139758,7 @@ The accident victim died from her injuries.
                     <token regexp="yes">falciparum|vivax|gingivalis|mirabilis|aeruginosa|putida|fluorescens</token>
                 </pattern>
                 <message>An abbreviated genus name is followed by a period.</message>
-                <short>Missing period</short>
+                <suggestion>\1. \2</suggestion>
                 <example correction="P. falciparum">The culture grew <marker>P falciparum</marker> after 24 hours.</example>
                 <example>The culture grew P. falciparum after 24 hours.</example>
             </rule>
