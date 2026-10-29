@@ -195,7 +195,7 @@
         <org.tukaani.version>1.10</org.tukaani.version>
 
         <guava.version>33.7.2-jre</guava.version>
-        <jackson.version>2.18.11</jackson.version>
+        <jackson.version>2.18.12</jackson.version>
         <lombok.version>1.18.34</lombok.version>
         <lucene.version>5.5.5</lucene.version>
         <morfologik.version>2.2.0</morfologik.version>
