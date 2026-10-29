@@ -7,6 +7,8 @@ This document records WebSpellChecker-specific changes on top of upstream Langua
 ### Security
 - **jackson-databind upgrade:** Updated `jackson-databind` to **2.18.12** to address **CVE-2026-110879** (SNYK-JAVA-COMFASTERXMLJACKSONCORE-21761837).
   - Scope: components depending on `jackson-databind` (direct or transitive) packaging of `langtool/libs`.
+- **opentelemetry upgrade:** Updated `io.opentelemetry` to **1.67.0** to address **CVE-2026-118259** (GHSA-ccrj-gw8r-854m).
+  - Scope: components depending on `opentelemetry-api` (direct or transitive) packaging of `langtool/libs`.
 
 ## 2026-10-23
 
