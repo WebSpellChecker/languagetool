@@ -89996,10 +89996,12 @@ USA
                 </antipattern>
                 <!-- majority/minority of + noun/pronoun -->
                 <antipattern>
-                    <token>the</token>
+                    <token regexp="yes">the|a</token>
+                    <token postag="JJ.*" postag_regexp="yes" min="0"/>
                     <token regexp="yes">majority|minority</token>
                     <token>of</token>
                     <example>There are the majority of people who face difficulties when searching for their first job.</example>
+                    <example>There are the vast majority of followers who never change the default settings.</example>
                 </antipattern>
                 <pattern>
                     <token>there</token>
