@@ -110408,25 +110408,36 @@ The accident victim died from her injuries.
                     <token postag="NNS" />
                     <token>were</token>
                 </antipattern>
-                <antipattern>
-                <!-- Short compound clauses without preceding coordination -->
-                    <token>
-                        <exception>and</exception>
-                    </token>
-                    <token postag="VB.*" postag_regexp="yes"/>
-                    <token>and</token>
-                    <token postag="DT">the</token>
+                <antipattern><!-- Short compound sentence: no comma suggestion -->
+                    <token postag="DT"/>
                     <token postag="NN.*" postag_regexp="yes"/>
-                    <token postag="VB.*" postag_regexp="yes"/>
+                    <token postag="VBD|VBZ|VBP" postag_regexp="yes"/>
+                    <token>and</token>
+                    <token postag="DT|CD|PRP\$" postag_regexp="yes"/>
+                    <token postag="JJ.*" postag_regexp="yes" min="0"/>
+                    <token postag="NN.*" postag_regexp="yes"/>
+                    <token postag="VBD|VBZ|VBP" postag_regexp="yes"/>
+                    <example>The door opened and a tall man walked in.</example>
                 </antipattern>
-                <antipattern>
-                <!-- Auxiliary + verb + and + the + noun + verb -->
+                <antipattern><!-- Short compound clauses without preceding coordination -->
+                    <token postag="SENT_START"/>
+                    <token min="1" max="3"/>
+                    <token postag="VB.*" postag_regexp="yes"/>
+                    <token>and</token>
+                    <token postag="DT"/>
+                    <token postag="JJ.*" postag_regexp="yes" min="0"/>
+                    <token postag="NN.*" postag_regexp="yes"/>
+                    <token postag="VB.*" postag_regexp="yes"/>
+                    <example>The machine stopped working and the alarm sounded.</example>
+                </antipattern>
+                <antipattern><!-- Auxiliary + verb + and + the + noun + verb -->
                     <token postag="VB.*" postag_regexp="yes"/>
                     <token postag="VB.*" postag_regexp="yes"/>
                     <token>and</token>
                     <token postag="DT">the</token>
                     <token postag="NN.*" postag_regexp="yes"/>
                     <token postag="VB.*" postag_regexp="yes"/>
+                    <example>It was raining and the game was called off.</example>
                 </antipattern>
                 <pattern>
                     <token />
