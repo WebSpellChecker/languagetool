@@ -18940,20 +18940,6 @@ USA
             <url>https://languagetool.org/insights/post/your-vs-youre/</url>
             <rule>
                 <pattern>
-                    <marker>
-                        <token>you</token>
-                        <token>'re</token>
-                    </marker>
-                    <token postag_regexp="yes" postag="NN.*"/>
-                    <token postag_regexp="yes" postag="VBZ|VBP|VBD|MD"/>
-                </pattern>
-                <message>Did you mean <suggestion>your</suggestion>?</message>
-                <example correction="your">The tracking notification will be sent to you once <marker>you're</marker> order ships out.</example>
-                <example correction="your">Let me know when <marker>you're</marker> package arrives.</example>
-                <example correction="your">We will contact you after <marker>you're</marker> payment clears.</example>
-            </rule>
-            <rule>
-                <pattern>
                     <token postag="SENT_START|PCT|UH|CC" postag_regexp="yes">
                         <exception postag="IN|VB.*|RP" postag_regexp="yes" /><!-- "check" is UH, "for" is CC -->
                     </token>
