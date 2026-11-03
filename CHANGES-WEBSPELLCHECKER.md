@@ -2,6 +2,12 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-11-03
+
+### Security
+- **mariadb-java-client upgrade:** Updated `org.mariadb.jdbc:mariadb-java-client` to **3.4.5**, the last release of the 3.4 line, to address **CVE-2026-119210**, **CVE-2026-119276**, **CVE-2026-119279**, **CVE-2026-119281** and **CVE-2026-119280** in 3.4.3.
+  - Scope: components depending on `mariadb-java-client` (direct or transitive, through `languagetool-server`) packaging of `langtool/libs`.
+
 ## 2026-10-29
 
 ### Security
