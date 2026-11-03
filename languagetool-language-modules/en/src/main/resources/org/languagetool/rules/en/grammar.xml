@@ -103979,7 +103979,19 @@ The accident victim died from her injuries.
       <antipattern>
         <token postag="SENT_START" />
         <token>no</token>
-        <token regexp="yes">your|his|her|my|its</token>
+        <token regexp="yes">your|his|her|my|its|their|our</token>
+      </antipattern>
+      <antipattern>
+        <token regexp="yes">oh|ah|well</token>
+        <token>,</token>
+        <token>no</token>
+        <token regexp="yes">your|his|her|my|its|their|our</token>
+      </antipattern>
+      <antipattern>
+        <token postag="SENT_START"/>
+        <token regexp="yes">"|“|‘|'</token>
+        <token>no</token>
+        <token regexp="yes">your|his|her|my|its|their|our</token>
       </antipattern>
       <antipattern><!-- https://en.wikipedia.org/wiki/The_My_Hero_Project -->
         <token>my</token>
