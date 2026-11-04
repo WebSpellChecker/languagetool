@@ -95870,6 +95870,14 @@ USA
         </rule>
         <rulegroup id="MISSING_ARTICLE" name="missing article">
             <rule>
+                <antipattern><!-- you're + adjective + noun + finite verb: likely possessive "your" -->
+                    <token>you</token>
+                    <token>'re</token>
+                    <token postag="JJ"/>
+                    <token postag="NN.*" postag_regexp="yes"/>
+                    <token postag="VBZ|VBP|VBD|MD" postag_regexp="yes"/>
+                    <example>You're new password is listed below.</example>
+                </antipattern>
                 <antipattern><!-- confusion of its -->
                     <token>it</token>
                     <token>'s</token>
