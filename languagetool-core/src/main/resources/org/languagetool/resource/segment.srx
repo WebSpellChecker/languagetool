@@ -7295,10 +7295,10 @@
 <beforebreak>A[eur]\.[\s\u00A0]*</beforebreak>
 <afterbreak>(aegypti|aferensis|ramidus)</afterbreak>
 </rule>
-<!-- Do not split after three or more consecutive periods -->
+<!-- Do not split after three or more consecutive periods when the next word is lowercase -->
 <rule break="no">
 <beforebreak>\.{3,}\s+</beforebreak>
-<afterbreak></afterbreak>
+<afterbreak>\p{Ll}</afterbreak>
 </rule>
 <!-- Roman numeral list markers: i., ii., iii., iv., etc. -->
 <rule break="no">
