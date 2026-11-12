@@ -7350,6 +7350,11 @@
 </rule>
 </languagerule>
 <languagerule languagerulename="Swedish">
+<!-- Nonstandard Swedish abbreviation: pga. (standard form: p.g.a., på grund av) -->
+<rule break="no">
+<beforebreak>\bpga\.\s</beforebreak>
+<afterbreak></afterbreak>
+</rule>
 <!-- Swedish medical and general abbreviations: u.a. (utan anmärkning), ex. (exempel), Postop. (postoperativ) -->
 <rule break="no">
 <beforebreak>\b(u\.a|ex|[Pp]ostop)\.\s</beforebreak>
@@ -7361,7 +7366,7 @@
 <afterbreak>communicans\s</afterbreak>
 </rule>
 <rule break="no">
-<beforebreak>\b(alt|bl\.a|dvs|d\.v\.s|etc|[Ee]v|forts|inkl|fr\.o\.m|[Ff]\.d|kl|m\.a\.o|m\.fl|m\.m|[Oo]rig|osv|p\.g\.a|pga|prel|[Rr]ef|resp|s\.k|st|t\.ex|t\.o\.m|[Ff]ig)\.\s</beforebreak>
+<beforebreak>\b(alt|bl\.a|dvs|d\.v\.s|etc|[Ee]v|forts|inkl|fr\.o\.m|[Ff]\.d|kl|m\.a\.o|m\.fl|m\.m|[Oo]rig|osv|p\.g\.a|prel|[Rr]ef|resp|s\.k|st|t\.ex|t\.o\.m|[Ff]ig)\.\s</beforebreak>
 <afterbreak></afterbreak>
 </rule>
 <rule break="no">
