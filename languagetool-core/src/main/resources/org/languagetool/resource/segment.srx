@@ -1337,7 +1337,7 @@
 </rule>
 <!-- Version-like numbers ending with a dot, followed by lowercase: 4.0. the, 1.2.3. and -->
 <rule break="no">
-<beforebreak>\b\d+(?:\.\d+)+\.[\s\u00A0]</beforebreak>
+<beforebreak>\b\d+\.[\d\.]*\d\.[\s\u00A0]</beforebreak>
 <afterbreak>\p{Ll}</afterbreak>
 </rule>
 <rule break="no">
