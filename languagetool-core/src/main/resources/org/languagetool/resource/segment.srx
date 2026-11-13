@@ -6477,6 +6477,11 @@
 </rule>
 </languagerule>
 <languagerule languagerulename="Galician">
+<!-- coef. = coeficiente -->
+<rule break="no">
+<beforebreak>\b[Cc]oef\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
 <!-- sr. = señor -->
 <rule break="no">
 <beforebreak>\b[Ss]r\.\s</beforebreak>
