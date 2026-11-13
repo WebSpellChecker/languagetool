@@ -50,6 +50,21 @@
 </rule>
 </languagerule>
 <languagerule languagerulename="Polish">
+<!-- lo. = liceum ogólnokształcące (nonstandard form of LO) -->
+<rule break="no">
+<beforebreak>\blo\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
+<!-- Years written without a space before r. -->
+<rule break="no">
+<beforebreak>\b\d{4}r\.[\s\u00A0]</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
+<!-- Polish abbreviations found in user texts -->
+<rule break="no">
+<beforebreak>\b(?:[Pp][Pp][Oo][Żż]|mies|ee|wys|HR|[Ww]oj|op|os|[Dd]ł)\.[\s\u00A0]</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
 <!--includes v"ad." misused as abbreviation-->
 <rule break="no">
 <beforebreak>\b[Aa]dw?\.\s</beforebreak>
@@ -483,7 +498,7 @@
 <afterbreak></afterbreak>
 </rule>
 <rule break="no">
-<beforebreak>\btj\.\s</beforebreak>
+<beforebreak>\b[Tt]j\.\s</beforebreak>
 <afterbreak></afterbreak>
 </rule>
 <rule break="no">
@@ -989,7 +1004,7 @@
 </rule>
 <!--min. 30 zł lub cena min. od 30 zł-->
 <rule break="no">
-<beforebreak>\bmin\.\s</beforebreak>
+<beforebreak>\b[Mm]in\.\s</beforebreak>
 <afterbreak>[\p{Ll}\d]</afterbreak>
 </rule>
 <!--W 1991 r. Józef Stalin nie żył.-->
