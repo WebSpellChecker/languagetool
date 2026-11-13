@@ -11,6 +11,26 @@
 <body>
 <languagerules>
 <languagerule languagerulename="Greek">
+<!-- Nonstandard Greek abbreviation: πχ. instead of π.χ. -->
+<rule break="no">
+<beforebreak>\bπχ\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
+<!-- Greek institutional, educational and business abbreviations -->
+<rule break="no">
+<beforebreak>(?:Β\.Μ|Τ\.Ε|ΚΕ\.Δ\.Α\.Σ\.Υ|ΚΕ\.Δ\.Δ\.Υ|Ο\.Ε|Δ\.Π\.Θ|Ο\.Ε\.Φ\.Ε|Α\.Ε\.Ε|Π\.Σ)\.[\)\]]?\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
+<!-- Greek time abbreviations: π.μ. and μ.μ. -->
+<rule break="no">
+<beforebreak>(?:π|μ)\.\s?μ\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
+<!-- Greek abbreviations: κεφ., κλπ., κ.ά., ΥΓ. -->
+<rule break="no">
+<beforebreak>(?:\bκεφ|\bκλπ|\bκ\.ά|\bΥΓ)\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
 <!-- HO.RE.CA. = hospitality and catering sector -->
 <rule break="no">
 <beforebreak>\bHO\.RE\.CA\.\s</beforebreak>
