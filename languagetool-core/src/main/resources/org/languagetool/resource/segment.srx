@@ -2127,6 +2127,11 @@
 </rule>
 </languagerule>
 <languagerule languagerulename="Slovak">
+<!-- Slovak abbreviations -->
+<rule break="no">
+<beforebreak>\b(?:[Pp]ozn|bilat|hod)\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
 <!-- Hospital name: Nem. arm. generála -->
 <rule break="no">
 <beforebreak>\b[Nn]em\.\s</beforebreak>
@@ -4809,6 +4814,16 @@
 </rule>
 </languagerule>
 <languagerule languagerulename="Slovenian">
+<!-- Nonstandard Slovenian abbreviation: kontr. = kontrolnimi -->
+<rule break="no">
+<beforebreak>\bkontr\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
+<!-- Slovenian abbreviations, including closing parentheses -->
+<rule break="no">
+<beforebreak>\b(?:ipd|t\.\s?i)\.[\)\]]?\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
 <rule break="no">
 <beforebreak>\b[dD]r\.\s</beforebreak>
 <afterbreak></afterbreak>
