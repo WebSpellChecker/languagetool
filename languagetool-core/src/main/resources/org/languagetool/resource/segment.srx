@@ -6570,6 +6570,11 @@
 </rule>
 </languagerule>
 <languagerule languagerulename="Portuguese">
+<!-- Portuguese business and administrative abbreviations found in user texts -->
+<rule break="no">
+<beforebreak>\b(?:[Aa]dic|[Oo]p|parc|[Cc]onf|[Oo][Bb][Ss]|un|VLR|sub)\.[\s\u00A0]</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
 <!-- ref. = referente / referência -->
 <rule break="no">
 <beforebreak>\b[Rr]ef\.\s</beforebreak>
@@ -6778,7 +6783,7 @@
 </rule>
 <!-- Units -->
 <rule break="no">
-<beforebreak>\b([Ee]sc|K[gm]s?|[mc]?[gml]s]|[Hh](rs)?)\.[\p{Pe}\p{Pf}\p{Pd}"”'’]*\s</beforebreak>
+<beforebreak>\b([Ee]sc|[Kk][gm]s?|[mc]?[gml]s]|[Hh](rs)?)\.[\p{Pe}\p{Pf}\p{Pd}"”'’]*\s</beforebreak>
 <afterbreak>\p{Ll}</afterbreak>
 </rule>
 <!-- Split at e.g. "1a. There is..." -->
