@@ -1698,6 +1698,26 @@
 </rule>
 </languagerule>
 <languagerule languagerulename="Dutch">
+<!-- Nonstandard Dutch abbreviations: menr. = meneer, dwz. = dat wil zeggen -->
+<rule break="no">
+<beforebreak>\b(?:[Mm]enr|dwz)\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
+<!-- Dutch abbreviations found in user texts -->
+<rule break="no">
+<beforebreak>\b(?:t\.n\.v|vb|[Mm]nr|blz|pers|eg|Inv|afh|as|onbep)\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
+<!-- Belgian Dutch time expressions: 8u. and 8 u. -->
+<rule break="no">
+<beforebreak>\b\d+\s?u\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
+<!-- Number + p. (e.g., 7p. huren) -->
+<rule break="no">
+<beforebreak>\b\d+p\.\s</beforebreak>
+<afterbreak>\p{Ll}</afterbreak>
+</rule>
 <!-- unknown abbreviations inside parentheses/brackets/braces -->
 <rule break="no">
 <beforebreak>\([^\)]*?[\.:][\s\u00A0]</beforebreak>
