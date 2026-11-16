@@ -263,7 +263,7 @@ Hand-Schüller-Christian
 Hardy-Weinberg
 Harris-Benedict
 Haut-Folin
-Henderson-Hasselbach
+Henderson-Hasselbalch
 Henoch-Schönlein
 Herba-savina
 Hering-Breuer
@@ -10710,3 +10710,5 @@ Umm-Kulthum
 Shin-chan
 Aarne-Thompson
 Aarne-Thompson-Uther
+Beethoven-Haus
+Brillat-Savarin

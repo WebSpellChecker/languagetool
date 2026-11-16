@@ -57,8 +57,7 @@
                 <exclude>org.languagetool:languagetool-commandline</exclude>
                 <exclude>org.languagetool:languagetool-standalone</exclude>
                 <exclude>org.languagetool:languagetool-server</exclude>
-                <exclude>org.mybatis:mybatis</exclude>
-                <exclude>org.apache.lucene:lucene-core</exclude>
+                <!-- artifacts left out of the package are excluded in pom.xml, so the SBOM matches libs -->
             </excludes>
         </dependencySet>
         <dependencySet>

@@ -31,7 +31,7 @@ public final class TokenAgreementNounVerbExceptionHelper {
   private static final Pattern INF_ARGREEMENT_PATTERN = Pattern.compile(
       "(не)?(здатний|змушений|з?г[іо]дний|зобов'язаний|повинний|готовий|достойний|покликаний|спроможний|радий|налаштований|зацікавлений|повинно|змога|стан|можна)");
   private static final Collection<String> GEO_QUALIFIERS = new HashSet<>(Arrays.asList(
-      "село", "селище", "місто", "містечко", "хутір", "республіка", "держава", "гора", "планета", "мікрорайон", "райцентр", "заповідник", "мис",
+      "село", "селище", "місто", "містечко", "хутір", "республіка", "держава", "гора", "планета", "мікрорайон", "райцентр", "заповідник", "мис", "острів",
       "м.", "с.", "п.", // (н.п.)
       "штат", "округ", "графство", 
       "вірус", "ураган"));
@@ -857,7 +857,27 @@ public final class TokenAgreementNounVerbExceptionHelper {
     }
 
     // тому що, як австрієць маєте
-    if( PosTagHelper.hasPosTag(tokens[nounPos], PosTagHelper.NOUN_V_NAZ_PATTERN)
+    if( nounPos > 1
+        && tokens[nounPos-1].getCleanToken().matches("[Яя]к") ) {
+
+      if (tokens[nounPos].getCleanToken().matches("ніхто|усі")) {
+        logException();
+        return true;
+      }
+      if (tokens[nounPos].getCleanToken().matches("воно")
+          && PosTagHelper.hasPosTag(tokens[verbPos], PosTagHelper.VERB_INF_PATTERN)) {
+        logException();
+        return true;
+      }
+      if ( nounPos > 2
+          && LemmaHelper.hasLemma(tokens[nounPos-2], List.of("такий", "само"))) {
+        logException();
+        return true;
+      }
+    } 
+
+    // тому що, як австрієць маєте
+    if( PosTagHelper.hasPosTag(tokens[nounPos], PosTagHelper.NOUN_NON_PRON_V_NAZ_PATTERN)
         && LemmaHelper.tokenSearch(tokens, nounPos-1, (String)null, Pattern.compile("[Яя]к"), PosTagHelper.ADJ_V_NAZ_PATTERN, Dir.REVERSE) != -1 ) {
       logException();
       return true;
