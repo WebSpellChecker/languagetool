@@ -9,6 +9,8 @@ This document records WebSpellChecker-specific changes on top of upstream Langua
   - Scope: components depending on `opennlp-tools` (direct or transitive) packaging of `langtool/libs`.
 - **org.json upgrade:** Updated `org.json:json` to **20260814** to address **CVE-2026-59171** (GHSA-ghc9-756g-vrcv), a denial of service through unbounded numeric conversion in `JSONTokener`, fixed in 20260719.
   - Scope: components depending on `org.json:json` (direct or transitive) packaging of `langtool/libs`.
+- **mariadb-java-client back on the upstream version:** Upstream sync to `bdd30ea50e0` moved `org.mariadb.jdbc:mariadb-java-client` to **3.5.11**, past our 3.4.5 pin, so we follow upstream. 3.5.11 also contains the fixes for **CVE-2026-119210**, **CVE-2026-119276**, **CVE-2026-119280** and **CVE-2026-119281** (fixed in 3.5.11) and **CVE-2026-119279** (fixed in 3.5.10). This supersedes the 2026-11-03 entry.
+  - Scope: components depending on `mariadb-java-client` (direct or transitive, through `languagetool-server`) packaging of `langtool/libs`.
 
 ## 2026-11-03
 
