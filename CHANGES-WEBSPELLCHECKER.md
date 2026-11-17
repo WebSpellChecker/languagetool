@@ -2,6 +2,14 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-11-17
+
+### Security
+- **opennlp-tools back to Apache:** Replaced the in-house fork `com.webspellchecker:opennlp-tools:1.9.4-webspellchecker-1` with the official `org.apache.opennlp:opennlp-tools:1.9.5`, which contains the fixes for **CVE-2026-40682**, **CVE-2026-42027** and **CVE-2026-42440** (OPENNLP-1819, OPENNLP-1820, OPENNLP-1821). The fork was kept while scanner advisory data recorded these fixes only in 2.5.9 and 3.0.0-M3. The GitHub advisories (GHSA-4v8g-86x5-3vrc, GHSA-cx4m-2p55-rw7j, GHSA-659w-93r5-9j6m) now list 1.9.5 as patched. 1.9.5 stays on the 1.9 line, so the legacy 1.5-format models keep working. This supersedes the 2026-05-31 fork entry.
+  - Scope: components depending on `opennlp-tools` (direct or transitive) packaging of `langtool/libs`.
+- **org.json upgrade:** Updated `org.json:json` to **20260814** to address **CVE-2026-59171** (GHSA-ghc9-756g-vrcv), a denial of service through unbounded numeric conversion in `JSONTokener`, fixed in 20260719.
+  - Scope: components depending on `org.json:json` (direct or transitive) packaging of `langtool/libs`.
+
 ## 2026-11-03
 
 ### Security
