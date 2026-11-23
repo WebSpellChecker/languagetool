@@ -57,14 +57,7 @@
                 <exclude>org.languagetool:languagetool-commandline</exclude>
                 <exclude>org.languagetool:languagetool-standalone</exclude>
                 <exclude>org.languagetool:languagetool-server</exclude>
-                <exclude>org.mybatis:mybatis</exclude>
-                <exclude>org.apache.lucene:lucene-core</exclude>
-                <exclude>io.lettuce:lettuce-core</exclude>
-                <exclude>io.projectreactor:reactor-core</exclude>
-                <exclude>redis.clients.authentication:redis-authx-core</exclude>
-                <exclude>io.netty:*</exclude>
-                <exclude>at.favre.lib:*</exclude>
-                <exclude>io.grpc:grpc-netty-shaded</exclude>
+                <!-- artifacts left out of the package are excluded in pom.xml, so the SBOM matches libs -->
             </excludes>
         </dependencySet>
         <dependencySet>

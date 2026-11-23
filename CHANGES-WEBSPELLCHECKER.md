@@ -2,6 +2,41 @@
 
 This document records WebSpellChecker-specific changes on top of upstream LanguageTool.
 
+## 2026-11-17
+
+### Security
+- **opennlp-tools back to Apache:** Replaced the in-house fork `com.webspellchecker:opennlp-tools:1.9.4-webspellchecker-1` with the official `org.apache.opennlp:opennlp-tools:1.9.5`, which contains the fixes for **CVE-2026-40682**, **CVE-2026-42027** and **CVE-2026-42440** (OPENNLP-1819, OPENNLP-1820, OPENNLP-1821). The fork was kept while scanner advisory data recorded these fixes only in 2.5.9 and 3.0.0-M3. The GitHub advisories (GHSA-4v8g-86x5-3vrc, GHSA-cx4m-2p55-rw7j, GHSA-659w-93r5-9j6m) now list 1.9.5 as patched. 1.9.5 stays on the 1.9 line, so the legacy 1.5-format models keep working. This supersedes the 2026-05-31 fork entry.
+  - Scope: components depending on `opennlp-tools` (direct or transitive) packaging of `langtool/libs`.
+- **org.json upgrade:** Updated `org.json:json` to **20260814** to address **CVE-2026-59171** (GHSA-ghc9-756g-vrcv), a denial of service through unbounded numeric conversion in `JSONTokener`, fixed in 20260719.
+  - Scope: components depending on `org.json:json` (direct or transitive) packaging of `langtool/libs`.
+- **mariadb-java-client back on the upstream version:** Upstream sync to `bdd30ea50e0` moved `org.mariadb.jdbc:mariadb-java-client` to **3.5.11**, past our 3.4.5 pin, so we follow upstream. 3.5.11 also contains the fixes for **CVE-2026-119210**, **CVE-2026-119276**, **CVE-2026-119280** and **CVE-2026-119281** (fixed in 3.5.11) and **CVE-2026-119279** (fixed in 3.5.10). This supersedes the 2026-11-03 entry.
+  - Scope: components depending on `mariadb-java-client` (direct or transitive, through `languagetool-server`) packaging of `langtool/libs`.
+
+## 2026-11-03
+
+### Security
+- **mariadb-java-client upgrade:** Updated `org.mariadb.jdbc:mariadb-java-client` to **3.4.5**, the last release of the 3.4 line, to address **CVE-2026-119210**, **CVE-2026-119276**, **CVE-2026-119279**, **CVE-2026-119281** and **CVE-2026-119280** in 3.4.3.
+  - Scope: components depending on `mariadb-java-client` (direct or transitive, through `languagetool-server`) packaging of `langtool/libs`.
+
+## 2026-10-29
+
+### Security
+- **jackson-databind upgrade:** Updated `jackson-databind` to **2.18.12** to address **CVE-2026-110879** (SNYK-JAVA-COMFASTERXMLJACKSONCORE-21761837).
+  - Scope: components depending on `jackson-databind` (direct or transitive) packaging of `langtool/libs`.
+- **opentelemetry upgrade:** Updated `io.opentelemetry` to **1.67.0** to address **CVE-2026-118259** (GHSA-ccrj-gw8r-854m).
+  - Scope: components depending on `opentelemetry-api` (direct or transitive) packaging of `langtool/libs`.
+
+## 2026-10-23
+
+### Security
+- **SBOM matches the package:** Moved the removal of `io.lettuce:lettuce-core` (with `reactor-core`, `redis-authx-core` and `io.netty`), `at.favre.lib:bcrypt`, `org.mybatis:mybatis`, `io.grpc:grpc-netty-shaded` and `org.apache.lucene:lucene-core` from `zip.xml` to Maven exclusions in `languagetool-standalone/pom.xml`. The SBOM (`cyclonedx-maven-plugin`) reads the Maven dependency graph, so it listed these artifacts although they were not in `libs`. `lucene-core` is also declared `provided` in `languagetool-standalone`, because the `HomophoneOccurrenceDumper` dev tool compiles against it.
+  - The exclusions also drop the dependencies that came only with these artifacts and were still packaged: `io.grpc:grpc-core`, `grpc-context`, `grpc-util`, `com.google.code.gson:gson` and `io.perfmark:perfmark-api` (through `grpc-netty-shaded`), `org.reactivestreams:reactive-streams` (through `reactor-core`). The checks AppServer runs load none of their classes; `io.grpc:grpc-api`, which `languagetool-core` loads during every check, stays.
+  - Scope: `languagetool_sbom.json` and packaging of `langtool/libs`.
+- **JAXB 4 runtime removal:** Removed `org.glassfish.jaxb:jaxb-runtime` 4.0.5 and its dependencies (`jaxb-core` 4.0.5, `txw2`, `istack-commons-runtime` 4.1.2, `angus-activation`, `jakarta.activation-api` 2.1.3). Nothing in the package uses `jakarta.xml.bind`; the `javax.xml.bind` implementation (`com.sun.xml.bind:jaxb-impl` 2.3.3) stays. Its `jaxb-core.jar` was overwritten in `libs` by `com.sun.xml.bind:jaxb-core` 2.3.0.1, so the SBOM listed a jar that was not shipped and Snyk reported it (XXE, high, CVE-2026-92877, SNYK-JAVA-ORGGLASSFISHJAXB-20883142).
+  - Scope: components depending on `org.glassfish.jaxb:jaxb-runtime` (direct or transitive) packaging of `langtool/libs`.
+- **Android annotations removal:** Removed `com.google.android:annotations`, which comes with `grpc-core`. Its `annotations.jar` was overwritten in `libs` by `com.intellij:annotations`, so the SBOM listed a jar that was not shipped.
+  - Scope: `languagetool_sbom.json`.
+
 ## 2026-10-19
 
 ### Security
